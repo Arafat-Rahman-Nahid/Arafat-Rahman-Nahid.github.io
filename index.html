@@ -1,49 +1,43 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="keywords" content="arafats tech,arafats,arnms,HSC physics,HSC math,Bangladesh education">
-    <meta name="description" content="Comprehensive HSC Physics and Mathematics course materials for SSC 25 and HSC 27 students in Bangladesh">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="keywords" content="arafats tech, arafats, arnms, projects, github">
+    <meta name="description" content="GitHub Projects Index">
     <meta name="author" content="arnms Network">
-    <title>HSC 27 (SSC 25) | Physics & Math Complete Course</title>
+    <title>GitHub Projects | Arafat's Tech</title>
     <link rel="icon" href="/icon.png" type="image/png" loading="lazy">
     <meta property="og:image" content="/icon.png">
-    <meta property="og:url" content="https://m.arafats-tech.xyz/s/acs-courses">
-    <meta property="og:type" content="website">
-
-    <!-- External Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&family=Poppins:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <style>
-        /* Global Reset and Base Styles */
         :root {
-            --primary-blue: #3b82f6;
-            --primary-blue-light: #60a5fa;
-            --primary-blue-dark: #1d4ed8;
-            --primary-purple: #a855f7;
-            --primary-purple-light: #c084fc;
-            --primary-purple-dark: #7e22ce;
-            --gradient-blue-purple: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-            --gradient-purple-blue: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
-            --text-light: #f8fafc;
-            --text-lighter: rgba(248, 250, 252, 0.9);
-            --text-muted: #94a3b8;
-            --text-dark: #1e293b;
-            --bg-dark: #0f172a;
-            --bg-darker: #020617;
-            --bg-darkest: #010712;
+            --blue: #3b82f6;
+            --blue-l: #60a5fa;
+            --blue-d: #1d4ed8;
+            --purple: #a855f7;
+            --purple-l: #c084fc;
+            --purple-d: #7e22ce;
+            --grad: linear-gradient(135deg, #3b82f6, #a855f7);
+            --grad-r: linear-gradient(135deg, #a855f7, #3b82f6);
+            --text-l: #f8fafc;
+            --text-m: #94a3b8;
+            --text-d: #1e293b;
+            --bg-d: #0f172a;
+            --bg-dark: #010712;
             --bg-card: rgba(30, 41, 59, 0.8);
-            --bg-card-light: rgba(51, 65, 85, 0.6);
+            --bg-card-l: rgba(51, 65, 85, 0.6);
             --bg-glass: rgba(15, 23, 42, 0.7);
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-            --shadow-md: 0 4px 10px rgba(0,0,0,0.2);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,0.3);
-            --border-radius: 10px;
-            --border-radius-lg: 16px;
-            --border-radius-xl: 24px;
-            --backdrop-filter: blur(12px) saturate(180%);
+            --shadow-s: 0 1px 3px rgba(0, 0, 0, 0.12);
+            --shadow-m: 0 4px 10px rgba(0, 0, 0, 0.2);
+            --shadow-l: 0 10px 25px rgba(0, 0, 0, 0.3);
+            --radius-s: 10px;
+            --radius-l: 16px;
+            --radius-xl: 24px;
+            --blur: blur(12px) saturate(180%);
         }
 
         * {
@@ -57,40 +51,34 @@
         }
 
         body {
-            font-family: 'Noto Sans Bengali', 'Poppins', sans-serif;
-            background: var(--bg-darkest);
-            color: var(--text-light);
+            font-family: "Noto Sans Bengali", Poppins, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-l);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 1rem;
             line-height: 1.6;
-            background-image: 
-                radial-gradient(at 20% 30%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
-                radial-gradient(at 80% 70%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+            background-image: radial-gradient(at 20% 30%, rgba(59, 130, 246, 0.15), transparent 50%), radial-gradient(at 80% 70%, rgba(168, 85, 247, 0.15), transparent 50%);
             background-attachment: fixed;
             overflow-x: hidden;
         }
 
-        /* Typography */
         h1, h2, h3 {
             font-weight: 600;
             line-height: 1.3;
         }
 
-        /* Header Styles */
-        header {
+        .site-header {
             text-align: center;
             margin-bottom: 2rem;
             width: 100%;
             max-width: 900px;
             padding: 1.5rem 1rem;
-            position: relative;
-            z-index: 1;
         }
 
-        .logo-container {
+        .branding {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -98,53 +86,37 @@
             margin-bottom: 1.5rem;
         }
 
-        .logo-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-blue-purple);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-lg);
-            border: 2px solid rgba(255,255,255,0.1);
-        }
-
         h1 {
             font-size: clamp(1.7rem, 4vw, 2.3rem);
-            background: linear-gradient(to right, var(--primary-blue), var(--primary-purple));
+            background: var(--grad);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             margin-bottom: 0.5rem;
-            position: relative;
-            display: inline-block;
             letter-spacing: -0.5px;
+            position: relative;
         }
 
         h1::after {
-            content: '';
+            content: "";
             position: absolute;
             bottom: -8px;
             left: 0;
             width: 100%;
             height: 3px;
-            background: var(--gradient-blue-purple);
+            background: var(--grad);
             border-radius: 3px;
             transform: scaleX(0.7);
-            transform-origin: center;
         }
 
-        .tagline {
+        .subtitle {
             font-size: clamp(0.95rem, 2vw, 1.1rem);
-            color: var(--text-lighter);
+            color: var(--text-l);
             max-width: 700px;
             margin: 0 auto;
             font-weight: 400;
-            line-height: 1.6;
         }
 
-        /* Main Content */
         main {
             flex: 1;
             width: 100%;
@@ -152,463 +124,250 @@
             display: flex;
             flex-direction: column;
             gap: 2rem;
-            z-index: 1;
         }
 
-      
-      
-        /* Course Section */
-        .course-container {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
         }
 
-        @media (min-width: 992px) {
-            .course-container {
-                flex-direction: row;
-                gap: 2rem;
-                align-items: stretch;
-            }
-        }
-
-        .course-section {
-            flex: 1;
+        .project-card {
             background: var(--bg-glass);
             padding: 1.5rem;
-            border-radius: var(--border-radius-xl);
-            box-shadow: var(--shadow-md);
-            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-m);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
-            backdrop-filter: var(--backdrop-filter);
-            -webkit-backdrop-filter: var(--backdrop-filter);
+            backdrop-filter: var(--blur);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .course-section::before {
-            content: '';
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-l);
+        }
+
+        .project-card::before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 5px;
-            background: var(--gradient-blue-purple);
-            z-index: 2;
+            background: var(--grad);
         }
 
-        .course-section::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, 
-                rgba(59, 130, 246, 0.03) 0%, 
-                rgba(168, 85, 247, 0.03) 100%);
-            z-index: -1;
+        .project-card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-l);
         }
 
-        .course-header {
+        .project-card p {
+            color: var(--text-m);
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .project-links {
             display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            gap: 0.75rem;
         }
 
-        .course-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .physics .course-icon {
-            background: rgba(59, 130, 246, 0.2);
-            color: var(--primary-blue-light);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .maths .course-icon {
-            background: rgba(168, 85, 247, 0.2);
-            color: var(--primary-purple-light);
-            border: 1px solid rgba(168, 85, 247, 0.3);
-        }
-
-        .course-section h2 {
-            font-size: clamp(1.3rem, 2.5vw, 1.6rem);
-            color: var(--text-lighter);
-            margin-bottom: 0;
-            font-weight: 600;
-        }
-
-        .course-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        a {
-            display: flex;
-            align-items: center;
-            padding: 1rem 1.25rem;
-            text-decoration: none;
-            border-radius: var(--border-radius);
-            font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-            font-weight: 500;
-            color: var(--text-lighter);
-            background: var(--bg-card-light);
-            text-align: left;
-            border: 1px solid rgba(255,255,255,0.08);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        a:hover {
-            background: var(--bg-card);
-            border-color: rgba(255,255,255,0.15);
-            color: white;
-        }
-
-        a:active {
-            transform: translateY(0);
-        }
-
-        a i {
-            margin-right: 1rem;
-            font-size: 1.2rem;
-            width: 24px;
-            text-align: center;
-        }
-
-        /* Physics specific */
-        .physics a:hover {
-            background: rgba(30, 41, 59, 0.8);
-        }
-
-        /* Maths specific */
-        .maths a:hover {
-            background: rgba(30, 41, 59, 0.8);
-        }
-
-        .badge {
+        .project-link {
             display: inline-flex;
             align-items: center;
-            padding: 0.35rem 0.7rem;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: var(--radius-s);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .primary-link {
+            background: var(--grad);
+            color: var(--text-l);
+        }
+
+        .primary-link:hover {
+            background: var(--grad-r);
+        }
+
+        .secondary-link {
+            background: var(--bg-card-l);
+            color: var(--text-l);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .secondary-link:hover {
+            background: var(--bg-card);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .project-link i {
+            margin-right: 0.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-item {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--blue-l);
+            padding: 0.25rem 0.75rem;
             border-radius: 20px;
             font-size: 0.75rem;
-            font-weight: 600;
-            margin-left: auto;
-            color: var(--text-light);
-            white-space: nowrap;
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
-        .physics .badge {
-            background: rgba(59, 130, 246, 0.2);
-            color: var(--primary-blue-light);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .maths .badge {
-            background: rgba(168, 85, 247, 0.2);
-            color: var(--primary-purple-light);
-            border: 1px solid rgba(168, 85, 247, 0.3);
-        }
-
-        /* Footer */
-        footer {
+        .site-footer {
             margin-top: 3rem;
             text-align: center;
-            color: var(--text-muted);
+            color: var(--text-m);
             font-size: clamp(0.8rem, 1.8vw, 0.95rem);
             padding: 1.5rem;
             width: 100%;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            position: relative;
-            z-index: 1;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-       
-        /* Tooltip for disabled links */
-        .tooltip {
-            position: relative;
-        }
-
-        .tooltip::after {
-            content: "Coming Soon";
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--bg-dark);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            box-shadow: var(--shadow-md);
-            z-index: 10;
-            pointer-events: none;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .tooltip:hover::after {
-            opacity: 1;
-            visibility: visible;
-            bottom: calc(100% + 8px);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            body {
-                padding: 0.8rem;
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
-
-            header {
-                margin-bottom: 1.5rem;
-                padding: 1rem 0.5rem;
-            }
-
-            main {
-                gap: 1.5rem;
-            }
-
-            .course-section {
+            
+            .project-card {
                 padding: 1.25rem;
             }
         }
 
-        @media (max-width: 768px) {
-            .course-section {
-                padding: 1.1rem;
-            }
-
-            a {
-                padding: 0.9rem 1.1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 0.6rem;
-            }
-
-            .date-section {
-                padding: 0.9rem;
-            }
-
-            .course-section {
-                padding: 1rem;
-                border-radius: var(--border-radius-lg);
-            }
-
-            a {
-                padding: 0.8rem;
-                font-size: 0.9rem;
-            }
-
-            .badge {
-                padding: 0.25rem 0.5rem;
-                font-size: 0.65rem;
-            }
-        }
-
-        /* Scrollbar styling */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
         }
 
         ::-webkit-scrollbar-track {
-            background: var(--bg-dark);
+            background: var(--bg-d);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--primary-blue);
+            background: var(--blue);
             border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-purple);
+            background: var(--purple);
         }
-
-       
-       
-
-        /* Buy Course Button */
-        .buy-course {
-            background: var(--gradient-blue-purple);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            font-weight: 600;
-        }
-
-        .buy-course:hover {
-            background: var(--gradient-purple-blue);
-            box-shadow: 0 7px 20px rgba(59, 130, 246, 0.3);
-        }
-
-        /* Cycle Links */
-        .cycle-links {
-            display: none;
-        }
-
-        .cycle-links.show {
-            display: grid;
-  grid-auto-flow: row;
-  gap: 10px; }
     </style>
 </head>
 <body>
-   
-
-    <header>
-        <div class="logo-container">
-           
-            <h1>HSC 27 (SSC 25)</h1>
-            <p class="tagline">Physics • Mathematics </p>
+    <header class="site-header">
+        <div class="branding">
+            <h1>GitHub Projects</h1>
+            <p class="subtitle">A collection of open-source projects by Arafat's Tech</p>
         </div>
     </header>
 
     <main>
-       
-
-        <section class="course-container">
-            <article class="physics">
-                <section class="course-section">
-                    <div class="course-header">
-                        <div class="course-icon">
-                            <i class="fas fa-atom"></i>
-                        </div>
-                        <h2>পদার্থবিজ্ঞান</h2>
-                    </div>
-                    <nav class="course-links">
-                        <a href="https://b2m27.aparsclassroom.com/" target="_blank" aria-label="Visit Physics WebApp">
-                            <i class="fas fa-globe"></i> Physics WebApp
-                            <span class="badge">Classes (Archive & Live)</span>
-                        </a>
-                        <a href="#" aria-label="Buy Physics Course" class="buy-course">
-                            <i class="fas fa-book-open"></i> নতুন কোর্স কিনুন
-                            <span class="badge">এনরোল করুন</span>
-                        </a>
-                        <div class="cycle-links">
-                            <a href="#Select_Cycles" aria-label="Select Physics Cycle" class="tooltip">
-                                <i class="fas fa-book-open"></i> সাইকেল সিলেক্ট করুন
-                                <span class="badge">এনরোল করুন</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-1/" target="_blank" aria-label="Physics Cycle 1">
-                                <i class="fas fa-play-circle"></i> সাইকেল ১
-                                <span class="badge">ভৌত জগৎ ও পরিমাপ, ভেক্টর, গতিবিদ্যা</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-2/" target="_blank" aria-label="Physics Cycle 2">
-                                <i class="fas fa-play-circle"></i> সাইকেল ২
-                                <span class="badge">নিউটনীয় বলবিদ্যা, কাজ, শক্তি ও ক্ষমতা,<br> মহাকর্ষ ও অভিকর্ষ, পদার্থের গাঠনিক ধর্ম</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-3/" target="_blank" aria-label="Physics Cycle 3">
-                                <i class="fas fa-play-circle"></i> সাইকেল ৩
-                                <span class="badge">পর্যাবৃত্ত গতি, তরঙ্গ, জ্যামিতিক <br>আলোকবিজ্ঞান, ভৌত আলোকবিজ্ঞান</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-4/" target="_blank" aria-label="Physics Cycle 4">
-                                <i class="fas fa-play-circle"></i> সাইকেল ৪
-                                <span class="badge">আদর্শ গ্যাস ও গ্যাসের গতিতত্ত্ব, তাপগতিবিদ্যা, <br>পরমাণুর মডেল ও নিউক্লিয়ার পদার্থবিজ্ঞান</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-5/" target="_blank" aria-label="Physics Cycle 5">
-                                <i class="fas fa-play-circle"></i> সাইকেল ৫
-                                <span class="badge">স্থির তড়িৎ, চল তড়িৎ,<br> সেমিকন্ডাক্টর ও ইলেকট্রনিক্স</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-6/" target="_blank" aria-label="Physics Cycle 6">
-                                <i class="fas fa-play-circle"></i> সাইকেল ৬
-                                <span class="badge">চৌম্বক ক্রিয়া, তড়িৎ চৌম্বক আবেশ,<br> আধুনিক পদার্থবিজ্ঞান</span>
-                            </a>
-                        </div>
-                    </nav>
-                </section>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <article class="project-card">
+                <h2>SoE Admission Portal</h2>
+                <p>A comprehensive platform for school admission test preparation with classes, exams, and analytics.</p>
+                <div class="tech-stack">
+                    <span class="tech-item">React</span>
+                    <span class="tech-item">Node.js</span>
+                    <span class="tech-item">MongoDB</span>
+                    <span class="tech-item">Tailwind</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/username/soe-admission" class="project-link primary-link" target="_blank">
+                        <i class="fab fa-github"></i> Repository
+                    </a>
+                    <a href="https://www.bdsoe.com" class="project-link secondary-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
             </article>
 
-            <article class="maths">
-                <section class="course-section">
-                    <div class="course-header">
-                        <div class="course-icon">
-                            <i class="fas fa-square-root-alt"></i>
-                        </div>
-                        <h2>গণিত</h2>
-                    </div>
-                    <nav class="course-links">
-                        <a href="https://math27.aparsclassroom.com/" target="_blank" aria-label="Visit Maths WebApp">
-                            <i class="fas fa-globe"></i> Maths WebApp
-                            <span class="badge">Classes (Archive & Live)</span>
-                        </a>
-                        <a href="#" aria-label="Buy Maths Course" class="buy-course">
-                            <i class="fas fa-book-open"></i> নতুন কোর্স কিনুন
-                            <span class="badge">এনরোল করুন</span>
-                        </a>
-                        <div class="cycle-links">
-                            <a href="#" aria-label="Select Maths Cycle" class="tooltip">
-                                <i class="fas fa-book-open"></i> সাইকেল সিলেক্ট করুন
-                                <span class="badge">এনরোল করুন</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-1/" target="_blank" aria-label="Maths Cycle 1">
-                                <i class="fas fa-play-circle"></i> সাইকেল ১
-                                <span class="badge">প্রথম পত্র - অধ্যায় ১-৪</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-2/" target="_blank" aria-label="Maths Cycle 2">
-                                <i class="fas fa-play-circle"></i> সাইকেল ২
-                                <span class="badge">প্রথম পত্র - অধ্যায় ৫-৮</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-3/" target="_blank" aria-label="Maths Cycle 3">
-                                <i class="fas fa-play-circle"></i> সাইকেল ৩
-                                <span class="badge">প্রথম পত্র - অধ্যায় ৯-১০</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-4/" target="_blank" aria-label="Maths Cycle 4">
-                                <i class="fas fa-play-circle"></i> সাইকেল ৪
-                                <span class="badge">দ্বিতীয় পত্র - অধ্যায় ১-৪</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-5/" target="_blank" aria-label="Maths Cycle 5">
-                                <i class="fas fa-play-circle"></i> সাইকেল ৫
-                                <span class="badge">দ্বিতীয় পত্র - অধ্যায় ৫-৭</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-6/" target="_blank" aria-label="Maths Cycle 6">
-                                <i class="fas fa-play-circle"></i> সাইকেল ৬
-                                <span class="badge">দ্বিতীয় পত্র - অধ্যায় ৮-১০</span>
-                            </a>
-                        </div>
-                    </nav>
-                </section>
+            <!-- Project 2 -->
+            <article class="project-card">
+                <h2>ARnms Network</h2>
+                <p>An educational platform providing resources for HSC students in Bangladesh.</p>
+                <div class="tech-stack">
+                    <span class="tech-item">JavaScript</span>
+                    <span class="tech-item">Firebase</span>
+                    <span class="tech-item">HTML/CSS</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/username/arnms-network" class="project-link primary-link" target="_blank">
+                        <i class="fab fa-github"></i> Repository
+                    </a>
+                    <a href="https://arnms.net" class="project-link secondary-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Website
+                    </a>
+                </div>
             </article>
-        </section>
+
+            <!-- Project 3 -->
+            <article class="project-card">
+                <h2>Physics Calculator</h2>
+                <p>A collection of physics calculation tools for HSC students with interactive visualizations.</p>
+                <div class="tech-stack">
+                    <span class="tech-item">JavaScript</span>
+                    <span class="tech-item">Three.js</span>
+                    <span class="tech-item">MathJax</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/username/physics-calculator" class="project-link primary-link" target="_blank">
+                        <i class="fab fa-github"></i> Repository
+                    </a>
+                    <a href="#" class="project-link secondary-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Demo
+                    </a>
+                </div>
+            </article>
+
+            <!-- Project 4 -->
+            <article class="project-card">
+                <h2>Educational Resources API</h2>
+                <p>A RESTful API serving educational content for Bangladeshi curriculum.</p>
+                <div class="tech-stack">
+                    <span class="tech-item">Node.js</span>
+                    <span class="tech-item">Express</span>
+                    <span class="tech-item">MongoDB</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/username/edu-api" class="project-link primary-link" target="_blank">
+                        <i class="fab fa-github"></i> Repository
+                    </a>
+                    <a href="#" class="project-link secondary-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> API Docs
+                    </a>
+                </div>
+            </article>
+        </div>
     </main>
 
-    
-
-    <script>
-        
-        // Toggle cycle links visibility
-        document.querySelectorAll('.buy-course').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                const parentNav = button.closest('.course-links');
-                const cycleLinks = parentNav.querySelector('.cycle-links');
-                if (cycleLinks.classList.contains('show')) {
-                    cycleLinks.classList.remove('show');
-                } else {
-                    cycleLinks.classList.add('show');
-                }
-            });
-        });
-    </script>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>© 2023 Arafat's Tech. All open-source projects are available under MIT License.</p>
+            <p>Connect with us: 
+                <a href="https://github.com/username" style="color: var(--blue-l); text-decoration: none;" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a> | 
+                <a href="mailto:contact@arafats-tech.xyz" style="color: var(--blue-l); text-decoration: none;">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
