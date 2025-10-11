@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="arafats tech,arafats,arnms,HSC physics,HSC math,Bangladesh education">
+    <meta name="description" content="Comprehensive HSC Physics and Mathematics course materials for SSC 25 and HSC 27 students in Bangladesh">
+    <meta name="author" content="arnms Network">
+    <title>HSC 27 (SSC 25) | Physics & Math Complete Course</title>
+    <link rel="icon" href="/icon.png" type="image/png" loading="lazy">
+    <meta property="og:image" content="/icon.png">
+    <meta property="og:url" content="https://arafat-rahman-nahid.github.io/s/acs-courses">
+    <meta property="og:type" content="website">
+
+    <!-- External Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Global Reset and Base Styles */
+        :root {
+            --primary-blue: #3b82f6;
+            --primary-blue-light: #60a5fa;
+            --primary-blue-dark: #1d4ed8;
+            --primary-purple: #a855f7;
+            --primary-purple-light: #c084fc;
+            --primary-purple-dark: #7e22ce;
+            --primary-green: #10b981;
+            --primary-green-light: #34d399;
+            --primary-orange: #f59e0b;
+            --primary-orange-light: #fbbf24;
+            --primary-pink: #ec4899;
+            --primary-pink-light: #f472b6;
+            --primary-cyan: #06b6d4;
+            --primary-cyan-light: #22d3ee;
+            --gradient-blue-purple: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            --gradient-purple-blue: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+            --text-light: #f8fafc;
+            --text-lighter: rgba(248, 250, 252, 0.9);
+            --text-muted: #94a3b8;
+            --text-dark: #1e293b;
+            --bg-dark: #0f172a;
+            --bg-darker: #020617;
+            --bg-darkest: #010712;
+            --bg-card: rgba(30, 41, 59, 0.8);
+            --bg-card-light: rgba(51, 65, 85, 0.6);
+            --bg-glass: rgba(15, 23, 42, 0.7);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 10px rgba(0,0,0,0.2);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.3);
+            --border-radius: 10px;
+            --border-radius-lg: 16px;
+            --border-radius-xl: 24px;
+            --backdrop-filter: blur(12px) saturate(180%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', 'Poppins', sans-serif;
+            background: var(--bg-darkest);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(at 20% 30%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 70%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 900px;
+            padding: 1.5rem 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-blue-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        h1 {
+            font-size: clamp(1.7rem, 4vw, 2.3rem);
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.5px;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-blue-purple);
+            border-radius: 3px;
+            transform: scaleX(0.7);
+            transform-origin: center;
+        }
+
+        .tagline {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            color: var(--text-lighter);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            width: 100%;
+            max-width: 1400px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            z-index: 1;
+        }
+
+        /* Course Section */
+        .course-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        @media (min-width: 992px) {
+            .course-container {
+                flex-direction: row;
+                gap: 2rem;
+                align-items: stretch;
+            }
+        }
+
+        .course-section {
+            flex: 1;
+            background: var(--bg-glass);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: var(--backdrop-filter);
+            -webkit-backdrop-filter: var(--backdrop-filter);
+        }
+
+        .course-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-blue-purple);
+            z-index: 2;
+        }
+
+        .course-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.03) 0%, 
+                rgba(168, 85, 247, 0.03) 100%);
+            z-index: -1;
+        }
+
+        .course-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .course-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .physics .course-icon {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary-blue-light);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .maths .course-icon {
+            background: rgba(168, 85, 247, 0.2);
+            color: var(--primary-purple-light);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .social .course-icon {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--primary-green-light);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .course-section h2 {
+            font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+            color: var(--text-lighter);
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+
+        /* Course Image */
+        .course-image {
+            width: 100%;
+            height: 180px;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-md);
+        }
+
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .course-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .course-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.8), transparent);
+        }
+
+        .course-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .course-link {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+            font-weight: 500;
+            color: var(--text-lighter);
+            background: var(--bg-card-light);
+            text-align: left;
+            border: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .course-link:hover {
+            background: var(--bg-card);
+            border-color: rgba(255,255,255,0.15);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .course-link:active {
+            transform: translateY(0);
+        }
+
+        .course-link i {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        /* Badge Styles */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.35rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: auto;
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+
+        .physics .badge {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary-blue-light);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .maths .badge {
+            background: rgba(168, 85, 247, 0.2);
+            color: var(--primary-purple-light);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .social .badge {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--primary-green-light);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+            padding: 1.5rem;
+            width: 100%;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Tooltip for disabled links */
+        .tooltip {
+            position: relative;
+        }
+
+        .tooltip::after {
+            content: "Coming Soon";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-dark);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: var(--shadow-md);
+            z-index: 10;
+            pointer-events: none;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+            bottom: calc(100% + 8px);
+        }
+
+        /* Buy Course Button */
+        .buy-course {
+            background: var(--gradient-blue-purple);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-weight: 600;
+        }
+
+        .buy-course:hover {
+            background: var(--gradient-purple-blue);
+            box-shadow: 0 7px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Cycle Links */
+        .cycle-links {
+            display: none;
+            grid-auto-flow: row;
+            gap: 10px;
+        }
+
+        .cycle-links.show {
+            display: grid;
+        }
+
+        /* Social Media Section - Creative Design */
+        .social-channels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-category {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: var(--border-radius-lg);
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            z-index: 2;
+        }
+
+        .social-math::before {
+            background: var(--primary-purple);
+        }
+
+        .social-physics::before {
+            background: var(--primary-blue);
+        }
+
+        .social-chemistry::before {
+            background: var(--primary-orange);
+        }
+
+        .social-biology::before {
+            background: var(--primary-green);
+        }
+
+        .social-others::before {
+            background: var(--primary-pink);
+        }
+
+        .social-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .social-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+
+        .social-header h3 {
+            font-size: 1.2rem;
+            color: var(--text-lighter);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 0;
+        }
+
+        .social-header h3 i {
+            font-size: 1.4rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+
+        .social-math .social-header h3 i {
+            background: rgba(168, 85, 247, 0.2);
+            color: var(--primary-purple-light);
+        }
+
+        .social-physics .social-header h3 i {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary-blue-light);
+        }
+
+        .social-chemistry .social-header h3 i {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--primary-orange-light);
+        }
+
+        .social-biology .social-header h3 i {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--primary-green-light);
+        }
+
+        .social-others .social-header h3 i {
+            background: rgba(236, 72, 153, 0.2);
+            color: var(--primary-pink-light);
+        }
+
+        .social-toggle {
+            color: var(--text-muted);
+            transition: transform 0.3s ease;
+        }
+
+        .social-category.active .social-toggle {
+            transform: rotate(180deg);
+            color: var(--text-lighter);
+        }
+
+        .social-links {
+            display: none;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
+
+        .social-category.active .social-links {
+            display: grid;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            padding: 0.9rem 1rem;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-lighter);
+            background: rgba(51, 65, 85, 0.4);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .social-math .social-link::before {
+            background: var(--primary-purple);
+        }
+
+        .social-physics .social-link::before {
+            background: var(--primary-blue);
+        }
+
+        .social-chemistry .social-link::before {
+            background: var(--primary-orange);
+        }
+
+        .social-biology .social-link::before {
+            background: var(--primary-green);
+        }
+
+        .social-others .social-link::before {
+            background: var(--primary-pink);
+        }
+
+        .social-link:hover {
+            background: rgba(51, 65, 85, 0.7);
+            transform: translateX(5px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .social-link:hover::before {
+            width: 8px;
+        }
+
+        .social-link i {
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .social-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.3rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: auto;
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+
+        .social-math .social-badge {
+            background: rgba(168, 85, 247, 0.2);
+            color: var(--primary-purple-light);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .social-physics .social-badge {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary-blue-light);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .social-chemistry .social-badge {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--primary-orange-light);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .social-biology .social-badge {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--primary-green-light);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .social-others .social-badge {
+            background: rgba(236, 72, 153, 0.2);
+            color: var(--primary-pink-light);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+        }
+
+        .social-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .social-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            body {
+                padding: 0.8rem;
+            }
+
+            header {
+                margin-bottom: 1.5rem;
+                padding: 1rem 0.5rem;
+            }
+
+            main {
+                gap: 1.5rem;
+            }
+
+            .course-section {
+                padding: 1.25rem;
+            }
+
+            .social-channels {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .course-section {
+                padding: 1.1rem;
+            }
+
+            .course-link {
+                padding: 0.9rem 1.1rem;
+            }
+            
+            .course-image {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.6rem;
+            }
+
+            .course-section {
+                padding: 1rem;
+                border-radius: var(--border-radius-lg);
+            }
+
+            .course-link {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .badge {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.65rem;
+            }
+
+            .course-image {
+                height: 120px;
+            }
+
+            .social-header h3 {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-blue);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-purple);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1>HSC 27</h1>
+            <p class="tagline">Physics • Math • Complete Course</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="course-container">
+            <!-- Physics Section -->
+            <article class="physics">
+                <section class="course-section">
+                    <div class="course-header">
+                        <div class="course-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h2>Physics</h2>
+                    </div>
+                    
+                    <!-- Physics Image -->
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Physics Course" loading="lazy">
+                    </div>
+                    
+                    <nav class="course-links">
+                        <a href="https://b2m27.aparsclassroom.com/" target="_blank" aria-label="Visit Physics WebApp" class="course-link">
+                            <i class="fas fa-globe"></i> Physics WebApp
+                            <span class="badge">Classes (Archive & Live)</span>
+                        </a>
+                        <a href="#" aria-label="Buy Physics Course" class="course-link buy-course">
+                            <i class="fas fa-book-open"></i> New Cycle
+                            <span class="badge">Enroll</span>
+                        </a>
+                        <div class="cycle-links">
+                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-2/" target="_blank" aria-label="Physics Cycle 2" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ২
+                                <span class="badge">নিউটনীয় বলবিদ্যা, কাজ, শক্তি ও ক্ষমতা,<br> মহাকর্ষ ও অভিকর্ষ, পদার্থের গাঠনিক ধর্ম</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-3/" target="_blank" aria-label="Physics Cycle 3" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৩
+                                <span class="badge">পর্যাবৃত্ত গতি, তরঙ্গ, জ্যামিতিক <br>আলোকবিজ্ঞান, ভৌত আলোকবিজ্ঞান</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-4/" target="_blank" aria-label="Physics Cycle 4" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৪
+                                <span class="badge">আদর্শ গ্যাস ও গ্যাসের গতিতত্ত্ব, তাপগতিবিদ্যা, <br>পরমাণুর মডেল ও নিউক্লিয়ার পদার্থবিজ্ঞান</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-5/" target="_blank" aria-label="Physics Cycle 5" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৫
+                                <span class="badge">স্থির তড়িৎ, চল তড়িৎ,<br> সেমিকন্ডাক্টর ও ইলেকট্রনিক্স</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-6/" target="_blank" aria-label="Physics Cycle 6" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৬
+                                <span class="badge">চৌম্বক ক্রিয়া, তড়িৎ চৌম্বক আবেশ,<br> আধুনিক পদার্থবিজ্ঞান</span>
+                            </a>
+                        </div>
+                    </nav>
+                </section>
+            </article>
+
+            <!-- Math Section -->
+            <article class="maths">
+                <section class="course-section">
+                    <div class="course-header">
+                        <div class="course-icon">
+                            <i class="fas fa-square-root-alt"></i>
+                        </div>
+                        <h2>Math</h2>
+                    </div>
+                    
+                    <!-- Math Image -->
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Math Course" loading="lazy">
+                    </div>
+                    
+                    <nav class="course-links">
+                        <a href="https://math27.aparsclassroom.com/" target="_blank" aria-label="Visit Maths WebApp" class="course-link">
+                            <i class="fas fa-globe"></i> Math WebApp
+                            <span class="badge">Classes (Archive & Live)</span>
+                        </a>
+                        <a href="#" aria-label="Buy Maths Course" class="course-link buy-course">
+                            <i class="fas fa-book-open"></i> New Cycle
+                            <span class="badge">Enroll</span>
+                        </a>
+                        <div class="cycle-links">
+                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-2/" target="_blank" aria-label="Maths Cycle 2" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ২
+                                <span class="badge">প্রথম পত্র - অধ্যায় ৫-৮</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-3/" target="_blank" aria-label="Maths Cycle 3" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৩
+                                <span class="badge">প্রথম পত্র - অধ্যায় ৯-১০</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-4/" target="_blank" aria-label="Maths Cycle 4" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৪
+                                <span class="badge">দ্বিতীয় পত্র - অধ্যায় ১-৪</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-5/" target="_blank" aria-label="Maths Cycle 5" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৫
+                                <span class="badge">দ্বিতীয় পত্র - অধ্যায় ৫-৭</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-6/" target="_blank" aria-label="Maths Cycle 6" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৬
+                                <span class="badge">দ্বিতীয় পত্র - অধ্যায় ৮-১০</span>
+                            </a>
+                        </div>
+                    </nav>
+                </section>
+            </article>
+
+            <!-- Social Media Section -->
+            <article class="social">
+                <section class="course-section">
+                    <div class="course-header">
+                        <div class="course-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h2>Social Media Channels</h2>
+                    </div>
+                    <div class="social-channels">
+                        <!-- Math Channels -->
+                        <div class="social-category social-math active">
+                            <div class="social-header">
+                                <h3><i class="fas fa-square-root-alt"></i> Math</h3>
+                                <i class="fas fa-chevron-down social-toggle"></i>
+                            </div>
+                            <div class="social-links">
+                                <a href="https://www.facebook.com/MathAndScienceNerds/" target="_blank" aria-label="Math & Science Nerds Facebook Page" class="social-link">
+                                    <i class="fab fa-facebook"></i> Math & Science Nerds
+                                    <span class="social-badge">Page</span>
+                                </a>
+                                <a href="https://www.facebook.com/groups/mathandsciencenerds/" target="_blank" aria-label="Math & Science Nerds Facebook Group" class="social-link">
+                                    <i class="fab fa-facebook"></i> Math & Science Nerds
+                                    <span class="social-badge">Group</span>
+                                </a>
+                                <a href="https://youtube.com/@mathsciencenerds" target="_blank" aria-label="Math & Science Nerds YouTube Channel" class="social-link">
+                                    <i class="fab fa-youtube"></i> Math & Science Nerds
+                                    <span class="social-badge">YouTube</span>
+                                </a>
+                                <a href="https://www.facebook.com/RhomBusParallelScienceHub/" target="_blank" aria-label="Rhombhus Parallel Facebook Page" class="social-link">
+                                    <i class="fab fa-facebook"></i> Rhombhus Parallel
+                                    <span class="social-badge">Page</span>
+                                </a>
+                                <a href="https://www.facebook.com/groups/rhombusparallelrebirth/" target="_blank" aria-label="Rhombhus Parallel Facebook Group" class="social-link">
+                                    <i class="fab fa-facebook"></i> Rhombhus Parallel
+                                    <span class="social-badge">Group</span>
+                                </a>
+                                <a href="https://youtube.com/@abhidattatushar156" target="_blank" aria-label="Rhombhus Parallel YouTube Channel" class="social-link">
+                                    <i class="fab fa-youtube"></i> Rhombhus Parallel
+                                    <span class="social-badge">YouTube</span>
+                                </a>
+                            </div>
+                            <div class="social-stats">
+                                <div class="social-stat">
+                                    <i class="fas fa-link"></i>
+                                    <span>6 Channels</span>
+                                </div>
+                                <div class="social-stat">
+                                    <i class="fas fa-users"></i>
+                                    <span>Active</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Physics Channels -->
+                        <div class="social-category social-physics">
+                            <div class="social-header">
+                                <h3><i class="fas fa-atom"></i> Physics</h3>
+                                <i class="fas fa-chevron-down social-toggle"></i>
+                            </div>
+                            <div class="social-links">
+                                <a href="https://www.facebook.com/apurbophysicscare/" target="_blank" aria-label="Apurbo Physics Facebook Page" class="social-link">
+                                    <i class="fab fa-facebook"></i> Apurbo Physics
+                                    <span class="social-badge">Page</span>
+                                </a>
+                                <a href="https://www.facebook.com/groups/809247911040258/" target="_blank" aria-label="Apurbo Physics Facebook Group" class="social-link">
+                                    <i class="fab fa-facebook"></i> Apurbo Physics
+                                    <span class="social-badge">Group</span>
+                                </a>
+                                <a href="https://youtube.com/@apurbophysics" target="_blank" aria-label="Apurbo Physics YouTube Channel" class="social-link">
+                                    <i class="fab fa-youtube"></i> Apurbo Physics
+                                    <span class="social-badge">YouTube</span>
+                                </a>
+                                <a href="https://www.facebook.com/lobdhi.edu/" target="_blank" aria-label="Lobdhi Physics Facebook Page" class="social-link">
+                                    <i class="fab fa-facebook"></i> Lobdhi Physics
+                                    <span class="social-badge">Page</span>
+                                </a>
+                                <a href="https://www.facebook.com/groups/lobdhiphysics/" target="_blank" aria-label="Lobdhi Physics Facebook Group" class="social-link">
+                                    <i class="fab fa-facebook"></i> Lobdhi Physics
+                                    <span class="social-badge">Group</span>
+                                </a>
+                                <a href="https://youtube.com/@lobdhi" target="_blank" aria-label="Lobdhi Physics YouTube Channel" class="social-link">
+                                    <i class="fab fa-youtube"></i> Lobdhi Physics
+                                    <span class="social-badge">YouTube</span>
+                                </a>
+                            </div>
+                            <div class="social-stats">
+                                <div class="social-stat">
+                                    <i class="fas fa-link"></i>
+                                    <span>6 Channels</span>
+                                </div>
+                                <div class="social-stat">
+                                    <i class="fas fa-users"></i>
+                                    <span>Active</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Chemistry Channels -->
+                        <div class="social-category social-chemistry">
+                            <div class="social-header">
+                                <h3><i class="fas fa-flask"></i> Chemistry</h3>
+                                <i class="fas fa-chevron-down social-toggle"></i>
+                            </div>
+                            <div class="social-links">
+                                <a href="https://www.facebook.com/shaownreza12/" target="_blank" aria-label="আলকেমি Facebook Page" class="social-link">
+                                    <i class="fab fa-facebook"></i> আলকেমি
+                                    <span class="social-badge">Page</span>
+                                </a>
+                                <a href="https://www.facebook.com/groups/521646403299817/" target="_blank" aria-label="আলকেমি Facebook Group" class="social-link">
+                                    <i class="fab fa-facebook"></i> আলকেমি
+                                    <span class="social-badge">Group</span>
+                                </a>
+                                <a href="https://youtube.com/@alchemy149" target="_blank" aria-label="আলকেমি YouTube Channel" class="social-link">
+                                    <i class="fab fa-youtube"></i> আলকেমি
+                                    <span class="social-badge">YouTube</span>
+                                </a>
+                                <a href="https://www.facebook.com/profile.php?id=100063797530736" target="_blank" aria-label="Learn With Hemel Bhai Facebook Page" class="social-link">
+                                    <i class="fab fa-facebook"></i> Learn With Hemel Bhai
+                                    <span class="social-badge">Page</span>
+                                </a>
+                                <a href="https://www.facebook.com/groups/440561993810965/" target="_blank" aria-label="Learn With Hemel Bhai Facebook Group" class="social-link">
+                                    <i class="fab fa-facebook"></i> Learn With Hemel Bhai
+                                    <span class="social-badge">Group</span>
+                                </a>
+                                <a href="https://youtube.com/@hemel_bhai" target="_blank" aria-label="Learn With Hemel Bhai YouTube Channel" class="social-link">
+                                    <i class="fab fa-youtube"></i> Learn With Hemel Bhai
+                                    <span class="social-badge">YouTube</span>
+                                </a>
+                            </div>
+                            <div class="social-stats">
+                                <div class="social-stat">
+                                    <i class="fas fa-link"></i>
+                                    <span>6 Channels</span>
+                                </div>
+                                <div class="social-stat">
+                                    <i class="fas fa-users"></i>
+                                    <span>Active</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Biology Channels -->
+                        <div class="social-category social-biology">
+                            <div class="social-header">
+                                <h3><i class="fas fa-dna"></i> Biology</h3>
+                                <i class="fas fa-chevron-down social-toggle"></i>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="social-link tooltip">
+                                    <i class="fab fa-facebook"></i> Biology Channel 1
+                                    <span class="social-badge">Coming Soon</span>
+                                </a>
+                                <a href="#" class="social-link tooltip">
+                                    <i class="fab fa-facebook"></i> Biology Channel 2
+                                    <span class="social-badge">Coming Soon</span>
+                                </a>
+                                <a href="#" class="social-link tooltip">
+                                    <i class="fab fa-youtube"></i> Biology Channel 3
+                                    <span class="social-badge">Coming Soon</span>
+                                </a>
+                            </div>
+                            <div class="social-stats">
+                                <div class="social-stat">
+                                    <i class="fas fa-link"></i>
+                                    <span>3 Channels</span>
+                                </div>
+                                <div class="social-stat">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Coming Soon</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Other Channels -->
+                        <div class="social-category social-others">
+                            <div class="social-header">
+                                <h3><i class="fas fa-ellipsis-h"></i> Others</h3>
+                                <i class="fas fa-chevron-down social-toggle"></i>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="social-link tooltip">
+                                    <i class="fab fa-facebook"></i> Other Channel 1
+                                    <span class="social-badge">Coming Soon</span>
+                                </a>
+                                <a href="#" class="social-link tooltip">
+                                    <i class="fab fa-facebook"></i> Other Channel 2
+                                    <span class="social-badge">Coming Soon</span>
+                                </a>
+                                <a href="#" class="social-link tooltip">
+                                    <i class="fab fa-youtube"></i> Other Channel 3
+                                    <span class="social-badge">Coming Soon</span>
+                                </a>
+                            </div>
+                            <div class="social-stats">
+                                <div class="social-stat">
+                                    <i class="fas fa-link"></i>
+                                    <span>3 Channels</span>
+                                </div>
+                                <div class="social-stat">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Coming Soon</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Arafat's Tech. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle cycle links visibility
+        document.querySelectorAll('.buy-course').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const parentNav = button.closest('.course-links');
+                const cycleLinks = parentNav.querySelector('.cycle-links');
+                
+                // Close all other open cycle links
+                document.querySelectorAll('.cycle-links.show').forEach(openLinks => {
+                    if (openLinks !== cycleLinks) {
+                        openLinks.classList.remove('show');
+                    }
+                });
+                
+                // Toggle current cycle links
+                cycleLinks.classList.toggle('show');
+            });
+        });
+
+        // Close cycle links when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.course-links')) {
+                document.querySelectorAll('.cycle-links.show').forEach(cycleLinks => {
+                    cycleLinks.classList.remove('show');
+                });
+            }
+        });
+
+        // Toggle social media categories
+        document.querySelectorAll('.social-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const category = header.closest('.social-category');
+                category.classList.toggle('active');
+            });
+        });
+
+        // Close other social categories when opening one
+        document.querySelectorAll('.social-header').forEach(header => {
+            header.addEventListener('click', (e) => {
+                const currentCategory = header.closest('.social-category');
+                
+                // Close all other categories except the current one
+                document.querySelectorAll('.social-category').forEach(category => {
+                    if (category !== currentCategory) {
+                        category.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
