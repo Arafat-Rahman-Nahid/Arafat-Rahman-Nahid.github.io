@@ -440,10 +440,10 @@
             display: grid;
         }
 
-        /* Social Media Section - Creative Design */
+        /* Social Media Section - Enhanced for Students */
         .social-channels {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-top: 1rem;
         }
@@ -692,6 +692,138 @@
             gap: 0.5rem;
         }
 
+        /* YouTube Playlist Section */
+        .playlist-section {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .playlist-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-lighter);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .playlist-section h3 i {
+            color: #ff0000;
+        }
+
+        .playlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .playlist-card {
+            background: rgba(51, 65, 85, 0.4);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .playlist-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-sm);
+            background: rgba(51, 65, 85, 0.6);
+        }
+
+        .playlist-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .playlist-card-header i {
+            font-size: 1.5rem;
+            color: #ff0000;
+        }
+
+        .playlist-card-title {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-lighter);
+        }
+
+        .playlist-card-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .playlist-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-blue-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: auto;
+            transition: color 0.3s ease;
+        }
+
+        .playlist-card-link:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Quick Access Section */
+        .quick-access {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .quick-access h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-lighter);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .quick-access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .quick-access-card {
+            background: rgba(51, 65, 85, 0.4);
+            border-radius: var(--border-radius);
+            padding: 1.25rem 1rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-lighter);
+        }
+
+        .quick-access-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-sm);
+            background: rgba(51, 65, 85, 0.6);
+        }
+
+        .quick-access-card i {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-blue-light);
+        }
+
+        .quick-access-card-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
         /* Responsive Design */
         @media (max-width: 992px) {
             body {
@@ -714,6 +846,14 @@
             .social-channels {
                 grid-template-columns: 1fr;
             }
+
+            .playlist-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-access-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -727,6 +867,10 @@
             
             .course-image {
                 height: 150px;
+            }
+
+            .quick-access-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -783,7 +927,7 @@
     <header>
         <div class="logo-container">
             <h1>HSC 27</h1>
-            <p class="tagline">ACS Courses + YouTube Playlist</p>
+            <p class="tagline">ACS Courses + YouTube Playlist + Study Materials</p>
         </div>
     </header>
 
@@ -807,11 +951,9 @@
                     <nav class="course-links">
                         <a href="https://b2m27.aparsclassroom.com/" target="_blank" aria-label="Visit Physics WebApp" class="course-link">
                             <i class="fas fa-globe"></i> Physics WebApp
-                           <!-- <span class="badge">Everything</span>-->
                         </a>
                         <a href="#" aria-label="Buy Physics Course" class="course-link buy-course">
                             <i class="fas fa-book-open"></i> New Cycle
-                            <!-- <span class="badge">Everything</span>-->
                         </a>
                         <div class="cycle-links">
                             <a href="https://aparsclassroom.com/shop/b2m27/Cycle-2/" target="_blank" aria-label="Physics Cycle 2" class="course-link">
@@ -857,11 +999,9 @@
                     <nav class="course-links">
                         <a href="https://math27.aparsclassroom.com/" target="_blank" aria-label="Visit Maths WebApp" class="course-link">
                             <i class="fas fa-globe"></i> Math WebApp
-                            <!-- <span class="badge">Everything</span>-->
                         </a>
                         <a href="#" aria-label="Buy Maths Course" class="course-link buy-course">
                             <i class="fas fa-book-open"></i> New Cycle
-                            <!-- <span class="badge">Everything</span>-->
                         </a>
                         <div class="cycle-links">
                             <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-2/" target="_blank" aria-label="Maths Cycle 2" class="course-link">
@@ -1031,67 +1171,66 @@
                             </div>
                         </div>
 
-                        <!-- Biology Channels -->
-                        <div class="social-category social-biology">
-                            <div class="social-header">
-                                <h3><i class="fas fa-dna"></i> Biology</h3>
-                                <i class="fas fa-chevron-down social-toggle"></i>
-                            </div>
-                            <div class="social-links">
-                                <a href="#" class="social-link tooltip">
-                                    <i class="fab fa-facebook"></i> Biology Channel 1
-                                    <span class="social-badge">Coming Soon</span>
-                                </a>
-                                <a href="#" class="social-link tooltip">
-                                    <i class="fab fa-facebook"></i> Biology Channel 2
-                                    <span class="social-badge">Coming Soon</span>
-                                </a>
-                                <a href="#" class="social-link tooltip">
-                                    <i class="fab fa-youtube"></i> Biology Channel 3
-                                    <span class="social-badge">Coming Soon</span>
-                                </a>
-                            </div>
-                            <div class="social-stats">
-                                <div class="social-stat">
-                                    <i class="fas fa-link"></i>
-                                    <span>3 Channels</span>
+                        <!-- YouTube Playlist Section -->
+                        <div class="playlist-section">
+                            <h3><i class="fab fa-youtube"></i> YouTube Playlists</h3>
+                            <div class="playlist-grid">
+                                <div class="playlist-card">
+                                    <div class="playlist-card-header">
+                                        <i class="fab fa-youtube"></i>
+                                        <div class="playlist-card-title">Physics Full Course</div>
+                                    </div>
+                                    <div class="playlist-card-desc">Complete HSC Physics syllabus with chapter-wise explanations and problem solving</div>
+                                    <a href="https://youtube.com/playlist?list=PL_EXAMPLE_PHYSICS" target="_blank" class="playlist-card-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        Watch Playlist
+                                    </a>
                                 </div>
-                                <div class="social-stat">
-                                    <i class="fas fa-clock"></i>
-                                    <span>Coming Soon</span>
+                                <div class="playlist-card">
+                                    <div class="playlist-card-header">
+                                        <i class="fab fa-youtube"></i>
+                                        <div class="playlist-card-title">Math Full Course</div>
+                                    </div>
+                                    <div class="playlist-card-desc">Complete HSC Mathematics syllabus with step-by-step solutions</div>
+                                    <a href="https://youtube.com/playlist?list=PL_EXAMPLE_MATH" target="_blank" class="playlist-card-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        Watch Playlist
+                                    </a>
+                                </div>
+                                <div class="playlist-card">
+                                    <div class="playlist-card-header">
+                                        <i class="fab fa-youtube"></i>
+                                        <div class="playlist-card-title">Chemistry Tutorials</div>
+                                    </div>
+                                    <div class="playlist-card-desc">Chemistry concepts and problem solving techniques</div>
+                                    <a href="https://youtube.com/playlist?list=PL_EXAMPLE_CHEMISTRY" target="_blank" class="playlist-card-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        Watch Playlist
+                                    </a>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Other Channels -->
-                        <div class="social-category social-others">
-                            <div class="social-header">
-                                <h3><i class="fas fa-ellipsis-h"></i> Others</h3>
-                                <i class="fas fa-chevron-down social-toggle"></i>
-                            </div>
-                            <div class="social-links">
-                                <a href="#" class="social-link tooltip">
-                                    <i class="fab fa-facebook"></i> Other Channel 1
-                                    <span class="social-badge">Coming Soon</span>
+                        <!-- Quick Access Section -->
+                        <div class="quick-access">
+                            <h3><i class="fas fa-bolt"></i> Quick Access</h3>
+                            <div class="quick-access-grid">
+                                <a href="https://drive.google.com/drive/folders/EXAMPLE" target="_blank" class="quick-access-card">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <div class="quick-access-card-title">PDF Notes</div>
                                 </a>
-                                <a href="#" class="social-link tooltip">
-                                    <i class="fab fa-facebook"></i> Other Channel 2
-                                    <span class="social-badge">Coming Soon</span>
+                                <a href="https://drive.google.com/drive/folders/EXAMPLE" target="_blank" class="quick-access-card">
+                                    <i class="fas fa-clipboard-list"></i>
+                                    <div class="quick-access-card-title">Question Bank</div>
                                 </a>
-                                <a href="#" class="social-link tooltip">
-                                    <i class="fab fa-youtube"></i> Other Channel 3
-                                    <span class="social-badge">Coming Soon</span>
+                                <a href="https://drive.google.com/drive/folders/EXAMPLE" target="_blank" class="quick-access-card">
+                                    <i class="fas fa-vial"></i>
+                                    <div class="quick-access-card-title">Model Tests</div>
                                 </a>
-                            </div>
-                            <div class="social-stats">
-                                <div class="social-stat">
-                                    <i class="fas fa-link"></i>
-                                    <span>3 Channels</span>
-                                </div>
-                                <div class="social-stat">
-                                    <i class="fas fa-clock"></i>
-                                    <span>Coming Soon</span>
-                                </div>
+                                <a href="https://drive.google.com/drive/folders/EXAMPLE" target="_blank" class="quick-access-card">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <div class="quick-access-card-title">Previous Years</div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1100,7 +1239,11 @@
         </section>
     </main>
 
-  
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Arafat's Tech. All rights reserved. | Helping Students Succeed</p>
+        </div>
+    </footer>
 
     <script>
         // Toggle cycle links visibility
@@ -1151,6 +1294,14 @@
                     }
                 });
             });
+        });
+
+        // Auto-expand first social category on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstCategory = document.querySelector('.social-category');
+            if (firstCategory) {
+                firstCategory.classList.add('active');
+            }
         });
     </script>
 </body>
