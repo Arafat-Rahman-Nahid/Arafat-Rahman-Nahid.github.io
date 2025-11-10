@@ -1,1 +1,904 @@
 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="arafats tech,arafats,arnms,HSC physics,HSC math,Bangladesh education">
+    <meta name="description" content="Comprehensive HSC Physics and Mathematics course materials for SSC 25 and HSC 27 students in Bangladesh">
+    <meta name="author" content="arnms Network">
+    <title>HSC 27 | ICT,Physics & Math Complete Course(ACS)</title>
+    <link rel="icon" href="https://arafat-rahman-nahid.github.io/icon.png" type="image/png" loading="lazy">
+    <meta property="og:image" content="/icon.png">
+    <meta property="og:url" content="https://arafat-rahman-nahid.github.io/s/acs-courses">
+    <meta property="og:type" content="website">
+
+    <!-- External Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Global Reset and Base Styles */
+        :root {
+            --primary-blue: #3b82f6;
+            --primary-blue-light: #60a5fa;
+            --primary-blue-dark: #1d4ed8;
+            --primary-purple: #a855f7;
+            --primary-purple-light: #c084fc;
+            --primary-purple-dark: #7e22ce;
+            --primary-green: #10b981;
+            --primary-green-light: #34d399;
+            --primary-orange: #f59e0b;
+            --primary-orange-light: #fbbf24;
+            --primary-pink: #ec4899;
+            --primary-pink-light: #f472b6;
+            --primary-cyan: #06b6d4;
+            --primary-cyan-light: #22d3ee;
+            --gradient-blue-purple: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            --gradient-purple-blue: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+            --text-light: #f8fafc;
+            --text-lighter: rgba(248, 250, 252, 0.9);
+            --text-muted: #94a3b8;
+            --text-dark: #1e293b;
+            --bg-dark: #0f172a;
+            --bg-darker: #020617;
+            --bg-darkest: #010712;
+            --bg-card: rgba(30, 41, 59, 0.8);
+            --bg-card-light: rgba(51, 65, 85, 0.6);
+            --bg-glass: rgba(15, 23, 42, 0.7);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 10px rgba(0,0,0,0.2);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.3);
+            --border-radius: 10px;
+            --border-radius-lg: 16px;
+            --border-radius-xl: 24px;
+            --backdrop-filter: blur(12px) saturate(180%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', 'Poppins', sans-serif;
+            background: var(--bg-darkest);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(at 20% 30%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 70%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 900px;
+            padding: 1.5rem 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-blue-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        h1 {
+            font-size: clamp(1.7rem, 4vw, 2.3rem);
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.5px;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-blue-purple);
+            border-radius: 3px;
+            transform: scaleX(0.7);
+            transform-origin: center;
+        }
+
+        .tagline {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            color: var(--text-lighter);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            width: 100%;
+            max-width: 1400px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            z-index: 1;
+        }
+
+        /* Course Section */
+        .course-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        @media (min-width: 992px) {
+            .course-container {
+                flex-direction: row;
+                gap: 2rem;
+                align-items: stretch;
+            }
+        }
+
+        .course-section {
+            flex: 1;
+            background: var(--bg-glass);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: var(--backdrop-filter);
+            -webkit-backdrop-filter: var(--backdrop-filter);
+        }
+
+        .course-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-blue-purple);
+            z-index: 2;
+        }
+
+        .course-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.03) 0%, 
+                rgba(168, 85, 247, 0.03) 100%);
+            z-index: -1;
+        }
+
+        .course-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .course-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .physics .course-icon {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary-blue-light);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .maths .course-icon {
+            background: rgba(168, 85, 247, 0.2);
+            color: var(--primary-purple-light);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .social .course-icon {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--primary-green-light);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .youtube .course-icon {
+            background: rgba(255, 0, 0, 0.2);
+            color: #ff6b6b;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+        }
+
+        .course-section h2 {
+            font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+            color: var(--text-lighter);
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+
+        /* Course Image */
+        .course-image {
+            width: 100%;
+            height: 180px;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-md);
+        }
+
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .course-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .course-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.8), transparent);
+        }
+
+        .course-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .course-link {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+            font-weight: 500;
+            color: var(--text-lighter);
+            background: var(--bg-card-light);
+            text-align: left;
+            border: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .course-link:hover {
+            background: var(--bg-card);
+            border-color: rgba(255,255,255,0.15);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .course-link:active {
+            transform: translateY(0);
+        }
+
+        .course-link i {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        /* Badge Styles */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.35rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: auto;
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+
+        .physics .badge {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary-blue-light);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .maths .badge {
+            background: rgba(168, 85, 247, 0.2);
+            color: var(--primary-purple-light);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .social .badge {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--primary-green-light);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .youtube .badge {
+            background: rgba(255, 0, 0, 0.2);
+            color: #ff6b6b;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 3rem;
+            width: 100%;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .quick-action-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: var(--border-radius);
+            padding: 1.5rem 1rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-lighter);
+        }
+
+        .quick-action-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-sm);
+            background: rgba(51, 65, 85, 0.6);
+        }
+
+        .quick-action-card i {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-blue-light);
+        }
+
+        .quick-action-card-title {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .quick-action-card-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* Tooltip for disabled links */
+        .tooltip {
+            position: relative;
+        }
+
+        .tooltip::after {
+            content: "Coming Soon";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-dark);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: var(--shadow-md);
+            z-index: 10;
+            pointer-events: none;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+            bottom: calc(100% + 8px);
+        }
+
+        /* Buy Course Button */
+        .buy-course {
+            background: var(--gradient-blue-purple);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-weight: 600;
+        }
+
+        .buy-course:hover {
+            background: var(--gradient-purple-blue);
+            box-shadow: 0 7px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Cycle Links */
+        .cycle-links {
+            display: none;
+            grid-auto-flow: row;
+            gap: 10px;
+        }
+
+        .cycle-links.show {
+            display: grid;
+        }
+
+        /* YouTube Playlist Section */
+        .playlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .playlist-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .playlist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            background: rgba(51, 65, 85, 0.6);
+        }
+
+        .playlist-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .playlist-card-header i {
+            font-size: 2rem;
+            color: #ff0000;
+        }
+
+        .playlist-card-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-lighter);
+        }
+
+        .playlist-card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .playlist-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-blue-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: auto;
+            transition: color 0.3s ease;
+        }
+
+        .playlist-card-link:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            body {
+                padding: 0.8rem;
+            }
+
+            header {
+                margin-bottom: 1.5rem;
+                padding: 1rem 0.5rem;
+            }
+
+            main {
+                gap: 1.5rem;
+            }
+
+            .course-section {
+                padding: 1.25rem;
+            }
+
+            .playlist-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-actions {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .course-section {
+                padding: 1.1rem;
+            }
+
+            .course-link {
+                padding: 0.9rem 1.1rem;
+            }
+            
+            .course-image {
+                height: 150px;
+            }
+
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.6rem;
+            }
+
+            .course-section {
+                padding: 1rem;
+                border-radius: var(--border-radius-lg);
+            }
+
+            .course-link {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .badge {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.65rem;
+            }
+
+            .course-image {
+                height: 120px;
+            }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-blue);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-purple);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <p class="tagline" style="color:yellow;">ACS Courses + YouTube Playlist & Revision Materials</p>
+            <small style="color:aqua;">**Updates: সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস,ডেটাবেজ ম্যানেজমেন্ট সিস্টেম added in YT Playlist section**</small>
+        </div>
+    </header>
+
+    <main>
+        <section class="course-container">
+            <!-- ICT Section -->
+            <article class="physics">
+                <section class="course-section">
+                    <div class="course-header">
+                        <div class="course-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h2>ICT</h2>
+                    </div>
+                    
+                    <!-- ICT Image -->
+                    <div class="course-image">
+                        <img src="https://arafat-rahman-nahid.github.io/ictacs.jpg" alt="ICT" height="30%" loading="lazy">
+                    </div>
+                    
+                    <nav class="course-links">
+                        <a href="https://decoder27.aparsclassroom.com/" target="_blank" aria-label="Visit Physics WebApp" class="course-link">
+                            <i class="fas fa-globe"></i> WebApp
+                        </a>
+                         <a href="https://aparsclassroom.com/shop/abhi/decoder_27/" target="_blank" aria-label="Visit Physics WebApp" class="course-link">
+                            <i class="fas fa-book-open"></i> Buy Course
+                        </a>
+                    </nav>
+                </section>
+            </article>
+            
+            <!-- Physics Section -->
+            <article class="physics">
+                <section class="course-section">
+                    <div class="course-header">
+                        <div class="course-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h2>Physics</h2>
+                    </div>
+                    
+                    <!-- Physics Image -->
+                    <div class="course-image">
+                        <img src="https://arafat-rahman-nahid.github.io/phyacs.jpg" alt="Physics Course" width="30%" loading="lazy">
+                    </div>
+                    
+                    <nav class="course-links">
+                        <a href="https://b2m27.aparsclassroom.com/" target="_blank" aria-label="Visit Physics WebApp" class="course-link">
+                            <i class="fas fa-globe"></i> WebApp
+                        </a>
+                        <a href="#" aria-label="Buy Physics Course" class="course-link buy-course">
+                            <i class="fas fa-book-open"></i> Buy Cycle
+                        </a>
+                        <div class="cycle-links">
+                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-2/" target="_blank" aria-label="Physics Cycle 2" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ২
+                                <span class="badge">নিউটনীয় বলবিদ্যা, কাজ, শক্তি ও ক্ষমতা,<br> মহাকর্ষ ও অভিকর্ষ, পদার্থের গাঠনিক ধর্ম</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-3/" target="_blank" aria-label="Physics Cycle 3" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৩
+                                <span class="badge">পর্যাবৃত্ত গতি, তরঙ্গ, জ্যামিতিক <br>আলোকবিজ্ঞান, ভৌত আলোকবিজ্ঞান</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-4/" target="_blank" aria-label="Physics Cycle 4" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৪
+                                <span class="badge">আদর্শ গ্যাস ও গ্যাসের গতিতত্ত্ব, তাপগতিবিদ্যা, <br>পরমাণুর মডেল ও নিউক্লিয়ার পদার্থবিজ্ঞান</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-5/" target="_blank" aria-label="Physics Cycle 5" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৫
+                                <span class="badge">স্থির তড়িৎ, চল তড়িৎ,<br> সেমিকন্ডাক্টর ও ইলেকট্রনিক্স</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-6/" target="_blank" aria-label="Physics Cycle 6" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৬
+                                <span class="badge">চৌম্বক ক্রিয়া, তড়িৎ চৌম্বক আবেশ,<br> আধুনিক পদার্থবিজ্ঞান</span>
+                            </a>
+                        </div>
+                    </nav>
+                </section>
+            </article>
+
+            <!-- Math Section -->
+            <article class="maths">
+                <section class="course-section">
+                    <div class="course-header">
+                        <div class="course-icon">
+                            <i class="fas fa-square-root-alt"></i>
+                        </div>
+                        <h2>Math</h2>
+                    </div>
+                    
+                    <!-- Math Image -->
+                    <div class="course-image">
+                        <img src="https://arafat-rahman-nahid.github.io/mathacs.jpg" alt="Math Course" loading="lazy">
+                    </div>
+                    
+                    <nav class="course-links">
+                        <a href="https://math27.aparsclassroom.com/" target="_blank" aria-label="Visit Maths WebApp" class="course-link">
+                            <i class="fas fa-globe"></i> WebApp
+                        </a>
+                        <a href="#" aria-label="Buy Maths Course" class="course-link buy-course">
+                            <i class="fas fa-book-open"></i> Buy Cycle
+                        </a>
+                        <div class="cycle-links">
+                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-2/" target="_blank" aria-label="Maths Cycle 2" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ২
+                                <span class="badge">প্রথম পত্র - অধ্যায় ৫-৮</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-3/" target="_blank" aria-label="Maths Cycle 3" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৩
+                                <span class="badge">প্রথম পত্র - অধ্যায় ৯-১০</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-4/" target="_blank" aria-label="Maths Cycle 4" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৪
+                                <span class="badge">দ্বিতীয় পত্র - অধ্যায় ১-৪</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-5/" target="_blank" aria-label="Maths Cycle 5" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৫
+                                <span class="badge">দ্বিতীয় পত্র - অধ্যায় ৫-৭</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-6/" target="_blank" aria-label="Maths Cycle 6" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৬
+                                <span class="badge">দ্বিতীয় পত্র - অধ্যায় ৮-১০</span>
+                            </a>
+                        </div>
+                    </nav>
+                </section>
+            </article>
+        </section>
+        
+        <!-- YouTube Playlist Section -->
+        <article class="youtube">
+            <section class="course-section">
+                <div class="course-header">
+                    <div class="course-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <h2>YT Playlists</h2>
+                </div>
+                <div class="playlist-grid">
+                    <!-- ICT ACADEMICS start-->
+                    <div class="playlist-card">
+                        <div class="playlist-card-header">
+                            <i class="fab fa-youtube"></i>
+                            <div class="playlist-card-title">সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস</div>
+                        </div>  
+                        <div class="playlist-card-desc">HSC ICT || Academic & Admission</div>
+                        <a href="https://youtube.com/playlist?list=PLZf4q5EodedEFrF2saMI4ehL_BNwWjfPM&si=XTEt9M2RZ4sG7qpD" target="_blank" class="playlist-card-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Watch Playlist
+                        </a>
+                    </div>
+                    <div class="playlist-card">
+                        <div class="playlist-card-header">
+                            <i class="fab fa-youtube"></i>
+                            <div class="playlist-card-title">ডেটাবেজ ম্যানেজমেন্ট সিস্টেম</div>
+                        </div>  
+                        <div class="playlist-card-desc">HSC ICT || Academic & Admission</div>
+                        <a href="https://www.youtube.com/playlist?list=PLZf4q5EodedH1fBghyKbn5caIdSlME6Yt" target="_blank" class="playlist-card-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Watch Playlist
+                        </a>
+                    </div>
+                    <!-- ICT ACADEMICS end-->
+                    <div class="playlist-card">
+                        <div class="playlist-card-header">
+                            <i class="fab fa-youtube"></i>
+                            <div class="playlist-card-title"> Full ICT Oneshot Revision</div>
+                        </div>
+                        <div class="playlist-card-desc">Best playlist for revision before any exam</div>
+                        <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7Yo4Vt-G0q_byIKVzoFdxa&si=CBeJc6zUbPu67rcH" target="_blank" class="playlist-card-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Watch Playlist
+                        </a>
+                    </div>
+                    <div class="playlist-card">
+                        <div class="playlist-card-header">
+                            <i class="fab fa-youtube"></i>
+                            <div class="playlist-card-title">Full Higher Math Oneshot Revision(MCQ+CQ)</div>
+                        </div>
+                        <div class="playlist-card-desc">Complete HSC Mathematics syllabus with step-by-step solutions and practice problems</div>
+                        <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7Rky9DdZePw4wNFJVbGxt4&si=5DqzRlxysPAgSWtF" target="_blank" class="playlist-card-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Watch Playlist
+                        </a>
+                    </div>
+                    <div class="playlist-card">
+                        <div class="playlist-card-header">
+                            <i class="fab fa-youtube"></i>
+                            <div class="playlist-card-title">Full Higher Math MCQ Revision</div>
+                        </div>
+                        <div class="playlist-card-desc">MCQ based playlist for HSC Higher Math</div>
+                        <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7-E6bOO5_Xw7aDRA5e2uo7&si=-YFIwcPSMbUPUFLo" target="_blank" class="playlist-card-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Watch Playlist
+                        </a>
+                    </div>
+                    <div class="playlist-card">
+                        <div class="playlist-card-header">
+                            <i class="fab fa-youtube"></i>
+                            <div class="playlist-card-title">Calculator Hacks</div>
+                        </div>
+                       <div class="playlist-card-desc">Tips & tricks of calculator</div>
+                        <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7Opn9oYIqxEkWMxFYRpbQZ&si=yCS7XKsPUJMVJfWi" target="_blank" class="playlist-card-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Watch Playlist
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <script>
+        // Toggle cycle links visibility
+        document.querySelectorAll('.buy-course').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const parentNav = button.closest('.course-links');
+                const cycleLinks = parentNav.querySelector('.cycle-links');
+                
+                // Close all other open cycle links
+                document.querySelectorAll('.cycle-links.show').forEach(openLinks => {
+                    if (openLinks !== cycleLinks) {
+                        openLinks.classList.remove('show');
+                    }
+                });
+                
+                // Toggle current cycle links
+                cycleLinks.classList.toggle('show');
+            });
+        });
+
+        // Close cycle links when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.course-links')) {
+                document.querySelectorAll('.cycle-links.show').forEach(cycleLinks => {
+                    cycleLinks.classList.remove('show');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
