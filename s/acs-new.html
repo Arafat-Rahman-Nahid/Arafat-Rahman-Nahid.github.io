@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="arafats tech, arafats, arnms, HSC physics, HSC math, Bangladesh education, PDF library, study materials">
+    <meta name="description" content="Comprehensive HSC Physics, Mathematics, ICT course materials and PDF library for SSC 25 and HSC 27 students in Bangladesh">
+    <meta name="author" content="arnms Network">
+    <title>HSC 27 | Complete Course Platform with PDF Library</title>
+    <link rel="icon" href="https://arafat-rahman-nahid.github.io/icon.png" type="image/png" loading="lazy">
+    <meta property="og:image" content="/icon.png">
+    <meta property="og:url" content="https://arafat-rahman-nahid.github.io/s/acs-courses">
+    <meta property="og:type" content="website">
+
+    <!-- External Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== CSS VARIABLES & RESET ===== */
+        :root {
+            --primary-blue: #3b82f6;
+            --primary-blue-light: #60a5fa;
+            --primary-blue-dark: #1d4ed8;
+            --primary-purple: #a855f7;
+            --primary-purple-light: #c084fc;
+            --primary-purple-dark: #7e22ce;
+            --primary-green: #10b981;
+            --primary-green-light: #34d399;
+            --primary-orange: #f59e0b;
+            --primary-orange-light: #fbbf24;
+            --primary-pink: #ec4899;
+            --primary-pink-light: #f472b6;
+            --primary-cyan: #06b6d4;
+            --primary-cyan-light: #22d3ee;
+            --primary-red: #ef4444;
+            --primary-red-light: #f87171;
+            
+            --gradient-blue-purple: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            --gradient-purple-blue: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+            --gradient-green-blue: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
+            --gradient-orange-red: linear-gradient(135deg, var(--primary-orange), var(--primary-red));
+            
+            --text-light: #f8fafc;
+            --text-lighter: rgba(248, 250, 252, 0.9);
+            --text-muted: #94a3b8;
+            --text-dark: #1e293b;
+            
+            --bg-dark: #0f172a;
+            --bg-darker: #020617;
+            --bg-darkest: #010712;
+            --bg-card: rgba(30, 41, 59, 0.8);
+            --bg-card-light: rgba(51, 65, 85, 0.6);
+            --bg-glass: rgba(15, 23, 42, 0.7);
+            --bg-hover: rgba(255, 255, 255, 0.05);
+            
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 10px rgba(0,0,0,0.2);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.3);
+            --shadow-xl: 0 15px 35px rgba(0,0,0,0.4);
+            
+            --border-radius: 12px;
+            --border-radius-lg: 16px;
+            --border-radius-xl: 24px;
+            --border-radius-round: 50%;
+            
+            --backdrop-filter: blur(12px) saturate(180%);
+            
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', 'Poppins', sans-serif;
+            background: var(--bg-darkest);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(at 20% 30%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 70%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== LAYOUT COMPONENTS ===== */
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            background: var(--gradient-blue-purple);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title i {
+            font-size: 1.5rem;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            width: 100%;
+            max-width: 900px;
+            padding: 2rem 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-blue-purple);
+            border-radius: var(--border-radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            border: 3px solid rgba(255,255,255,0.1);
+        }
+
+        .logo-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.5px;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: var(--gradient-blue-purple);
+            border-radius: 2px;
+        }
+
+        .tagline {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-lighter);
+            max-width: 800px;
+            margin: 1rem auto;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .update-alert {
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: var(--border-radius);
+            padding: 0.75rem 1.5rem;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--primary-blue-light);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .update-alert i {
+            font-size: 1.1rem;
+        }
+
+        /* ===== MAIN CONTENT LAYOUT ===== */
+        main {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            z-index: 1;
+        }
+
+        /* ===== COURSE SECTIONS ===== */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .course-card {
+            background: var(--bg-glass);
+            border-radius: var(--border-radius-xl);
+            padding: 1.75rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: var(--backdrop-filter);
+            -webkit-backdrop-filter: var(--backdrop-filter);
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            z-index: 2;
+        }
+
+        .physics-card::before {
+            background: var(--gradient-blue-purple);
+        }
+
+        .math-card::before {
+            background: var(--gradient-purple-blue);
+        }
+
+        .ict-card::before {
+            background: var(--gradient-green-blue);
+        }
+
+        .pdf-card::before {
+            background: var(--gradient-orange-red);
+        }
+
+        .course-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.03) 0%, 
+                rgba(168, 85, 247, 0.03) 100%);
+            z-index: -1;
+        }
+
+        .course-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .course-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .physics-card .course-icon {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary-blue-light);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .math-card .course-icon {
+            background: rgba(168, 85, 247, 0.2);
+            color: var(--primary-purple-light);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .ict-card .course-icon {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--primary-green-light);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .pdf-card .course-icon {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--primary-orange-light);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .course-title {
+            font-size: 1.5rem;
+            color: var(--text-lighter);
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .course-description {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        /* Course Image */
+        .course-image {
+            width: 100%;
+            height: 180px;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-md);
+        }
+
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .course-card:hover .course-image img {
+            transform: scale(1.05);
+        }
+
+        .course-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.8), transparent);
+        }
+
+        /* Course Links */
+        .course-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-link {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-lighter);
+            background: var(--bg-card-light);
+            border: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all var(--transition-normal);
+        }
+
+        .course-link:hover {
+            background: var(--bg-card);
+            border-color: rgba(255,255,255,0.15);
+            color: white;
+            transform: translateX(5px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .course-link i {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        /* Badge Styles */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: auto;
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+
+        .physics-card .badge {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary-blue-light);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .math-card .badge {
+            background: rgba(168, 85, 247, 0.2);
+            color: var(--primary-purple-light);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .ict-card .badge {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--primary-green-light);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .pdf-card .badge {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--primary-orange-light);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        /* Buy Course Button */
+        .buy-course {
+            background: var(--gradient-blue-purple);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .buy-course:hover {
+            background: var(--gradient-purple-blue);
+            box-shadow: 0 7px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Cycle Links */
+        .cycle-links {
+            display: none;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .cycle-links.show {
+            display: flex;
+        }
+
+        /* ===== PDF LIBRARY SECTION ===== */
+        .pdf-library {
+            margin-top: 2rem;
+        }
+
+        .pdf-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .pdf-category {
+            background: var(--bg-glass);
+            border-radius: var(--border-radius-lg);
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pdf-category:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .pdf-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            z-index: 2;
+        }
+
+        .pdf-physics::before {
+            background: var(--primary-blue);
+        }
+
+        .pdf-math::before {
+            background: var(--primary-purple);
+        }
+
+        .pdf-ict::before {
+            background: var(--primary-green);
+        }
+
+        .pdf-category-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+
+        .pdf-category-title {
+            font-size: 1.3rem;
+            color: var(--text-lighter);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .pdf-category-title i {
+            font-size: 1.5rem;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+
+        .pdf-physics .pdf-category-title i {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary-blue-light);
+        }
+
+        .pdf-math .pdf-category-title i {
+            background: rgba(168, 85, 247, 0.2);
+            color: var(--primary-purple-light);
+        }
+
+        .pdf-ict .pdf-category-title i {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--primary-green-light);
+        }
+
+        .pdf-toggle {
+            color: var(--text-muted);
+            transition: transform var(--transition-normal);
+        }
+
+        .pdf-category.active .pdf-toggle {
+            transform: rotate(180deg);
+            color: var(--text-lighter);
+        }
+
+        .pdf-files {
+            display: none;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
+
+        .pdf-category.active .pdf-files {
+            display: grid;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .pdf-file {
+            display: flex;
+            align-items: center;
+            padding: 0.9rem 1rem;
+            border-radius: var(--border-radius);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-lighter);
+            background: rgba(51, 65, 85, 0.4);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pdf-file:hover {
+            background: rgba(51, 65, 85, 0.7);
+            transform: translateX(5px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pdf-file::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            transition: width var(--transition-normal);
+        }
+
+        .pdf-physics .pdf-file::before {
+            background: var(--primary-blue);
+        }
+
+        .pdf-math .pdf-file::before {
+            background: var(--primary-purple);
+        }
+
+        .pdf-ict .pdf-file::before {
+            background: var(--primary-green);
+        }
+
+        .pdf-file:hover::before {
+            width: 8px;
+        }
+
+        .pdf-file i {
+            margin-right: 0.75rem;
+            font-size: 1.2rem;
+            color: var(--primary-red-light);
+        }
+
+        .pdf-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pdf-name {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .pdf-size {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .pdf-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .pdf-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-lighter);
+            transition: all var(--transition-fast);
+            border: none;
+            cursor: pointer;
+        }
+
+        .pdf-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .pdf-btn.download:hover {
+            color: var(--primary-green-light);
+            background: rgba(16, 185, 129, 0.2);
+        }
+
+        .pdf-btn.preview:hover {
+            color: var(--primary-blue-light);
+            background: rgba(59, 130, 246, 0.2);
+        }
+
+        .pdf-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== YOUTUBE PLAYLIST SECTION ===== */
+        .playlist-section {
+            margin-top: 2rem;
+        }
+
+        .playlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .playlist-card {
+            background: var(--bg-glass);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .playlist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            background: rgba(51, 65, 85, 0.6);
+        }
+
+        .playlist-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #ff0000;
+            z-index: 2;
+        }
+
+        .playlist-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .playlist-card-header i {
+            font-size: 2rem;
+            color: #ff0000;
+        }
+
+        .playlist-card-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-lighter);
+        }
+
+        .playlist-card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .playlist-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-blue-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: auto;
+            transition: color var(--transition-normal);
+        }
+
+        .playlist-card-link:hover {
+            color: var(--primary-blue);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            margin-top: 3rem;
+            width: 100%;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .quick-action-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: var(--border-radius);
+            padding: 1.5rem 1rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all var(--transition-normal);
+            text-align: center;
+            color: var(--text-lighter);
+        }
+
+        .quick-action-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-sm);
+            background: rgba(51, 65, 85, 0.6);
+        }
+
+        .quick-action-card i {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-blue-light);
+        }
+
+        .quick-action-card-title {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .quick-action-card-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            body {
+                padding: 0.8rem;
+            }
+
+            header {
+                margin-bottom: 2rem;
+                padding: 1.5rem 0.5rem;
+            }
+
+            main {
+                gap: 2.5rem;
+            }
+
+            .course-card {
+                padding: 1.5rem;
+            }
+
+            .pdf-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .playlist-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+
+            .quick-actions {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .course-card {
+                padding: 1.25rem;
+            }
+
+            .course-link {
+                padding: 0.9rem 1.1rem;
+            }
+            
+            .course-image {
+                height: 160px;
+            }
+
+            .playlist-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.6rem;
+            }
+
+            .course-card {
+                padding: 1rem;
+                border-radius: var(--border-radius-lg);
+            }
+
+            .course-link {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .badge {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.7rem;
+            }
+
+            .course-image {
+                height: 140px;
+            }
+
+            .pdf-category-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* ===== SCROLLBAR STYLING ===== */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-blue);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-purple);
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-1 { margin-top: 1rem; }
+        .mt-2 { margin-top: 2rem; }
+        .mb-1 { margin-bottom: 1rem; }
+        .mb-2 { margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo-container">
+            <div class="logo-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h1>HSC 27 Complete Platform</h1>
+            <p class="tagline">ACS Courses + YouTube Playlist + PDF Library + Revision Materials</p>
+            <div class="update-alert">
+                <i class="fas fa-info-circle"></i>
+                <span>Update: সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস, ডেটাবেজ ম্যানেজমেন্ট সিস্টেম added in YT Playlist section</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Course Sections -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-book-open"></i>
+                    Core Courses
+                </h2>
+            </div>
+            
+            <div class="courses-grid">
+                <!-- ICT Course Card -->
+                <div class="course-card ict-card">
+                    <div class="course-header">
+                        <div class="course-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="course-title">ICT</h3>
+                    </div>
+                    
+                    <div class="course-image">
+                        <img src="https://arafat-rahman-nahid.github.io/ictacs.jpg" alt="ICT Course" loading="lazy">
+                    </div>
+                    
+                    <p class="course-description">
+                        Complete ICT course covering HSC syllabus with practical examples and exam preparation.
+                    </p>
+                    
+                    <nav class="course-links">
+                        <a href="https://decoder27.aparsclassroom.com/" target="_blank" class="course-link">
+                            <i class="fas fa-globe"></i> WebApp
+                        </a>
+                        <a href="https://aparsclassroom.com/shop/abhi/decoder_27/" target="_blank" class="course-link buy-course">
+                            <i class="fas fa-shopping-cart"></i> Buy Full Course
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- Physics Course Card -->
+                <div class="course-card physics-card">
+                    <div class="course-header">
+                        <div class="course-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h3 class="course-title">Physics</h3>
+                    </div>
+                    
+                    <div class="course-image">
+                        <img src="https://arafat-rahman-nahid.github.io/phyacs.jpg" alt="Physics Course" loading="lazy">
+                    </div>
+                    
+                    <p class="course-description">
+                        Complete Physics course with concept clarity, problem solving, and exam strategies.
+                    </p>
+                    
+                    <nav class="course-links">
+                        <a href="https://b2m27.aparsclassroom.com/" target="_blank" class="course-link">
+                            <i class="fas fa-globe"></i> WebApp
+                        </a>
+                        <a href="#" class="course-link buy-course" id="physics-buy-btn">
+                            <i class="fas fa-book-open"></i> Buy Cycle
+                        </a>
+                        
+                        <div class="cycle-links" id="physics-cycle-links">
+                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-2/" target="_blank" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ২
+                                <span class="badge">নিউটনীয় বলবিদ্যা</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-3/" target="_blank" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৩
+                                <span class="badge">পর্যাবৃত্ত গতি, তরঙ্গ</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-4/" target="_blank" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৪
+                                <span class="badge">আদর্শ গ্যাস</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-5/" target="_blank" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৫
+                                <span class="badge">স্থির তড়িৎ</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-6/" target="_blank" class="course-link">
+                                <i class="fas fa-play-circle"></i> সাইকেল ৬
+                                <
