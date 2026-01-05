@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="HSC Study, Bangladesh Education, Free Study Materials, Physics, Math, ICT, Exam Preparation">
+    <meta name="description" content="Ultimate HSC study platform for Bangladeshi students - Complete Physics, Mathematics, ICT courses with AI-powered features and interactive learning tools">
+    <meta name="author" content="Arafat's Tech">
+    <title>🎓 EduHub Pro - Smart HSC Learning Platform</title>
+    <link rel="icon" href="https://arafat-rahman-nahid.github.io/icon.png" type="image/png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==================== CSS VARIABLES ==================== */
+        :root {
+            /* Modern Color Palette */
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --success-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            
+            --primary-blue: #4361ee;
+            --primary-purple: #7209b7;
+            --primary-green: #2ec4b6;
+            --primary-orange: #ff9e00;
+            --primary-pink: #ff006e;
+            
+            --bg-dark: #0a0e17;
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --bg-card-hover: rgba(255, 255, 255, 0.1);
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            
+            --text-light: #ffffff;
+            --text-lighter: rgba(255, 255, 255, 0.95);
+            --text-muted: rgba(255, 255, 255, 0.6);
+            --text-dark: #1a1a2e;
+            
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 15px 60px rgba(0, 0, 0, 0.4);
+            
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 30px;
+            --radius-xl: 40px;
+            --radius-round: 50%;
+            
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            --backdrop-blur: blur(20px) saturate(180%);
+        }
+
+        /* ==================== GLOBAL RESET ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans Bengali', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ==================== PARTICLES BACKGROUND ==================== */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(at 20% 30%, rgba(103, 126, 234, 0.1) 0px, transparent 50%),
+                radial-gradient(at 80% 70%, rgba(244, 63, 94, 0.1) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(23, 37, 84, 0.15) 0px, transparent 50%);
+            z-index: -2;
+            animation: gradientShift 20s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* ==================== MAIN LAYOUT ==================== */
+        .app-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ==================== HEADER ==================== */
+        .app-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-gradient);
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: var(--shadow-xl);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .logo-glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-round);
+            box-shadow: 0 0 60px rgba(103, 126, 234, 0.5);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .app-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .app-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* ==================== STATS BAR ==================== */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            backdrop-filter: var(--backdrop-blur);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition-normal);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: var(--bg-card-hover);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .stat-1 .stat-icon { background: rgba(103, 126, 234, 0.2); color: #667eea; }
+        .stat-2 .stat-icon { background: rgba(244, 63, 94, 0.2); color: #f43f5e; }
+        .stat-3 .stat-icon { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+        .stat-4 .stat-icon { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+
+        .stat-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* ==================== MAIN GRID ==================== */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 1200px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ==================== SUBJECTS GRID ==================== */
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .subject-card {
+            background: var(--bg-card);
+            backdrop-filter: var(--backdrop-blur);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease both;
+        }
+
+        .subject-card:nth-child(1) { animation-delay: 0.1s; }
+        .subject-card:nth-child(2) { animation-delay: 0.2s; }
+        .subject-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .subject-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+            border-color: transparent;
+        }
+
+        .subject-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+        }
+
+        .subject-card.ict::before { background: var(--accent-gradient); }
+        .subject-card.physics::before { background: var(--primary-gradient); }
+        .subject-card.math::before { background: var(--secondary-gradient); }
+
+        .subject-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .subject-card:hover::after {
+            transform: translateX(100%);
+        }
+
+        .subject-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .subject-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .ict .subject-icon { background: var(--accent-gradient); }
+        .physics .subject-icon { background: var(--primary-gradient); }
+        .math .subject-icon { background: var(--secondary-gradient); }
+
+        .subject-info h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .subject-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ==================== COURSE ACTIONS ==================== */
+        .course-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition-normal);
+            border: 2px solid transparent;
+        }
+
+        .action-btn.primary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .action-btn.primary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .action-btn.secondary {
+            background: var(--primary-gradient);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .action-btn.secondary:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ==================== CYCLE DROPDOWN ==================== */
+        .cycle-dropdown {
+            margin-top: 1rem;
+        }
+
+        .cycle-toggle {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-sm);
+            color: white;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .cycle-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .cycle-toggle.active .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .cycle-list {
+            display: none;
+            margin-top: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-sm);
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cycle-list.show {
+            display: block;
+        }
+
+        .cycle-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-sm);
+            margin-bottom: 0.5rem;
+            transition: var(--transition-normal);
+        }
+
+        .cycle-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .cycle-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .cycle-name {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+        }
+
+        .cycle-badge {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .ict .cycle-badge { background: rgba(79, 172, 254, 0.3); }
+        .physics .cycle-badge { background: rgba(103, 126, 234, 0.3); }
+        .math .cycle-badge { background: rgba(240, 147, 251, 0.3); }
+
+        /* ==================== SIDEBAR ==================== */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* AI ASSISTANT */
+        .ai-assistant {
+            background: var(--bg-card);
+            backdrop-filter: var(--backdrop-blur);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .ai-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ai-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--success-gradient);
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .ai-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .ai-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .ai-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-sm);
+            transition: var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .ai-feature:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .ai-feature i {
+            color: #2ec4b6;
+            font-size: 1.2rem;
+        }
+
+        /* STUDY TOOLS */
+        .study-tools {
+            background: var(--bg-card);
+            backdrop-filter: var(--backdrop-blur);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.8s ease 0.5s both;
+        }
+
+        .tools-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tools-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--warning-gradient);
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .tools-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .tool-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-sm);
+            padding: 1rem;
+            text-align: center;
+            transition: var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .tool-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .tool-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .tool-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* ==================== YOUTUBE SECTION ==================== */
+        .youtube-section {
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--warning-gradient);
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--warning-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .playlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .playlist-card {
+            background: var(--bg-card);
+            backdrop-filter: var(--backdrop-blur);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .playlist-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .playlist-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--warning-gradient);
+        }
+
+        .playlist-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .playlist-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 0, 0, 0.2);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #ff0000;
+            flex-shrink: 0;
+        }
+
+        .playlist-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .playlist-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .playlist-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 0, 0, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            transition: var(--transition-normal);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+        }
+
+        .playlist-btn:hover {
+            background: rgba(255, 0, 0, 0.2);
+            transform: translateX(5px);
+        }
+
+        /* ==================== PROGRESS TRACKER ==================== */
+        .progress-tracker {
+            background: var(--bg-card);
+            backdrop-filter: var(--backdrop-blur);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.8s ease 0.7s both;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .progress-item h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        .ict .progress-fill { background: var(--accent-gradient); width: 85%; }
+        .physics .progress-fill { background: var(--primary-gradient); width: 65%; }
+        .math .progress-fill { background: var(--secondary-gradient); width: 70%; }
+
+        .progress-percent {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition-normal);
+        }
+
+        .footer-link:hover {
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 1400px) {
+            .app-container {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .subjects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                padding: 1rem;
+            }
+            
+            .app-title {
+                font-size: 2.5rem;
+            }
+            
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .subjects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .playlist-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tools-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+            
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .course-actions {
+                flex-direction: column;
+            }
+            
+            .action-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ==================== CUSTOM SCROLLBAR ==================== */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-gradient);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-gradient);
+        }
+
+        /* ==================== UTILITY CLASSES ==================== */
+        .coming-soon {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--success-gradient);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            animation: slideInRight 0.3s ease;
+            display: none;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-normal);
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            backdrop-filter: var(--backdrop-blur);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    <div class="gradient-bg"></div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span>Action completed successfully!</span>
+    </div>
+
+    <!-- AI Assistant Modal -->
+    <div class="modal" id="aiModal">
+        <div class="modal-content">
+            <h2 style="margin-bottom: 1.5rem; font-size: 1.8rem;">🤖 AI Study Assistant</h2>
+            <p style="margin-bottom: 2rem; color: var(--text-muted);">Coming Soon! This feature will help you study smarter with AI-powered tools.</p>
+            <button onclick="closeModal()" style="background: var(--primary-gradient); color: white; border: none; padding: 1rem 2rem; border-radius: var(--radius-sm); font-weight: 600; cursor: pointer; transition: var(--transition-normal);">Got it!</button>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-container">
+                <div class="logo">
+                    <div class="logo-glow"></div>
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div>
+                    <h1 class="app-title">EduHub Pro</h1>
+                    <p class="app-subtitle">Smart Learning Platform for HSC 2025-27 Students</p>
+                </div>
+            </div>
+            
+            <div class="stats-bar">
+                <div class="stat-card stat-1">
+                    <div class="stat-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>500+</h3>
+                        <p>Study Materials</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card stat-2">
+                    <div class="stat-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>200+</h3>
+                        <p>Video Lessons</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card stat-3">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>10,000+</h3>
+                        <p>Active Students</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card stat-4">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>98%</h3>
+                        <p>Success Rate</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Left Column: Subjects -->
+            <div class="subjects-grid">
+                <!-- ICT -->
+                <div class="subject-card ict">
+                    <div class="subject-header">
+                        <div class="subject-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h2>ICT</h2>
+                            <p>Information & Communication Technology</p>
+                        </div>
+                    </div>
+                    
+                    <div class="course-actions">
+                        <a href="https://decoder27.aparsclassroom.com/" target="_blank" class="action-btn primary">
+                            <i class="fas fa-globe"></i>
+                            WebApp
+                        </a>
+                        <a href="https://aparsclassroom.com/shop/abhi/decoder_27/" target="_blank" class="action-btn secondary">
+                            <i class="fas fa-shopping-cart"></i>
+                            Buy Course
+                        </a>
+                    </div>
+                    
+                    <div class="cycle-dropdown">
+                        <button class="cycle-toggle" data-subject="ict">
+                            <span><i class="fas fa-layer-group"></i> Course Cycles</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="cycle-list" id="ict-cycles">
+                            <div class="cycle-item">
+                                <div class="cycle-name">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>Basic Concepts</span>
+                                </div>
+                                <span class="cycle-badge">Beginner</span>
+                            </div>
+                            <div class="cycle-item">
+                                <div class="cycle-name">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>Programming Fundamentals</span>
+                                </div>
+                                <span class="cycle-badge">Intermediate</span>
+                            </div>
+                            <div class="cycle-item">
+                                <div class="cycle-name">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>Database Management</span>
+                                </div>
+                                <span class="cycle-badge">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Physics -->
+                <div class="subject-card physics">
+                    <div class="subject-header">
+                        <div class="subject-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h2>Physics</h2>
+                            <p>Complete Physics with Lab & Theory</p>
+                        </div>
+                    </div>
+                    
+                    <div class="course-actions">
+                        <a href="https://b2m27.aparsclassroom.com/" target="_blank" class="action-btn primary">
+                            <i class="fas fa-globe"></i>
+                            WebApp
+                        </a>
+                        <button class="action-btn secondary" onclick="showPhysicsCycles()">
+                            <i class="fas fa-shopping-cart"></i>
+                            Buy Cycle
+                        </button>
+                    </div>
+                    
+                    <div class="cycle-dropdown">
+                        <button class="cycle-toggle active" data-subject="physics">
+                            <span><i class="fas fa-layer-group"></i> View 6 Cycles</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="cycle-list show" id="physics-cycles">
+                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-2/" target="_blank" class="cycle-item">
+                                <div class="cycle-name">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>Cycle 2: Newtonian Mechanics</span>
+                                </div>
+                                <span class="cycle-badge">Popular</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-3/" target="_blank" class="cycle-item">
+                                <div class="cycle-name">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>Cycle 3: Waves & Optics</span>
+                                </div>
+                                <span class="cycle-badge">New</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-4/" target="_blank" class="cycle-item">
+                                <div class="cycle-name">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>Cycle 4: Thermodynamics</span>
+                                </div>
+                                <span class="cycle-badge">Essential</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mathematics -->
+                <div class="subject-card math">
+                    <div class="subject-header">
+                        <div class="subject-icon">
+                            <i class="fas fa-square-root-alt"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h2>Mathematics</h2>
+                            <p>Higher Math Complete Course</p>
+                        </div>
+                    </div>
+                    
+                    <div class="course-actions">
+                        <a href="https://math27.aparsclassroom.com/" target="_blank" class="action-btn primary">
+                            <i class="fas fa-globe"></i>
+                            WebApp
+                        </a>
+                        <button class="action-btn secondary" onclick="showMathCycles()">
+                            <i class="fas fa-shopping-cart"></i>
+                            Buy Cycle
+                        </button>
+                    </div>
+                    
+                    <div class="cycle-dropdown">
+                        <button class="cycle-toggle" data-subject="math">
+                            <span><i class="fas fa-layer-group"></i> View 6 Cycles</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="cycle-list" id="math-cycles">
+                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-2/" target="_blank" class="cycle-item">
+                                <div class="cycle-name">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>Cycle 2: First Paper Ch.5-8</span>
+                                </div>
+                                <span class="cycle-badge">Best Seller</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-3/" target="_blank" class="cycle-item">
+                                <div class="cycle-name">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>Cycle 3: First Paper Ch.9-10</span>
+                                </div>
+                                <span class="cycle-badge">Advanced</span>
+                            </a>
+                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-4/" target="_blank" class="cycle-item">
+                                <div class="cycle-name">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>Cycle 4: Second Paper Ch.1-4</span>
+                                </div>
+                                <span class="cycle-badge">Popular</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Sidebar -->
+            <div class="sidebar">
+                <!-- AI Assistant -->
+                <div class="ai-assistant">
+                    <div class="ai-header">
+                        <div class="ai-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="ai-title">AI Study Assistant</h3>
+                    </div>
+                    
+                    <div class="ai-features">
+                        <div class="ai-feature" onclick="openAI('doubt-solver')">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Instant Doubt Solver</span>
+                        </div>
+                        <div class="ai-feature" onclick="openAI('study-plan')">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Smart Study Plan</span>
+                        </div>
+                        <div class="ai-feature" onclick="openAI('quiz')">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <span>AI Practice Quiz</span>
+                        </div>
+                        <div class="ai-feature" onclick="openAI('notes')">
+                            <i class="fas fa-sticky-note"></i>
+                            <span>Smart Notes Generator</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Study Tools -->
+                <div class="study-tools">
+                    <div class="tools-header">
+                        <div class="tools-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="tools-title">Study Tools</h3>
+                    </div>
+                    
+                    <div class="tools-grid">
+                        <div class="tool-item" onclick="openTool('calculator')">
+                            <div class="tool-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div class="tool-name">Calculator</div>
+                        </div>
+                        <div class="tool-item" onclick="openTool('timer')">
+                            <div class="tool-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="tool-name">Study Timer</div>
+                        </div>
+                        <div class="tool-item" onclick="openTool('formula')">
+                            <div class="tool-icon">
+                                <i class="fas fa-square-root-alt"></i>
+                            </div>
+                            <div class="tool-name">Formula Sheet</div>
+                        </div>
+                        <div class="tool-item" onclick="openTool('planner')">
+                            <div class="tool-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="tool-name">Study Planner</div>
+                        </div>
+                        <div class="tool-item" onclick="openTool('notebook')">
+                            <div class="tool-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="tool-name">Digital Notebook</div>
+                        </div>
+                        <div class="tool-item" onclick="openTool('progress')">
+                            <div class="tool-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="tool-name">Progress Tracker</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- YouTube Section -->
+        <section class="youtube-section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <h2 class="section-title">Free Video Playlists</h2>
+            </div>
+            
+            <div class="playlist-grid">
+                <!-- ICT Playlists -->
+                <div class="playlist-card">
+                    <div class="playlist-header">
+                        <div class="playlist-icon">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <div>
+                            <h3 class="playlist-title">সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস</h3>
+                            <p class="playlist-desc">HSC ICT - Academic & Admission Complete Guide</p>
+                        </div>
+                    </div>
+                    <a href="https://youtube.com/playlist?list=PLZf4q5EodedEFrF2saMI4ehL_BNwWjfPM" target="_blank" class="playlist-btn">
+                        <i class="fas fa-play"></i>
+                        Watch Now
+                    </a>
+                </div>
+                
+                <div class="playlist-card">
+                    <div class="playlist-header">
+                        <div class="playlist-icon">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <div>
+                            <h3 class="playlist-title">ডেটাবেজ ম্যানেজমেন্ট সিস্টেম</h3>
+                            <p class="playlist-desc">Complete Database Management System Tutorial</p>
+                        </div>
+                    </div>
+                    <a href="https://www.youtube.com/playlist?list=PLZf4q5EodedH1fBghyKbn5caIdSlME6Yt" target="_blank" class="playlist-btn">
+                        <i class="fas fa-play"></i>
+                        Watch Now
+                    </a>
+                </div>
+                
+                <div class="playlist-card">
+                    <div class="playlist-header">
+                        <div class="playlist-icon">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <div>
+                            <h3 class="playlist-title">Full ICT Oneshot Revision</h3>
+                            <p class="playlist-desc">Complete ICT revision for exam preparation</p>
+                        </div>
+                    </div>
+                    <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7Yo4Vt-G0q_byIKVzoFdxa" target="_blank" class="playlist-btn">
+                        <i class="fas fa-play"></i>
+                        Watch Now
+                    </a>
+                </div>
+                
+                <div class="playlist-card">
+                    <div class="playlist-header">
+                        <div class="playlist-icon">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <div>
+                            <h3 class="playlist-title">Full Higher Math Revision</h3>
+                            <p class="playlist-desc">Complete Higher Math with step-by-step solutions</p>
+                        </div>
+                    </div>
+                    <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7Rky9DdZePw4wNFJVbGxt4" target="_blank" class="playlist-btn">
+                        <i class="fas fa-play"></i>
+                        Watch Now
+                    </a>
+                </div>
+                
+                <div class="playlist-card">
+                    <div class="playlist-header">
+                        <div class="playlist-icon">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <div>
+                            <h3 class="playlist-title">Math MCQ Revision</h3>
+                            <p class="playlist-desc">MCQ based practice for HSC Higher Math</p>
+                        </div>
+                    </div>
+                    <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7-E6bOO5_Xw7aDRA5e2uo7" target="_blank" class="playlist-btn">
+                        <i class="fas fa-play"></i>
+                        Watch Now
+                    </a>
+                </div>
+                
+                <div class="playlist-card">
+                    <div class="playlist-header">
+                        <div class="playlist-icon">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <div>
+                            <h3 class="playlist-title">Calculator Hacks & Tricks</h3>
+                            <p class="playlist-desc">Time-saving calculator techniques for exams</p>
+                        </div>
+                    </div>
+                    <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7Opn9oYIqxEkWMxFYRpbQZ" target="_blank" class="playlist-btn">
+                        <i class="fas fa-play"></i>
+                        Watch Now
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Tracker -->
+        <section class="progress-tracker">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h2 class="section-title">Your Study Progress</h2>
+            </div>
+            
+            <div class="progress-grid">
+                <div class="progress-item ict">
+                    <h3>ICT Progress</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-percent">85%</div>
+                </div>
+                
+                <div class="progress-item physics">
+                    <h3>Physics Progress</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-percent">65%</div>
+                </div>
+                
+                <div class="progress-item math">
+                    <h3>Math Progress</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-percent">70%</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="#" class="footer-link">About Us</a>
+                <a href="#" class="footer-link">Contact</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms of Service</a>
+                <a href="#" class="footer-link">FAQ</a>
+            </div>
+            <p class="copyright">
+                © 2024 EduHub Pro - Smart Learning Platform for Bangladeshi Students
+                <br>
+                Made with ❤️ by Arafat's Tech
+            </p>
+        </footer>
+    </div>
+
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- Main JavaScript -->
+    <script>
+        // Initialize Particles.js
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.3, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#667eea",
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
+                }
+            }
+        });
+
+        // Cycle Toggle Functionality
+        document.querySelectorAll('.cycle-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const subject = this.getAttribute('data-subject');
+                const cycleList = document.getElementById(`${subject}-cycles`);
+                const chevron = this.querySelector('.fa-chevron-down');
+                
+                // Close all other cycle lists
+                document.querySelectorAll('.cycle-list').forEach(list => {
+                    if (list !== cycleList) {
+                        list.classList.remove('show');
+                        const otherToggle = list.previousElementSibling;
+                        otherToggle.classList.remove('active');
+                        otherToggle.querySelector('.fa-chevron-down').style.transform = 'rotate(0deg)';
+                    }
+                });
+                
+                // Toggle current cycle list
+                cycleList.classList.toggle('show');
+                this.classList.toggle('active');
+                chevron.style.transform = cycleList.classList.contains('show') 
+                    ? 'rotate(180deg)' 
+                    : 'rotate(0deg)';
+            });
+        });
+
+        // Close cycle lists when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.cycle-dropdown')) {
+                document.querySelectorAll('.cycle-list').forEach(list => {
+                    list.classList.remove('show');
+                    const toggle = list.previousElementSibling;
+                    toggle.classList.remove('active');
+                    toggle.querySelector('.fa-chevron-down').style.transform = 'rotate(0deg)';
+                });
+            }
+        });
+
+        // Show Notification
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.querySelector('span').textContent = message;
+            notification.style.display = 'flex';
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideInRight 0.3s ease reverse';
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                    notification.style.animation = 'slideInRight 0.3s ease';
+                }, 300);
+            }, 3000);
+        }
+
+        // AI Assistant Functions
+        function openAI(feature) {
+            showNotification(`AI ${feature} feature will be available soon!`);
+            // In production, this would open specific AI features
+        }
+
+        // Study Tools Functions
+        function openTool(tool) {
+            const toolNames = {
+                'calculator': 'Scientific Calculator',
+                'timer': 'Study Timer',
+                'formula': 'Formula Sheets',
+                'planner': 'Study Planner',
+                'notebook': 'Digital Notebook',
+                'progress': 'Progress Tracker'
+            };
+            showNotification(`${toolNames[tool]} will be available soon!`);
+        }
+
+        // Modal Functions
+        function showPhysicsCycles() {
+            document.getElementById('aiModal').querySelector('h2').textContent = '📚 Physics Cycles';
+            document.getElementById('aiModal').querySelector('p').textContent = 'Select from 6 comprehensive cycles covering complete Physics syllabus.';
+            document.getElementById('aiModal').classList.add('active');
+        }
+
+        function showMathCycles() {
+            document.getElementById('aiModal').querySelector('h2').textContent = '🧮 Mathematics Cycles';
+            document.getElementById('aiModal').querySelector('p').textContent = 'Choose from 6 cycles covering complete Higher Math syllabus with practice problems.';
+            document.getElementById('aiModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('aiModal').classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('aiModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Progress Bar Animation
+        document.querySelectorAll('.progress-fill').forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0%';
+            setTimeout(() => {
+                bar.style.width = width;
+            }, 500);
+        });
+
+        // Hover Effects for Cards
+        document.querySelectorAll('.subject-card, .playlist-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Welcome Message
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                showNotification('🎉 Welcome to EduHub Pro! Start your smart learning journey today.');
+            }, 1000);
+            
+            // Add animations to elements
+            document.querySelectorAll('.subject-card, .playlist-card, .stat-card').forEach((el, i) => {
+                el.style.animationDelay = `${i * 0.1}s`;
+            });
+        });
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Console Welcome Message
+        console.log('%c🚀 EduHub Pro - Smart Learning Platform', 'color: #667eea; font-size: 24px; font-weight: bold;');
+        console.log('%cPowered by Arafat\'s Tech 🤖', 'color: #f43f5e; font-size: 16px;');
+        console.log('%cStudy smart, not hard! 📚', 'color: #2ec4b6; font-size: 14px;');
+    </script>
+</body>
+</html>
