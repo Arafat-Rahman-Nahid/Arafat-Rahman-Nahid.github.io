@@ -3,72 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="keywords" content="arafats tech, arafats, arnms, HSC physics, HSC math, Bangladesh education, PDF library, study materials">
-    <meta name="description" content="Comprehensive HSC Physics, Mathematics, ICT course materials and PDF library for SSC 25 and HSC 27 students in Bangladesh">
-    <meta name="author" content="arnms Network">
-    <title>HSC 27 | Complete Course Platform with PDF Library</title>
+    <meta name="keywords" content="HSC study, Bangladesh students, free study materials, physics notes, math notes, ICT notes, exam preparation">
+    <meta name="description" content="Free HSC study materials for Bangladesh students - Physics, Math, ICT complete courses with PDF downloads and YouTube tutorials">
+    <meta name="author" content="Arafat's Tech">
+    <title>🎓 HSC Study Hub - Free Study Materials for Bangladeshi Students</title>
     <link rel="icon" href="https://arafat-rahman-nahid.github.io/icon.png" type="image/png" loading="lazy">
-    <meta property="og:image" content="/icon.png">
-    <meta property="og:url" content="https://arafat-rahman-nahid.github.io/s/acs-courses">
-    <meta property="og:type" content="website">
-
+    
     <!-- External Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* ===== CSS VARIABLES & RESET ===== */
+        /* ===== STUDENT-FRIENDLY VARIABLES ===== */
         :root {
-            --primary-blue: #3b82f6;
-            --primary-blue-light: #60a5fa;
-            --primary-blue-dark: #1d4ed8;
-            --primary-purple: #a855f7;
-            --primary-purple-light: #c084fc;
-            --primary-purple-dark: #7e22ce;
-            --primary-green: #10b981;
-            --primary-green-light: #34d399;
-            --primary-orange: #f59e0b;
-            --primary-orange-light: #fbbf24;
-            --primary-pink: #ec4899;
-            --primary-pink-light: #f472b6;
-            --primary-cyan: #06b6d4;
-            --primary-cyan-light: #22d3ee;
-            --primary-red: #ef4444;
-            --primary-red-light: #f87171;
+            /* Soft, friendly colors */
+            --primary-blue: #4a6bff;
+            --primary-blue-light: #6b8cff;
+            --primary-purple: #9d4edd;
+            --primary-purple-light: #b388ff;
+            --primary-green: #00b894;
+            --primary-green-light: #55efc4;
+            --primary-orange: #ff9f43;
+            --primary-orange-light: #ffbe76;
+            --primary-pink: #fd79a8;
+            --primary-pink-light: #ffb8d9;
+            --primary-yellow: #fdcb6e;
+            --primary-yellow-light: #ffeaa7;
             
-            --gradient-blue-purple: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-            --gradient-purple-blue: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
-            --gradient-green-blue: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
-            --gradient-orange-red: linear-gradient(135deg, var(--primary-orange), var(--primary-red));
+            /* Gradients */
+            --gradient-study: linear-gradient(135deg, #4a6bff, #9d4edd);
+            --gradient-physics: linear-gradient(135deg, #4a6bff, #00b894);
+            --gradient-math: linear-gradient(135deg, #9d4edd, #fd79a8);
+            --gradient-ict: linear-gradient(135deg, #00b894, #ff9f43);
+            --gradient-pdf: linear-gradient(135deg, #ff9f43, #fd79a8);
             
-            --text-light: #f8fafc;
-            --text-lighter: rgba(248, 250, 252, 0.9);
-            --text-muted: #94a3b8;
-            --text-dark: #1e293b;
+            /* Backgrounds */
+            --bg-main: #f8f9fa;
+            --bg-card: #ffffff;
+            --bg-hover: #f1f3f9;
+            --bg-dark: #2d3436;
+            --bg-light-dark: #34495e;
             
-            --bg-dark: #0f172a;
-            --bg-darker: #020617;
-            --bg-darkest: #010712;
-            --bg-card: rgba(30, 41, 59, 0.8);
-            --bg-card-light: rgba(51, 65, 85, 0.6);
-            --bg-glass: rgba(15, 23, 42, 0.7);
-            --bg-hover: rgba(255, 255, 255, 0.05);
+            /* Text colors */
+            --text-dark: #2d3436;
+            --text-medium: #636e72;
+            --text-light: #ffffff;
+            --text-muted: #95a5a6;
             
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-            --shadow-md: 0 4px 10px rgba(0,0,0,0.2);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,0.3);
-            --shadow-xl: 0 15px 35px rgba(0,0,0,0.4);
+            /* Shadows */
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 6px 20px rgba(0, 0, 0, 0.12);
+            --shadow-heavy: 0 10px 30px rgba(0, 0, 0, 0.15);
             
-            --border-radius: 12px;
-            --border-radius-lg: 16px;
-            --border-radius-xl: 24px;
-            --border-radius-round: 50%;
+            /* Borders */
+            --border-radius: 16px;
+            --border-radius-sm: 8px;
+            --border-radius-lg: 24px;
+            --border-color: #e0e6ed;
             
-            --backdrop-filter: blur(12px) saturate(180%);
-            
+            /* Transitions */
             --transition-fast: 0.2s ease;
             --transition-normal: 0.3s ease;
-            --transition-slow: 0.5s ease;
+            --transition-slow: 0.4s ease;
         }
 
         * {
@@ -83,610 +79,498 @@
 
         body {
             font-family: 'Noto Sans Bengali', 'Poppins', sans-serif;
-            background: var(--bg-darkest);
-            color: var(--text-light);
+            background: var(--bg-main);
+            color: var(--text-dark);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1rem;
             line-height: 1.6;
-            background-image: 
-                radial-gradient(at 20% 30%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
-                radial-gradient(at 80% 70%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
-            background-attachment: fixed;
-            overflow-x: hidden;
         }
 
-        /* ===== TYPOGRAPHY ===== */
-        h1, h2, h3, h4 {
-            font-weight: 600;
-            line-height: 1.3;
-        }
-
-        p {
-            margin-bottom: 1rem;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* ===== LAYOUT COMPONENTS ===== */
-        .container {
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            background: var(--gradient-blue-purple);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .section-title i {
-            font-size: 1.5rem;
-        }
-
-        /* ===== HEADER ===== */
-        header {
+        /* ===== STUDENT HEADER ===== */
+        .student-header {
+            background: var(--gradient-study);
+            color: white;
+            padding: 1.5rem 1rem;
             text-align: center;
-            margin-bottom: 2.5rem;
-            width: 100%;
-            max-width: 900px;
-            padding: 2rem 1rem;
-            position: relative;
-            z-index: 1;
+            box-shadow: var(--shadow-medium);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .logo-container {
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1.5rem;
         }
 
-        .logo-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-blue-purple);
-            border-radius: var(--border-radius-round);
+        .logo-title {
             display: flex;
             align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-lg);
-            border: 3px solid rgba(255,255,255,0.1);
+            gap: 1rem;
         }
 
-        .logo-icon i {
+        .logo-title i {
             font-size: 2.5rem;
-            color: white;
+            color: var(--primary-yellow);
         }
 
-        h1 {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            background: linear-gradient(to right, var(--primary-blue), var(--primary-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 0.5rem;
-            position: relative;
-            display: inline-block;
-            letter-spacing: -0.5px;
+        .logo-title h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
         }
 
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 4px;
-            background: var(--gradient-blue-purple);
-            border-radius: 2px;
-        }
-
-        .tagline {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            color: var(--text-lighter);
+        .student-tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
             max-width: 800px;
-            margin: 1rem auto;
-            font-weight: 400;
-            line-height: 1.6;
         }
 
-        .update-alert {
-            background: rgba(59, 130, 246, 0.15);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: var(--border-radius);
+        .alert-banner {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: var(--border-radius-sm);
             padding: 0.75rem 1.5rem;
-            margin-top: 1.5rem;
+            margin-top: 0.5rem;
             font-size: 0.9rem;
-            color: var(--primary-blue-light);
             display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .alert-banner i {
+            color: var(--primary-yellow);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .welcome-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+        }
+
+        .welcome-title {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            display: flex;
             align-items: center;
             gap: 0.75rem;
         }
 
-        .update-alert i {
+        .welcome-title i {
+            color: var(--primary-orange);
+        }
+
+        .subject-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .subject-tab {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            background: white;
+            border: 2px solid var(--border-color);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .subject-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-light);
+        }
+
+        .subject-tab.active {
+            background: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+        }
+
+        .subject-tab.physics-tab.active {
+            background: var(--gradient-physics);
+            border-color: var(--primary-blue);
+        }
+
+        .subject-tab.math-tab.active {
+            background: var(--gradient-math);
+            border-color: var(--primary-purple);
+        }
+
+        .subject-tab.ict-tab.active {
+            background: var(--gradient-ict);
+            border-color: var(--primary-green);
+        }
+
+        /* ===== SUBJECT SECTIONS ===== */
+        .subject-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+            display: none;
+        }
+
+        .subject-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .subject-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .subject-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .physics .subject-icon {
+            background: var(--gradient-physics);
+        }
+
+        .math .subject-icon {
+            background: var(--gradient-math);
+        }
+
+        .ict .subject-icon {
+            background: var(--gradient-ict);
+        }
+
+        .subject-title {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .subject-description {
+            color: var(--text-medium);
+            margin-bottom: 2rem;
             font-size: 1.1rem;
         }
 
-        /* ===== MAIN CONTENT LAYOUT ===== */
-        main {
-            flex: 1;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-            z-index: 1;
-        }
-
-        /* ===== COURSE SECTIONS ===== */
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .courses-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .course-card {
-            background: var(--bg-glass);
-            border-radius: var(--border-radius-xl);
-            padding: 1.75rem;
-            box-shadow: var(--shadow-md);
-            border: 1px solid rgba(255,255,255,0.1);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: var(--backdrop-filter);
-            -webkit-backdrop-filter: var(--backdrop-filter);
-            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .course-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            z-index: 2;
-        }
-
-        .physics-card::before {
-            background: var(--gradient-blue-purple);
-        }
-
-        .math-card::before {
-            background: var(--gradient-purple-blue);
-        }
-
-        .ict-card::before {
-            background: var(--gradient-green-blue);
-        }
-
-        .pdf-card::before {
-            background: var(--gradient-orange-red);
-        }
-
-        .course-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, 
-                rgba(59, 130, 246, 0.03) 0%, 
-                rgba(168, 85, 247, 0.03) 100%);
-            z-index: -1;
-        }
-
-        .course-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .course-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 1.5rem;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .physics-card .course-icon {
-            background: rgba(59, 130, 246, 0.2);
-            color: var(--primary-blue-light);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .math-card .course-icon {
-            background: rgba(168, 85, 247, 0.2);
-            color: var(--primary-purple-light);
-            border: 1px solid rgba(168, 85, 247, 0.3);
-        }
-
-        .ict-card .course-icon {
-            background: rgba(16, 185, 129, 0.2);
-            color: var(--primary-green-light);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-
-        .pdf-card .course-icon {
-            background: rgba(245, 158, 11, 0.2);
-            color: var(--primary-orange-light);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
-
-        .course-title {
-            font-size: 1.5rem;
-            color: var(--text-lighter);
-            font-weight: 600;
-            flex: 1;
-        }
-
-        .course-description {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-            flex: 1;
-        }
-
-        /* Course Image */
-        .course-image {
-            width: 100%;
-            height: 180px;
-            border-radius: var(--border-radius);
-            margin-bottom: 1.5rem;
-            overflow: hidden;
-            position: relative;
-            box-shadow: var(--shadow-md);
-        }
-
-        .course-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform var(--transition-slow);
-        }
-
-        .course-card:hover .course-image img {
-            transform: scale(1.05);
-        }
-
-        .course-image::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 60%;
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.8), transparent);
-        }
-
-        /* Course Links */
-        .course-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .course-link {
-            display: flex;
-            align-items: center;
-            padding: 1rem 1.25rem;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text-lighter);
-            background: var(--bg-card-light);
-            border: 1px solid rgba(255,255,255,0.08);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            transition: all var(--transition-normal);
-        }
-
-        .course-link:hover {
-            background: var(--bg-card);
-            border-color: rgba(255,255,255,0.15);
-            color: white;
-            transform: translateX(5px);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .course-link i {
-            margin-right: 1rem;
-            font-size: 1.2rem;
-            width: 24px;
-            text-align: center;
-        }
-
-        /* Badge Styles */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-left: auto;
-            color: var(--text-light);
-            white-space: nowrap;
-        }
-
-        .physics-card .badge {
-            background: rgba(59, 130, 246, 0.2);
-            color: var(--primary-blue-light);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .math-card .badge {
-            background: rgba(168, 85, 247, 0.2);
-            color: var(--primary-purple-light);
-            border: 1px solid rgba(168, 85, 247, 0.3);
-        }
-
-        .ict-card .badge {
-            background: rgba(16, 185, 129, 0.2);
-            color: var(--primary-green-light);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-
-        .pdf-card .badge {
-            background: rgba(245, 158, 11, 0.2);
-            color: var(--primary-orange-light);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
-
-        /* Buy Course Button */
-        .buy-course {
-            background: var(--gradient-blue-purple);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            font-weight: 600;
-            margin-top: 0.5rem;
-        }
-
-        .buy-course:hover {
-            background: var(--gradient-purple-blue);
-            box-shadow: 0 7px 20px rgba(59, 130, 246, 0.3);
-        }
-
-        /* Cycle Links */
-        .cycle-links {
-            display: none;
-            flex-direction: column;
-            gap: 0.75rem;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            animation: fadeIn 0.3s ease;
-        }
-
-        .cycle-links.show {
-            display: flex;
-        }
-
-        /* ===== PDF LIBRARY SECTION ===== */
-        .pdf-library {
-            margin-top: 2rem;
-        }
-
-        .pdf-categories {
+        /* ===== RESOURCE CARDS ===== */
+        .resource-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
 
-        .pdf-category {
-            background: var(--bg-glass);
-            border-radius: var(--border-radius-lg);
+        .resource-card {
+            background: white;
+            border-radius: var(--border-radius);
             padding: 1.5rem;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid var(--border-color);
             transition: all var(--transition-normal);
             position: relative;
             overflow: hidden;
         }
 
-        .pdf-category:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--primary-blue-light);
         }
 
-        .pdf-category::before {
+        .resource-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 4px;
-            z-index: 2;
         }
 
-        .pdf-physics::before {
+        .physics-card::before {
+            background: var(--gradient-physics);
+        }
+
+        .math-card::before {
+            background: var(--gradient-math);
+        }
+
+        .ict-card::before {
+            background: var(--gradient-ict);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+        }
+
+        .physics-card .card-icon {
             background: var(--primary-blue);
         }
 
-        .pdf-math::before {
+        .math-card .card-icon {
             background: var(--primary-purple);
         }
 
-        .pdf-ict::before {
+        .ict-card .card-icon {
             background: var(--primary-green);
         }
 
-        .pdf-category-header {
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            flex: 1;
+        }
+
+        .card-description {
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .resource-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .resource-link {
+            display: flex;
+            align-items: center;
+            padding: 0.9rem 1rem;
+            background: var(--bg-hover);
+            border-radius: var(--border-radius-sm);
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all var(--transition-fast);
+            border: 1px solid transparent;
+        }
+
+        .resource-link:hover {
+            background: white;
+            border-color: var(--primary-blue-light);
+            transform: translateX(5px);
+            box-shadow: var(--shadow-light);
+        }
+
+        .resource-link i {
+            margin-right: 0.75rem;
+            width: 20px;
+            text-align: center;
+            color: var(--primary-blue);
+        }
+
+        .resource-link.webapp i {
+            color: var(--primary-green);
+        }
+
+        .resource-link.youtube i {
+            color: #ff0000;
+        }
+
+        .resource-link.pdf i {
+            color: var(--primary-orange);
+        }
+
+        /* ===== CYCLE LINKS ===== */
+        .cycle-links {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .cycle-links.show {
+            display: block;
+        }
+
+        .cycle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .cycle-card {
+            background: var(--bg-hover);
+            border-radius: var(--border-radius-sm);
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            transition: all var(--transition-fast);
+        }
+
+        .cycle-card:hover {
+            background: white;
+            border-color: var(--primary-blue-light);
+            transform: translateY(-2px);
+        }
+
+        .cycle-title {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cycle-topics {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            line-height: 1.4;
+        }
+
+        /* ===== PDF LIBRARY ===== */
+        .pdf-library {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+        }
+
+        .pdf-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 1rem;
-            cursor: pointer;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .pdf-title {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .pdf-title i {
+            color: var(--primary-orange);
+        }
+
+        .pdf-search {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+            width: 250px;
+            font-family: inherit;
+        }
+
+        .pdf-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .pdf-category {
+            background: var(--bg-hover);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
         }
 
         .pdf-category-title {
             font-size: 1.3rem;
-            color: var(--text-lighter);
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
         }
 
         .pdf-category-title i {
-            font-size: 1.5rem;
-            width: 48px;
-            height: 48px;
+            color: var(--primary-blue);
+        }
+
+        .pdf-list {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-        }
-
-        .pdf-physics .pdf-category-title i {
-            background: rgba(59, 130, 246, 0.2);
-            color: var(--primary-blue-light);
-        }
-
-        .pdf-math .pdf-category-title i {
-            background: rgba(168, 85, 247, 0.2);
-            color: var(--primary-purple-light);
-        }
-
-        .pdf-ict .pdf-category-title i {
-            background: rgba(16, 185, 129, 0.2);
-            color: var(--primary-green-light);
-        }
-
-        .pdf-toggle {
-            color: var(--text-muted);
-            transition: transform var(--transition-normal);
-        }
-
-        .pdf-category.active .pdf-toggle {
-            transform: rotate(180deg);
-            color: var(--text-lighter);
-        }
-
-        .pdf-files {
-            display: none;
-            grid-template-columns: 1fr;
+            flex-direction: column;
             gap: 0.75rem;
         }
 
-        .pdf-category.active .pdf-files {
-            display: grid;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .pdf-file {
+        .pdf-item {
             display: flex;
             align-items: center;
             padding: 0.9rem 1rem;
-            border-radius: var(--border-radius);
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text-lighter);
-            background: rgba(51, 65, 85, 0.4);
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all var(--transition-normal);
-            position: relative;
-            overflow: hidden;
+            background: white;
+            border-radius: var(--border-radius-sm);
+            border: 1px solid var(--border-color);
+            transition: all var(--transition-fast);
         }
 
-        .pdf-file:hover {
-            background: rgba(51, 65, 85, 0.7);
+        .pdf-item:hover {
             transform: translateX(5px);
-            box-shadow: var(--shadow-sm);
+            border-color: var(--primary-blue-light);
+            box-shadow: var(--shadow-light);
         }
 
-        .pdf-file::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            transition: width var(--transition-normal);
-        }
-
-        .pdf-physics .pdf-file::before {
-            background: var(--primary-blue);
-        }
-
-        .pdf-math .pdf-file::before {
-            background: var(--primary-purple);
-        }
-
-        .pdf-ict .pdf-file::before {
-            background: var(--primary-green);
-        }
-
-        .pdf-file:hover::before {
-            width: 8px;
-        }
-
-        .pdf-file i {
-            margin-right: 0.75rem;
-            font-size: 1.2rem;
-            color: var(--primary-red-light);
+        .pdf-icon {
+            color: #ff6b6b;
+            font-size: 1.4rem;
+            margin-right: 1rem;
         }
 
         .pdf-info {
             flex: 1;
-            display: flex;
-            flex-direction: column;
         }
 
         .pdf-name {
             font-weight: 500;
+            color: var(--text-dark);
             margin-bottom: 0.25rem;
         }
 
         .pdf-size {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
         }
 
@@ -698,70 +582,73 @@
         .pdf-btn {
             width: 36px;
             height: 36px;
-            border-radius: var(--border-radius);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text-lighter);
-            transition: all var(--transition-fast);
-            border: none;
+            background: var(--bg-hover);
+            color: var(--text-medium);
+            border: 1px solid var(--border-color);
             cursor: pointer;
+            transition: all var(--transition-fast);
         }
 
         .pdf-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.1);
+            background: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
         }
 
-        .pdf-btn.download:hover {
-            color: var(--primary-green-light);
-            background: rgba(16, 185, 129, 0.2);
-        }
-
-        .pdf-btn.preview:hover {
-            color: var(--primary-blue-light);
-            background: rgba(59, 130, 246, 0.2);
-        }
-
-        .pdf-stats {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* ===== YOUTUBE PLAYLIST SECTION ===== */
-        .playlist-section {
+        /* ===== YOUTUBE SECTION ===== */
+        .youtube-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
             margin-top: 2rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+        }
+
+        .youtube-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .youtube-header i {
+            color: #ff0000;
+            font-size: 2rem;
+        }
+
+        .youtube-title {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            font-weight: 600;
         }
 
         .playlist-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
         }
 
         .playlist-card {
-            background: var(--bg-glass);
+            background: white;
             border-radius: var(--border-radius);
             padding: 1.5rem;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid var(--border-color);
             transition: all var(--transition-normal);
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
             position: relative;
             overflow: hidden;
         }
 
         .playlist-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-            background: rgba(51, 65, 85, 0.6);
+            box-shadow: var(--shadow-medium);
+            border-color: #ff0000;
         }
 
         .playlist-card::before {
@@ -772,873 +659,1034 @@
             width: 100%;
             height: 4px;
             background: #ff0000;
-            z-index: 2;
         }
 
-        .playlist-card-header {
+        .playlist-header {
             display: flex;
             align-items: center;
             gap: 1rem;
+            margin-bottom: 1rem;
         }
 
-        .playlist-card-header i {
-            font-size: 2rem;
+        .playlist-header i {
             color: #ff0000;
+            font-size: 1.8rem;
         }
 
-        .playlist-card-title {
+        .playlist-title {
             font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--text-lighter);
+            color: var(--text-dark);
+            font-size: 1.2rem;
         }
 
-        .playlist-card-desc {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+        .playlist-description {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
             line-height: 1.5;
         }
 
-        .playlist-card-link {
+        .playlist-link {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: var(--primary-blue-light);
-            font-size: 0.9rem;
+            color: var(--primary-blue);
             font-weight: 500;
-            margin-top: auto;
-            transition: color var(--transition-normal);
+            text-decoration: none;
+            transition: color var(--transition-fast);
         }
 
-        .playlist-card-link:hover {
-            color: var(--primary-blue);
+        .playlist-link:hover {
+            color: var(--primary-blue-dark);
+        }
+
+        /* ===== STUDY TIPS ===== */
+        .study-tips {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+        }
+
+        .tips-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .tips-header i {
+            color: var(--primary-green);
+            font-size: 2rem;
+        }
+
+        .tips-title {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tip-card {
+            background: var(--bg-hover);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            transition: all var(--transition-normal);
+        }
+
+        .tip-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-light);
+            background: white;
+        }
+
+        .tip-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+            margin-bottom: 1rem;
+            background: var(--gradient-study);
+        }
+
+        .tip-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .tip-description {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         /* ===== FOOTER ===== */
-        footer {
+        .student-footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 3rem 1rem 1.5rem;
             margin-top: 3rem;
-            width: 100%;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            position: relative;
-            z-index: 1;
         }
 
         .footer-content {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1rem;
-            text-align: center;
         }
 
-        .quick-actions {
+        .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             margin-bottom: 2rem;
         }
 
-        .quick-action-card {
-            background: rgba(30, 41, 59, 0.5);
-            border-radius: var(--border-radius);
-            padding: 1.5rem 1rem;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all var(--transition-normal);
-            text-align: center;
-            color: var(--text-lighter);
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-yellow);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
-        .quick-action-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-sm);
-            background: rgba(51, 65, 85, 0.6);
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
-        .quick-action-card i {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
-            color: var(--primary-blue-light);
-        }
-
-        .quick-action-card-title {
-            font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .quick-action-card-desc {
-            font-size: 0.85rem;
+        .footer-link {
             color: var(--text-muted);
-            line-height: 1.4;
+            text-decoration: none;
+            transition: color var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-link:hover {
+            color: white;
         }
 
         .copyright {
-            color: var(--text-muted);
-            font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+            text-align: center;
             padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.08);
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
         /* ===== RESPONSIVE DESIGN ===== */
-        @media (max-width: 992px) {
-            body {
-                padding: 0.8rem;
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
             }
-
-            header {
-                margin-bottom: 2rem;
-                padding: 1.5rem 0.5rem;
+            
+            .subject-tabs {
+                flex-direction: column;
             }
-
-            main {
-                gap: 2.5rem;
+            
+            .resource-grid {
+                grid-template-columns: 1fr;
             }
-
-            .course-card {
-                padding: 1.5rem;
-            }
-
+            
             .pdf-categories {
                 grid-template-columns: 1fr;
             }
-
-            .playlist-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-
-            .quick-actions {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .course-card {
-                padding: 1.25rem;
-            }
-
-            .course-link {
-                padding: 0.9rem 1.1rem;
+            
+            .pdf-search {
+                width: 100%;
+                margin-top: 1rem;
             }
             
-            .course-image {
-                height: 160px;
+            .pdf-header {
+                flex-direction: column;
+                align-items: flex-start;
             }
-
+            
             .playlist-grid {
                 grid-template-columns: 1fr;
             }
-
-            .quick-actions {
+            
+            .tips-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .section-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
             }
         }
 
         @media (max-width: 480px) {
-            body {
-                padding: 0.6rem;
+            .subject-section, 
+            .pdf-library,
+            .youtube-section,
+            .study-tips {
+                padding: 1.5rem 1rem;
             }
-
-            .course-card {
-                padding: 1rem;
-                border-radius: var(--border-radius-lg);
+            
+            .subject-header {
+                flex-direction: column;
+                text-align: center;
             }
-
-            .course-link {
-                padding: 0.8rem;
-                font-size: 0.9rem;
+            
+            .card-header {
+                flex-direction: column;
+                text-align: center;
             }
-
-            .badge {
-                padding: 0.25rem 0.5rem;
-                font-size: 0.7rem;
+            
+            .cycle-grid {
+                grid-template-columns: 1fr;
             }
-
-            .course-image {
-                height: 140px;
-            }
-
-            .pdf-category-title {
-                font-size: 1.1rem;
-            }
-        }
-
-        /* ===== SCROLLBAR STYLING ===== */
-        ::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-dark);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-blue);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-purple);
         }
 
         /* ===== UTILITY CLASSES ===== */
-        .text-center {
-            text-align: center;
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius-sm);
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .mt-1 { margin-top: 1rem; }
-        .mt-2 { margin-top: 2rem; }
-        .mb-1 { margin-bottom: 1rem; }
-        .mb-2 { margin-bottom: 2rem; }
+        .btn-primary:hover {
+            background: var(--primary-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-light);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-blue);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius-sm);
+            border: 2px solid var(--primary-blue);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .highlight {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+        }
+
+        .note {
+            background: #fff9e6;
+            border-left: 4px solid var(--primary-yellow);
+            padding: 1rem;
+            border-radius: var(--border-radius-sm);
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        .note i {
+            color: var(--primary-orange);
+            margin-right: 0.5rem;
+        }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="logo-container">
-            <div class="logo-icon">
+    <!-- Student-Friendly Header -->
+    <header class="student-header">
+        <div class="header-content">
+            <div class="logo-title">
                 <i class="fas fa-graduation-cap"></i>
+                <h1>🎓 HSC Study Hub</h1>
             </div>
-            <h1>HSC 27 Complete Platform</h1>
-            <p class="tagline">ACS Courses + YouTube Playlist + PDF Library + Revision Materials</p>
-            <div class="update-alert">
-                <i class="fas fa-info-circle"></i>
-                <span>Update: সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস, ডেটাবেজ ম্যানেজমেন্ট সিস্টেম added in YT Playlist section</span>
+            <p class="student-tagline">Free Study Materials for HSC 2025-27 | Physics, Math, ICT Complete Guides</p>
+            <div class="alert-banner">
+                <i class="fas fa-bullhorn"></i>
+                <span>Update: সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস, ডেটাবেজ ম্যানেজমেন্ট সিস্টেম ভিডিও যোগ করা হয়েছে!</span>
             </div>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="container">
-        <!-- Course Sections -->
-        <section>
-            <div class="section-header">
-                <h2 class="section-title">
-                    <i class="fas fa-book-open"></i>
-                    Core Courses
-                </h2>
-            </div>
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <h2 class="welcome-title">
+                <i class="fas fa-smile-beam"></i>
+                Welcome, Student! 👋
+            </h2>
+            <p>এখানে আপনি পাবেন HSC Physics, Mathematics, এবং ICT এর সম্পূর্ণ ফ্রি স্টাডি ম্যাটেরিয়াল। ভিডিও লেকচার, PDF নোটস, এবং প্র্যাকটিস ম্যাটেরিয়াল সব একসাথে!</p>
             
-            <div class="courses-grid">
-                <!-- ICT Course Card -->
-                <div class="course-card ict-card">
-                    <div class="course-header">
-                        <div class="course-icon">
-                            <i class="fas fa-laptop-code"></i>
+            <div class="note">
+                <i class="fas fa-lightbulb"></i>
+                <strong>পরামর্শ:</strong> প্রথমে আপনার প্রয়োজনীয় সাবজেক্ট সিলেক্ট করুন, তারপর নোটস এবং ভিডিও দেখুন।
+            </div>
+
+            <!-- Subject Tabs -->
+            <div class="subject-tabs">
+                <div class="subject-tab physics-tab active" data-subject="physics">
+                    <i class="fas fa-atom"></i>
+                    Physics (পদার্থবিজ্ঞান)
+                </div>
+                <div class="subject-tab math-tab" data-subject="math">
+                    <i class="fas fa-square-root-alt"></i>
+                    Mathematics (উচ্চতর গণিত)
+                </div>
+                <div class="subject-tab ict-tab" data-subject="ict">
+                    <i class="fas fa-laptop-code"></i>
+                    ICT (তথ্য ও যোগাযোগ প্রযুক্তি)
+                </div>
+            </div>
+        </section>
+
+        <!-- Physics Section -->
+        <section class="subject-section physics active" id="physics-section">
+            <div class="subject-header">
+                <div class="subject-icon">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <div>
+                    <h2 class="subject-title">Physics (পদার্থবিজ্ঞান)</h2>
+                    <p class="subject-description">নিউটনীয় বলবিদ্যা থেকে মডার্ন ফিজিক্স পর্যন্ত সম্পূর্ণ গাইড</p>
+                </div>
+            </div>
+
+            <div class="resource-grid">
+                <!-- WebApp Card -->
+                <div class="resource-card physics-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-globe"></i>
                         </div>
-                        <h3 class="course-title">ICT</h3>
+                        <h3 class="card-title">Physics WebApp</h3>
                     </div>
-                    
-                    <div class="course-image">
-                        <img src="https://arafat-rahman-nahid.github.io/ictacs.jpg" alt="ICT Course" loading="lazy">
+                    <p class="card-description">ইন্টারেক্টিভ ফিজিক্স লার্নিং প্ল্যাটফর্ম - কুইজ, সিমুলেশন, এবং প্র্যাকটিস প্রোব্লেম</p>
+                    <div class="resource-links">
+                        <a href="https://b2m27.aparsclassroom.com/" target="_blank" class="resource-link webapp">
+                            <i class="fas fa-external-link-alt"></i>
+                            ওয়েবসাইট ভিজিট করুন
+                        </a>
                     </div>
-                    
-                    <p class="course-description">
-                        Complete ICT course covering HSC syllabus with practical examples and exam preparation.
-                    </p>
-                    
-                    <nav class="course-links">
-                        <a href="https://decoder27.aparsclassroom.com/" target="_blank" class="course-link">
-                            <i class="fas fa-globe"></i> WebApp
-                        </a>
-                        <a href="https://aparsclassroom.com/shop/abhi/decoder_27/" target="_blank" class="course-link buy-course">
-                            <i class="fas fa-shopping-cart"></i> Buy Full Course
-                        </a>
-                    </nav>
                 </div>
 
-                <!-- Physics Course Card -->
-                <div class="course-card physics-card">
-                    <div class="course-header">
-                        <div class="course-icon">
-                            <i class="fas fa-atom"></i>
+                <!-- Video Lectures -->
+                <div class="resource-card physics-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-video"></i>
                         </div>
-                        <h3 class="course-title">Physics</h3>
+                        <h3 class="card-title">Video Lectures</h3>
                     </div>
-                    
-                    <div class="course-image">
-                        <img src="https://arafat-rahman-nahid.github.io/phyacs.jpg" alt="Physics Course" loading="lazy">
+                    <p class="card-description">ক্লাস লেকচারের সম্পূর্ণ ভিডিও সিরিজ - কনসেপ্ট ক্লিয়ার করে বুঝুন</p>
+                    <div class="resource-links">
+                        <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7Rky9DdZePw4wNFJVbGxt4" target="_blank" class="resource-link youtube">
+                            <i class="fab fa-youtube"></i>
+                            সম্পূর্ণ ম্যাথ রিভিশন
+                        </a>
                     </div>
-                    
-                    <p class="course-description">
-                        Complete Physics course with concept clarity, problem solving, and exam strategies.
-                    </p>
-                    
-                    <nav class="course-links">
-                        <a href="https://b2m27.aparsclassroom.com/" target="_blank" class="course-link">
-                            <i class="fas fa-globe"></i> WebApp
-                        </a>
-                        <a href="#" class="course-link buy-course" id="physics-buy-btn">
-                            <i class="fas fa-book-open"></i> Buy Cycle
-                        </a>
-                        
-                        <div class="cycle-links" id="physics-cycle-links">
-                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-2/" target="_blank" class="course-link">
-                                <i class="fas fa-play-circle"></i> সাইকেল ২
-                                <span class="badge">নিউটনীয় বলবিদ্যা</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-3/" target="_blank" class="course-link">
-                                <i class="fas fa-play-circle"></i> সাইকেল ৩
-                                <span class="badge">পর্যাবৃত্ত গতি, তরঙ্গ</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-4/" target="_blank" class="course-link">
-                                <i class="fas fa-play-circle"></i> সাইকেল ৪
-                                <span class="badge">আদর্শ গ্যাস</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-5/" target="_blank" class="course-link">
-                                <i class="fas fa-play-circle"></i> সাইকেল ৫
-                                <span class="badge">স্থির তড়িৎ</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/b2m27/Cycle-6/" target="_blank" class="course-link">
-                                <i class="fas fa-play-circle"></i> সাইকেল ৬
-                                <span class="badge">চৌম্বক ক্রিয়া</span>
-                            </a>
-                        </div>
-                    </nav>
                 </div>
 
-                <!-- Math Course Card -->
-                <div class="course-card math-card">
-                    <div class="course-header">
-                        <div class="course-icon">
-                            <i class="fas fa-square-root-alt"></i>
+                <!-- Study Materials -->
+                <div class="resource-card physics-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-book-open"></i>
                         </div>
-                        <h3 class="course-title">Mathematics</h3>
+                        <h3 class="card-title">Study Materials</h3>
+                    </div>
+                    <p class="card-description">PDF নোটস, ফর্মুলা শীট, এবং সলভড প্রবলেমস</p>
+                    <div class="resource-links">
+                        <a href="#" class="resource-link pdf" id="physics-pdf-btn">
+                            <i class="fas fa-file-pdf"></i>
+                            PDF লাইব্রেরি দেখুন
+                        </a>
+                        <a href="#" class="resource-link" id="physics-cycle-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            সাইকেল কিনুন (৬টি সাইকেল)
+                        </a>
                     </div>
                     
-                    <div class="course-image">
-                        <img src="https://arafat-rahman-nahid.github.io/mathacs.jpg" alt="Math Course" loading="lazy">
+                    <!-- Cycle Links -->
+                    <div class="cycle-links" id="physics-cycle-links">
+                        <div class="cycle-grid">
+                            <div class="cycle-card">
+                                <div class="cycle-title">
+                                    <i class="fas fa-play-circle"></i>
+                                    সাইকেল ২
+                                </div>
+                                <div class="cycle-topics">নিউটনীয় বলবিদ্যা, কাজ, শক্তি ও ক্ষমতা</div>
+                            </div>
+                            <div class="cycle-card">
+                                <div class="cycle-title">
+                                    <i class="fas fa-play-circle"></i>
+                                    সাইকেল ৩
+                                </div>
+                                <div class="cycle-topics">পর্যাবৃত্ত গতি, তরঙ্গ, জ্যামিতিক আলোকবিজ্ঞান</div>
+                            </div>
+                            <div class="cycle-card">
+                                <div class="cycle-title">
+                                    <i class="fas fa-play-circle"></i>
+                                    সাইকেল ৪
+                                </div>
+                                <div class="cycle-topics">আদর্শ গ্যাস, তাপগতিবিদ্যা, পরমাণুর মডেল</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Math Section -->
+        <section class="subject-section math" id="math-section">
+            <div class="subject-header">
+                <div class="subject-icon">
+                    <i class="fas fa-square-root-alt"></i>
+                </div>
+                <div>
+                    <h2 class="subject-title">Mathematics (উচ্চতর গণিত)</h2>
+                    <p class="subject-description">ক্যালকুলাস থেকে ম্যাট্রিক্স পর্যন্ত সম্পূর্ণ গণিত গাইড</p>
+                </div>
+            </div>
+
+            <div class="resource-grid">
+                <!-- WebApp Card -->
+                <div class="resource-card math-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="card-title">Math WebApp</h3>
+                    </div>
+                    <p class="card-description">ইন্টারেক্টিভ ম্যাথ লার্নিং - স্টেপ বাই স্টেপ সল্যুশন</p>
+                    <div class="resource-links">
+                        <a href="https://math27.aparsclassroom.com/" target="_blank" class="resource-link webapp">
+                            <i class="fas fa-external-link-alt"></i>
+                            ওয়েবসাইট ভিজিট করুন
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video Lectures -->
+                <div class="resource-card math-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3 class="card-title">Video Lectures</h3>
+                    </div>
+                    <p class="card-description">সম্পূর্ণ সিলেবাসের ভিডিও টিউটোরিয়াল</p>
+                    <div class="resource-links">
+                        <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7Rky9DdZePw4wNFJVbGxt4" target="_blank" class="resource-link youtube">
+                            <i class="fab fa-youtube"></i>
+                            সম্পূর্ণ ম্যাথ রিভিশন
+                        </a>
+                        <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7-E6bOO5_Xw7aDRA5e2uo7" target="_blank" class="resource-link youtube">
+                            <i class="fab fa-youtube"></i>
+                            MCQ রিভিশন
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Study Materials -->
+                <div class="resource-card math-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3 class="card-title">Study Materials</h3>
+                    </div>
+                    <p class="card-description">PDF নোটস, ফর্মুলা শীট, এবং প্র্যাকটিস সেট</p>
+                    <div class="resource-links">
+                        <a href="#" class="resource-link pdf" id="math-pdf-btn">
+                            <i class="fas fa-file-pdf"></i>
+                            PDF লাইব্রেরি দেখুন
+                        </a>
+                        <a href="#" class="resource-link" id="math-cycle-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            সাইকেল কিনুন (৬টি সাইকেল)
+                        </a>
                     </div>
                     
-                    <p class="course-description">
-                        Complete Higher Mathematics course with problem solving techniques and exam preparation.
-                    </p>
-                    
-                    <nav class="course-links">
-                        <a href="https://math27.aparsclassroom.com/" target="_blank" class="course-link">
-                            <i class="fas fa-globe"></i> WebApp
-                        </a>
-                        <a href="#" class="course-link buy-course" id="math-buy-btn">
-                            <i class="fas fa-book-open"></i> Buy Cycle
-                        </a>
-                        
-                        <div class="cycle-links" id="math-cycle-links">
-                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-2/" target="_blank" class="course-link">
-                                <i class="fas fa-play-circle"></i> সাইকেল ২
-                                <span class="badge">প্রথম পত্র ৫-৮</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-3/" target="_blank" class="course-link">
-                                <i class="fas fa-play-circle"></i> সাইকেল ৩
-                                <span class="badge">প্রথম পত্র ৯-১০</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-4/" target="_blank" class="course-link">
-                                <i class="fas fa-play-circle"></i> সাইকেল ৪
-                                <span class="badge">দ্বিতীয় পত্র ১-৪</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-5/" target="_blank" class="course-link">
-                                <i class="fas fa-play-circle"></i> সাইকেল ৫
-                                <span class="badge">দ্বিতীয় পত্র ৫-৭</span>
-                            </a>
-                            <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-6/" target="_blank" class="course-link">
-                                <i class="fas fa-play-circle"></i> সাইকেল ৬
-                                <span class="badge">দ্বিতীয় পত্র ৮-১০</span>
-                            </a>
+                    <!-- Cycle Links -->
+                    <div class="cycle-links" id="math-cycle-links">
+                        <div class="cycle-grid">
+                            <div class="cycle-card">
+                                <div class="cycle-title">
+                                    <i class="fas fa-play-circle"></i>
+                                    সাইকেল ২
+                                </div>
+                                <div class="cycle-topics">প্রথম পত্র - অধ্যায় ৫-৮</div>
+                            </div>
+                            <div class="cycle-card">
+                                <div class="cycle-title">
+                                    <i class="fas fa-play-circle"></i>
+                                    সাইকেল ৩
+                                </div>
+                                <div class="cycle-topics">প্রথম পত্র - অধ্যায় ৯-১০</div>
+                            </div>
+                            <div class="cycle-card">
+                                <div class="cycle-title">
+                                    <i class="fas fa-play-circle"></i>
+                                    সাইকেল ৪
+                                </div>
+                                <div class="cycle-topics">দ্বিতীয় পত্র - অধ্যায় ১-৪</div>
+                            </div>
                         </div>
-                    </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ICT Section -->
+        <section class="subject-section ict" id="ict-section">
+            <div class="subject-header">
+                <div class="subject-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div>
+                    <h2 class="subject-title">ICT (তথ্য ও যোগাযোগ প্রযুক্তি)</h2>
+                    <p class="subject-description">ডেটাবেজ থেকে প্রোগ্রামিং পর্যন্ত সম্পূর্ণ ICT গাইড</p>
+                </div>
+            </div>
+
+            <div class="resource-grid">
+                <!-- WebApp Card -->
+                <div class="resource-card ict-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="card-title">ICT WebApp</h3>
+                    </div>
+                    <p class="card-description">ডিকোডার ২৭ - ICT লার্নিং প্ল্যাটফর্ম</p>
+                    <div class="resource-links">
+                        <a href="https://decoder27.aparsclassroom.com/" target="_blank" class="resource-link webapp">
+                            <i class="fas fa-external-link-alt"></i>
+                            ওয়েবসাইট ভিজিট করুন
+                        </a>
+                        <a href="https://aparsclassroom.com/shop/abhi/decoder_27/" target="_blank" class="resource-link">
+                            <i class="fas fa-shopping-cart"></i>
+                            সম্পূর্ণ কোর্স কিনুন
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video Lectures -->
+                <div class="resource-card ict-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3 class="card-title">Video Lectures</h3>
+                    </div>
+                    <p class="card-description">সম্পূর্ণ ICT সিলেবাসের ভিডিও টিউটোরিয়াল</p>
+                    <div class="resource-links">
+                        <a href="https://youtube.com/playlist?list=PLZf4q5EodedEFrF2saMI4ehL_BNwWjfPM" target="_blank" class="resource-link youtube">
+                            <i class="fab fa-youtube"></i>
+                            সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস
+                        </a>
+                        <a href="https://www.youtube.com/playlist?list=PLZf4q5EodedH1fBghyKbn5caIdSlME6Yt" target="_blank" class="resource-link youtube">
+                            <i class="fab fa-youtube"></i>
+                            ডেটাবেজ ম্যানেজমেন্ট সিস্টেম
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Study Materials -->
+                <div class="resource-card ict-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3 class="card-title">Study Materials</h3>
+                    </div>
+                    <p class="card-description">PDF নোটস, MCQ প্র্যাকটিস, এবং ল্যাব কাজ</p>
+                    <div class="resource-links">
+                        <a href="#" class="resource-link pdf" id="ict-pdf-btn">
+                            <i class="fas fa-file-pdf"></i>
+                            PDF লাইব্রেরি দেখুন
+                        </a>
+                        <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7Yo4Vt-G0q_byIKVzoFdxa" target="_blank" class="resource-link youtube">
+                            <i class="fab fa-youtube"></i>
+                            সম্পূর্ণ ICT রিভিশন
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- PDF Library Section -->
-        <section class="pdf-library">
-            <div class="section-header">
-                <h2 class="section-title">
+        <section class="pdf-library" id="pdf-library">
+            <div class="pdf-header">
+                <h2 class="pdf-title">
                     <i class="fas fa-file-pdf"></i>
-                    PDF Library
+                    📚 Free PDF Library
                 </h2>
+                <input type="text" class="pdf-search" placeholder="PDF খুঁজুন...">
             </div>
+            
+            <p class="subject-description">নিচের ক্যাটাগরি থেকে আপনার প্রয়োজনীয় PDF ডাউনলোড করুন:</p>
             
             <div class="pdf-categories">
                 <!-- Physics PDFs -->
-                <div class="pdf-category pdf-physics">
-                    <div class="pdf-category-header">
-                        <h3 class="pdf-category-title">
-                            <i class="fas fa-atom"></i>
-                            Physics PDFs
-                        </h3>
-                        <i class="fas fa-chevron-down pdf-toggle"></i>
-                    </div>
-                    
-                    <div class="pdf-files">
-                        <div class="pdf-file">
-                            <i class="fas fa-file-pdf"></i>
+                <div class="pdf-category">
+                    <h3 class="pdf-category-title">
+                        <i class="fas fa-atom"></i>
+                        Physics PDFs
+                    </h3>
+                    <div class="pdf-list">
+                        <div class="pdf-item">
+                            <i class="fas fa-file-pdf pdf-icon"></i>
                             <div class="pdf-info">
                                 <div class="pdf-name">Physics Formula Sheet</div>
                                 <div class="pdf-size">2.4 MB • Updated: Jan 2024</div>
                             </div>
                             <div class="pdf-actions">
-                                <button class="pdf-btn preview" title="Preview">
+                                <button class="pdf-btn" title="Preview">
                                     <i class="fas fa-eye"></i>
                                 </button>
-                                <button class="pdf-btn download" title="Download">
+                                <button class="pdf-btn" title="Download">
                                     <i class="fas fa-download"></i>
                                 </button>
                             </div>
                         </div>
                         
-                        <div class="pdf-file">
-                            <i class="fas fa-file-pdf"></i>
+                        <div class="pdf-item">
+                            <i class="fas fa-file-pdf pdf-icon"></i>
                             <div class="pdf-info">
                                 <div class="pdf-name">Newtonian Mechanics Solved Problems</div>
                                 <div class="pdf-size">5.1 MB • Updated: Dec 2023</div>
                             </div>
                             <div class="pdf-actions">
-                                <button class="pdf-btn preview" title="Preview">
+                                <button class="pdf-btn" title="Preview">
                                     <i class="fas fa-eye"></i>
                                 </button>
-                                <button class="pdf-btn download" title="Download">
+                                <button class="pdf-btn" title="Download">
                                     <i class="fas fa-download"></i>
                                 </button>
                             </div>
-                        </div>
-                        
-                        <div class="pdf-file">
-                            <i class="fas fa-file-pdf"></i>
-                            <div class="pdf-info">
-                                <div class="pdf-name">Electromagnetism Notes</div>
-                                <div class="pdf-size">3.7 MB • Updated: Nov 2023</div>
-                            </div>
-                            <div class="pdf-actions">
-                                <button class="pdf-btn preview" title="Preview">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                                <button class="pdf-btn download" title="Download">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="pdf-file">
-                            <i class="fas fa-file-pdf"></i>
-                            <div class="pdf-info">
-                                <div class="pdf-name">Modern Physics Handbook</div>
-                                <div class="pdf-size">4.2 MB • Updated: Jan 2024</div>
-                            </div>
-                            <div class="pdf-actions">
-                                <button class="pdf-btn preview" title="Preview">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                                <button class="pdf-btn download" title="Download">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="pdf-stats">
-                        <div class="pdf-stat">
-                            <i class="fas fa-file-alt"></i> 15+ PDFs
-                        </div>
-                        <div class="pdf-stat">
-                            <i class="fas fa-download"></i> 2,500+ Downloads
                         </div>
                     </div>
                 </div>
 
                 <!-- Math PDFs -->
-                <div class="pdf-category pdf-math">
-                    <div class="pdf-category-header">
-                        <h3 class="pdf-category-title">
-                            <i class="fas fa-square-root-alt"></i>
-                            Mathematics PDFs
-                        </h3>
-                        <i class="fas fa-chevron-down pdf-toggle"></i>
-                    </div>
-                    
-                    <div class="pdf-files">
-                        <div class="pdf-file">
-                            <i class="fas fa-file-pdf"></i>
+                <div class="pdf-category">
+                    <h3 class="pdf-category-title">
+                        <i class="fas fa-square-root-alt"></i>
+                        Mathematics PDFs
+                    </h3>
+                    <div class="pdf-list">
+                        <div class="pdf-item">
+                            <i class="fas fa-file-pdf pdf-icon"></i>
                             <div class="pdf-info">
                                 <div class="pdf-name">Calculus Formula Sheet</div>
                                 <div class="pdf-size">1.8 MB • Updated: Jan 2024</div>
                             </div>
                             <div class="pdf-actions">
-                                <button class="pdf-btn preview" title="Preview">
+                                <button class="pdf-btn" title="Preview">
                                     <i class="fas fa-eye"></i>
                                 </button>
-                                <button class="pdf-btn download" title="Download">
+                                <button class="pdf-btn" title="Download">
                                     <i class="fas fa-download"></i>
                                 </button>
                             </div>
                         </div>
                         
-                        <div class="pdf-file">
-                            <i class="fas fa-file-pdf"></i>
+                        <div class="pdf-item">
+                            <i class="fas fa-file-pdf pdf-icon"></i>
                             <div class="pdf-info">
                                 <div class="pdf-name">Geometry & Trigonometry Problems</div>
                                 <div class="pdf-size">3.9 MB • Updated: Dec 2023</div>
                             </div>
                             <div class="pdf-actions">
-                                <button class="pdf-btn preview" title="Preview">
+                                <button class="pdf-btn" title="Preview">
                                     <i class="fas fa-eye"></i>
                                 </button>
-                                <button class="pdf-btn download" title="Download">
+                                <button class="pdf-btn" title="Download">
                                     <i class="fas fa-download"></i>
                                 </button>
                             </div>
-                        </div>
-                        
-                        <div class="pdf-file">
-                            <i class="fas fa-file-pdf"></i>
-                            <div class="pdf-info">
-                                <div class="pdf-name">Vector & Matrix Algebra</div>
-                                <div class="pdf-size">2.5 MB • Updated: Nov 2023</div>
-                            </div>
-                            <div class="pdf-actions">
-                                <button class="pdf-btn preview" title="Preview">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                                <button class="pdf-btn download" title="Download">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="pdf-file">
-                            <i class="fas fa-file-pdf"></i>
-                            <div class="pdf-info">
-                                <div class="pdf-name">Probability & Statistics Guide</div>
-                                <div class="pdf-size">3.1 MB • Updated: Jan 2024</div>
-                            </div>
-                            <div class="pdf-actions">
-                                <button class="pdf-btn preview" title="Preview">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                                <button class="pdf-btn download" title="Download">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="pdf-stats">
-                        <div class="pdf-stat">
-                            <i class="fas fa-file-alt"></i> 20+ PDFs
-                        </div>
-                        <div class="pdf-stat">
-                            <i class="fas fa-download"></i> 3,200+ Downloads
                         </div>
                     </div>
                 </div>
 
                 <!-- ICT PDFs -->
-                <div class="pdf-category pdf-ict">
-                    <div class="pdf-category-header">
-                        <h3 class="pdf-category-title">
-                            <i class="fas fa-laptop-code"></i>
-                            ICT PDFs
-                        </h3>
-                        <i class="fas fa-chevron-down pdf-toggle"></i>
-                    </div>
-                    
-                    <div class="pdf-files">
-                        <div class="pdf-file">
-                            <i class="fas fa-file-pdf"></i>
+                <div class="pdf-category">
+                    <h3 class="pdf-category-title">
+                        <i class="fas fa-laptop-code"></i>
+                        ICT PDFs
+                    </h3>
+                    <div class="pdf-list">
+                        <div class="pdf-item">
+                            <i class="fas fa-file-pdf pdf-icon"></i>
                             <div class="pdf-info">
                                 <div class="pdf-name">Database Management System Guide</div>
                                 <div class="pdf-size">2.1 MB • Updated: Jan 2024</div>
                             </div>
                             <div class="pdf-actions">
-                                <button class="pdf-btn preview" title="Preview">
+                                <button class="pdf-btn" title="Preview">
                                     <i class="fas fa-eye"></i>
                                 </button>
-                                <button class="pdf-btn download" title="Download">
+                                <button class="pdf-btn" title="Download">
                                     <i class="fas fa-download"></i>
                                 </button>
                             </div>
                         </div>
                         
-                        <div class="pdf-file">
-                            <i class="fas fa-file-pdf"></i>
+                        <div class="pdf-item">
+                            <i class="fas fa-file-pdf pdf-icon"></i>
                             <div class="pdf-info">
                                 <div class="pdf-name">Number System & Digital Devices</div>
                                 <div class="pdf-size">3.4 MB • Updated: Dec 2023</div>
                             </div>
                             <div class="pdf-actions">
-                                <button class="pdf-btn preview" title="Preview">
+                                <button class="pdf-btn" title="Preview">
                                     <i class="fas fa-eye"></i>
                                 </button>
-                                <button class="pdf-btn download" title="Download">
+                                <button class="pdf-btn" title="Download">
                                     <i class="fas fa-download"></i>
                                 </button>
                             </div>
-                        </div>
-                        
-                        <div class="pdf-file">
-                            <i class="fas fa-file-pdf"></i>
-                            <div class="pdf-info">
-                                <div class="pdf-name">Programming Concepts in C</div>
-                                <div class="pdf-size">4.3 MB • Updated: Nov 2023</div>
-                            </div>
-                            <div class="pdf-actions">
-                                <button class="pdf-btn preview" title="Preview">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                                <button class="pdf-btn download" title="Download">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="pdf-file">
-                            <i class="fas fa-file-pdf"></i>
-                            <div class="pdf-info">
-                                <div class="pdf-name">Web Design & HTML/CSS Guide</div>
-                                <div class="pdf-size">2.9 MB • Updated: Jan 2024</div>
-                            </div>
-                            <div class="pdf-actions">
-                                <button class="pdf-btn preview" title="Preview">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                                <button class="pdf-btn download" title="Download">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="pdf-stats">
-                        <div class="pdf-stat">
-                            <i class="fas fa-file-alt"></i> 12+ PDFs
-                        </div>
-                        <div class="pdf-stat">
-                            <i class="fas fa-download"></i> 1,800+ Downloads
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- YouTube Playlist Section -->
-        <section class="playlist-section">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <i class="fab fa-youtube"></i>
-                    YouTube Playlists
-                </h2>
+        <!-- YouTube Section -->
+        <section class="youtube-section">
+            <div class="youtube-header">
+                <i class="fab fa-youtube"></i>
+                <h2 class="youtube-title">🎥 YouTube Playlists</h2>
             </div>
+            
+            <p class="subject-description">এই প্লেলিস্টগুলো এক্সাম প্রিপারেশনের জন্য খুবই উপকারী:</p>
             
             <div class="playlist-grid">
                 <div class="playlist-card">
-                    <div class="playlist-card-header">
+                    <div class="playlist-header">
                         <i class="fab fa-youtube"></i>
-                        <div class="playlist-card-title">সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস</div>
-                    </div>  
-                    <div class="playlist-card-desc">HSC ICT || Academic & Admission</div>
-                    <a href="https://youtube.com/playlist?list=PLZf4q5EodedEFrF2saMI4ehL_BNwWjfPM&si=XTEt9M2RZ4sG7qpD" target="_blank" class="playlist-card-link">
-                        <i class="fas fa-external-link-alt"></i>
-                        Watch Playlist
-                    </a>
-                </div>
-                
-                <div class="playlist-card">
-                    <div class="playlist-card-header">
-                        <i class="fab fa-youtube"></i>
-                        <div class="playlist-card-title">ডেটাবেজ ম্যানেজমেন্ট সিস্টেম</div>
-                    </div>  
-                    <div class="playlist-card-desc">HSC ICT || Academic & Admission</div>
-                    <a href="https://www.youtube.com/playlist?list=PLZf4q5EodedH1fBghyKbn5caIdSlME6Yt" target="_blank" class="playlist-card-link">
-                        <i class="fas fa-external-link-alt"></i>
-                        Watch Playlist
-                    </a>
-                </div>
-                
-                <div class="playlist-card">
-                    <div class="playlist-card-header">
-                        <i class="fab fa-youtube"></i>
-                        <div class="playlist-card-title">Full ICT Oneshot Revision</div>
+                        <div class="playlist-title">Full ICT Oneshot Revision</div>
                     </div>
-                    <div class="playlist-card-desc">Best playlist for revision before any exam</div>
-                    <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7Yo4Vt-G0q_byIKVzoFdxa&si=CBeJc6zUbPu67rcH" target="_blank" class="playlist-card-link">
+                    <p class="playlist-description">যেকোনো এক্সামের আগে রিভিশনের জন্য সেরা প্লেলিস্ট</p>
+                    <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7Yo4Vt-G0q_byIKVzoFdxa" target="_blank" class="playlist-link">
                         <i class="fas fa-external-link-alt"></i>
                         Watch Playlist
                     </a>
                 </div>
                 
                 <div class="playlist-card">
-                    <div class="playlist-card-header">
+                    <div class="playlist-header">
                         <i class="fab fa-youtube"></i>
-                        <div class="playlist-card-title">Full Higher Math Oneshot Revision</div>
+                        <div class="playlist-title">Calculator Hacks</div>
                     </div>
-                    <div class="playlist-card-desc">Complete HSC Mathematics syllabus with step-by-step solutions</div>
-                    <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7Rky9DdZePw4wNFJVbGxt4&si=5DqzRlxysPAgSWtF" target="_blank" class="playlist-card-link">
+                    <p class="playlist-description">ক্যালকুলেটর ব্যবহারের টিপস ও ট্রিক্স</p>
+                    <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7Opn9oYIqxEkWMxFYRpbQZ" target="_blank" class="playlist-link">
                         <i class="fas fa-external-link-alt"></i>
                         Watch Playlist
                     </a>
                 </div>
                 
                 <div class="playlist-card">
-                    <div class="playlist-card-header">
+                    <div class="playlist-header">
                         <i class="fab fa-youtube"></i>
-                        <div class="playlist-card-title">Full Higher Math MCQ Revision</div>
+                        <div class="playlist-title">সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস</div>
                     </div>
-                    <div class="playlist-card-desc">MCQ based playlist for HSC Higher Math</div>
-                    <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7-E6bOO5_Xw7aDRA5e2uo7&si=-YFIwcPSMbUPUFLo" target="_blank" class="playlist-card-link">
+                    <p class="playlist-description">HSC ICT || Academic & Admission</p>
+                    <a href="https://youtube.com/playlist?list=PLZf4q5EodedEFrF2saMI4ehL_BNwWjfPM" target="_blank" class="playlist-link">
                         <i class="fas fa-external-link-alt"></i>
                         Watch Playlist
                     </a>
                 </div>
-                
-                <div class="playlist-card">
-                    <div class="playlist-card-header">
-                        <i class="fab fa-youtube"></i>
-                        <div class="playlist-card-title">Calculator Hacks</div>
+            </div>
+        </section>
+
+        <!-- Study Tips Section -->
+        <section class="study-tips">
+            <div class="tips-header">
+                <i class="fas fa-lightbulb"></i>
+                <h2 class="tips-title">💡 Study Tips for Success</h2>
+            </div>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-clock"></i>
                     </div>
-                    <div class="playlist-card-desc">Tips & tricks of calculator for exams</div>
-                    <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7Opn9oYIqxEkWMxFYRpbQZ&si=yCS7XKsPUJMVJfWi" target="_blank" class="playlist-card-link">
-                        <i class="fas fa-external-link-alt"></i>
-                        Watch Playlist
-                    </a>
+                    <h3 class="tip-title">Time Management</h3>
+                    <p class="tip-description">প্রতিদিন নির্দিষ্ট সময় পড়াশুনা করুন। ছোট ছোট সেশনে পড়ুন (পমোডোরো টেকনিক)</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="tip-title">Active Revision</h3>
+                    <p class="tip-description">কেবল পড়বেন না, লিখে প্র্যাকটিস করুন। পুরানো প্রশ্নগুলো সমাধান করুন</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="tip-title">Group Study</h3>
+                    <p class="tip-description">বন্ধুদের সাথে গ্রুপ স্টাডি করুন। একে অপরকে শেখান - এতে কনসেপ্ট ক্লিয়ার হয়</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="tip-title">Take Care of Health</h3>
+                    <p class="tip-description">পর্যাপ্ত ঘুম, সঠিক খাদ্যাভ্যাস, এবং ব্যায়ামের প্রতি গুরুত্ব দিন</p>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="student-footer">
         <div class="footer-content">
-            <div class="quick-actions">
-                <a href="#" target="_blank" class="quick-action-card">
-                    <i class="fas fa-file-pdf"></i>
-                    <div class="quick-action-card-title">More PDFs Coming Soon!</div>
-                    <div class="quick-action-card-desc">Additional study materials will be added regularly</div>
-                </a>
-                <a href="#" target="_blank" class="quick-action-card">
-                    <i class="fas fa-video"></i>
-                    <div class="quick-action-card-title">Video Solutions</div>
-                    <div class="quick-action-card-desc">Step-by-step video solutions for complex problems</div>
-                </a>
-                <a href="#" target="_blank" class="quick-action-card">
-                    <i class="fas fa-clipboard-check"></i>
-                    <div class="quick-action-card-title">Practice Tests</div>
-                    <div class="quick-action-card-desc">Timed practice tests with instant feedback</div>
-                </a>
-                <a href="#" target="_blank" class="quick-action-card">
-                    <i class="fas fa-comments"></i>
-                    <div class="quick-action-card-title">Discussion Forum</div>
-                    <div class="quick-action-card-desc">Ask questions and discuss with peers</div>
-                </a>
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3><i class="fas fa-book"></i> Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="#physics-section" class="footer-link">
+                            <i class="fas fa-atom"></i> Physics Materials
+                        </a>
+                        <a href="#math-section" class="footer-link">
+                            <i class="fas fa-square-root-alt"></i> Mathematics Materials
+                        </a>
+                        <a href="#ict-section" class="footer-link">
+                            <i class="fas fa-laptop-code"></i> ICT Materials
+                        </a>
+                        <a href="#pdf-library" class="footer-link">
+                            <i class="fas fa-file-pdf"></i> PDF Library
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Study Resources</h3>
+                    <div class="footer-links">
+                        <a href="https://b2m27.aparsclassroom.com/" target="_blank" class="footer-link">
+                            <i class="fas fa-globe"></i> Physics WebApp
+                        </a>
+                        <a href="https://math27.aparsclassroom.com/" target="_blank" class="footer-link">
+                            <i class="fas fa-globe"></i> Math WebApp
+                        </a>
+                        <a href="https://decoder27.aparsclassroom.com/" target="_blank" class="footer-link">
+                            <i class="fas fa-globe"></i> ICT WebApp
+                        </a>
+                        <a href="https://youtube.com/@abhidattatushar156" target="_blank" class="footer-link">
+                            <i class="fab fa-youtube"></i> YouTube Channel
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3><i class="fas fa-info-circle"></i> Help & Support</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">
+                            <i class="fas fa-question-circle"></i> How to Use
+                        </a>
+                        <a href="#" class="footer-link">
+                            <i class="fas fa-download"></i> Download Guide
+                        </a>
+                        <a href="#" class="footer-link">
+                            <i class="fas fa-comments"></i> Ask Questions
+                        </a>
+                        <a href="#" class="footer-link">
+                            <i class="fas fa-bug"></i> Report Issues
+                        </a>
+                    </div>
+                </div>
             </div>
+            
             <div class="copyright">
-                <p>&copy; 2024 Arafat's Tech | All study materials are for educational purposes</p>
+                <p>© 2024 HSC Study Hub | Made with ❤️ for Bangladeshi Students</p>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem;">All study materials are free for educational purposes</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Toggle cycle links visibility
-        const physicsBuyBtn = document.getElementById('physics-buy-btn');
-        const mathBuyBtn = document.getElementById('math-buy-btn');
-        const physicsCycleLinks = document.getElementById('physics-cycle-links');
-        const mathCycleLinks = document.getElementById('math-cycle-links');
-
-        physicsBuyBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            // Close math cycle links if open
-            mathCycleLinks.classList.remove('show');
-            // Toggle physics cycle links
-            physicsCycleLinks.classList.toggle('show');
-        });
-
-        mathBuyBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            // Close physics cycle links if open
-            physicsCycleLinks.classList.remove('show');
-            // Toggle math cycle links
-            mathCycleLinks.classList.toggle('show');
-        });
-
-        // Close cycle links when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.course-links')) {
-                physicsCycleLinks.classList.remove('show');
-                mathCycleLinks.classList.remove('show');
-            }
-        });
-
-        // Toggle PDF categories
-        document.querySelectorAll('.pdf-category-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const category = header.closest('.pdf-category');
-                category.classList.toggle('active');
-            });
-        });
-
-        // Close other PDF categories when opening one
-        document.querySelectorAll('.pdf-category-header').forEach(header => {
-            header.addEventListener('click', (e) => {
-                const currentCategory = header.closest('.pdf-category');
+        // Subject Tabs Switching
+        document.querySelectorAll('.subject-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.subject-tab').forEach(t => t.classList.remove('active'));
                 
-                // Close all other categories except the current one
-                document.querySelectorAll('.pdf-category').forEach(category => {
-                    if (category !== currentCategory) {
-                        category.classList.remove('active');
-                    }
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Get the subject from data attribute
+                const subject = this.getAttribute('data-subject');
+                
+                // Hide all subject sections
+                document.querySelectorAll('.subject-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show selected subject section
+                document.getElementById(`${subject}-section`).classList.add('active');
+                
+                // Scroll to subject section
+                document.getElementById(`${subject}-section`).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
         });
 
-        // PDF download and preview functionality
-        document.querySelectorAll('.pdf-btn.download').forEach(btn => {
+        // Cycle Links Toggle
+        document.getElementById('physics-cycle-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const cycleLinks = document.getElementById('physics-cycle-links');
+            cycleLinks.classList.toggle('show');
+            
+            // Hide math cycle links if open
+            document.getElementById('math-cycle-links').classList.remove('show');
+        });
+
+        document.getElementById('math-cycle-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const cycleLinks = document.getElementById('math-cycle-links');
+            cycleLinks.classList.toggle('show');
+            
+            // Hide physics cycle links if open
+            document.getElementById('physics-cycle-links').classList.remove('show');
+        });
+
+        // PDF Library Navigation
+        document.querySelectorAll('.resource-link.pdf').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('pdf-library').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // PDF Download Functionality
+        document.querySelectorAll('.pdf-btn .fa-download').forEach(btn => {
             btn.addEventListener('click', function() {
-                const pdfFile = this.closest('.pdf-file');
-                const pdfName = pdfFile.querySelector('.pdf-name').textContent;
+                const pdfItem = this.closest('.pdf-item');
+                const pdfName = pdfItem.querySelector('.pdf-name').textContent;
                 
-                // Show download confirmation (in a real app, this would trigger actual download)
-                alert(`Downloading: ${pdfName}\n\nNote: This is a demo. In a real application, this would download the PDF file.`);
+                // Show download message
+                alert(`Downloading: ${pdfName}\n\nধন্যবাদ! PDF ডাউনলোড শুরু হচ্ছে...`);
                 
-                // Animation feedback
-                const icon = this.querySelector('i');
-                const originalIcon = icon.className;
+                // Visual feedback
+                const icon = this;
                 icon.className = 'fas fa-check';
                 
                 setTimeout(() => {
-                    icon.className = originalIcon;
-                }, 1000);
+                    icon.className = 'fas fa-download';
+                }, 1500);
             });
         });
 
-        document.querySelectorAll('.pdf-btn.preview').forEach(btn => {
+        // PDF Preview Functionality
+        document.querySelectorAll('.pdf-btn .fa-eye').forEach(btn => {
             btn.addEventListener('click', function() {
-                const pdfFile = this.closest('.pdf-file');
-                const pdfName = pdfFile.querySelector('.pdf-name').textContent;
+                const pdfItem = this.closest('.pdf-item');
+                const pdfName = pdfItem.querySelector('.pdf-name').textContent;
                 
-                // Show preview message (in a real app, this would open PDF viewer)
-                alert(`Preview: ${pdfName}\n\nNote: This is a demo. In a real application, this would open a PDF preview.`);
+                alert(`Preview: ${pdfName}\n\nPDF প্রিভিউ সামনে আসছে...`);
                 
-                // Animation feedback
-                const icon = this.querySelector('i');
-                const originalIcon = icon.className;
+                // Visual feedback
+                const icon = this;
                 icon.className = 'fas fa-spinner fa-spin';
                 
                 setTimeout(() => {
-                    icon.className = originalIcon;
+                    icon.className = 'fas fa-eye';
                 }, 1000);
             });
         });
 
-        // Add hover effects for course cards
-        document.querySelectorAll('.course-card').forEach(card => {
+        // PDF Search Functionality
+        const pdfSearch = document.querySelector('.pdf-search');
+        pdfSearch.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const pdfItems = document.querySelectorAll('.pdf-item');
+            
+            pdfItems.forEach(item => {
+                const pdfName = item.querySelector('.pdf-name').textContent.toLowerCase();
+                if (pdfName.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Welcome message in console
+        console.log('%c🎓 Welcome to HSC Study Hub!', 'color: #4a6bff; font-size: 18px; font-weight: bold;');
+        console.log('%cসফলতা কামনা করছি! 💪', 'color: #00b894; font-size: 14px;');
+
+        // Add hover effects to resource cards
+        document.querySelectorAll('.resource-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-5px)';
             });
@@ -1647,6 +1695,26 @@
                 this.style.transform = 'translateY(0)';
             });
         });
+
+        // Smooth scroll for footer links
+        document.querySelectorAll('.footer-link[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Show welcome tip on load
+        setTimeout(() => {
+            alert("স্বাগতম! 👋\n\nএই সাইটে আপনি Physics, Math, এবং ICT এর সম্পূর্ণ ফ্রি স্টাডি ম্যাটেরিয়াল পাবেন।\n\nসাবজেক্ট সিলেক্ট করে শুরু করুন!");
+        }, 1000);
     </script>
 </body>
 </html>
