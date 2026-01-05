@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="arafats tech,arafats,arnms,HSC physics,HSC math,Bangladesh education">
+    <meta name="description" content="Comprehensive HSC Physics and Mathematics course materials for SSC 25 and HSC 27 students in Bangladesh">
+    <meta name="author" content="arnms Network">
+    <title>HSC 27 | ICT, Physics & Math Complete Course (ACS)</title>
+    <link rel="icon" href="https://arafat-rahman-nahid.github.io/icon.png" type="image/png">
+    <meta property="og:image" content="/icon.png">
+    <meta property="og:url" content="https://arafat-rahman-nahid.github.io/s/acs-courses">
+    <meta property="og:type" content="website">
+
+    <!-- External Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==================== CSS Variables ==================== */
+        :root {
+            --primary-blue: #3b82f6;
+            --primary-blue-light: #60a5fa;
+            --primary-purple: #a855f7;
+            --primary-purple-light: #c084fc;
+            --primary-green: #10b981;
+            --primary-orange: #f59e0b;
+            --primary-orange-light: #fbbf24;
+            --primary-pink: #ec4899;
+            --primary-cyan: #06b6d4;
+            --primary-cyan-light: #22d3ee;
+            --primary-red: #ef4444;
+            
+            --gradient-blue-purple: linear-gradient(135deg, #3b82f6, #a855f7);
+            --gradient-purple-pink: linear-gradient(135deg, #a855f7, #ec4899);
+            --gradient-cyan-blue: linear-gradient(135deg, #06b6d4, #3b82f6);
+            --gradient-orange-red: linear-gradient(135deg, #f59e0b, #ef4444);
+            
+            --text-light: #f8fafc;
+            --text-lighter: rgba(248, 250, 252, 0.95);
+            --text-muted: #94a3b8;
+            --text-dark: #1e293b;
+            
+            --bg-dark: #0f172a;
+            --bg-darker: #020617;
+            --bg-darkest: #010712;
+            --bg-card: rgba(30, 41, 59, 0.8);
+            --bg-card-light: rgba(51, 65, 85, 0.6);
+            --bg-glass: rgba(15, 23, 42, 0.75);
+            
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.35);
+            --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+            
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            
+            --backdrop-blur: blur(16px) saturate(180%);
+            --transition: 0.3s ease;
+        }
+
+        body.light-mode {
+            --text-light: #1e293b;
+            --text-lighter: #334155;
+            --text-muted: #64748b;
+            --bg-darkest: #ffffff;
+            --bg-darker: #f1f5f9;
+            --bg-dark: #e2e8f0;
+            --bg-card: rgba(255, 255, 255, 0.9);
+            --bg-card-light: rgba(241, 245, 249, 0.8);
+            --bg-glass: rgba(255, 255, 255, 0.85);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', 'Poppins', sans-serif;
+            background: var(--bg-darkest);
+            color: var(--text-light);
+            line-height: 1.5;
+            overflow-x: hidden;
+            transition: background 0.3s ease;
+        }
+
+        /* ==================== Background ==================== */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .background-gradient {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(at 20% 30%, rgba(59, 130, 246, 0.12) 0px, transparent 50%),
+                radial-gradient(at 80% 70%, rgba(168, 85, 247, 0.12) 0px, transparent 50%);
+            animation: gradientShift 15s ease infinite;
+        }
+
+        body.light-mode .background-gradient {
+            background: 
+                radial-gradient(at 20% 30%, rgba(59, 130, 246, 0.06) 0px, transparent 50%),
+                radial-gradient(at 80% 70%, rgba(168, 85, 247, 0.06) 0px, transparent 50%);
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* ==================== Top Bar ==================== */
+        .top-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--bg-glass);
+            backdrop-filter: var(--backdrop-blur);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1rem;
+        }
+
+        .top-bar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.6rem 2.5rem 0.6rem 1rem;
+            background: var(--bg-card-light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            color: var(--text-light);
+            font-size: 0.9rem;
+            transition: all var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .top-bar-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .icon-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--bg-card-light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .icon-btn:hover {
+            background: var(--bg-card);
+            transform: scale(1.05);
+        }
+
+        .icon-btn.active {
+            background: var(--gradient-blue-purple);
+            color: white;
+        }
+
+        /* ==================== Quick Stats ==================== */
+        .quick-stats {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .stat-card {
+            background: var(--bg-glass);
+            backdrop-filter: var(--backdrop-blur);
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-blue-purple);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* ==================== Page Container ==================== */
+        .page-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem 1rem;
+        }
+
+        /* ==================== Header ==================== */
+        header {
+            text-align: center;
+            padding: 1.5rem 0 1rem;
+        }
+
+        .logo-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-blue-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        .logo-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        h1 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 0;
+        }
+
+        .tagline {
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            color: var(--primary-orange-light);
+            font-weight: 500;
+            margin: 0.5rem 0;
+        }
+
+        .update-badge {
+            display: inline-block;
+            background: var(--gradient-cyan-blue);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: var(--radius-lg);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* ==================== Course Grid ==================== */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-card {
+            background: var(--bg-glass);
+            backdrop-filter: var(--backdrop-blur);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all var(--transition);
+            position: relative;
+        }
+
+        .course-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+        }
+
+        .course-card.ict::before {
+            background: var(--gradient-cyan-blue);
+        }
+
+        .course-card.physics::before {
+            background: var(--gradient-blue-purple);
+        }
+
+        .course-card.maths::before {
+            background: var(--gradient-purple-pink);
+        }
+
+        .course-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1rem 0.75rem;
+        }
+
+        .course-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .ict .course-icon {
+            background: rgba(6, 182, 212, 0.2);
+            color: var(--primary-cyan-light);
+        }
+
+        .physics .course-icon {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary-blue-light);
+        }
+
+        .maths .course-icon {
+            background: rgba(168, 85, 247, 0.2);
+            color: var(--primary-purple-light);
+        }
+
+        .course-icon i {
+            font-size: 1.2rem;
+        }
+
+        .course-header h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-lighter);
+        }
+
+        .completion-badge {
+            margin-left: auto;
+            padding: 0.25rem 0.6rem;
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--primary-green);
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: none;
+        }
+
+        .completion-badge.active {
+            display: block;
+        }
+
+        .course-image {
+            width: 100%;
+            height: 140px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .course-card:hover .course-image img {
+            transform: scale(1.05);
+        }
+
+        .course-links {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .course-link {
+            display: flex;
+            align-items: center;
+            padding: 0.7rem 1rem;
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-lighter);
+            background: var(--bg-card-light);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all var(--transition);
+        }
+
+        .course-link:hover {
+            background: var(--bg-card);
+            transform: translateX(3px);
+        }
+
+        .course-link i {
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .buy-course {
+            background: var(--gradient-blue-purple);
+            color: white;
+            font-weight: 600;
+            border: none;
+        }
+
+        .buy-course:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(0) scale(1.02);
+        }
+
+        .badge {
+            margin-left: auto;
+            padding: 0.25rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .ict .badge {
+            background: rgba(6, 182, 212, 0.2);
+            color: var(--primary-cyan-light);
+        }
+
+        .physics .badge {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary-blue-light);
+        }
+
+        .maths .badge {
+            background: rgba(168, 85, 247, 0.2);
+            color: var(--primary-purple-light);
+        }
+
+        /* ==================== Cycle Links ==================== */
+        .cycle-links {
+            display: none;
+            gap: 0.6rem;
+        }
+
+        .cycle-links.show {
+            display: flex;
+            flex-direction: column;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cycle-link {
+            background: var(--bg-glass);
+            border-left: 3px solid var(--primary-blue);
+            font-size: 0.9rem;
+            padding: 0.6rem 0.9rem;
+        }
+
+        .cycle-link .badge {
+            font-size: 0.65rem;
+            white-space: normal;
+        }
+
+        /* ==================== YouTube Section ==================== */
+        .youtube-section {
+            margin-top: 1rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--bg-glass);
+            backdrop-filter: var(--backdrop-blur);
+            border-radius: var(--radius-lg);
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 0, 0, 0.2);
+            color: #ff0000;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-lighter);
+        }
+
+        .playlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .playlist-card {
+            background: var(--bg-glass);
+            backdrop-filter: var(--backdrop-blur);
+            border-radius: var(--radius-lg);
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 4px solid #ff0000;
+            transition: all var(--transition);
+        }
+
+        .playlist-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .playlist-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .playlist-header i {
+            font-size: 2rem;
+            color: #ff0000;
+        }
+
+        .playlist-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-lighter);
+            line-height: 1.3;
+        }
+
+        .playlist-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .playlist-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--primary-red);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all var(--transition);
+        }
+
+        .playlist-link:hover {
+            background: rgba(239, 68, 68, 0.2);
+            transform: translateX(3px);
+        }
+
+        /* ==================== Keyboard Shortcuts Modal ==================== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .modal-header h3 {
+            font-size: 1.3rem;
+            color: var(--text-light);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .close-btn:hover {
+            color: var(--primary-red);
+        }
+
+        .shortcut-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .shortcut-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            background: var(--bg-card-light);
+            border-radius: var(--radius-md);
+        }
+
+        .shortcut-key {
+            padding: 0.3rem 0.6rem;
+            background: var(--bg-darkest);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-blue-light);
+        }
+
+        /* ==================== Scroll to Top ==================== */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-blue-purple);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition);
+            box-shadow: var(--shadow-lg);
+            z-index: 99;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+        }
+
+        /* ==================== Scrollbar ==================== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            border-radius: 4px;
+        }
+
+        /* ==================== Responsive ==================== */
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-wrap: wrap;
+            }
+
+            .search-container {
+                order: 3;
+                width: 100%;
+                max-width: 100%;
+                margin-top: 0.5rem;
+            }
+
+            .quick-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+                padding: 0.75rem 1rem;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .playlist-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .scroll-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .stat-value {
+                font-size: 1.2rem;
+            }
+
+            .stat-label {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* ==================== Print Styles ==================== */
+        @media print {
+            .background-container,
+            .top-bar,
+            .scroll-top,
+            .quick-stats {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background -->
+    <div class="background-container">
+        <div class="background-gradient"></div>
+    </div>
+
+    <!-- Top Bar --><!--
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search courses, cycles, playlists... (Press / to focus)">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <div class="top-bar-actions">
+                <button class="icon-btn" id="themeToggle" title="Toggle Theme (T)">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="icon-btn" id="shortcutsBtn" title="Keyboard Shortcuts (?)">
+                    <i class="fas fa-keyboard"></i>
+                </button>
+                <button class="icon-btn" id="gridViewBtn" title="Toggle View (G)">
+                    <i class="fas fa-th"></i>
+                </button>
+            </div>
+        </div>
+    </div>-->
+
+    <!-- Quick Stats --><!--
+    <div class="quick-stats">
+        <div class="stat-card">
+            <div class="stat-value" id="totalCourses">3</div>
+            <div class="stat-label">Total Courses</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="totalCycles">10</div>
+            <div class="stat-label">Total Cycles</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="totalPlaylists">6</div>
+            <div class="stat-label">YouTube Playlists</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="completedCount">0</div>
+            <div class="stat-label">Completed</div>
+        </div>
+    </div>-->
+
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Header -->
+        <header>
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h1>HSC 27 Complete Course</h1>
+            </div>
+            <p class="tagline">ACS Courses + YouTube Playlist & Revision Materials</p>
+            <div class="update-badge">
+                <i class="fas fa-bell"></i> 
+                সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস, ডেটাবেজ ম্যানেজমেন্ট সিস্টেম added!
+            </div>
+        </header>
+
+        <!-- Course Grid -->
+        <div class="course-grid" id="courseGrid">
+            <!-- ICT -->
+            <div class="course-card ict" data-course="ict">
+                <div class="course-header">
+                    <div class="course-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h2>ICT</h2>
+                    <span class="completion-badge" data-course-completion="ict">
+                        <i class="fas fa-check"></i> Completed
+                    </span>
+                </div>
+                <div class="course-image">
+                    <img src="https://arafat-rahman-nahid.github.io/ictacs.jpg" alt="ICT Course" loading="lazy">
+                </div>
+                <div class="course-links">
+                    <a href="https://decoder27.aparsclassroom.com/" target="_blank" rel="noopener" class="course-link">
+                        <i class="fas fa-globe"></i> WebApp
+                    </a>
+                    <a href="https://aparsclassroom.com/shop/abhi/decoder_27/" target="_blank" rel="noopener" class="course-link">
+                        <i class="fas fa-book-open"></i> Buy Course
+                    </a>
+                </div>
+            </div>
+
+            <!-- Physics -->
+            <div class="course-card physics" data-course="physics">
+                <div class="course-header">
+                    <div class="course-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h2>Physics</h2>
+                    <span class="completion-badge" data-course-completion="physics">
+                        <i class="fas fa-check"></i> Completed
+                    </span>
+                </div>
+                <div class="course-image">
+                    <img src="https://arafat-rahman-nahid.github.io/phyacs.jpg" alt="Physics Course" loading="lazy">
+                </div>
+                <div class="course-links">
+                    <a href="https://b2m27.aparsclassroom.com/" target="_blank" rel="noopener" class="course-link">
+                        <i class="fas fa-globe"></i> WebApp
+                    </a>
+                    <a href="#" class="course-link buy-course" data-target="physics-cycles">
+                        <i class="fas fa-book-open"></i> Buy Cycle
+                        <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
+                    </a>
+                    <div class="cycle-links" id="physics-cycles">
+                        <a href="https://aparsclassroom.com/shop/b2m27/Cycle-2/" target="_blank" rel="noopener" class="course-link cycle-link">
+                            <i class="fas fa-play-circle"></i> সাইকেল ২
+                            <span class="badge">নিউটনীয় বলবিদ্যা, কাজ, শক্তি</span>
+                        </a>
+                        <a href="https://aparsclassroom.com/shop/b2m27/Cycle-3/" target="_blank" rel="noopener" class="course-link cycle-link">
+                            <i class="fas fa-play-circle"></i> সাইকেল ৩
+                            <span class="badge">পর্যাবৃত্ত গতি, তরঙ্গ, আলোকবিজ্ঞান</span>
+                        </a>
+                        <a href="https://aparsclassroom.com/shop/b2m27/Cycle-4/" target="_blank" rel="noopener" class="course-link cycle-link">
+                            <i class="fas fa-play-circle"></i> সাইকেল ৪
+                            <span class="badge">আদর্শ গ্যাস, তাপগতিবিদ্যা</span>
+                        </a>
+                        <a href="https://aparsclassroom.com/shop/b2m27/Cycle-5/" target="_blank" rel="noopener" class="course-link cycle-link">
+                            <i class="fas fa-play-circle"></i> সাইকেল ৫
+                            <span class="badge">তড়িৎ, সেমিকন্ডাক্টর</span>
+                        </a>
+                        <a href="https://aparsclassroom.com/shop/b2m27/Cycle-6/" target="_blank" rel="noopener" class="course-link cycle-link">
+                            <i class="fas fa-play-circle"></i> সাইকেল ৬
+                            <span class="badge">চৌম্বক, আধুনিক পদার্থবিজ্ঞান</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Math -->
+            <div class="course-card maths" data-course="math">
+                <div class="course-header">
+                    <div class="course-icon">
+                        <i class="fas fa-square-root-alt"></i>
+                    </div>
+                    <h2>Math</h2>
+                    <span class="completion-badge" data-course-completion="math">
+                        <i class="fas fa-check"></i> Completed
+                    </span>
+                </div>
+                <div class="course-image">
+                    <img src="https://arafat-rahman-nahid.github.io/mathacs.jpg" alt="Math Course" loading="lazy">
+                </div>
+                <div class="course-links">
+                    <a href="https://math27.aparsclassroom.com/" target="_blank" rel="noopener" class="course-link">
+                        <i class="fas fa-globe"></i> WebApp
+                    </a>
+                    <a href="#" class="course-link buy-course" data-target="math-cycles">
+                        <i class="fas fa-book-open"></i> Buy Cycle
+                        <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
+                    </a>
+                    <div class="cycle-links" id="math-cycles">
+                        <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-2/" target="_blank" rel="noopener" class="course-link cycle-link">
+                            <i class="fas fa-play-circle"></i> সাইকেল ২
+                            <span class="badge">প্রথম পত্র - অধ্যায় ৫-৮</span>
+                        </a>
+                        <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-3/" target="_blank" rel="noopener" class="course-link cycle-link">
+                            <i class="fas fa-play-circle"></i> সাইকেল ৩
+                            <span class="badge">প্রথম পত্র - অধ্যায় ৯-১০</span>
+                        </a>
+                        <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-4/" target="_blank" rel="noopener" class="course-link cycle-link">
+                            <i class="fas fa-play-circle"></i> সাইকেল ৪
+                            <span class="badge">দ্বিতীয় পত্র - অধ্যায় ১-৪</span>
+                        </a>
+                        <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-5/" target="_blank" rel="noopener" class="course-link cycle-link">
+                            <i class="fas fa-play-circle"></i> সাইকেল ৫
+                            <span class="badge">দ্বিতীয় পত্র - অধ্যায় ৫-৭</span>
+                        </a>
+                        <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-6/" target="_blank" rel="noopener" class="course-link cycle-link">
+                            <i class="fas fa-play-circle"></i> সাইকেল ৬
+                            <span class="badge">দ্বিতীয় পত্র - অধ্যায় ৮-১০</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- YouTube Section -->
+        <div class="youtube-section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <h2>YouTube Playlists</h2>
+            </div>
+            
+            <div class="playlist-grid">
+                <div class="playlist-card">
+                    <div class="playlist-header">
+                        <i class="fab fa-youtube"></i>
+                        <div class="playlist-title">সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস</div>
+                    </div>
+                    <div class="playlist-desc">HSC ICT || Academic & Admission</div>
+                    <a href="https://youtube.com/playlist?list=PLZf4q5EodedEFrF2saMI4ehL_BNwWjfPM&si=XTEt9M2RZ4sG7qpD" target="_blank" rel="noopener" class="playlist-link">
+                        <i class="fas fa-external-link-alt"></i> Watch Playlist
+                    </a>
+                </div>
+                
+                <div class="playlist-card">
+                    <div class="playlist-header">
+                        <i class="fab fa-youtube"></i>
+                        <div class="playlist-title">ডেটাবেজ ম্যানেজমেন্ট সিস্টেম</div>
+                    </div>
+                    <div class="playlist-desc">HSC ICT || Academic & Admission</div>
+                    <a href="https://www.youtube.com/playlist?list=PLZf4q5EodedH1fBghyKbn5caIdSlME6Yt" target="_blank" rel="noopener" class="playlist-link">
+                        <i class="fas fa-external-link-alt"></i> Watch Playlist
+                    </a>
+                </div>
+                
+                <div class="playlist-card">
+                    <div class="playlist-header">
+                        <i class="fab fa-youtube"></i>
+                        <div class="playlist-title">Full ICT Oneshot Revision</div>
+                    </div>
+                    <div class="playlist-desc">Best playlist for revision before any exam</div>
+                    <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7Yo4Vt-G0q_byIKVzoFdxa&si=CBeJc6zUbPu67rcH" target="_blank" rel="noopener" class="playlist-link">
+                        <i class="fas fa-external-link-alt"></i> Watch Playlist
+                    </a>
+                </div>
+                
+                <div class="playlist-card">
+                    <div class="playlist-header">
+                        <i class="fab fa-youtube"></i>
+                        <div class="playlist-title">Full Higher Math Oneshot Revision</div>
+                    </div>
+                    <div class="playlist-desc">Complete HSC Mathematics syllabus (MCQ+CQ)</div>
+                    <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7Rky9DdZePw4wNFJVbGxt4&si=5DqzRlxysPAgSWtF" target="_blank" rel="noopener" class="playlist-link">
+                        <i class="fas fa-external-link-alt"></i> Watch Playlist
+                    </a>
+                </div>
+                
+                <div class="playlist-card">
+                    <div class="playlist-header">
+                        <i class="fab fa-youtube"></i>
+                        <div class="playlist-title">Full Higher Math MCQ Revision</div>
+                    </div>
+                    <div class="playlist-desc">MCQ based playlist for HSC Higher Math</div>
+                    <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7-E6bOO5_Xw7aDRA5e2uo7&si=-YFIwcPSMbUPUFLo" target="_blank" rel="noopener" class="playlist-link">
+                        <i class="fas fa-external-link-alt"></i> Watch Playlist
+                    </a>
+                </div>
+                
+                <div class="playlist-card">
+                    <div class="playlist-header">
+                        <i class="fab fa-youtube"></i>
+                        <div class="playlist-title">Calculator Hacks</div>
+                    </div>
+                    <div class="playlist-desc">Tips & tricks of calculator</div>
+                    <a href="https://youtube.com/playlist?list=PLi5fEbOt0If7Opn9oYIqxEkWMxFYRpbQZ&si=yCS7XKsPUJMVJfWi" target="_blank" rel="noopener" class="playlist-link">
+                        <i class="fas fa-external-link-alt"></i> Watch Playlist
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Keyboard Shortcuts Modal -->
+    <div class="modal" id="shortcutsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-keyboard"></i> Keyboard Shortcuts</h3>
+                <button class="close-btn" id="closeShortcuts">&times;</button>
+            </div>
+            <div class="shortcut-list">
+                <div class="shortcut-item">
+                    <span>Search</span>
+                    <kbd class="shortcut-key">/</kbd>
+                </div>
+                <div class="shortcut-item">
+                    <span>Toggle Theme</span>
+                    <kbd class="shortcut-key">T</kbd>
+                </div>
+                <div class="shortcut-item">
+                    <span>Toggle View</span>
+                    <kbd class="shortcut-key">G</kbd>
+                </div>
+                <div class="shortcut-item">
+                    <span>Show Shortcuts</span>
+                    <kbd class="shortcut-key">?</kbd>
+                </div>
+                <div class="shortcut-item">
+                    <span>Scroll to Top</span>
+                    <kbd class="shortcut-key">↑</kbd>
+                </div>
+                <div class="shortcut-item">
+                    <span>Close Modal</span>
+                    <kbd class="shortcut-key">Esc</kbd>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // ==================== Theme Toggle ====================
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const themeIcon = themeToggle.querySelector('i');
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        if (savedTheme === 'light') {
+            body.classList.add('light-mode');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            if (body.classList.contains('light-mode')) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // ==================== Search Functionality ====================
+        const searchInput = document.getElementById('searchInput');
+        const courseCards = document.querySelectorAll('.course-card');
+        const playlistCards = document.querySelectorAll('.playlist-card');
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            
+            courseCards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(query) ? 'block' : 'none';
+            });
+            
+            playlistCards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(query) ? 'block' : 'none';
+            });
+        });
+
+        // ==================== Keyboard Shortcuts ====================
+        const shortcutsModal = document.getElementById('shortcutsModal');
+        const shortcutsBtn = document.getElementById('shortcutsBtn');
+        const closeShortcuts = document.getElementById('closeShortcuts');
+
+        shortcutsBtn.addEventListener('click', () => {
+            shortcutsModal.classList.add('active');
+        });
+
+        closeShortcuts.addEventListener('click', () => {
+            shortcutsModal.classList.remove('active');
+        });
+
+        document.addEventListener('keydown', (e) => {
+            // Search focus
+            if (e.key === '/' && !e.ctrlKey && !e.metaKey) {
+                e.preventDefault();
+                searchInput.focus();
+            }
+            
+            // Theme toggle
+            if (e.key.toLowerCase() === 't' && !searchInput.matches(':focus')) {
+                themeToggle.click();
+            }
+            
+            // Shortcuts modal
+            if (e.key === '?' && !searchInput.matches(':focus')) {
+                e.preventDefault();
+                shortcutsModal.classList.toggle('active');
+            }
+            
+            // Grid view toggle
+            if (e.key.toLowerCase() === 'g' && !searchInput.matches(':focus')) {
+                document.getElementById('gridViewBtn').click();
+            }
+            
+            // Close modal
+            if (e.key === 'Escape') {
+                shortcutsModal.classList.remove('active');
+                document.querySelectorAll('.cycle-links.show').forEach(el => el.classList.remove('show'));
+            }
+            
+            // Scroll to top
+            if (e.key === 'ArrowUp' && e.ctrlKey) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+
+        // ==================== Grid View Toggle ====================
+        const gridViewBtn = document.getElementById('gridViewBtn');
+        const courseGrid = document.getElementById('courseGrid');
+        let isCompactView = false;
+
+        gridViewBtn.addEventListener('click', () => {
+            isCompactView = !isCompactView;
+            if (isCompactView) {
+                courseGrid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(250px, 1fr))';
+                courseGrid.querySelectorAll('.course-image').forEach(img => {
+                    img.style.height = '100px';
+                });
+            } else {
+                courseGrid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(300px, 1fr))';
+                courseGrid.querySelectorAll('.course-image').forEach(img => {
+                    img.style.height = '140px';
+                });
+            }
+        });
+
+        // ==================== Course Completion ====================
+        const completedCourses = JSON.parse(localStorage.getItem('completedCourses')) || [];
+
+        function updateCompletionBadges() {
+            completedCourses.forEach(course => {
+                const badge = document.querySelector(`[data-course-completion="${course}"]`);
+                if (badge) badge.classList.add('active');
+            });
+            document.getElementById('completedCount').textContent = completedCourses.length;
+        }
+
+        document.querySelectorAll('.course-card').forEach(card => {
+            card.addEventListener('dblclick', () => {
+                const course = card.dataset.course;
+                const badge = card.querySelector('.completion-badge');
+                
+                if (completedCourses.includes(course)) {
+                    const index = completedCourses.indexOf(course);
+                    completedCourses.splice(index, 1);
+                    badge.classList.remove('active');
+                } else {
+                    completedCourses.push(course);
+                    badge.classList.add('active');
+                }
+                
+                localStorage.setItem('completedCourses', JSON.stringify(completedCourses));
+                document.getElementById('completedCount').textContent = completedCourses.length;
+            });
+        });
+
+        updateCompletionBadges();
+
+        // ==================== Cycle Links Toggle ====================
+        document.querySelectorAll('.buy-course').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = button.getAttribute('data-target');
+                const cycleLinks = document.getElementById(targetId);
+                
+                document.querySelectorAll('.cycle-links.show').forEach(openLinks => {
+                    if (openLinks !== cycleLinks) {
+                        openLinks.classList.remove('show');
+                    }
+                });
+                
+                cycleLinks.classList.toggle('show');
+                
+                const chevron = button.querySelector('.fa-chevron-down');
+                if (chevron) {
+                    chevron.style.transform = cycleLinks.classList.contains('show') 
+                        ? 'rotate(180deg)' 
+                        : 'rotate(0deg)';
+                }
+            });
+        });
+
+        // ==================== Scroll to Top ====================
+        const scrollTop = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Close modal on outside click
+        shortcutsModal.addEventListener('click', (e) => {
+            if (e.target === shortcutsModal) {
+                shortcutsModal.classList.remove('active');
+            }
+        });
+
+        console.log('%c🎓 HSC 27 Course Platform', 'color: #3b82f6; font-size: 20px; font-weight: bold;');
+        console.log('%c✨ Developed by Arafat\'s Tech', 'color: #a855f7; font-size: 12px;');
+        console.log('%c💡 Press ? for keyboard shortcuts', 'color: #10b981; font-size: 12px;');
+    </script>
+</body>
+</html>
