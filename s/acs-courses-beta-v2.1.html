@@ -1020,8 +1020,63 @@
       <p class="copyright">
         ACS Courses + YT Playlist & Revision Materials<br />
         v2.1 
-      </p>
-    </footer>
+      <brp>
+    <!-- Footer -->
+
+  👥 Today: <b id="todayVisits">0</b> |
+  🌍 Total: <b id="totalVisits">0</b>
+</footer>
+
+<!-- Visitor Counter Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const today = new Date().toISOString().split('T')[0];
+
+  // Project name (fixed, all hosting same)
+  const project = "arafat-study-site";
+
+  // Auto detect page name
+  let page = location.pathname.split("/").pop() || "home";
+  page = page.replace(/\.(html|php)/, "");
+
+  // CountAPI keys
+  const todayKey = project + "_" + page + "_today_" + today;
+  const totalKey = project + "_" + page + "_total";
+
+  // Use localStorage to prevent multiple reload count per device
+  const todayVisited = localStorage.getItem(todayKey);
+
+  if(!todayVisited){
+    // Hit Today counter
+    fetch("https://api.countapi.xyz/hit/" + todayKey)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("todayVisits").innerText = data.value;
+      })
+      .catch(err => console.log("Today Counter Error:", err));
+
+    // Hit Total counter
+    fetch("https://api.countapi.xyz/hit/" + totalKey)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("totalVisits").innerText = data.value;
+      })
+      .catch(err => console.log("Total Counter Error:", err));
+
+    // Mark visited today
+    localStorage.setItem(todayKey, "visited");
+  } else {
+    // Just fetch current count without increment
+    fetch("https://api.countapi.xyz/get/" + todayKey)
+      .then(res => res.json())
+      .then(data => { document.getElementById("todayVisits").innerText = data.value; });
+
+    fetch("https://api.countapi.xyz/get/" + totalKey)
+      .then(res => res.json())
+      .then(data => { document.getElementById("totalVisits").innerText = data.value; });
+  }
+});
+</script>
   </div>
 
   <!-- ==================== JS (Modal Cycles + Ripple) ==================== -->
