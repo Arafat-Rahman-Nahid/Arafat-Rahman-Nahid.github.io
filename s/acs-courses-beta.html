@@ -27,7 +27,6 @@
       --gradient-blue-purple: linear-gradient(135deg, #4361ee, #7209b7);
       --gradient-purple-pink: linear-gradient(135deg, #7209b7, #ff006e);
       --gradient-green-blue: linear-gradient(135deg, #2ec4b6, #4361ee);
-      --gradient-orange-red: linear-gradient(135deg, #ff9e00, #ff006e);
       --gradient-youtube: linear-gradient(135deg, #ff0000, #ff6b6b);
 
       --bg-dark: #0a0e17;
@@ -38,14 +37,16 @@
       --text-muted: rgba(255, 255, 255, 0.6);
 
       --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
-      --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.15);
-      --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.28);
 
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 16px;
-      --radius-round: 50%;
+      --radius-sm: 10px;
+      --radius-md: 14px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --radius-round: 999px;
 
+      --transition-fast: 0.2s ease;
       --transition-normal: 0.3s ease;
     }
 
@@ -65,55 +66,39 @@
     /* ==================== ANIMATED BACKGROUND ==================== */
     .background-container {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      inset: 0;
       z-index: -1;
       overflow: hidden;
       pointer-events: none;
     }
     .background-gradient {
       position: absolute;
-      width: 100%; height: 100%;
+      inset: 0;
       background:
-        radial-gradient(at 20% 30%, rgba(67, 97, 238, 0.15) 0px, transparent 50%),
-        radial-gradient(at 80% 70%, rgba(114, 9, 183, 0.15) 0px, transparent 50%),
-        radial-gradient(at 50% 50%, rgba(46, 196, 182, 0.1) 0px, transparent 50%);
+        radial-gradient(at 20% 30%, rgba(67, 97, 238, 0.16) 0px, transparent 55%),
+        radial-gradient(at 80% 70%, rgba(114, 9, 183, 0.16) 0px, transparent 55%),
+        radial-gradient(at 50% 50%, rgba(46, 196, 182, 0.12) 0px, transparent 60%);
       animation: gradientShift 15s ease infinite;
     }
     @keyframes gradientShift {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.8; transform: scale(1.05); }
+      50% { opacity: 0.85; transform: scale(1.06); }
     }
-    .floating-shapes { position: absolute; width: 100%; height: 100%; }
+    .floating-shapes { position: absolute; inset: 0; }
     .shape {
       position: absolute;
       border-radius: 50%;
-      opacity: 0.1;
+      opacity: 0.12;
       animation: float 20s ease-in-out infinite;
-      filter: blur(20px);
+      filter: blur(18px);
     }
-    .shape:nth-child(1) {
-      width: 300px; height: 300px;
-      background: var(--gradient-blue-purple);
-      top: 10%; left: 10%;
-      animation-delay: 0s;
-    }
-    .shape:nth-child(2) {
-      width: 200px; height: 200px;
-      background: var(--gradient-purple-pink);
-      top: 60%; right: 15%;
-      animation-delay: 5s;
-    }
-    .shape:nth-child(3) {
-      width: 250px; height: 250px;
-      background: var(--gradient-green-blue);
-      bottom: 10%; left: 50%;
-      animation-delay: 10s;
-    }
+    .shape:nth-child(1) { width: 320px; height: 320px; background: var(--gradient-blue-purple); top: 8%; left: 8%; }
+    .shape:nth-child(2) { width: 220px; height: 220px; background: var(--gradient-purple-pink); top: 62%; right: 12%; animation-delay: 5s; }
+    .shape:nth-child(3) { width: 260px; height: 260px; background: var(--gradient-green-blue); bottom: 8%; left: 50%; animation-delay: 10s; }
     @keyframes float {
       0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -30px) scale(1.1); }
-      66% { transform: translate(-30px, 30px) scale(0.9); }
+      33% { transform: translate(26px, -28px) scale(1.08); }
+      66% { transform: translate(-24px, 26px) scale(0.92); }
     }
 
     /* ==================== MAIN LAYOUT ==================== */
@@ -130,43 +115,37 @@
       text-align: center;
       margin-bottom: 1.5rem;
       padding-top: 1rem;
-      animation: fadeInDown 0.8s ease;
+      animation: fadeInDown 0.7s ease;
     }
     @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
+      from { opacity: 0; transform: translateY(-22px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-    }
+    .logo-container { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 0.75rem; }
     .app-title {
-      font-size: 1.6rem;
-      font-weight: 500;
+      font-size: 1.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
       background: var(--gradient-youtube);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      margin-bottom: 0.25rem;
     }
     .update-badge {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       background: var(--gradient-green-blue);
       color: white;
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-round);
+      font-size: 0.86rem;
       font-weight: 500;
-      margin-top: 0.5rem;
       box-shadow: var(--shadow-sm);
-      animation: slideInUp 0.8s ease 0.3s both;
+      animation: slideInUp 0.8s ease 0.25s both;
     }
     @keyframes slideInUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -176,27 +155,27 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1rem;
       margin-bottom: 2rem;
-      animation: fadeInUp 0.8s ease 0.4s both;
+      animation: fadeInUp 0.8s ease 0.35s both;
     }
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     .subject-card {
       background: var(--bg-card);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-xl);
       padding: 1.25rem;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       transition: var(--transition-normal);
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 0 rgba(0,0,0,0);
     }
     .subject-card:hover {
       transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(255, 255, 255, 0.12);
       background: var(--bg-card-hover);
     }
     .subject-card::before {
@@ -209,15 +188,10 @@
     .physics::before { background: var(--gradient-blue-purple); }
     .math::before { background: var(--gradient-purple-pink); }
 
-    .subject-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-    }
+    .subject-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; }
     .subject-icon {
-      width: 40px; height: 40px;
-      border-radius: var(--radius-md);
+      width: 44px; height: 44px;
+      border-radius: var(--radius-lg);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -226,25 +200,24 @@
       flex-shrink: 0;
       transition: var(--transition-normal);
     }
-    .subject-card:hover .subject-icon { transform: scale(1.1) rotate(5deg); }
+    .subject-card:hover .subject-icon { transform: scale(1.08) rotate(4deg); }
     .ict .subject-icon { background: var(--gradient-green-blue); }
     .physics .subject-icon { background: var(--gradient-blue-purple); }
     .math .subject-icon { background: var(--gradient-purple-pink); }
-
-    .subject-info h2 { font-size: 1.3rem; font-weight: 600; }
+    .subject-info h2 { font-size: 1.25rem; font-weight: 700; }
 
     /* ==================== COURSE ACTIONS ==================== */
-    .course-actions { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.75rem; }
+    .course-actions { display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 0.25rem; }
 
     .action-btn {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.75rem 1rem;
-      border-radius: var(--radius-sm);
+      padding: 0.78rem 1rem;
+      border-radius: var(--radius-md);
       text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
+      font-weight: 600;
+      font-size: 0.92rem;
       transition: var(--transition-normal);
       border: none;
       cursor: pointer;
@@ -252,26 +225,30 @@
       text-align: left;
       position: relative;
       overflow: hidden;
+      user-select: none;
     }
-
     .action-btn::before,
-    .playlist-btn::before {
+    .playlist-btn::before,
+    .cycle-toggle-btn::before {
       content: '';
       position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-      transition: left 0.6s ease;
+      inset: 0;
+      transform: translateX(-120%);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent);
+      transition: transform 0.7s ease;
     }
     .action-btn:hover::before,
-    .playlist-btn:hover::before { left: 100%; }
+    .playlist-btn:hover::before,
+    .cycle-toggle-btn:hover::before {
+      transform: translateX(120%);
+    }
 
     .action-btn.primary {
       background: rgba(255, 255, 255, 0.05);
       color: white;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
-    .action-btn.primary:hover { background: rgba(255, 255, 255, 0.1); transform: translateX(4px); }
+    .action-btn.primary:hover { background: rgba(255, 255, 255, 0.10); transform: translateX(4px); }
 
     .action-btn.secondary {
       background: var(--gradient-blue-purple);
@@ -280,125 +257,77 @@
     }
     .action-btn.secondary:hover {
       background: var(--gradient-purple-pink);
-      transform: translateX(4px) scale(1.02);
+      transform: translateX(4px) scale(1.01);
       box-shadow: var(--shadow-md);
     }
 
-    /* ==================== MERGED CYCLE BUTTON ==================== */
+    /* ==================== VIEW CYCLES BUTTON ==================== */
     .cycle-toggle-btn {
       width: 100%;
-      padding: 0.75rem 1rem;
+      padding: 0.78rem 1rem;
       background: var(--gradient-blue-purple);
       border: none;
-      border-radius: var(--radius-sm);
+      border-radius: var(--radius-md);
       color: white;
-      font-size: 0.9rem;
-      font-weight: 500;
+      font-size: 0.92rem;
+      font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: space-between;
       cursor: pointer;
       transition: var(--transition-normal);
-      margin-bottom: 0.5rem;
       box-shadow: var(--shadow-sm);
       position: relative;
       overflow: hidden;
+      user-select: none;
     }
     .cycle-toggle-btn:hover {
       background: var(--gradient-purple-pink);
       transform: translateX(4px);
       box-shadow: var(--shadow-md);
     }
-    .cycle-toggle-btn.active { background: var(--gradient-purple-pink); }
-
-    .cycle-toggle-content { display: flex; align-items: center; gap: 0.5rem; }
+    .cycle-toggle-content { display: flex; align-items: center; gap: 0.55rem; }
     .cycle-count {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 0.2rem 0.6rem;
-      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.22);
+      padding: 0.22rem 0.6rem;
+      border-radius: var(--radius-round);
       font-size: 0.75rem;
-      font-weight: 600;
+      font-weight: 800;
     }
 
-    /* ==================== CYCLE LIST ==================== */
+    /* ==================== CYCLE LIST (HIDDEN SOURCE) ==================== */
     .cycle-list {
-      display: none;
-      background: rgba(255, 255, 255, 0.02);
-      border-radius: var(--radius-sm);
-      padding: 0.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      margin-top: 0.5rem;
+      display: none; /* keep as data source; modal will use it */
     }
-    .cycle-list.show { display: block; animation: slideDown 0.3s ease; }
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .cycle-item {
-      display: block;
-      padding: 0.75rem;
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: var(--radius-sm);
-      margin-bottom: 0.4rem;
-      transition: var(--transition-normal);
-      text-decoration: none;
-      color: white;
-      position: relative;
-      overflow: hidden;
-      border-left: 3px solid;
-    }
-    .ict .cycle-item { border-left-color: #2ec4b6; }
-    .physics .cycle-item { border-left-color: #4361ee; }
-    .math .cycle-item { border-left-color: #7209b7; }
-
-    .cycle-item:hover { background: rgba(255, 255, 255, 0.08); transform: translateX(4px); }
-
-    .cycle-name { display: flex; align-items: center; gap: 0.5rem; font-weight: 500; font-size: 0.9rem; margin-bottom: 0.25rem; }
-    .cycle-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; margin-left: 1.75rem; }
-
-    .cycle-badge {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      padding: 0.2rem 0.6rem;
-      border-radius: 12px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      margin-top: 0.25rem;
-    }
-    .ict .cycle-badge { background: rgba(46, 196, 182, 0.2); }
-    .physics .cycle-badge { background: rgba(67, 97, 238, 0.2); }
-    .math .cycle-badge { background: rgba(114, 9, 183, 0.2); }
 
     /* ==================== YOUTUBE SECTION ==================== */
-    .youtube-section { margin: 2rem 0 1.5rem; animation: fadeInUp 0.8s ease 0.6s both; }
+    .youtube-section { margin: 2rem 0 1.5rem; animation: fadeInUp 0.8s ease 0.55s both; }
     .section-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
     .section-title {
       font-size: 1.5rem;
-      font-weight: 600;
+      font-weight: 800;
       background: var(--gradient-youtube);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      letter-spacing: 0.2px;
     }
-
     .playlist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
-
     .playlist-card {
       background: var(--bg-card);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-xl);
       padding: 1rem;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       transition: var(--transition-normal);
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
     }
     .playlist-card:hover {
       transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(255, 255, 255, 0.12);
+      background: var(--bg-card-hover);
     }
     .playlist-card::before {
       content: '';
@@ -407,13 +336,11 @@
       width: 4px; height: 100%;
       background: var(--gradient-youtube);
     }
-
     .playlist-header { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.5rem; }
-
     .playlist-icon {
-      width: 36px; height: 36px;
+      width: 38px; height: 38px;
       background: rgba(255, 0, 0, 0.15);
-      border-radius: var(--radius-sm);
+      border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -422,26 +349,26 @@
       flex-shrink: 0;
       transition: var(--transition-normal);
     }
-    .playlist-card:hover .playlist-icon { transform: scale(1.1) rotate(5deg); background: rgba(255, 0, 0, 0.25); }
-
-    .playlist-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; line-height: 1.3; }
-    .playlist-desc { color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; margin-bottom: 0.75rem; }
+    .playlist-card:hover .playlist-icon { transform: scale(1.08) rotate(4deg); background: rgba(255, 0, 0, 0.26); }
+    .playlist-title { font-size: 1rem; font-weight: 800; margin-bottom: 0.25rem; line-height: 1.35; }
+    .playlist-desc { color: var(--text-muted); font-size: 0.86rem; line-height: 1.4; margin-bottom: 0.75rem; }
 
     .playlist-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      padding: 0.6rem 1rem;
+      padding: 0.62rem 1rem;
       background: rgba(255, 0, 0, 0.1);
       color: white;
       text-decoration: none;
-      border-radius: var(--radius-sm);
-      font-weight: 500;
-      font-size: 0.85rem;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 0.86rem;
       transition: var(--transition-normal);
       border: 1px solid rgba(255, 0, 0, 0.2);
       position: relative;
       overflow: hidden;
+      user-select: none;
     }
     .playlist-btn:hover { background: rgba(255, 0, 0, 0.2); transform: translateX(4px); }
 
@@ -451,22 +378,129 @@
       padding-top: 1.5rem;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       text-align: center;
-      animation: fadeInUp 0.8s ease 0.8s both;
+      animation: fadeInUp 0.8s ease 0.75s both;
     }
-    .copyright { color: var(--text-muted); font-size: 0.8rem; line-height: 1.4; }
+    .copyright { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; }
 
-    /* ==================== RESPONSIVE ==================== */
-    @media (min-width: 768px) { .subjects-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (min-width: 1024px) { .playlist-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 768px) {
-      .app-container { padding: 0.75rem; }
-      .app-title { font-size: 1.75rem; }
-      .subjects-grid, .playlist-grid { grid-template-columns: 1fr; }
+    /* ==================== MODAL ==================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 999;
     }
-    @media (max-width: 480px) {
-      .app-title { font-size: 1.5rem; }
-      .subject-card { padding: 1rem; }
+    .modal-overlay.show { display: flex; animation: overlayIn 180ms ease; }
+    @keyframes overlayIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .modal {
+      width: min(760px, 100%);
+      max-height: min(78vh, 720px);
+      overflow: hidden;
+      border-radius: 22px;
+      background: rgba(10, 14, 23, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      transform: translateY(10px) scale(0.98);
+      animation: modalIn 220ms ease forwards;
+      backdrop-filter: blur(14px);
     }
+    @keyframes modalIn {
+      to { transform: translateY(0) scale(1); }
+    }
+
+    .modal-header {
+      padding: 1rem 1.05rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .modal-title-wrap { display: flex; align-items: center; gap: 0.7rem; min-width: 0; }
+    .modal-badge {
+      width: 42px; height: 42px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .modal-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .modal-subtitle {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+
+    .modal-close {
+      border: none;
+      cursor: pointer;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.06);
+      color: white;
+      display: grid;
+      place-items: center;
+      transition: var(--transition-fast);
+    }
+    .modal-close:hover { background: rgba(255, 255, 255, 0.12); transform: scale(1.03); }
+
+    .modal-body {
+      padding: 0.95rem 1.05rem 1.1rem;
+      overflow: auto;
+      max-height: calc(78vh - 74px);
+    }
+
+    .modal-cycles {
+      display: grid;
+      gap: 0.65rem;
+    }
+    /* cycle items look nicer inside modal */
+    .modal .cycle-item {
+      display: block;
+      padding: 0.9rem;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 16px;
+      text-decoration: none;
+      color: white;
+      transition: var(--transition-normal);
+      border-left: 4px solid rgba(255,255,255,0.18);
+      position: relative;
+      overflow: hidden;
+    }
+    .modal .cycle-item:hover {
+      background: rgba(255, 255, 255, 0.085);
+      transform: translateX(4px);
+    }
+    .modal .cycle-name { font-size: 0.95rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem; }
+    .modal .cycle-desc { font-size: 0.84rem; color: var(--text-muted); margin-left: 1.65rem; }
+    .modal .cycle-badge { margin-left: 1.65rem; }
+
+    /* subject colors in modal */
+    .modal[data-subject="physics"] .modal-badge { background: var(--gradient-blue-purple); }
+    .modal[data-subject="math"] .modal-badge { background: var(--gradient-purple-pink); }
+    .modal[data-subject="ict"] .modal-badge { background: var(--gradient-green-blue); }
+
+    .modal[data-subject="physics"] .cycle-item { border-left-color: rgba(67, 97, 238, 0.7); }
+    .modal[data-subject="math"] .cycle-item { border-left-color: rgba(114, 9, 183, 0.7); }
+    .modal[data-subject="ict"] .cycle-item { border-left-color: rgba(46, 196, 182, 0.7); }
 
     /* ==================== SCROLLBAR ==================== */
     ::-webkit-scrollbar { width: 8px; }
@@ -489,9 +523,24 @@
     .action-btn:focus-visible,
     .playlist-btn:focus-visible,
     .cycle-toggle-btn:focus-visible,
+    .modal-close:focus-visible,
     .cycle-item:focus-visible {
-      outline: 2px solid rgba(255, 255, 255, 0.35);
+      outline: 2px solid rgba(255, 255, 255, 0.38);
       outline-offset: 3px;
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (min-width: 768px) {
+      .subjects-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .playlist-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .app-container { padding: 0.75rem; }
+      .app-title { font-size: 1.55rem; }
+      .subjects-grid, .playlist-grid { grid-template-columns: 1fr; }
+      .modal { max-height: 82vh; }
     }
   </style>
 </head>
@@ -507,6 +556,29 @@
     </div>
   </div>
 
+  <!-- ===== Modal (Cycles) ===== -->
+  <div class="modal-overlay" id="cycleModalOverlay" aria-hidden="true">
+    <div class="modal" id="cycleModal" role="dialog" aria-modal="true" aria-labelledby="cycleModalTitle" data-subject="">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="modal-badge" id="cycleModalBadge"><i class="fas fa-layer-group"></i></div>
+          <div style="min-width:0">
+            <div class="modal-title" id="cycleModalTitle">Cycles</div>
+            <div class="modal-subtitle" id="cycleModalSubtitle">Select a cycle to open</div>
+          </div>
+        </div>
+        <button class="modal-close" id="cycleModalClose" type="button" aria-label="Close modal">
+          <i class="fas fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-cycles" id="cycleModalContent">
+          <!-- Injected -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Main App Container -->
   <div class="app-container">
     <!-- Header -->
@@ -516,7 +588,7 @@
       </div>
       <div class="update-badge">
         <i class="fas fa-bell"></i>
-        Updated: Chemistry One Shot CQ + MCQ,HSC বায়োলজি- ম‍্যারাথন ক্লাস & guidelines
+        Updated: Chemistry One Shot CQ + MCQ, HSC বায়োলজি- ম‍্যারাথন ক্লাস & guidelines
       </div>
     </header>
 
@@ -525,22 +597,15 @@
       <!-- ICT -->
       <div class="subject-card ict">
         <div class="subject-header">
-          <div class="subject-icon">
-            <i class="fas fa-laptop-code"></i>
-          </div>
-          <div class="subject-info">
-            <h2>ICT</h2>
-          </div>
+          <div class="subject-icon"><i class="fas fa-laptop-code"></i></div>
+          <div class="subject-info"><h2>ICT</h2></div>
         </div>
-
         <div class="course-actions">
           <a href="https://decoder27.aparsclassroom.com/" target="_blank" class="action-btn primary" rel="noopener">
-            <i class="fas fa-globe"></i>
-            WebApp
+            <i class="fas fa-globe"></i> WebApp
           </a>
           <a href="https://aparsclassroom.com/shop/abhi/decoder_27/" target="_blank" class="action-btn secondary" rel="noopener">
-            <i class="fas fa-shopping-cart"></i>
-            Buy Full Course
+            <i class="fas fa-shopping-cart"></i> Buy Full Course
           </a>
         </div>
       </div>
@@ -548,61 +613,50 @@
       <!-- Physics -->
       <div class="subject-card physics">
         <div class="subject-header">
-          <div class="subject-icon">
-            <i class="fas fa-atom"></i>
-          </div>
-          <div class="subject-info">
-            <h2>Physics</h2>
-          </div>
+          <div class="subject-icon"><i class="fas fa-atom"></i></div>
+          <div class="subject-info"><h2>Physics</h2></div>
         </div>
-
         <div class="course-actions">
           <a href="https://b2m27.aparsclassroom.com/" target="_blank" class="action-btn primary" rel="noopener">
-            <i class="fas fa-globe"></i>
-            WebApp
+            <i class="fas fa-globe"></i> WebApp
           </a>
-
-          <button class="cycle-toggle-btn" data-subject="physics" aria-expanded="false">
+          <button class="cycle-toggle-btn" data-subject="physics" data-title="Physics Cycles" type="button">
             <div class="cycle-toggle-content">
               <i class="fas fa-layer-group"></i>
               <span>View All Cycles</span>
-              <span class="cycle-count">6 Cycles</span>
+              <span class="cycle-count">6</span>
             </div>
-            <i class="fas fa-chevron-down"></i>
+            <i class="fas fa-chevron-right"></i>
           </button>
         </div>
 
+        <!-- Hidden cycle list (data source for modal) -->
         <div class="cycle-list" id="physics-cycles">
           <a href="https://aparsclassroom.com/shop/b2m27/Cycle-1/" target="_blank" class="cycle-item" rel="noopener">
             <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ১</span></div>
-            <div class="cycle-desc">ভৌত জগৎ ও পরিমাপ,ভেক্টর,গতিবিদ্যা</div>
+            <div class="cycle-desc">ভৌত জগৎ ও পরিমাপ, ভেক্টর, গতিবিদ্যা</div>
             <span class="cycle-badge">মৌলিক</span>
           </a>
-
           <a href="https://aparsclassroom.com/shop/b2m27/Cycle-2/" target="_blank" class="cycle-item" rel="noopener">
             <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ২</span></div>
             <div class="cycle-desc">নিউটনীয় বলবিদ্যা, কাজ, শক্তি ও ক্ষমতা, মহাকর্ষ ও অভিকর্ষ, পদার্থের গাঠনিক ধর্ম</div>
             <span class="cycle-badge">জনপ্রিয়</span>
           </a>
-
           <a href="https://aparsclassroom.com/shop/b2m27/Cycle-3/" target="_blank" class="cycle-item" rel="noopener">
             <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ৩</span></div>
             <div class="cycle-desc">পর্যাবৃত্ত গতি, তরঙ্গ, জ্যামিতিক আলোকবিজ্ঞান, ভৌত আলোকবিজ্ঞান</div>
             <span class="cycle-badge">নতুন</span>
           </a>
-
           <a href="https://aparsclassroom.com/shop/b2m27/Cycle-4/" target="_blank" class="cycle-item" rel="noopener">
             <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ৪</span></div>
             <div class="cycle-desc">আদর্শ গ্যাস ও গ্যাসের গতিতত্ত্ব, তাপগতিবিদ্যা, পরমাণুর মডেল ও নিউক্লিয়ার পদার্থবিজ্ঞান</div>
             <span class="cycle-badge">গুরুত্বপূর্ণ</span>
           </a>
-
           <a href="https://aparsclassroom.com/shop/b2m27/Cycle-5/" target="_blank" class="cycle-item" rel="noopener">
             <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ৫</span></div>
             <div class="cycle-desc">স্থির তড়িৎ, চল তড়িৎ, সেমিকন্ডাক্টর ও ইলেকট্রনিক্স</div>
             <span class="cycle-badge">গুরুত্বপূর্ণ</span>
           </a>
-
           <a href="https://aparsclassroom.com/shop/b2m27/Cycle-6/" target="_blank" class="cycle-item" rel="noopener">
             <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ৬</span></div>
             <div class="cycle-desc">চৌম্বক ক্রিয়া, তড়িৎ চৌম্বক আবেশ, আধুনিক পদার্থবিজ্ঞান</div>
@@ -614,61 +668,50 @@
       <!-- Mathematics -->
       <div class="subject-card math">
         <div class="subject-header">
-          <div class="subject-icon">
-            <i class="fas fa-square-root-alt"></i>
-          </div>
-          <div class="subject-info">
-            <h2>Mathematics</h2>
-          </div>
+          <div class="subject-icon"><i class="fas fa-square-root-alt"></i></div>
+          <div class="subject-info"><h2>Mathematics</h2></div>
         </div>
-
         <div class="course-actions">
           <a href="https://math27.aparsclassroom.com/" target="_blank" class="action-btn primary" rel="noopener">
-            <i class="fas fa-globe"></i>
-            WebApp
+            <i class="fas fa-globe"></i> WebApp
           </a>
-
-          <button class="cycle-toggle-btn" data-subject="math" aria-expanded="false">
+          <button class="cycle-toggle-btn" data-subject="math" data-title="Mathematics Cycles" type="button">
             <div class="cycle-toggle-content">
               <i class="fas fa-layer-group"></i>
               <span>View All Cycles</span>
-              <span class="cycle-count">6 Cycles</span>
+              <span class="cycle-count">6</span>
             </div>
-            <i class="fas fa-chevron-down"></i>
+            <i class="fas fa-chevron-right"></i>
           </button>
         </div>
 
+        <!-- Hidden cycle list (data source for modal) -->
         <div class="cycle-list" id="math-cycles">
           <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-1/" target="_blank" class="cycle-item" rel="noopener">
             <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ১</span></div>
             <div class="cycle-desc">প্রথম পত্র - অধ্যায় ১-৪</div>
             <span class="cycle-badge">মৌলিক</span>
           </a>
-
           <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-2/" target="_blank" class="cycle-item" rel="noopener">
             <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ২</span></div>
             <div class="cycle-desc">প্রথম পত্র - অধ্যায় ৫-৮</div>
             <span class="cycle-badge">গুরুত্বপূর্ণ</span>
           </a>
-
           <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-3/" target="_blank" class="cycle-item" rel="noopener">
             <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ৩</span></div>
             <div class="cycle-desc">প্রথম পত্র - অধ্যায় ৯-১০</div>
             <span class="cycle-badge">গুরুত্বপূর্ণ</span>
           </a>
-
           <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-4/" target="_blank" class="cycle-item" rel="noopener">
             <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ৪</span></div>
             <div class="cycle-desc">দ্বিতীয় পত্র - অধ্যায় ১-৪</div>
             <span class="cycle-badge">গুরুত্বপূর্ণ</span>
           </a>
-
           <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-5/" target="_blank" class="cycle-item" rel="noopener">
             <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ৫</span></div>
             <div class="cycle-desc">দ্বিতীয় পত্র - অধ্যায় ৫-৭</div>
             <span class="cycle-badge">গুরুত্বপূর্ণ</span>
           </a>
-
           <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-6/" target="_blank" class="cycle-item" rel="noopener">
             <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ৬</span></div>
             <div class="cycle-desc">দ্বিতীয় পত্র - অধ্যায় ৮-১০</div>
@@ -680,10 +723,7 @@
 
     <!-- Guidelines -->
     <section class="youtube-section">
-      <div class="section-header">
-        <h2 class="section-title">Guidelines</h2>
-      </div>
-
+      <div class="section-header"><h2 class="section-title">Guidelines</h2></div>
       <div class="playlist-grid">
         <div class="playlist-card">
           <div class="playlist-header">
@@ -693,7 +733,6 @@
               <p class="playlist-desc">by Nousheen Tabassum Ahona</p>
             </div>
           </div>
-
           <a href="https://www.youtube.com/watch?v=Ttp10wR5aKA" target="_blank" class="playlist-btn" rel="noopener">
             <i class="fas fa-play"></i> Watch Now
           </a>
@@ -707,7 +746,6 @@
               <p class="playlist-desc">by Nousheen Tabassum Ahona</p>
             </div>
           </div>
-
           <a href="https://www.facebook.com/reel/1153042603707810" target="_blank" class="playlist-btn" rel="noopener">
             <i class="fas fa-play"></i> Watch Now
           </a>
@@ -717,10 +755,7 @@
 
     <!-- Chemistry -->
     <section class="youtube-section">
-      <div class="section-header">
-        <h2 class="section-title">Chemistry</h2>
-      </div>
-
+      <div class="section-header"><h2 class="section-title">Chemistry</h2></div>
       <div class="playlist-grid">
         <div class="playlist-card">
           <div class="playlist-header">
@@ -730,7 +765,6 @@
               <p class="playlist-desc">by Shaown Reza</p>
             </div>
           </div>
-
           <a href="https://www.youtube.com/playlist?list=PL1GVU-Q4Oos4ZV1txlpdDnSVVoqrZaZ9K" target="_blank" class="playlist-btn" rel="noopener">
             <i class="fas fa-play"></i> Watch Now
           </a>
@@ -740,10 +774,7 @@
 
     <!-- Biology -->
     <section class="youtube-section">
-      <div class="section-header">
-        <h2 class="section-title">Biology</h2>
-      </div>
-
+      <div class="section-header"><h2 class="section-title">Biology</h2></div>
       <div class="playlist-grid">
         <div class="playlist-card">
           <div class="playlist-header">
@@ -753,7 +784,6 @@
               <p class="playlist-desc">by Hasnat Shuvro</p>
             </div>
           </div>
-
           <a href="https://www.youtube.com/playlist?list=PLcJGjF8QBSfTOTC6LzVfY7FsnEdWfj-d0" target="_blank" class="playlist-btn" rel="noopener">
             <i class="fas fa-play"></i> Watch Now
           </a>
@@ -763,10 +793,7 @@
 
     <!-- Higher Math -->
     <section class="youtube-section">
-      <div class="section-header">
-        <h2 class="section-title">Higher Math</h2>
-      </div>
-
+      <div class="section-header"><h2 class="section-title">Higher Math</h2></div>
       <div class="playlist-grid">
         <div class="playlist-card">
           <div class="playlist-header">
@@ -776,7 +803,6 @@
               <p class="playlist-desc">by Kazi Rakibul Hasan</p>
             </div>
           </div>
-
           <a href="https://www.youtube.com/playlist?list=PLi5fEbOt0If7Rky9DdZePw4wNFJVbGxt4" target="_blank" class="playlist-btn" rel="noopener">
             <i class="fas fa-play"></i> Watch Now
           </a>
@@ -790,7 +816,6 @@
               <p class="playlist-desc">by Abhi Datta Tushar</p>
             </div>
           </div>
-
           <a href="https://www.youtube.com/playlist?list=PLi5fEbOt0If7-E6bOO5_Xw7aDRA5e2uo7" target="_blank" class="playlist-btn" rel="noopener">
             <i class="fas fa-play"></i> Watch Now
           </a>
@@ -804,7 +829,6 @@
               <p class="playlist-desc">by Kazi Rakibul Hasan</p>
             </div>
           </div>
-
           <a href="https://www.youtube.com/playlist?list=PLi5fEbOt0If7Opn9oYIqxEkWMxFYRpbQZ" target="_blank" class="playlist-btn" rel="noopener">
             <i class="fas fa-play"></i> Watch Now
           </a>
@@ -812,12 +836,9 @@
       </div>
     </section>
 
-    <!-- ICT -->
+    <!-- ICT (Playlists) -->
     <section class="youtube-section">
-      <div class="section-header">
-        <h2 class="section-title">ICT</h2>
-      </div>
-
+      <div class="section-header"><h2 class="section-title">ICT</h2></div>
       <div class="playlist-grid">
         <div class="playlist-card">
           <div class="playlist-header">
@@ -827,7 +848,6 @@
               <p class="playlist-desc">by Kazi Rakibul Hasan</p>
             </div>
           </div>
-
           <a href="https://www.youtube.com/playlist?list=PLZf4q5EodedEFrF2saMI4ehL_BNwWjfPM" target="_blank" class="playlist-btn" rel="noopener">
             <i class="fas fa-play"></i> Watch Now
           </a>
@@ -841,7 +861,6 @@
               <p class="playlist-desc">by Kazi Rakibul Hasan</p>
             </div>
           </div>
-
           <a href="https://www.youtube.com/playlist?list=PLZf4q5EodedH1fBghyKbn5caIdSlME6Yt" target="_blank" class="playlist-btn" rel="noopener">
             <i class="fas fa-play"></i> Watch Now
           </a>
@@ -855,7 +874,6 @@
               <p class="playlist-desc">by Kazi Rakibul Hasan</p>
             </div>
           </div>
-
           <a href="https://www.youtube.com/playlist?list=PLi5fEbOt0If7Yo4Vt-G0q_byIKVzoFdxa" target="_blank" class="playlist-btn" rel="noopener">
             <i class="fas fa-play"></i> Watch Now
           </a>
@@ -866,80 +884,108 @@
     <!-- Footer -->
     <footer>
       <p class="copyright">
-        ACS Courses + YT Playlist & Revision Materials
-        <br />v2.1
+        ACS Courses + YT Playlist & Revision Materials<br />
+        v3.0 (Modal Cycles)
       </p>
     </footer>
   </div>
 
-  <!-- Updated JS -->
+  <!-- ==================== JS (Modal Cycles + Ripple) ==================== -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const toggleButtons = document.querySelectorAll(".cycle-toggle-btn");
-      const cycleLists = document.querySelectorAll(".cycle-list");
+      const overlay = document.getElementById("cycleModalOverlay");
+      const modal = document.getElementById("cycleModal");
+      const modalTitle = document.getElementById("cycleModalTitle");
+      const modalSubtitle = document.getElementById("cycleModalSubtitle");
+      const modalContent = document.getElementById("cycleModalContent");
+      const modalClose = document.getElementById("cycleModalClose");
 
-      // Ensure all are closed by default
-      cycleLists.forEach(list => list.classList.remove("show"));
-      toggleButtons.forEach(btn => {
-        btn.classList.remove("active");
-        btn.setAttribute("aria-expanded", "false");
-      });
+      const openButtons = document.querySelectorAll(".cycle-toggle-btn");
+      let lastFocusedEl = null;
 
-      // Add ARIA controls automatically
-      toggleButtons.forEach(btn => {
-        const subject = btn.dataset.subject;
-        const list = document.getElementById(`${subject}-cycles`);
-        if (list) btn.setAttribute("aria-controls", list.id);
-      });
-
-      // Toggle logic
-      toggleButtons.forEach(btn => {
+      // Open modal
+      openButtons.forEach(btn => {
         btn.addEventListener("click", (e) => {
-          e.stopPropagation();
-
+          e.preventDefault();
           const subject = btn.dataset.subject;
-          const targetList = document.getElementById(`${subject}-cycles`);
-          if (!targetList) return;
+          const list = document.getElementById(`${subject}-cycles`);
+          if (!list) return;
 
-          const wasOpen = targetList.classList.contains("show");
+          lastFocusedEl = btn;
 
-          closeAllCycles();
+          // inject cycles
+          modalContent.innerHTML = "";
+          const clones = list.querySelectorAll(".cycle-item");
+          clones.forEach(item => modalContent.appendChild(item.cloneNode(true)));
 
-          if (!wasOpen) {
-            targetList.classList.add("show");
-            btn.classList.add("active");
-            btn.setAttribute("aria-expanded", "true");
+          // title/subtitle
+          modal.dataset.subject = subject;
+          modalTitle.textContent = btn.dataset.title || `${capitalize(subject)} Cycles`;
+          modalSubtitle.textContent = `Total: ${clones.length} cycles • Select a cycle to open`;
 
-            setTimeout(() => {
-              targetList.scrollIntoView({ behavior: "smooth", block: "nearest" });
-            }, 100);
-          }
+          // show
+          overlay.classList.add("show");
+          overlay.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+
+          // focus close button
+          setTimeout(() => modalClose.focus(), 50);
         });
       });
 
-      // Close on outside click
-      document.addEventListener("click", (e) => {
-        if (!e.target.closest(".cycle-toggle-btn") && !e.target.closest(".cycle-list")) {
-          closeAllCycles();
+      // Close modal helpers
+      function closeModal() {
+        overlay.classList.remove("show");
+        overlay.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        modalContent.innerHTML = "";
+        modal.dataset.subject = "";
+
+        if (lastFocusedEl) lastFocusedEl.focus();
+      }
+
+      // click outside closes
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closeModal();
+      });
+
+      // close button
+      modalClose.addEventListener("click", closeModal);
+
+      // Esc closes
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && overlay.classList.contains("show")) closeModal();
+      });
+
+      // Focus trap (simple)
+      document.addEventListener("keydown", (e) => {
+        if (!overlay.classList.contains("show")) return;
+        if (e.key !== "Tab") return;
+
+        const focusables = overlay.querySelectorAll(
+          'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusables.length) return;
+
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
         }
       });
 
-      // Close on Escape
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeAllCycles();
-      });
-
-      function closeAllCycles() {
-        cycleLists.forEach(list => list.classList.remove("show"));
-        toggleButtons.forEach(btn => {
-          btn.classList.remove("active");
-          btn.setAttribute("aria-expanded", "false");
-        });
+      function capitalize(s) {
+        return (s || "").charAt(0).toUpperCase() + (s || "").slice(1);
       }
 
-      // Ripple effect (clean version)
+      // Ripple effect (one listener, clean)
       document.addEventListener("click", (e) => {
-        const btn = e.target.closest(".action-btn, .playlist-btn, .cycle-item, .cycle-toggle-btn");
+        const btn = e.target.closest(".action-btn, .playlist-btn, .cycle-item, .cycle-toggle-btn, .modal-close");
         if (!btn) return;
 
         const ripple = document.createElement("span");
@@ -958,7 +1004,7 @@
 
       // Console message
       console.log("%c🎯 HSC Study Platform", "color:#4361ee;font-size:20px;font-weight:bold;");
-      console.log("%cAll resources loaded successfully! 📚", "color:#2ec4b6;font-size:14px;");
+      console.log("%cModal cycles enabled ✅", "color:#2ec4b6;font-size:14px;");
     });
   </script>
 </body>
