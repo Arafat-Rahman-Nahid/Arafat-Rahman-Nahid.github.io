@@ -2,7 +2,7 @@
 <html lang="bn">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <meta name="keywords" content="HSC Study, Bangladesh Education, Physics, Math, ICT, Exam Preparation" />
   <meta name="description" content="Complete HSC study platform for Bangladeshi students - Physics, Mathematics, ICT courses with all resources in one place" />
   <meta name="author" content="Arafat's Tech" />
@@ -48,6 +48,25 @@
 
       --transition-fast: 0.2s ease;
       --transition-normal: 0.3s ease;
+
+      /* ==================== RESPONSIVE TEXT SIZES ==================== */
+      /* Optimized for mobile-first with clamp() for fluid scaling */
+      --fs-title: clamp(1.25rem, 4vw, 1.65rem);        /* 20-26.4px */
+      --fs-heading: clamp(1rem, 3vw, 1.25rem);         /* 16-20px */
+      --fs-subheading: clamp(0.875rem, 2.5vw, 1rem);   /* 14-16px */
+      --fs-body: clamp(0.8125rem, 2vw, 0.92rem);       /* 13-14.72px */
+      --fs-small: clamp(0.75rem, 1.8vw, 0.86rem);      /* 12-13.76px */
+      --fs-tiny: clamp(0.6875rem, 1.5vw, 0.75rem);     /* 11-12px */
+      
+      /* Icon sizes */
+      --icon-lg: clamp(1rem, 3vw, 1.25rem);            /* 16-20px */
+      --icon-md: clamp(0.875rem, 2.5vw, 1.1rem);       /* 14-17.6px */
+      
+      /* Spacing (reduced for mobile) */
+      --space-xs: clamp(0.375rem, 1vw, 0.5rem);        /* 6-8px */
+      --space-sm: clamp(0.5rem, 1.5vw, 0.75rem);       /* 8-12px */
+      --space-md: clamp(0.75rem, 2vw, 1rem);           /* 12-16px */
+      --space-lg: clamp(1rem, 2.5vw, 1.25rem);         /* 16-20px */
     }
 
     /* ==================== GLOBAL RESET ==================== */
@@ -61,6 +80,9 @@
       line-height: 1.5;
       overflow-x: hidden;
       position: relative;
+      font-size: var(--fs-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* ==================== ANIMATED BACKGROUND ==================== */
@@ -105,7 +127,7 @@
     .app-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 1rem;
+      padding: var(--space-md);
       position: relative;
       z-index: 1;
     }
@@ -113,36 +135,45 @@
     /* ==================== HEADER ==================== */
     .app-header {
       text-align: center;
-      margin-bottom: 1.5rem;
-      padding-top: 1rem;
+      margin-bottom: var(--space-lg);
+      padding-top: var(--space-md);
       animation: fadeInDown 0.7s ease;
     }
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-22px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .logo-container { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+    .logo-container { 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      gap: var(--space-sm); 
+      margin-bottom: var(--space-sm); 
+    }
     .app-title {
-      font-size: 1.65rem;
+      font-size: var(--fs-title);
       font-weight: 600;
       letter-spacing: 0.2px;
       background: var(--gradient-youtube);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      line-height: 1.3;
     }
     .update-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: var(--space-xs);
       background: var(--gradient-green-blue);
       color: white;
-      padding: 0.45rem 1rem;
+      padding: var(--space-xs) var(--space-md);
       border-radius: var(--radius-round);
-      font-size: 0.86rem;
+      font-size: var(--fs-small);
       font-weight: 500;
       box-shadow: var(--shadow-sm);
       animation: slideInUp 0.8s ease 0.25s both;
+      line-height: 1.4;
+      text-align: center;
     }
     @keyframes slideInUp {
       from { opacity: 0; transform: translateY(18px); }
@@ -152,9 +183,9 @@
     /* ==================== SUBJECTS GRID ==================== */
     .subjects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
       animation: fadeInUp 0.8s ease 0.35s both;
     }
     @keyframes fadeInUp {
@@ -164,7 +195,7 @@
     .subject-card {
       background: var(--bg-card);
       border-radius: var(--radius-xl);
-      padding: 1.25rem;
+      padding: var(--space-md);
       border: 1px solid rgba(255, 255, 255, 0.06);
       transition: var(--transition-normal);
       position: relative;
@@ -188,14 +219,20 @@
     .physics::before { background: var(--gradient-blue-purple); }
     .math::before { background: var(--gradient-purple-pink); }
 
-    .subject-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; }
+    .subject-header { 
+      display: flex; 
+      align-items: center; 
+      gap: var(--space-sm); 
+      margin-bottom: var(--space-sm); 
+    }
     .subject-icon {
-      width: 44px; height: 44px;
+      width: clamp(36px, 10vw, 44px);
+      height: clamp(36px, 10vw, 44px);
       border-radius: var(--radius-lg);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.25rem;
+      font-size: var(--icon-lg);
       color: white;
       flex-shrink: 0;
       transition: var(--transition-normal);
@@ -204,20 +241,29 @@
     .ict .subject-icon { background: var(--gradient-green-blue); }
     .physics .subject-icon { background: var(--gradient-blue-purple); }
     .math .subject-icon { background: var(--gradient-purple-pink); }
-    .subject-info h2 { font-size: 1.25rem; font-weight: 700; }
+    .subject-info h2 { 
+      font-size: var(--fs-heading); 
+      font-weight: 700; 
+      line-height: 1.2;
+    }
 
     /* ==================== COURSE ACTIONS ==================== */
-    .course-actions { display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 0.25rem; }
+    .course-actions { 
+      display: flex; 
+      flex-direction: column; 
+      gap: var(--space-xs); 
+      margin-bottom: 0.25rem; 
+    }
 
     .action-btn {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.78rem 1rem;
+      gap: var(--space-xs);
+      padding: var(--space-sm) var(--space-md);
       border-radius: var(--radius-md);
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.92rem;
+      font-size: var(--fs-small);
       transition: var(--transition-normal);
       border: none;
       cursor: pointer;
@@ -226,6 +272,7 @@
       position: relative;
       overflow: hidden;
       user-select: none;
+      line-height: 1.4;
     }
     .action-btn::before,
     .playlist-btn::before,
@@ -264,12 +311,12 @@
     /* ==================== VIEW CYCLES BUTTON ==================== */
     .cycle-toggle-btn {
       width: 100%;
-      padding: 0.78rem 1rem;
+      padding: var(--space-sm) var(--space-md);
       background: var(--gradient-blue-purple);
       border: none;
       border-radius: var(--radius-md);
       color: white;
-      font-size: 0.92rem;
+      font-size: var(--fs-small);
       font-weight: 700;
       display: flex;
       align-items: center;
@@ -280,18 +327,23 @@
       position: relative;
       overflow: hidden;
       user-select: none;
+      line-height: 1.4;
     }
     .cycle-toggle-btn:hover {
       background: var(--gradient-purple-pink);
       transform: translateX(4px);
       box-shadow: var(--shadow-md);
     }
-    .cycle-toggle-content { display: flex; align-items: center; gap: 0.55rem; }
+    .cycle-toggle-content { 
+      display: flex; 
+      align-items: center; 
+      gap: var(--space-xs); 
+    }
     .cycle-count {
       background: rgba(255, 255, 255, 0.22);
-      padding: 0.22rem 0.6rem;
+      padding: 0.2rem var(--space-xs);
       border-radius: var(--radius-round);
-      font-size: 0.75rem;
+      font-size: var(--fs-tiny);
       font-weight: 800;
     }
 
@@ -301,10 +353,18 @@
     }
 
     /* ==================== YOUTUBE SECTION ==================== */
-    .youtube-section { margin: 2rem 0 1.5rem; animation: fadeInUp 0.8s ease 0.55s both; }
-    .section-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+    .youtube-section { 
+      margin: var(--space-lg) 0; 
+      animation: fadeInUp 0.8s ease 0.55s both; 
+    }
+    .section-header { 
+      display: flex; 
+      align-items: center; 
+      gap: var(--space-sm); 
+      margin-bottom: var(--space-md); 
+    }
     .section-title {
-      font-size: 1.5rem;
+      font-size: var(--fs-heading);
       font-weight: 800;
       background: var(--gradient-youtube);
       -webkit-background-clip: text;
@@ -312,11 +372,15 @@
       color: transparent;
       letter-spacing: 0.2px;
     }
-    .playlist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+    .playlist-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: var(--space-md); 
+    }
     .playlist-card {
       background: var(--bg-card);
       border-radius: var(--radius-xl);
-      padding: 1rem;
+      padding: var(--space-md);
       border: 1px solid rgba(255, 255, 255, 0.06);
       transition: var(--transition-normal);
       position: relative;
@@ -336,51 +400,77 @@
       width: 4px; height: 100%;
       background: var(--gradient-youtube);
     }
-    .playlist-header { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.5rem; }
+    .playlist-header { 
+      display: flex; 
+      align-items: flex-start; 
+      gap: var(--space-sm); 
+      margin-bottom: var(--space-xs); 
+    }
     .playlist-icon {
-      width: 38px; height: 38px;
+      width: clamp(32px, 8vw, 38px);
+      height: clamp(32px, 8vw, 38px);
       background: rgba(255, 0, 0, 0.15);
       border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
+      font-size: var(--icon-md);
       color: #ff6b6b;
       flex-shrink: 0;
       transition: var(--transition-normal);
     }
-    .playlist-card:hover .playlist-icon { transform: scale(1.08) rotate(4deg); background: rgba(255, 0, 0, 0.26); }
-    .playlist-title { font-size: 1rem; font-weight: 800; margin-bottom: 0.25rem; line-height: 1.35; }
-    .playlist-desc { color: var(--text-muted); font-size: 0.86rem; line-height: 1.4; margin-bottom: 0.75rem; }
+    .playlist-card:hover .playlist-icon { 
+      transform: scale(1.08) rotate(4deg); 
+      background: rgba(255, 0, 0, 0.26); 
+    }
+    .playlist-title { 
+      font-size: var(--fs-subheading); 
+      font-weight: 800; 
+      margin-bottom: 0.25rem; 
+      line-height: 1.35; 
+    }
+    .playlist-desc { 
+      color: var(--text-muted); 
+      font-size: var(--fs-small); 
+      line-height: 1.4; 
+      margin-bottom: var(--space-sm); 
+    }
 
     .playlist-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.62rem 1rem;
+      gap: var(--space-xs);
+      padding: var(--space-xs) var(--space-md);
       background: rgba(255, 0, 0, 0.1);
       color: white;
       text-decoration: none;
       border-radius: var(--radius-md);
       font-weight: 700;
-      font-size: 0.86rem;
+      font-size: var(--fs-small);
       transition: var(--transition-normal);
       border: 1px solid rgba(255, 0, 0, 0.2);
       position: relative;
       overflow: hidden;
       user-select: none;
     }
-    .playlist-btn:hover { background: rgba(255, 0, 0, 0.2); transform: translateX(4px); }
+    .playlist-btn:hover { 
+      background: rgba(255, 0, 0, 0.2); 
+      transform: translateX(4px); 
+    }
 
     /* ==================== FOOTER ==================== */
     footer {
-      margin-top: 2rem;
-      padding-top: 1.5rem;
+      margin-top: var(--space-lg);
+      padding-top: var(--space-lg);
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       text-align: center;
       animation: fadeInUp 0.8s ease 0.75s both;
     }
-    .copyright { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; }
+    .copyright { 
+      color: var(--text-muted); 
+      font-size: var(--fs-small); 
+      line-height: 1.5; 
+    }
 
     /* ==================== MODAL ==================== */
     .modal-overlay {
@@ -391,7 +481,7 @@
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 1rem;
+      padding: var(--space-md);
       z-index: 999;
     }
     .modal-overlay.show { display: flex; animation: overlayIn 180ms ease; }
@@ -415,17 +505,23 @@
     }
 
     .modal-header {
-      padding: 1rem 1.05rem;
+      padding: var(--space-md);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.75rem;
+      gap: var(--space-sm);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(255, 255, 255, 0.03);
     }
-    .modal-title-wrap { display: flex; align-items: center; gap: 0.7rem; min-width: 0; }
+    .modal-title-wrap { 
+      display: flex; 
+      align-items: center; 
+      gap: var(--space-sm); 
+      min-width: 0; 
+    }
     .modal-badge {
-      width: 42px; height: 42px;
+      width: clamp(36px, 10vw, 42px);
+      height: clamp(36px, 10vw, 42px);
       border-radius: 14px;
       display: flex;
       align-items: center;
@@ -433,9 +529,10 @@
       color: #fff;
       flex-shrink: 0;
       box-shadow: var(--shadow-sm);
+      font-size: var(--icon-md);
     }
     .modal-title {
-      font-size: 1.05rem;
+      font-size: var(--fs-subheading);
       font-weight: 900;
       letter-spacing: 0.2px;
       white-space: nowrap;
@@ -443,7 +540,7 @@
       text-overflow: ellipsis;
     }
     .modal-subtitle {
-      font-size: 0.82rem;
+      font-size: var(--fs-tiny);
       color: var(--text-muted);
       margin-top: 0.1rem;
     }
@@ -451,31 +548,35 @@
     .modal-close {
       border: none;
       cursor: pointer;
-      width: 42px;
-      height: 42px;
+      width: clamp(36px, 10vw, 42px);
+      height: clamp(36px, 10vw, 42px);
       border-radius: 14px;
       background: rgba(255, 255, 255, 0.06);
       color: white;
       display: grid;
       place-items: center;
       transition: var(--transition-fast);
+      font-size: var(--icon-md);
     }
-    .modal-close:hover { background: rgba(255, 255, 255, 0.12); transform: scale(1.03); }
+    .modal-close:hover { 
+      background: rgba(255, 255, 255, 0.12); 
+      transform: scale(1.03); 
+    }
 
     .modal-body {
-      padding: 0.95rem 1.05rem 1.1rem;
+      padding: var(--space-md);
       overflow: auto;
       max-height: calc(78vh - 74px);
     }
 
     .modal-cycles {
       display: grid;
-      gap: 0.65rem;
+      gap: var(--space-sm);
     }
     /* cycle items look nicer inside modal */
     .modal .cycle-item {
       display: block;
-      padding: 0.9rem;
+      padding: var(--space-sm);
       background: rgba(255, 255, 255, 0.04);
       border-radius: 16px;
       text-decoration: none;
@@ -489,9 +590,26 @@
       background: rgba(255, 255, 255, 0.085);
       transform: translateX(4px);
     }
-    .modal .cycle-name { font-size: 0.95rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem; }
-    .modal .cycle-desc { font-size: 0.84rem; color: var(--text-muted); margin-left: 1.65rem; }
-    .modal .cycle-badge { margin-left: 1.65rem; }
+    .modal .cycle-name { 
+      font-size: var(--fs-subheading); 
+      font-weight: 800; 
+      display: flex; 
+      align-items: center; 
+      gap: var(--space-xs); 
+      margin-bottom: 0.25rem; 
+    }
+    .modal .cycle-desc { 
+      font-size: var(--fs-small); 
+      color: var(--text-muted); 
+      margin-left: 1.5rem; 
+      line-height: 1.4;
+    }
+    .modal .cycle-badge { 
+      margin-left: 1.5rem; 
+      font-size: var(--fs-tiny);
+      display: inline-block;
+      margin-top: 0.25rem;
+    }
 
     /* subject colors in modal */
     .modal[data-subject="physics"] .modal-badge { background: var(--gradient-blue-purple); }
@@ -537,10 +655,26 @@
       .playlist-grid { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 768px) {
-      .app-container { padding: 0.75rem; }
-      .app-title { font-size: 1.55rem; }
+      .app-container { padding: var(--space-sm); }
       .subjects-grid, .playlist-grid { grid-template-columns: 1fr; }
-      .modal { max-height: 82vh; }
+      .modal { 
+        max-height: 85vh; 
+        border-radius: 18px;
+      }
+      .modal-body {
+        max-height: calc(85vh - 68px);
+      }
+    }
+
+    /* Extra small screens optimization */
+    @media (max-width: 360px) {
+      .app-title {
+        font-size: 1.15rem;
+      }
+      .update-badge {
+        font-size: 0.7rem;
+        padding: 0.35rem 0.75rem;
+      }
     }
   </style>
 </head>
@@ -584,11 +718,11 @@
     <!-- Header -->
     <header class="app-header">
       <div class="logo-container">
-        <h2 class="app-title">ACS Courses + YT Playlist & Revision Materials</h2>
+        <h1 class="app-title">ACS Courses + YT Playlist & Revision Materials</h1>
       </div>
       <div class="update-badge">
         <i class="fas fa-bell"></i>
-        Updated: Chemistry One Shot CQ + MCQ, HSC বায়োলজি- ম‍্যারাথন ক্লাস & guidelines
+        Updated: Chemistry One Shot CQ + MCQ, HSC বায়োলজি- ম‍্যারাথন ক্লাস & guidelines
       </div>
     </header>
 
@@ -729,7 +863,7 @@
           <div class="playlist-header">
             <div class="playlist-icon"><i class="fab fa-youtube"></i></div>
             <div>
-              <h3 class="playlist-title">(new) HSC 27 : যেই বিষয়গুলোতে সাবধান হতে হবে</h3>
+              <h3 class="playlist-title">(new) HSC 27 : যেই বিষয়গুলোতে সাবধান হতে হবে</h3>
               <p class="playlist-desc">by Nousheen Tabassum Ahona</p>
             </div>
           </div>
@@ -780,7 +914,7 @@
           <div class="playlist-header">
             <div class="playlist-icon"><i class="fab fa-youtube"></i></div>
             <div>
-              <h3 class="playlist-title">(new) HSC বায়োলজি- ম‍্যারাথন ক্লাস</h3>
+              <h3 class="playlist-title">(new) HSC বায়োলজি- ম‍্যারাথন ক্লাস</h3>
               <p class="playlist-desc">by Hasnat Shuvro</p>
             </div>
           </div>
@@ -885,7 +1019,7 @@
     <footer>
       <p class="copyright">
         ACS Courses + YT Playlist & Revision Materials<br />
-        v3.0 (Modal Cycles)
+        v3.1 (Improved Mobile Typography)
       </p>
     </footer>
   </div>
@@ -1003,8 +1137,8 @@
       });
 
       // Console message
-      console.log("%c🎯 HSC Study Platform", "color:#4361ee;font-size:20px;font-weight:bold;");
-      console.log("%cModal cycles enabled ✅", "color:#2ec4b6;font-size:14px;");
+      console.log("%c🎯 HSC Study Platform v3.1", "color:#4361ee;font-size:18px;font-weight:bold;");
+      console.log("%c✨ Improved Mobile Typography", "color:#2ec4b6;font-size:14px;");
     });
   </script>
 </body>
