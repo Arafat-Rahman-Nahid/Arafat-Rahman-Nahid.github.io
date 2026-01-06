@@ -1016,43 +1016,12 @@
     </section>
 
     <!-- Footer -->
-     <footer>
+    <footer>
       <p class="copyright">
         ACS Courses + YT Playlist & Revision Materials<br />
-        v2.1 
-      <br>
-  Ty: <b id="todayVisits">0</b> |
-  Tl: <b id="totalVisits">0</b>
-</footer>
-
-<!-- Visitor Counter Script -->
-<script>
-(function () {
-  const today = new Date().toISOString().split('T')[0];
-
-  // 🔑 Global Project Key
-  const project = "arafats-tech-study-site";
-
-  // 🔍 Auto detect page path (folder + file)
-  let page = location.pathname.replace(/\//g, "_") || "home";
-  page = page.replace(/\.(html|php)/g, "");
-
-  // 🔑 Auto keys (same across Vercel + GitHub Pages)
-  const todayKey = project + page + "-today-" + today;
-  const totalKey = project + page + "-total";
-
-  // 📌 Today Visitors
-  fetch("https://api.countapi.xyz/hit/" + todayKey)
-    .then(r => r.json())
-    .then(d => document.getElementById("todayVisits").innerText = d.value);
-
-  // 📌 Total Visitors
-  fetch("https://api.countapi.xyz/hit/" + totalKey)
-    .then(r => r.json())
-    .then(d => document.getElementById("totalVisits").innerText = d.value);
-})();
-</script>
-    
+        v2.1
+      </p>
+    </footer>
   </div>
 
   <!-- ==================== JS (Modal Cycles + Ripple) ==================== -->
