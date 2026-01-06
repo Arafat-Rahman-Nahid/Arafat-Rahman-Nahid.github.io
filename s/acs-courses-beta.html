@@ -1,1408 +1,965 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="keywords" content="HSC Study, Bangladesh Education, Physics, Math, ICT, Exam Preparation">
-    <meta name="description" content="Complete HSC study platform for Bangladeshi students - Physics, Mathematics, ICT courses with all resources in one place">
-    <meta name="author" content="Arafat's Tech">
-    <title>ACS Courses + YouTube Playlist & Revision Materials</title>
-    <link rel="icon" href="https://arafat-rahman-nahid.github.io/icon.png" type="image/png">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ==================== CSS VARIABLES ==================== */
-        :root {
-            /* Color Palette */
-            --primary-blue: #4361ee;
-            --primary-purple: #7209b7;
-            --primary-green: #2ec4b6;
-            --primary-orange: #ff9e00;
-            --primary-red: #ff006e;
-            
-            --gradient-blue-purple: linear-gradient(135deg, #4361ee, #7209b7);
-            --gradient-purple-pink: linear-gradient(135deg, #7209b7, #ff006e);
-            --gradient-green-blue: linear-gradient(135deg, #2ec4b6, #4361ee);
-            --gradient-orange-red: linear-gradient(135deg, #ff9e00, #ff006e);
-            --gradient-youtube: linear-gradient(135deg, #ff0000, #ff6b6b);
-            
-            --bg-dark: #0a0e17;
-            --bg-card: rgba(255, 255, 255, 0.03);
-            --bg-card-hover: rgba(255, 255, 255, 0.08);
-            --bg-glass: rgba(255, 255, 255, 0.02);
-            
-            --text-light: #ffffff;
-            --text-lighter: rgba(255, 255, 255, 0.95);
-            --text-muted: rgba(255, 255, 255, 0.6);
-            
-            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.15);
-            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.2);
-            --shadow-xl: 0 15px 40px rgba(0, 0, 0, 0.25);
-            
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
-            --radius-round: 50%;
-            
-            --transition-fast: 0.2s ease;
-            --transition-normal: 0.3s ease;
-            --transition-slow: 0.4s ease;
-        }
-
-        /* ==================== GLOBAL RESET ==================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-
-        body {
-            font-family: 'Poppins', 'Noto Sans Bengali', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-light);
-            min-height: 100vh;
-            line-height: 1.5;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* ==================== ANIMATED BACKGROUND ==================== */
-        .background-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .background-gradient {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(at 20% 30%, rgba(67, 97, 238, 0.15) 0px, transparent 50%),
-                radial-gradient(at 80% 70%, rgba(114, 9, 183, 0.15) 0px, transparent 50%),
-                radial-gradient(at 50% 50%, rgba(46, 196, 182, 0.1) 0px, transparent 50%);
-            animation: gradientShift 15s ease infinite;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.05); }
-        }
-
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.1;
-            animation: float 20s ease-in-out infinite;
-            filter: blur(20px);
-        }
-
-        .shape:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            background: var(--gradient-blue-purple);
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .shape:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            background: var(--gradient-purple-pink);
-            top: 60%;
-            right: 15%;
-            animation-delay: 5s;
-        }
-
-        .shape:nth-child(3) {
-            width: 250px;
-            height: 250px;
-            background: var(--gradient-green-blue);
-            bottom: 10%;
-            left: 50%;
-            animation-delay: 10s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(30px, -30px) scale(1.1);
-            }
-            66% {
-                transform: translate(-30px, 30px) scale(0.9);
-            }
-        }
-
-        /* ==================== MAIN LAYOUT ==================== */
-        .app-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ==================== HEADER ==================== */
-        .app-header {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            padding-top: 1rem;
-            animation: fadeInDown 0.8s ease;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-blue-purple);
-            border-radius: var(--radius-round);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-md);
-            position: relative;
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: var(--shadow-md);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 0 30px rgba(67, 97, 238, 0.3);
-            }
-        }
-
-        .logo i {
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .app-title {
-            font-size: 1.6rem;
-            font-weight: 500;
-            background: var(--gradient-youtube);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 0.25rem;
-        }
-
-        .update-badge {
-            display: inline-block;
-            background: var(--gradient-green-blue);
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-top: 0.5rem;
-            box-shadow: var(--shadow-sm);
-            animation: slideInUp 0.8s ease 0.3s both;
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ==================== SUBJECTS GRID ==================== */
-        .subjects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-
-        .subject-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            padding: 1.25rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: var(--transition-normal);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-
-        .subject-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(255, 255, 255, 0.1);
-            background: var(--bg-card-hover);
-        }
-
-        .subject-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-        }
-
-        .ict::before { background: var(--gradient-green-blue); }
-        .physics::before { background: var(--gradient-blue-purple); }
-        .math::before { background: var(--gradient-purple-pink); }
-
-        .subject-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .subject-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            color: white;
-            flex-shrink: 0;
-            transition: var(--transition-normal);
-        }
-
-        .subject-card:hover .subject-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .ict .subject-icon { background: var(--gradient-green-blue); }
-        .physics .subject-icon { background: var(--gradient-blue-purple); }
-        .math .subject-icon { background: var(--gradient-purple-pink); }
-
-        .subject-info h2 {
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-
-        /* ==================== COURSE ACTIONS ==================== */
-        .course-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .action-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1rem;
-            border-radius: var(--radius-sm);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: var(--transition-normal);
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            text-align: left;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .action-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .action-btn:hover::before {
-            left: 100%;
-        }
-
-        .action-btn.primary {
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .action-btn.primary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(4px);
-        }
-
-        .action-btn.secondary {
-            background: var(--gradient-blue-purple);
-            color: white;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .action-btn.secondary:hover {
-            background: var(--gradient-purple-pink);
-            transform: translateX(4px) scale(1.02);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* ==================== MERGED CYCLE BUTTON ==================== */
-        .cycle-toggle-btn {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            background: var(--gradient-blue-purple);
-            border: none;
-            border-radius: var(--radius-sm);
-            color: white;
-            font-size: 0.9rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            transition: var(--transition-normal);
-            margin-bottom: 0.5rem;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .cycle-toggle-btn:hover {
-            background: var(--gradient-purple-pink);
-            transform: translateX(4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .cycle-toggle-btn.active {
-            background: var(--gradient-purple-pink);
-        }
-
-        .cycle-toggle-btn.active .fa-chevron-down {
-            transform: rotate(180deg);
-        }
-
-        .cycle-toggle-content {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .cycle-count {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        /* ==================== CYCLE LIST ==================== */
-        .cycle-list {
-            display: none;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: var(--radius-sm);
-            padding: 0.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 0.5rem;
-        }
-
-        .cycle-list.show {
-            display: block;
-            animation: slideDown 0.3s ease;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .cycle-item {
-            display: block;
-            padding: 0.75rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: var(--radius-sm);
-            margin-bottom: 0.4rem;
-            transition: var(--transition-normal);
-            text-decoration: none;
-            color: white;
-            position: relative;
-            overflow: hidden;
-            border-left: 3px solid;
-        }
-
-        .cycle-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
-            transition: width 0.3s ease;
-        }
-
-        .ict .cycle-item { border-left-color: #2ec4b6; }
-        .physics .cycle-item { border-left-color: #4361ee; }
-        .math .cycle-item { border-left-color: #7209b7; }
-
-        .cycle-item:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateX(4px);
-        }
-
-        .cycle-item:hover::before {
-            width: 100%;
-        }
-
-        .cycle-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .cycle-name {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 500;
-            font-size: 0.9rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .cycle-desc {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-            margin-left: 1.75rem;
-        }
-
-        .cycle-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            margin-top: 0.25rem;
-        }
-
-        .ict .cycle-badge { background: rgba(46, 196, 182, 0.2); }
-        .physics .cycle-badge { background: rgba(67, 97, 238, 0.2); }
-        .math .cycle-badge { background: rgba(114, 9, 183, 0.2); }
-
-        /* ==================== YOUTUBE SECTION ==================== */
-        .youtube-section {
-            margin: 2rem 0 1.5rem;
-            animation: fadeInUp 0.8s ease 0.6s both;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .section-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-youtube);
-            border-radius: var(--radius-round);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            color: white;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            background: var(--gradient-youtube);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .playlist-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-        }
-
-        .playlist-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            padding: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: var(--transition-normal);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-
-        .playlist-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .playlist-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--gradient-youtube);
-        }
-
-        .playlist-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .playlist-icon {
-            width: 36px;
-            height: 36px;
-            background: rgba(255, 0, 0, 0.15);
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            color: #ff6b6b;
-            flex-shrink: 0;
-            transition: var(--transition-normal);
-        }
-
-        .playlist-card:hover .playlist-icon {
-            transform: scale(1.1) rotate(5deg);
-            background: rgba(255, 0, 0, 0.25);
-        }
-
-        .playlist-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-            line-height: 1.3;
-        }
-
-        .playlist-desc {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            line-height: 1.4;
-            margin-bottom: 0.75rem;
-        }
-
-        .playlist-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.6rem 1rem;
-            background: rgba(255, 0, 0, 0.1);
-            color: white;
-            text-decoration: none;
-            border-radius: var(--radius-sm);
-            font-weight: 500;
-            font-size: 0.85rem;
-            transition: var(--transition-normal);
-            border: 1px solid rgba(255, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .playlist-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .playlist-btn:hover::before {
-            left: 100%;
-        }
-
-        .playlist-btn:hover {
-            background: rgba(255, 0, 0, 0.2);
-            transform: translateX(4px);
-        }
-
-        /* ==================== FOOTER ==================== */
-        footer {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            text-align: center;
-            animation: fadeInUp 0.8s ease 0.8s both;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .footer-link {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: var(--transition-normal);
-            position: relative;
-        }
-
-        .footer-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--gradient-blue-purple);
-            transition: width 0.3s ease;
-        }
-
-        .footer-link:hover {
-            color: white;
-        }
-
-        .footer-link:hover::after {
-            width: 100%;
-        }
-
-        .copyright {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            line-height: 1.4;
-        }
-
-        /* ==================== RESPONSIVE DESIGN ==================== */
-        @media (min-width: 768px) {
-            .subjects-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .playlist-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .app-container {
-                padding: 0.75rem;
-            }
-            
-            .app-title {
-                font-size: 1.75rem;
-            }
-            
-            .subjects-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .playlist-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .app-title {
-                font-size: 1.5rem;
-            }
-            
-            .subject-card {
-                padding: 1rem;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-        }
-
-        /* ==================== CUSTOM SCROLLBAR ==================== */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gradient-blue-purple);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--gradient-purple-pink);
-        }
-
-        /* ==================== UTILITY CLASSES ==================== */
-        .mb-1 { margin-bottom: 1rem; }
-        .mb-05 { margin-bottom: 0.5rem; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="keywords" content="HSC Study, Bangladesh Education, Physics, Math, ICT, Exam Preparation" />
+  <meta name="description" content="Complete HSC study platform for Bangladeshi students - Physics, Mathematics, ICT courses with all resources in one place" />
+  <meta name="author" content="Arafat's Tech" />
+  <title>ACS Courses + YouTube Playlist & Revision Materials</title>
+  <link rel="icon" href="https://arafat-rahman-nahid.github.io/icon.png" type="image/png" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==================== CSS VARIABLES ==================== */
+    :root {
+      --primary-blue: #4361ee;
+      --primary-purple: #7209b7;
+      --primary-green: #2ec4b6;
+      --primary-orange: #ff9e00;
+      --primary-red: #ff006e;
+
+      --gradient-blue-purple: linear-gradient(135deg, #4361ee, #7209b7);
+      --gradient-purple-pink: linear-gradient(135deg, #7209b7, #ff006e);
+      --gradient-green-blue: linear-gradient(135deg, #2ec4b6, #4361ee);
+      --gradient-orange-red: linear-gradient(135deg, #ff9e00, #ff006e);
+      --gradient-youtube: linear-gradient(135deg, #ff0000, #ff6b6b);
+
+      --bg-dark: #0a0e17;
+      --bg-card: rgba(255, 255, 255, 0.03);
+      --bg-card-hover: rgba(255, 255, 255, 0.08);
+
+      --text-light: #ffffff;
+      --text-muted: rgba(255, 255, 255, 0.6);
+
+      --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.15);
+      --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.2);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-round: 50%;
+
+      --transition-normal: 0.3s ease;
+    }
+
+    /* ==================== GLOBAL RESET ==================== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      font-family: 'Poppins', 'Noto Sans Bengali', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      min-height: 100vh;
+      line-height: 1.5;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ==================== ANIMATED BACKGROUND ==================== */
+    .background-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .background-gradient {
+      position: absolute;
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(at 20% 30%, rgba(67, 97, 238, 0.15) 0px, transparent 50%),
+        radial-gradient(at 80% 70%, rgba(114, 9, 183, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(46, 196, 182, 0.1) 0px, transparent 50%);
+      animation: gradientShift 15s ease infinite;
+    }
+    @keyframes gradientShift {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.05); }
+    }
+    .floating-shapes { position: absolute; width: 100%; height: 100%; }
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: float 20s ease-in-out infinite;
+      filter: blur(20px);
+    }
+    .shape:nth-child(1) {
+      width: 300px; height: 300px;
+      background: var(--gradient-blue-purple);
+      top: 10%; left: 10%;
+      animation-delay: 0s;
+    }
+    .shape:nth-child(2) {
+      width: 200px; height: 200px;
+      background: var(--gradient-purple-pink);
+      top: 60%; right: 15%;
+      animation-delay: 5s;
+    }
+    .shape:nth-child(3) {
+      width: 250px; height: 250px;
+      background: var(--gradient-green-blue);
+      bottom: 10%; left: 50%;
+      animation-delay: 10s;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.1); }
+      66% { transform: translate(-30px, 30px) scale(0.9); }
+    }
+
+    /* ==================== MAIN LAYOUT ==================== */
+    .app-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ==================== HEADER ==================== */
+    .app-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      padding-top: 1rem;
+      animation: fadeInDown 0.8s ease;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .app-title {
+      font-size: 1.6rem;
+      font-weight: 500;
+      background: var(--gradient-youtube);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.25rem;
+    }
+    .update-badge {
+      display: inline-block;
+      background: var(--gradient-green-blue);
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-top: 0.5rem;
+      box-shadow: var(--shadow-sm);
+      animation: slideInUp 0.8s ease 0.3s both;
+    }
+    @keyframes slideInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==================== SUBJECTS GRID ==================== */
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.8s ease 0.4s both;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .subject-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: var(--transition-normal);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+    .subject-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(255, 255, 255, 0.1);
+      background: var(--bg-card-hover);
+    }
+    .subject-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 4px;
+    }
+    .ict::before { background: var(--gradient-green-blue); }
+    .physics::before { background: var(--gradient-blue-purple); }
+    .math::before { background: var(--gradient-purple-pink); }
+
+    .subject-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .subject-icon {
+      width: 40px; height: 40px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: white;
+      flex-shrink: 0;
+      transition: var(--transition-normal);
+    }
+    .subject-card:hover .subject-icon { transform: scale(1.1) rotate(5deg); }
+    .ict .subject-icon { background: var(--gradient-green-blue); }
+    .physics .subject-icon { background: var(--gradient-blue-purple); }
+    .math .subject-icon { background: var(--gradient-purple-pink); }
+
+    .subject-info h2 { font-size: 1.3rem; font-weight: 600; }
+
+    /* ==================== COURSE ACTIONS ==================== */
+    .course-actions { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.75rem; }
+
+    .action-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: var(--transition-normal);
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .action-btn::before,
+    .playlist-btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.6s ease;
+    }
+    .action-btn:hover::before,
+    .playlist-btn:hover::before { left: 100%; }
+
+    .action-btn.primary {
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .action-btn.primary:hover { background: rgba(255, 255, 255, 0.1); transform: translateX(4px); }
+
+    .action-btn.secondary {
+      background: var(--gradient-blue-purple);
+      color: white;
+      box-shadow: var(--shadow-sm);
+    }
+    .action-btn.secondary:hover {
+      background: var(--gradient-purple-pink);
+      transform: translateX(4px) scale(1.02);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ==================== MERGED CYCLE BUTTON ==================== */
+    .cycle-toggle-btn {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--gradient-blue-purple);
+      border: none;
+      border-radius: var(--radius-sm);
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: var(--transition-normal);
+      margin-bottom: 0.5rem;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+    .cycle-toggle-btn:hover {
+      background: var(--gradient-purple-pink);
+      transform: translateX(4px);
+      box-shadow: var(--shadow-md);
+    }
+    .cycle-toggle-btn.active { background: var(--gradient-purple-pink); }
+
+    .cycle-toggle-content { display: flex; align-items: center; gap: 0.5rem; }
+    .cycle-count {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* ==================== CYCLE LIST ==================== */
+    .cycle-list {
+      display: none;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 0.5rem;
+    }
+    .cycle-list.show { display: block; animation: slideDown 0.3s ease; }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .cycle-item {
+      display: block;
+      padding: 0.75rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.4rem;
+      transition: var(--transition-normal);
+      text-decoration: none;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      border-left: 3px solid;
+    }
+    .ict .cycle-item { border-left-color: #2ec4b6; }
+    .physics .cycle-item { border-left-color: #4361ee; }
+    .math .cycle-item { border-left-color: #7209b7; }
+
+    .cycle-item:hover { background: rgba(255, 255, 255, 0.08); transform: translateX(4px); }
+
+    .cycle-name { display: flex; align-items: center; gap: 0.5rem; font-weight: 500; font-size: 0.9rem; margin-bottom: 0.25rem; }
+    .cycle-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; margin-left: 1.75rem; }
+
+    .cycle-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-top: 0.25rem;
+    }
+    .ict .cycle-badge { background: rgba(46, 196, 182, 0.2); }
+    .physics .cycle-badge { background: rgba(67, 97, 238, 0.2); }
+    .math .cycle-badge { background: rgba(114, 9, 183, 0.2); }
+
+    /* ==================== YOUTUBE SECTION ==================== */
+    .youtube-section { margin: 2rem 0 1.5rem; animation: fadeInUp 0.8s ease 0.6s both; }
+    .section-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      background: var(--gradient-youtube);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .playlist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+
+    .playlist-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: var(--transition-normal);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+    .playlist-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    .playlist-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--gradient-youtube);
+    }
+
+    .playlist-header { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.5rem; }
+
+    .playlist-icon {
+      width: 36px; height: 36px;
+      background: rgba(255, 0, 0, 0.15);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: #ff6b6b;
+      flex-shrink: 0;
+      transition: var(--transition-normal);
+    }
+    .playlist-card:hover .playlist-icon { transform: scale(1.1) rotate(5deg); background: rgba(255, 0, 0, 0.25); }
+
+    .playlist-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; line-height: 1.3; }
+    .playlist-desc { color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; margin-bottom: 0.75rem; }
+
+    .playlist-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1rem;
+      background: rgba(255, 0, 0, 0.1);
+      color: white;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: var(--transition-normal);
+      border: 1px solid rgba(255, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .playlist-btn:hover { background: rgba(255, 0, 0, 0.2); transform: translateX(4px); }
+
+    /* ==================== FOOTER ==================== */
+    footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+      animation: fadeInUp 0.8s ease 0.8s both;
+    }
+    .copyright { color: var(--text-muted); font-size: 0.8rem; line-height: 1.4; }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (min-width: 768px) { .subjects-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1024px) { .playlist-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) {
+      .app-container { padding: 0.75rem; }
+      .app-title { font-size: 1.75rem; }
+      .subjects-grid, .playlist-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .app-title { font-size: 1.5rem; }
+      .subject-card { padding: 1rem; }
+    }
+
+    /* ==================== SCROLLBAR ==================== */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.03); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb { background: var(--gradient-blue-purple); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gradient-purple-pink); }
+
+    /* ==================== RIPPLE + FOCUS ==================== */
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      pointer-events: none;
+      background: rgba(255, 255, 255, 0.22);
+      animation: rippleAnim 600ms ease-out;
+    }
+    @keyframes rippleAnim {
+      to { transform: scale(2.2); opacity: 0; }
+    }
+    .action-btn:focus-visible,
+    .playlist-btn:focus-visible,
+    .cycle-toggle-btn:focus-visible,
+    .cycle-item:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.35);
+      outline-offset: 3px;
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Animated Background -->
-    <div class="background-container">
-        <div class="background-gradient"></div>
-        <div class="floating-shapes">
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-        </div>
+  <!-- Animated Background -->
+  <div class="background-container">
+    <div class="background-gradient"></div>
+    <div class="floating-shapes">
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
     </div>
+  </div>
 
-    <!-- Main App Container -->   
-    <div class="app-container">
-     <!-- Header -->
-         <header class="app-header">
-            <div class="logo-container">
-                <h2 class="app-title">ACS Courses + YT Playlist & Revision Materials</h2>
-            </div>
-            <div class="update-badge">
-                <i class="fas fa-bell"></i> 
-                Updated: Chemistry One Shot CQ + MCQ,HSC বায়োলজি- ম‍্যারাথন ক্লাস & guidelines
-            </div>
-        </header>
+  <!-- Main App Container -->
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-container">
+        <h2 class="app-title">ACS Courses + YT Playlist & Revision Materials</h2>
+      </div>
+      <div class="update-badge">
+        <i class="fas fa-bell"></i>
+        Updated: Chemistry One Shot CQ + MCQ,HSC বায়োলজি- ম‍্যারাথন ক্লাস & guidelines
+      </div>
+    </header>
 
-        <!-- Subjects Grid -->
-        <div class="subjects-grid">
-            <!-- ICT -->
-            <div class="subject-card ict">
-                <div class="subject-header">
-                    <div class="subject-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <div class="subject-info">
-                        <h2>ICT</h2>
-                    </div>
-                </div>
-                
-                <div class="course-actions">
-                    <a href="https://decoder27.aparsclassroom.com/" target="_blank" class="action-btn primary">
-                        <i class="fas fa-globe"></i>
-                        WebApp
-                    </a>
-                    <a href="https://aparsclassroom.com/shop/abhi/decoder_27/" target="_blank" class="action-btn secondary">
-                        <i class="fas fa-shopping-cart"></i>
-                        Buy Full Course
-                    </a>
-                </div>
-            </div>
-
-            <!-- Physics -->
-            <div class="subject-card physics">
-                <div class="subject-header">
-                    <div class="subject-icon">
-                        <i class="fas fa-atom"></i>
-                    </div>
-                    <div class="subject-info">
-                        <h2>Physics</h2>
-                    </div>
-                </div>
-                
-                <div class="course-actions">
-                    <a href="https://b2m27.aparsclassroom.com/" target="_blank" class="action-btn primary">
-                        <i class="fas fa-globe"></i>
-                        WebApp
-                    </a>
-                    <button class="cycle-toggle-btn" data-subject="physics">
-                        <div class="cycle-toggle-content">
-                            <i class="fas fa-layer-group"></i>
-                            <span>View All Cycles</span>
-                            <span class="cycle-count">6 Cycles</span>
-                        </div>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                </div>
-                
-                <div class="cycle-list" id="physics-cycles">
-                    <a href="https://aparsclassroom.com/shop/b2m27/Cycle-1/" target="_blank" class="cycle-item">
-                        <div class="cycle-name">
-                            <i class="fas fa-play-circle"></i>
-                            <span>সাইকেল ১</span>
-                        </div>
-                        <div class="cycle-desc">ভৌত জগৎ ও পরিমাপ,ভেক্টর,গতিবিদ্যা</div>
-                        <span class="cycle-badge">মৌলিক</span>
-                    </a>
-                    <a href="https://aparsclassroom.com/shop/b2m27/Cycle-2/" target="_blank" class="cycle-item">
-                        <div class="cycle-name">
-                            <i class="fas fa-play-circle"></i>
-                            <span>সাইকেল ২</span>
-                        </div>
-                        <div class="cycle-desc">নিউটনীয় বলবিদ্যা, কাজ, শক্তি ও ক্ষমতা, মহাকর্ষ ও অভিকর্ষ, পদার্থের গাঠনিক ধর্ম</div>
-                        <span class="cycle-badge">জনপ্রিয়</span>
-                    </a>
-                    <a href="https://aparsclassroom.com/shop/b2m27/Cycle-3/" target="_blank" class="cycle-item">
-                        <div class="cycle-name">
-                            <i class="fas fa-play-circle"></i>
-                            <span>সাইকেল ৩</span>
-                        </div>
-                        <div class="cycle-desc">পর্যাবৃত্ত গতি, তরঙ্গ, জ্যামিতিক আলোকবিজ্ঞান, ভৌত আলোকবিজ্ঞান</div>
-                        <span class="cycle-badge">নতুন</span>
-                    </a>
-                    <a href="https://aparsclassroom.com/shop/b2m27/Cycle-4/" target="_blank" class="cycle-item">
-                        <div class="cycle-name">
-                            <i class="fas fa-play-circle"></i>
-                            <span>সাইকেল ৪</span>
-                        </div>
-                        <div class="cycle-desc">আদর্শ গ্যাস ও গ্যাসের গতিতত্ত্ব, তাপগতিবিদ্যা, পরমাণুর মডেল ও নিউক্লিয়ার পদার্থবিজ্ঞান</div>
-                        <span class="cycle-badge">গুরুত্বপূর্ণ</span>
-                    </a>
-                    <a href="https://aparsclassroom.com/shop/b2m27/Cycle-5/" target="_blank" class="cycle-item">
-                        <div class="cycle-name">
-                            <i class="fas fa-play-circle"></i>
-                            <span>সাইকেল ৫</span>
-                        </div>
-                        <div class="cycle-desc">স্থির তড়িৎ, চল তড়িৎ, সেমিকন্ডাক্টর ও ইলেকট্রনিক্স</div>
-                        <span class="cycle-badge">গুরুত্বপূর্ণ</span>
-                    </a>
-                    <a href="https://aparsclassroom.com/shop/b2m27/Cycle-6/" target="_blank" class="cycle-item">
-                        <div class="cycle-name">
-                            <i class="fas fa-play-circle"></i>
-                            <span>সাইকেল ৬</span>
-                        </div>
-                        <div class="cycle-desc">চৌম্বক ক্রিয়া, তড়িৎ চৌম্বক আবেশ, আধুনিক পদার্থবিজ্ঞান</div>
-                        <span class="cycle-badge">গুরুত্বপূর্ণ</span>
-                    </a>
-                </div>
-            </div>
-
-<!-- TRYING TO ADD ANOTHER-->
-           
-            <!-- Mathematics -->
-            <div class="subject-card math">
-                <div class="subject-header">
-                    <div class="subject-icon">
-                        <i class="fas fa-square-root-alt"></i>
-                    </div>
-                    <div class="subject-info">
-                        <h2>Mathematics</h2>
-                    </div>
-                </div>
-                
-                <div class="course-actions">
-                    <a href="https://math27.aparsclassroom.com/" target="_blank" class="action-btn primary">
-                        <i class="fas fa-globe"></i>
-                        WebApp
-                    </a>
-                    <button class="cycle-toggle-btn" data-subject="math">
-                        <div class="cycle-toggle-content">
-                            <i class="fas fa-layer-group"></i>
-                            <span>View All Cycles</span>
-                            <span class="cycle-count">6 Cycles</span>
-                        </div>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                </div>
-                
-                <div class="cycle-list" id="math-cycles">
-                    <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-1/" target="_blank" class="cycle-item">
-                        <div class="cycle-name">
-                            <i class="fas fa-play-circle"></i>
-                            <span>সাইকেল ১</span>
-                        </div>
-                        <div class="cycle-desc">প্রথম পত্র - অধ্যায় ১-৪</div>
-                        <span class="cycle-badge">মৌলিক</span>
-                    </a>
-                    <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-2/" target="_blank" class="cycle-item">
-                        <div class="cycle-name">
-                            <i class="fas fa-play-circle"></i>
-                            <span>সাইকেল ২</span>
-                        </div>
-                        <div class="cycle-desc">প্রথম পত্র - অধ্যায় ৫-৮</div>
-                        <span class="cycle-badge">গুরুত্বপূর্ণ</span>
-                    </a>
-                    <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-3/" target="_blank" class="cycle-item">
-                        <div class="cycle-name">
-                            <i class="fas fa-play-circle"></i>
-                            <span>সাইকেল ৩</span>
-                        </div>
-                        <div class="cycle-desc">প্রথম পত্র - অধ্যায় ৯-১০</div>
-                        <span class="cycle-badge">গুরুত্বপূর্ণ</span>
-                    </a>
-                    <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-4/" target="_blank" class="cycle-item">
-                        <div class="cycle-name">
-                            <i class="fas fa-play-circle"></i>
-                            <span>সাইকেল ৪</span>
-                        </div>
-                        <div class="cycle-desc">দ্বিতীয় পত্র - অধ্যায় ১-৪</div>
-                        <span class="cycle-badge">গুরুত্বপূর্ণ</span>
-                    </a>
-                    <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-5/" target="_blank" class="cycle-item">
-                        <div class="cycle-name">
-                            <i class="fas fa-play-circle"></i>
-                            <span>সাইকেল ৫</span>
-                        </div>
-                        <div class="cycle-desc">দ্বিতীয় পত্র - অধ্যায় ৫-৭</div>
-                        <span class="cycle-badge">গুরুত্বপূর্ণ</span>
-                    </a>
-                    <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-6/" target="_blank" class="cycle-item">
-                        <div class="cycle-name">
-                            <i class="fas fa-play-circle"></i>
-                            <span>সাইকেল ৬</span>
-                        </div>
-                        <div class="cycle-desc">দ্বিতীয় পত্র - অধ্যায় ৮-১০</div>
-                        <span class="cycle-badge">গুরুত্বপূর্ণ</span>
-                    </a>
-                </div>
-            </div>
+    <!-- Subjects Grid -->
+    <div class="subjects-grid">
+      <!-- ICT -->
+      <div class="subject-card ict">
+        <div class="subject-header">
+          <div class="subject-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <div class="subject-info">
+            <h2>ICT</h2>
+          </div>
         </div>
 
-        <!-- YouTube Section Starts Here -->
+        <div class="course-actions">
+          <a href="https://decoder27.aparsclassroom.com/" target="_blank" class="action-btn primary" rel="noopener">
+            <i class="fas fa-globe"></i>
+            WebApp
+          </a>
+          <a href="https://aparsclassroom.com/shop/abhi/decoder_27/" target="_blank" class="action-btn secondary" rel="noopener">
+            <i class="fas fa-shopping-cart"></i>
+            Buy Full Course
+          </a>
+        </div>
+      </div>
 
-                      <!--Guidelines-->       
- <section class="youtube-section">
-            <div class="section-header">
-                <h2 class="section-title">Guidelines</h2>
-            </div>
-            
-            <div class="playlist-grid">
-             
-                <div class="playlist-card">
-                    <div class="playlist-header">
-                        <div class="playlist-icon">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                    <div>
-                            <h3 class="playlist-title">(new) HSC 27 : যেই বিষয়গুলোতে সাবধান হতে হবে</h3>
-                            <p class="playlist-desc">by Nousheen Tabassum Ahona</p>
-                        </div>
-                </div>
-                    <a href="https://www.youtube.com/watch?v=Ttp10wR5aKA" target="_blank" class="playlist-btn">
-                        <i class="fas fa-play"></i>
-                        Watch Now
-                    </a>
-            </div>
-            <div class="playlist-card">
-                    <div class="playlist-header">
-                        <div class="playlist-icon">
-                            <i class="fab fa-facebook"></i>
-                        </div>
-                    <div>
-                            <h3 class="playlist-title">(new) HSC 27 : Admission</h3>
-                            <p class="playlist-desc">by Nousheen Tabassum Ahona</p>
-                        </div>
-                </div>
-                    <a href="https://www.facebook.com/reel/1153042603707810" target="_blank" class="playlist-btn">
-                        <i class="fas fa-play"></i>
-                        Watch Now
-                    </a>
-            </div>
-</section>
-                   <!--CHEMISTRYY-->     
- <section class="youtube-section">
-            <div class="section-header">
-               
-                <h2 class="section-title">Chemistry</h2>
-            </div>
-            
-            <div class="playlist-grid">
-             
-                <div class="playlist-card">
-                    <div class="playlist-header">
-                        <div class="playlist-icon">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                    <div>
-                            <h3 class="playlist-title">(new) Chemistry One Shot CQ + MCQ</h3>
-                            <p class="playlist-desc">by Shaown Reza</p>
-                        </div>
-                </div>
-                    <a href="https://www.youtube.com/playlist?list=PL1GVU-Q4Oos4ZV1txlpdDnSVVoqrZaZ9K" target="_blank" class="playlist-btn">
-                        <i class="fas fa-play"></i>
-                        Watch Now
-                    </a>
-            </div>
-</section>
+      <!-- Physics -->
+      <div class="subject-card physics">
+        <div class="subject-header">
+          <div class="subject-icon">
+            <i class="fas fa-atom"></i>
+          </div>
+          <div class="subject-info">
+            <h2>Physics</h2>
+          </div>
+        </div>
 
-                   <!--Biology-->       
- <section class="youtube-section">
-            <div class="section-header">
-               
-                <h2 class="section-title">Biology</h2>
+        <div class="course-actions">
+          <a href="https://b2m27.aparsclassroom.com/" target="_blank" class="action-btn primary" rel="noopener">
+            <i class="fas fa-globe"></i>
+            WebApp
+          </a>
+
+          <button class="cycle-toggle-btn" data-subject="physics" aria-expanded="false">
+            <div class="cycle-toggle-content">
+              <i class="fas fa-layer-group"></i>
+              <span>View All Cycles</span>
+              <span class="cycle-count">6 Cycles</span>
             </div>
-            
-            <div class="playlist-grid">
-             
-                <div class="playlist-card">
-                    <div class="playlist-header">
-                        <div class="playlist-icon">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                    <div>
-                            <h3 class="playlist-title">(new) HSC বায়োলজি- ম‍্যারাথন ক্লাস</h3>
-                            <p class="playlist-desc">by Hasnat Shuvro</p>
-                        </div>
-                </div>
-                    <a href="https://www.youtube.com/playlist?list=PLcJGjF8QBSfTOTC6LzVfY7FsnEdWfj-d0" target="_blank" class="playlist-btn">
-                        <i class="fas fa-play"></i>
-                        Watch Now
-                    </a>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+
+        <div class="cycle-list" id="physics-cycles">
+          <a href="https://aparsclassroom.com/shop/b2m27/Cycle-1/" target="_blank" class="cycle-item" rel="noopener">
+            <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ১</span></div>
+            <div class="cycle-desc">ভৌত জগৎ ও পরিমাপ,ভেক্টর,গতিবিদ্যা</div>
+            <span class="cycle-badge">মৌলিক</span>
+          </a>
+
+          <a href="https://aparsclassroom.com/shop/b2m27/Cycle-2/" target="_blank" class="cycle-item" rel="noopener">
+            <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ২</span></div>
+            <div class="cycle-desc">নিউটনীয় বলবিদ্যা, কাজ, শক্তি ও ক্ষমতা, মহাকর্ষ ও অভিকর্ষ, পদার্থের গাঠনিক ধর্ম</div>
+            <span class="cycle-badge">জনপ্রিয়</span>
+          </a>
+
+          <a href="https://aparsclassroom.com/shop/b2m27/Cycle-3/" target="_blank" class="cycle-item" rel="noopener">
+            <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ৩</span></div>
+            <div class="cycle-desc">পর্যাবৃত্ত গতি, তরঙ্গ, জ্যামিতিক আলোকবিজ্ঞান, ভৌত আলোকবিজ্ঞান</div>
+            <span class="cycle-badge">নতুন</span>
+          </a>
+
+          <a href="https://aparsclassroom.com/shop/b2m27/Cycle-4/" target="_blank" class="cycle-item" rel="noopener">
+            <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ৪</span></div>
+            <div class="cycle-desc">আদর্শ গ্যাস ও গ্যাসের গতিতত্ত্ব, তাপগতিবিদ্যা, পরমাণুর মডেল ও নিউক্লিয়ার পদার্থবিজ্ঞান</div>
+            <span class="cycle-badge">গুরুত্বপূর্ণ</span>
+          </a>
+
+          <a href="https://aparsclassroom.com/shop/b2m27/Cycle-5/" target="_blank" class="cycle-item" rel="noopener">
+            <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ৫</span></div>
+            <div class="cycle-desc">স্থির তড়িৎ, চল তড়িৎ, সেমিকন্ডাক্টর ও ইলেকট্রনিক্স</div>
+            <span class="cycle-badge">গুরুত্বপূর্ণ</span>
+          </a>
+
+          <a href="https://aparsclassroom.com/shop/b2m27/Cycle-6/" target="_blank" class="cycle-item" rel="noopener">
+            <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ৬</span></div>
+            <div class="cycle-desc">চৌম্বক ক্রিয়া, তড়িৎ চৌম্বক আবেশ, আধুনিক পদার্থবিজ্ঞান</div>
+            <span class="cycle-badge">গুরুত্বপূর্ণ</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mathematics -->
+      <div class="subject-card math">
+        <div class="subject-header">
+          <div class="subject-icon">
+            <i class="fas fa-square-root-alt"></i>
+          </div>
+          <div class="subject-info">
+            <h2>Mathematics</h2>
+          </div>
+        </div>
+
+        <div class="course-actions">
+          <a href="https://math27.aparsclassroom.com/" target="_blank" class="action-btn primary" rel="noopener">
+            <i class="fas fa-globe"></i>
+            WebApp
+          </a>
+
+          <button class="cycle-toggle-btn" data-subject="math" aria-expanded="false">
+            <div class="cycle-toggle-content">
+              <i class="fas fa-layer-group"></i>
+              <span>View All Cycles</span>
+              <span class="cycle-count">6 Cycles</span>
             </div>
-</section>
-                   <!--Higher Math-->       
- <section class="youtube-section">
-            <div class="section-header">
-               
-                <h2 class="section-title">Higher Math</h2>
-            </div>
-            
-            <div class="playlist-grid">
-             
-                <div class="playlist-card">
-                    <div class="playlist-header">
-                        <div class="playlist-icon">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                    <div>
-                            <h3 class="playlist-title">
-                              HSC Full Higher Math Revision
-                            </h3>
-                            <p class="playlist-desc">by Kazi Rakibul Hasan</p>
-                        </div>
-                </div>
-                    <a href="https://www.youtube.com/playlist?list=PLi5fEbOt0If7Rky9DdZePw4wNFJVbGxt4" target="_blank" class="playlist-btn">
-                        <i class="fas fa-play"></i>
-                        Watch Now
-                    </a>
-            </div>
-             <div class="playlist-card">
-                    <div class="playlist-header">
-                        <div class="playlist-icon">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                    <div>
-                            <h3 class="playlist-title">HSC Higher Math MCQ Revision</h3>
-                            <p class="playlist-desc">by Abhi Datta Tushar</p>
-                        </div>
-                </div>
-                    <a href="https://www.youtube.com/playlist?list=PLi5fEbOt0If7-E6bOO5_Xw7aDRA5e2uo7" target="_blank" class="playlist-btn">
-                        <i class="fas fa-play"></i>
-                        Watch Now
-                    </a>
-            </div>
-             <div class="playlist-card">
-                    <div class="playlist-header">
-                        <div class="playlist-icon">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                    <div>
-                            <h3 class="playlist-title">
-                                Calculator Hacks & Tricks
-                            </h3>
-                             <p class="playlist-desc">
-                                by Kazi Rakibul Hasan
-                             </p>
-                        </div>
-                </div>
-                    <a href="https://www.youtube.com/playlist?list=PLi5fEbOt0If7Opn9oYIqxEkWMxFYRpbQZ" target="_blank" class="playlist-btn">
-                        <i class="fas fa-play"></i>
-                        Watch Now
-                    </a>
-            </div>
-            
-</section>
-                   <!--ICT-->       
- <section class="youtube-section">
-            <div class="section-header">
-                <h2 class="section-title">ICT</h2>
-            </div>
-            
-            <div class="playlist-grid">
-             
-                <div class="playlist-card">
-                    <div class="playlist-header">
-                        <div class="playlist-icon">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                    <div>
-                            <h3 class="playlist-title">HSC ICT : সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস</h3>
-                            <p class="playlist-desc">by Kazi Rakibul Hasan</p>
-                        </div>
-                </div>
-                    <a href="https://www.youtube.com/playlist?list=PLZf4q5EodedEFrF2saMI4ehL_BNwWjfPM" target="_blank" class="playlist-btn">
-                        <i class="fas fa-play"></i>
-                        Watch Now
-                    </a>
-            </div>
-            <div class="playlist-card">
-                    <div class="playlist-header">
-                        <div class="playlist-icon">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                    <div>
-                            <h3 class="playlist-title">HSC ICT : ডেটাবেজ ম্যানেজমেন্ট সিস্টেম</h3>
-                            <p class="playlist-desc">by Kazi Rakibul Hasan</p>
-                        </div>
-                </div>
-                    <a href="https://www.youtube.com/playlist?list=PLZf4q5EodedH1fBghyKbn5caIdSlME6Yt" target="_blank" class="playlist-btn">
-                        <i class="fas fa-play"></i>
-                        Watch Now
-                    </a>
-            </div>
-            <div class="playlist-card">
-                    <div class="playlist-header">
-                        <div class="playlist-icon">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                    <div>
-                            <h3 class="playlist-title">HSC ICT : Oneshot Revision</h3>
-                            <p class="playlist-desc">by Kazi Rakibul Hasan</p>
-                        </div>
-                </div>
-                    <a href="https://www.youtube.com/playlist?list=PLi5fEbOt0If7Yo4Vt-G0q_byIKVzoFdxa" target="_blank" class="playlist-btn">
-                        <i class="fas fa-play"></i>
-                        Watch Now
-                    </a>
-            </div>
-</section>
-                  
-        <!-- YouTube Section Ends Here-->
-        <!-- Footer -->  
-        <footer>
-            
-          <p class="copyright">
-              
-ACS Courses + YT Playlist & Revision Materials
-           <br>v2.0
-            </p>
-        </footer>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+
+        <div class="cycle-list" id="math-cycles">
+          <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-1/" target="_blank" class="cycle-item" rel="noopener">
+            <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ১</span></div>
+            <div class="cycle-desc">প্রথম পত্র - অধ্যায় ১-৪</div>
+            <span class="cycle-badge">মৌলিক</span>
+          </a>
+
+          <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-2/" target="_blank" class="cycle-item" rel="noopener">
+            <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ২</span></div>
+            <div class="cycle-desc">প্রথম পত্র - অধ্যায় ৫-৮</div>
+            <span class="cycle-badge">গুরুত্বপূর্ণ</span>
+          </a>
+
+          <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-3/" target="_blank" class="cycle-item" rel="noopener">
+            <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ৩</span></div>
+            <div class="cycle-desc">প্রথম পত্র - অধ্যায় ৯-১০</div>
+            <span class="cycle-badge">গুরুত্বপূর্ণ</span>
+          </a>
+
+          <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-4/" target="_blank" class="cycle-item" rel="noopener">
+            <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ৪</span></div>
+            <div class="cycle-desc">দ্বিতীয় পত্র - অধ্যায় ১-৪</div>
+            <span class="cycle-badge">গুরুত্বপূর্ণ</span>
+          </a>
+
+          <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-5/" target="_blank" class="cycle-item" rel="noopener">
+            <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ৫</span></div>
+            <div class="cycle-desc">দ্বিতীয় পত্র - অধ্যায় ৫-৭</div>
+            <span class="cycle-badge">গুরুত্বপূর্ণ</span>
+          </a>
+
+          <a href="https://aparsclassroom.com/shop/abhi/Math27/Cycle-6/" target="_blank" class="cycle-item" rel="noopener">
+            <div class="cycle-name"><i class="fas fa-play-circle"></i><span>সাইকেল ৬</span></div>
+            <div class="cycle-desc">দ্বিতীয় পত্র - অধ্যায় ৮-১০</div>
+            <span class="cycle-badge">গুরুত্বপূর্ণ</span>
+          </a>
+        </div>
+      </div>
     </div>
 
-    <!-- Main JavaScript -->
-    <script>
-        // Initialize page - Ensure NO cycles are expanded by default
-        window.addEventListener('load', function() {
-            // Close all cycle lists on page load
-            document.querySelectorAll('.cycle-list').forEach(list => {
-                list.classList.remove('show');
-            });
-            
-            // Reset all toggle buttons
-            document.querySelectorAll('.cycle-toggle-btn').forEach(btn => {
-                btn.classList.remove('active');
-                const chevron = btn.querySelector('.fa-chevron-down');
-                if (chevron) {
-                    chevron.style.transform = 'rotate(0deg)';
-                }
-            });
-            
-            // Welcome message
-            console.log('%c🎯 HSC Study Platform', 'color: #4361ee; font-size: 20px; font-weight: bold;');
-            console.log('%cAll resources loaded successfully! 📚', 'color: #2ec4b6; font-size: 14px;');
-        });
+    <!-- Guidelines -->
+    <section class="youtube-section">
+      <div class="section-header">
+        <h2 class="section-title">Guidelines</h2>
+      </div>
 
-        // Cycle Toggle Functionality - Merged Button
-        document.querySelectorAll('.cycle-toggle-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const subject = this.getAttribute('data-subject');
-                const cycleList = document.getElementById(`${subject}-cycles`);
-                const chevron = this.querySelector('.fa-chevron-down');
-                
-                // Close all other cycle lists
-                document.querySelectorAll('.cycle-list').forEach(list => {
-                    if (list !== cycleList) {
-                        list.classList.remove('show');
-                        const otherBtn = list.previousElementSibling;
-                        otherBtn.classList.remove('active');
-                        const otherChevron = otherBtn.querySelector('.fa-chevron-down');
-                        if (otherChevron) {
-                            otherChevron.style.transform = 'rotate(0deg)';
-                        }
-                    }
-                });
-                
-                // Toggle current cycle list
-                const isShowing = cycleList.classList.contains('show');
-                cycleList.classList.toggle('show');
-                this.classList.toggle('active');
-                
-                if (chevron) {
-                    chevron.style.transform = cycleList.classList.contains('show') 
-                        ? 'rotate(180deg)' 
-                        : 'rotate(0deg)';
-                }
-                
-                // Smooth scroll to cycle list if opening
-                if (!isShowing && cycleList.classList.contains('show')) {
-                    setTimeout(() => {
-                        cycleList.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'nearest'
-                        });
-                    }, 100);
-                }
-            });
-        });
+      <div class="playlist-grid">
+        <div class="playlist-card">
+          <div class="playlist-header">
+            <div class="playlist-icon"><i class="fab fa-youtube"></i></div>
+            <div>
+              <h3 class="playlist-title">(new) HSC 27 : যেই বিষয়গুলোতে সাবধান হতে হবে</h3>
+              <p class="playlist-desc">by Nousheen Tabassum Ahona</p>
+            </div>
+          </div>
 
-        // Close cycle lists when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.cycle-toggle-btn') && !e.target.closest('.cycle-list')) {
-                document.querySelectorAll('.cycle-list').forEach(list => {
-                    list.classList.remove('show');
-                    const btn = list.previousElementSibling;
-                    btn.classList.remove('active');
-                    const chevron = btn.querySelector('.fa-chevron-down');
-                    if (chevron) {
-                        chevron.style.transform = 'rotate(0deg)';
-                    }
-                });
-            }
-        });
+          <a href="https://www.youtube.com/watch?v=Ttp10wR5aKA" target="_blank" class="playlist-btn" rel="noopener">
+            <i class="fas fa-play"></i> Watch Now
+          </a>
+        </div>
 
-        // Add hover effects for cards
-        document.querySelectorAll('.subject-card, .playlist-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-4px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                if (!this.querySelector('.cycle-list.show')) {
-                    this.style.transform = 'translateY(0)';
-                }
-            });
-        });
+        <div class="playlist-card">
+          <div class="playlist-header">
+            <div class="playlist-icon"><i class="fab fa-facebook"></i></div>
+            <div>
+              <h3 class="playlist-title">(new) HSC 27 : Admission</h3>
+              <p class="playlist-desc">by Nousheen Tabassum Ahona</p>
+            </div>
+          </div>
 
-        // Add ripple effect to buttons
-        document.querySelectorAll('.action-btn, .playlist-btn, .cycle-item, .cycle-toggle-btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.cssText = `
-                    position: absolute;
-                    width: ${size}px;
-                    height: ${size}px;
-                    border-radius: 50%;
-                    background: rgba(255, 255, 255, 0.2);
-                    left: ${x}px;
-                    top: ${y}px;
-                    pointer-events: none;
-                    animation: ripple 0.6s ease-out;
-                `;
-                
-                this.style.position = 'relative';
-                this.style.overflow = 'hidden';
-                this.appendChild(ripple);
-                
-                setTimeout(() => ripple.remove(), 600);
-            });
-        });
+          <a href="https://www.facebook.com/reel/1153042603707810" target="_blank" class="playlist-btn" rel="noopener">
+            <i class="fas fa-play"></i> Watch Now
+          </a>
+        </div>
+      </div>
+    </section>
 
-        // Add ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                from {
-                    transform: scale(0);
-                    opacity: 1;
-                }
-                to {
-                    transform: scale(2);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
+    <!-- Chemistry -->
+    <section class="youtube-section">
+      <div class="section-header">
+        <h2 class="section-title">Chemistry</h2>
+      </div>
 
-        // Smooth scroll for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+      <div class="playlist-grid">
+        <div class="playlist-card">
+          <div class="playlist-header">
+            <div class="playlist-icon"><i class="fab fa-youtube"></i></div>
+            <div>
+              <h3 class="playlist-title">(new) Chemistry One Shot CQ + MCQ</h3>
+              <p class="playlist-desc">by Shaown Reza</p>
+            </div>
+          </div>
 
-        // Keyboard navigation support
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.cycle-list').forEach(list => {
-                    list.classList.remove('show');
-                    const btn = list.previousElementSibling;
-                    btn.classList.remove('active');
-                    const chevron = btn.querySelector('.fa-chevron-down');
-                    if (chevron) {
-                        chevron.style.transform = 'rotate(0deg)';
-                    }
-                });
-            }
+          <a href="https://www.youtube.com/playlist?list=PL1GVU-Q4Oos4ZV1txlpdDnSVVoqrZaZ9K" target="_blank" class="playlist-btn" rel="noopener">
+            <i class="fas fa-play"></i> Watch Now
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Biology -->
+    <section class="youtube-section">
+      <div class="section-header">
+        <h2 class="section-title">Biology</h2>
+      </div>
+
+      <div class="playlist-grid">
+        <div class="playlist-card">
+          <div class="playlist-header">
+            <div class="playlist-icon"><i class="fab fa-youtube"></i></div>
+            <div>
+              <h3 class="playlist-title">(new) HSC বায়োলজি- ম‍্যারাথন ক্লাস</h3>
+              <p class="playlist-desc">by Hasnat Shuvro</p>
+            </div>
+          </div>
+
+          <a href="https://www.youtube.com/playlist?list=PLcJGjF8QBSfTOTC6LzVfY7FsnEdWfj-d0" target="_blank" class="playlist-btn" rel="noopener">
+            <i class="fas fa-play"></i> Watch Now
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Higher Math -->
+    <section class="youtube-section">
+      <div class="section-header">
+        <h2 class="section-title">Higher Math</h2>
+      </div>
+
+      <div class="playlist-grid">
+        <div class="playlist-card">
+          <div class="playlist-header">
+            <div class="playlist-icon"><i class="fab fa-youtube"></i></div>
+            <div>
+              <h3 class="playlist-title">HSC Full Higher Math Revision</h3>
+              <p class="playlist-desc">by Kazi Rakibul Hasan</p>
+            </div>
+          </div>
+
+          <a href="https://www.youtube.com/playlist?list=PLi5fEbOt0If7Rky9DdZePw4wNFJVbGxt4" target="_blank" class="playlist-btn" rel="noopener">
+            <i class="fas fa-play"></i> Watch Now
+          </a>
+        </div>
+
+        <div class="playlist-card">
+          <div class="playlist-header">
+            <div class="playlist-icon"><i class="fab fa-youtube"></i></div>
+            <div>
+              <h3 class="playlist-title">HSC Higher Math MCQ Revision</h3>
+              <p class="playlist-desc">by Abhi Datta Tushar</p>
+            </div>
+          </div>
+
+          <a href="https://www.youtube.com/playlist?list=PLi5fEbOt0If7-E6bOO5_Xw7aDRA5e2uo7" target="_blank" class="playlist-btn" rel="noopener">
+            <i class="fas fa-play"></i> Watch Now
+          </a>
+        </div>
+
+        <div class="playlist-card">
+          <div class="playlist-header">
+            <div class="playlist-icon"><i class="fab fa-youtube"></i></div>
+            <div>
+              <h3 class="playlist-title">Calculator Hacks & Tricks</h3>
+              <p class="playlist-desc">by Kazi Rakibul Hasan</p>
+            </div>
+          </div>
+
+          <a href="https://www.youtube.com/playlist?list=PLi5fEbOt0If7Opn9oYIqxEkWMxFYRpbQZ" target="_blank" class="playlist-btn" rel="noopener">
+            <i class="fas fa-play"></i> Watch Now
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ICT -->
+    <section class="youtube-section">
+      <div class="section-header">
+        <h2 class="section-title">ICT</h2>
+      </div>
+
+      <div class="playlist-grid">
+        <div class="playlist-card">
+          <div class="playlist-header">
+            <div class="playlist-icon"><i class="fab fa-youtube"></i></div>
+            <div>
+              <h3 class="playlist-title">HSC ICT : সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস</h3>
+              <p class="playlist-desc">by Kazi Rakibul Hasan</p>
+            </div>
+          </div>
+
+          <a href="https://www.youtube.com/playlist?list=PLZf4q5EodedEFrF2saMI4ehL_BNwWjfPM" target="_blank" class="playlist-btn" rel="noopener">
+            <i class="fas fa-play"></i> Watch Now
+          </a>
+        </div>
+
+        <div class="playlist-card">
+          <div class="playlist-header">
+            <div class="playlist-icon"><i class="fab fa-youtube"></i></div>
+            <div>
+              <h3 class="playlist-title">HSC ICT : ডেটাবেজ ম্যানেজমেন্ট সিস্টেম</h3>
+              <p class="playlist-desc">by Kazi Rakibul Hasan</p>
+            </div>
+          </div>
+
+          <a href="https://www.youtube.com/playlist?list=PLZf4q5EodedH1fBghyKbn5caIdSlME6Yt" target="_blank" class="playlist-btn" rel="noopener">
+            <i class="fas fa-play"></i> Watch Now
+          </a>
+        </div>
+
+        <div class="playlist-card">
+          <div class="playlist-header">
+            <div class="playlist-icon"><i class="fab fa-youtube"></i></div>
+            <div>
+              <h3 class="playlist-title">HSC ICT : Oneshot Revision</h3>
+              <p class="playlist-desc">by Kazi Rakibul Hasan</p>
+            </div>
+          </div>
+
+          <a href="https://www.youtube.com/playlist?list=PLi5fEbOt0If7Yo4Vt-G0q_byIKVzoFdxa" target="_blank" class="playlist-btn" rel="noopener">
+            <i class="fas fa-play"></i> Watch Now
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p class="copyright">
+        ACS Courses + YT Playlist & Revision Materials
+        <br />v2.1
+      </p>
+    </footer>
+  </div>
+
+  <!-- Updated JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleButtons = document.querySelectorAll(".cycle-toggle-btn");
+      const cycleLists = document.querySelectorAll(".cycle-list");
+
+      // Ensure all are closed by default
+      cycleLists.forEach(list => list.classList.remove("show"));
+      toggleButtons.forEach(btn => {
+        btn.classList.remove("active");
+        btn.setAttribute("aria-expanded", "false");
+      });
+
+      // Add ARIA controls automatically
+      toggleButtons.forEach(btn => {
+        const subject = btn.dataset.subject;
+        const list = document.getElementById(`${subject}-cycles`);
+        if (list) btn.setAttribute("aria-controls", list.id);
+      });
+
+      // Toggle logic
+      toggleButtons.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+
+          const subject = btn.dataset.subject;
+          const targetList = document.getElementById(`${subject}-cycles`);
+          if (!targetList) return;
+
+          const wasOpen = targetList.classList.contains("show");
+
+          closeAllCycles();
+
+          if (!wasOpen) {
+            targetList.classList.add("show");
+            btn.classList.add("active");
+            btn.setAttribute("aria-expanded", "true");
+
+            setTimeout(() => {
+              targetList.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            }, 100);
+          }
         });
-    </script>
+      });
+
+      // Close on outside click
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".cycle-toggle-btn") && !e.target.closest(".cycle-list")) {
+          closeAllCycles();
+        }
+      });
+
+      // Close on Escape
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeAllCycles();
+      });
+
+      function closeAllCycles() {
+        cycleLists.forEach(list => list.classList.remove("show"));
+        toggleButtons.forEach(btn => {
+          btn.classList.remove("active");
+          btn.setAttribute("aria-expanded", "false");
+        });
+      }
+
+      // Ripple effect (clean version)
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".action-btn, .playlist-btn, .cycle-item, .cycle-toggle-btn");
+        if (!btn) return;
+
+        const ripple = document.createElement("span");
+        ripple.className = "ripple";
+
+        const rect = btn.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+
+        ripple.style.width = ripple.style.height = `${size}px`;
+        ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+        ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+
+        btn.appendChild(ripple);
+        ripple.addEventListener("animationend", () => ripple.remove());
+      });
+
+      // Console message
+      console.log("%c🎯 HSC Study Platform", "color:#4361ee;font-size:20px;font-weight:bold;");
+      console.log("%cAll resources loaded successfully! 📚", "color:#2ec4b6;font-size:14px;");
+    });
+  </script>
 </body>
 </html>
