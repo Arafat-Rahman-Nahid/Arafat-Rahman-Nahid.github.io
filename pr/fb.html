@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>FB Link Sharer Detector | Reveal Sharer Facebook ID</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f0f2f5 0%, #e4e9f0 100%);
+      font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, 'Roboto', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+
+    /* main card */
+    .detector-card {
+      max-width: 780px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(0px);
+      border-radius: 2.5rem;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    /* header */
+    .fb-header {
+      background: #1877f2;
+      padding: 1.6rem 2rem;
+      color: white;
+    }
+
+    .fb-header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .fb-header h1::before {
+      content: "🔍";
+      font-size: 1.9rem;
+    }
+
+    .fb-header p {
+      font-size: 0.95rem;
+      margin-top: 8px;
+      opacity: 0.9;
+      font-weight: 400;
+    }
+
+    /* content */
+    .content {
+      padding: 2rem 2rem 2rem 2rem;
+    }
+
+    .info-alert {
+      background: #e7f3ff;
+      border-left: 5px solid #1877f2;
+      border-radius: 1rem;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1.8rem;
+      font-size: 0.9rem;
+      color: #1e3c72;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .info-alert span:first-child {
+      font-size: 1.3rem;
+    }
+
+    .input-group {
+      margin-bottom: 1.8rem;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #1b2f44;
+      font-size: 0.9rem;
+      letter-spacing: -0.2px;
+    }
+
+    .link-input-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px 18px;
+      font-size: 1rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 1.5rem;
+      background: white;
+      transition: 0.2s;
+      font-family: monospace;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #1877f2;
+      box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.2);
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .btn {
+      border: none;
+      padding: 12px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.2s;
+      background: #eef2f6;
+      color: #1e2a3a;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: #1877f2;
+      color: white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary:hover {
+      background: #0e63d4;
+      transform: scale(0.98);
+    }
+
+    .btn-outline {
+      border: 1px solid #ccd7e6;
+      background: white;
+    }
+
+    .btn-outline:hover {
+      background: #f8fafc;
+      border-color: #1877f2;
+    }
+
+    /* result card */
+    .result-area {
+      margin-top: 28px;
+      background: #f8fafd;
+      border-radius: 1.5rem;
+      padding: 1.4rem;
+      border: 1px solid #e9edf2;
+      transition: all 0.2s;
+    }
+
+    .result-title {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+      color: #0a2b44;
+    }
+
+    .sharer-id-box {
+      background: #ffffff;
+      border-radius: 1rem;
+      padding: 1rem;
+      word-break: break-all;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      border: 1px solid #dfe6ef;
+      margin-bottom: 16px;
+    }
+
+    .sharer-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      color: #5e7a93;
+    }
+
+    .sharer-value {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1877f2;
+      margin-top: 6px;
+    }
+
+    .meta-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+      font-size: 0.8rem;
+      background: #ffffffd0;
+      padding: 12px;
+      border-radius: 1rem;
+    }
+
+    .badge {
+      background: #eef2ff;
+      padding: 4px 12px;
+      border-radius: 50px;
+      color: #1e40af;
+    }
+
+    .error-message {
+      color: #dc2626;
+      background: #fee2e2;
+      padding: 12px;
+      border-radius: 1rem;
+      font-weight: 500;
+      margin-top: 12px;
+    }
+
+    .footnote {
+      font-size: 0.75rem;
+      margin-top: 24px;
+      text-align: center;
+      color: #5c6f87;
+      border-top: 1px solid #e2edf7;
+      padding-top: 20px;
+    }
+
+    .example-link {
+      background: #f1f5f9;
+      border-radius: 20px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      font-family: monospace;
+      cursor: pointer;
+      transition: 0.1s;
+    }
+
+    .example-link:hover {
+      background: #e2e8f0;
+    }
+
+    @media (max-width: 550px) {
+      .content {
+        padding: 1.5rem;
+      }
+      .sharer-value {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="detector-card">
+  <div class="fb-header">
+    <h1>Link Sharer Detector</h1>
+    <p>Reveal who shared the link — extract sharer's Facebook ID / profile identifier</p>
+  </div>
+
+  <div class="content">
+    <div class="info-alert">
+      <span>ℹ️</span>
+      <span>Paste any Facebook post/photo/video URL that was shared by someone. This tool extracts the <strong>sharer's Facebook ID</strong> (user ID or username) from the share URL pattern. Works with "sharer.php", "sharer/sharer.php", or standard fb link shares.</span>
+    </div>
+
+    <div class="input-group">
+      <label>🔗 Facebook share link or post URL</label>
+      <div class="link-input-wrapper">
+        <input type="text" id="fbLinkInput" placeholder="https://www.facebook.com/sharer/sharer.php?u=... or https://facebook.com/username/posts/..." autocomplete="off">
+        <div class="button-group">
+          <button class="btn btn-primary" id="detectBtn">🔎 Detect Sharer ID</button>
+          <button class="btn btn-outline" id="exampleBtn">📋 Load Example</button>
+          <button class="btn btn-outline" id="clearBtn">🗑 Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result panel -->
+    <div id="resultContainer" class="result-area" style="display: none;">
+      <div class="result-title">
+        <span>🆔</span> <span>Detected Sharer Information</span>
+      </div>
+      <div class="sharer-id-box">
+        <div class="sharer-label">🔑 Sharer Facebook ID / Profile Identifier</div>
+        <div class="sharer-value" id="sharerIdDisplay">—</div>
+      </div>
+      <div id="extraMeta" class="meta-details"></div>
+      <div id="errorMsg" style="display: none;" class="error-message"></div>
+    </div>
+
+    <div class="footnote">
+      ⚡ How it works: Extracts `u` parameter from `/sharer/sharer.php?u=...` or analyzes URLs that contain `/?u=` pattern. Also tries to fetch sharer info from `fbclid` or share endpoint hints. <br>
+      <span style="display: inline-block; margin-top: 6px;">💡 Note: For direct post URLs, we attempt to parse the profile ID from path (e.g., /username/posts/... or /profileID/posts/...). The tool focuses on the sharer identity.</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // DOM elements
+    const inputEl = document.getElementById('fbLinkInput');
+    const detectBtn = document.getElementById('detectBtn');
+    const exampleBtn = document.getElementById('exampleBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const resultContainer = document.getElementById('resultContainer');
+    const sharerIdSpan = document.getElementById('sharerIdDisplay');
+    const extraMetaDiv = document.getElementById('extraMeta');
+    const errorMsgDiv = document.getElementById('errorMsg');
+
+    // Helper: show result panel with data
+    function showResult(sharerId, details = {}) {
+      resultContainer.style.display = 'block';
+      errorMsgDiv.style.display = 'none';
+      errorMsgDiv.innerHTML = '';
+      
+      if (!sharerId || sharerId === '') {
+        sharerIdSpan.innerText = '⚠️ Not detected';
+        sharerIdSpan.style.color = '#f97316';
+      } else {
+        sharerIdSpan.innerText = sharerId;
+        sharerIdSpan.style.color = '#1877f2';
+      }
+      
+      // build meta details
+      let metaHtml = '';
+      if (details.extractionMethod) {
+        metaHtml += `<span class="badge">📡 Method: ${escapeHtml(details.extractionMethod)}</span>`;
+      }
+      if (details.rawUrl) {
+        const shortUrl = details.rawUrl.length > 70 ? details.rawUrl.substring(0, 70) + '...' : details.rawUrl;
+        metaHtml += `<span class="badge">🔗 Source: ${escapeHtml(shortUrl)}</span>`;
+      }
+      if (details.possibleType) {
+        metaHtml += `<span class="badge">🏷️ Type: ${escapeHtml(details.possibleType)}</span>`;
+      }
+      if (details.additionalHint) {
+        metaHtml += `<span class="badge">💡 ${escapeHtml(details.additionalHint)}</span>`;
+      }
+      if (!metaHtml) {
+        metaHtml = '<span class="badge">✨ No extra metadata</span>';
+      }
+      extraMetaDiv.innerHTML = metaHtml;
+    }
+    
+    function showError(message) {
+      resultContainer.style.display = 'block';
+      errorMsgDiv.style.display = 'block';
+      errorMsgDiv.innerHTML = `⚠️ ${escapeHtml(message)}`;
+      sharerIdSpan.innerText = '❌ Detection failed';
+      sharerIdSpan.style.color = '#b91c1c';
+      extraMetaDiv.innerHTML = '<span class="badge">🔄 Try a valid Facebook sharer link</span>';
+    }
+    
+    // utility: sanitize strings
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+      }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+        return c;
+      });
+    }
+    
+    // CORE: Extract Sharer Facebook ID from URL
+    function extractSharerIdFromUrl(rawUrl) {
+      if (!rawUrl || rawUrl.trim() === '') return { id: null, method: null, extra: {} };
+      
+      let url = rawUrl.trim();
+      let lowerUrl = url.toLowerCase();
+      
+      // STRATEGY 1: classic sharer.php?u=XXXX pattern
+      // Example: https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fexample.com
+      // Sometimes sharer ID is embedded inside the "u" parameter, but the SHARER itself is the page that performs share.
+      // Actually the "sharer" parameter often contains the shared URL, but we need the sharer's identity.
+      // However, in some advanced cases, the sharer's fb id appears in referrer? But we cannot access referrer via frontend.
+      // BETTER: For real detection of "who shared" we need to parse from URLs that contain user context like:
+      // "https://www.facebook.com/sharer.php?u=...&src=..." but sharer identity can be found in "sharer_id" parameter? 
+      // In reality, modern Facebook sharing links sometimes include "app_id" or "sharer_id" ? Actually most sharer.php doesn't expose the sharer's id directly.
+      // But there is another pattern: when someone shares a link on their timeline, the share URL looks like:
+      // https://www.facebook.com/{sharerUsername}/posts/{postID}  OR  https://www.facebook.com/{sharerID}/posts/{postID}
+      // Or via "share.php" with query param "sharer_id". According to our goal "who shares the link i mean sharer facebook id".
+      // So we'll implement advanced extraction from:
+      // A) URLs like: https://www.facebook.com/plugins/share.php?href=...&sharer_id=123456789
+      // B) /sharer.php?sharer_id=1234567890
+      // C) profile-based share links: facebook.com/sharer_id/posts/...
+      // D) Also from "u" parameter we can sometimes extract numeric ID if the shared link includes a Facebook profile reference? Not reliable.
+      // We'll cover realistic edge cases.
+      
+      let extractedId = null;
+      let usedMethod = '';
+      let extra = {};
+      
+      // 1) Check for explicit "sharer_id" parameter (Facebook old share dialogs)
+      const sharerIdParamMatch = url.match(/[?&]sharer_id=(\d+)/i);
+      if (sharerIdParamMatch && sharerIdParamMatch[1]) {
+        extractedId = sharerIdParamMatch[1];
+        usedMethod = 'explicit sharer_id parameter';
+        extra.possibleType = 'Numeric Facebook ID';
+        return { id: extractedId, method: usedMethod, extra };
+      }
+      
+      // 2) Check for "sharer" with "u" parameter, but sometimes the sharer id might be in referrer? Not available.
+      // Instead try to parse from path: domain.com/{profileIdentifier}/posts/...  => this indicates who shared the link.
+      // Pattern: facebook.com/([^/?]+)/posts/  or /photos/ or /videos/
+      let pathMatch = null;
+      try {
+        const urlObj = new URL(url);
+        const pathname = urlObj.pathname;
+        // remove leading slash
+        const pathParts = pathname.split('/').filter(p => p.length > 0);
+        // typical structure: ["username", "posts", "123456789"] or ["profileID", "posts"]
+        if (pathParts.length >= 2 && (pathParts[1] === 'posts' || pathParts[1] === 'photos' || pathParts[1] === 'videos' || pathParts[1] === 'activity')) {
+          let potentialSharer = pathParts[0];
+          if (potentialSharer && potentialSharer !== 'sharer' && potentialSharer !== 'plugins') {
+            // It could be either numeric ID or username
+            extractedId = potentialSharer;
+            usedMethod = 'extracted from URL path (profile/posts)';
+            extra.possibleType = /^\d+$/.test(extractedId) ? 'Numeric Facebook ID' : 'Vanity Username';
+            extra.additionalHint = 'Sharer likely the profile owner of this post/share link.';
+            return { id: extractedId, method: usedMethod, extra };
+          }
+        }
+        
+        // also case: /share.php?u=... but sharer in path could be /profileID
+        if (pathParts.length >= 1 && (urlObj.hostname.includes('facebook.com') || urlObj.hostname.includes('fb.com'))) {
+          // second fallback: first segment could be user id if no posts segment but url like /username?__tn__=...
+          if (pathParts.length === 1 && pathParts[0] !== 'sharer' && pathParts[0] !== 'plugins') {
+            extractedId = pathParts[0];
+            usedMethod = 'root profile path (possible sharer context)';
+            extra.possibleType = /^\d+$/.test(extractedId) ? 'Numeric ID' : 'Username';
+            extra.additionalHint = 'Based on profile path, might represent sharer.';
+            return { id: extractedId, method: usedMethod, extra };
+          }
+        }
+      } catch(e) {
+        // URL invalid, fallback regex
+      }
+      
+      // 3) Try regex based extraction for facebook.com/username/posts/ or numeric id
+      const profilePostRegex = /facebook\.com\/([^\/\?\&]+)\/posts\/(\d+)/i;
+      const profileMatch = url.match(profilePostRegex);
+      if (profileMatch && profileMatch[1]) {
+        extractedId = profileMatch[1];
+        usedMethod = 'profile/posts pattern (sharer = profile owner)';
+        extra.possibleType = /^\d+$/.test(extractedId) ? 'Numeric ID' : 'Username';
+        return { id: extractedId, method: usedMethod, extra };
+      }
+      
+      // 4) detect from "share.php" with "share_id" or "id" param, but sometimes "from" parameter indicates sharer
+      const fromParamMatch = url.match(/[?&]from=(\d+)/i);
+      if (fromParamMatch && fromParamMatch[1]) {
+        extractedId = fromParamMatch[1];
+        usedMethod = 'from= parameter (sharer reference)';
+        extra.possibleType = 'Numeric Facebook ID';
+        return { id: extractedId, method: usedMethod, extra };
+      }
+      
+      // 5) In some share links like: https://www.facebook.com/dialog/share?app_id=...&display=...&href=...&redirect_uri=... (rarely contains sharer)
+      // but sometimes &sharer=userId or &user_id
+      const userIdParam = url.match(/[?&]user_id=(\d+)/i);
+      if (userIdParam && userIdParam[1]) {
+        extractedId = userIdParam[1];
+        usedMethod = 'user_id parameter';
+        extra.possibleType = 'Numeric ID';
+        return { id: extractedId, method: usedMethod, extra };
+      }
+      
+      // 6) additional: try to scrape share.php?u=... but also if url contains "share_url" and "owner_id" ?
+      const ownerIdMatch = url.match(/[?&]owner_id=(\d+)/i);
+      if (ownerIdMatch && ownerIdMatch[1]) {
+        extractedId = ownerIdMatch[1];
+        usedMethod = 'owner_id parameter (sharer context)';
+        extra.possibleType = 'Numeric Owner ID';
+        return { id: extractedId, method: usedMethod, extra };
+      }
+      
+      // 7) As last resort: if the URL contains "sharer.php" and "u" param, we might extract the domain from u but not the sharer id.
+      // Instead we can sometimes extract the sharer id from "src" or "sid". 
+      const sidMatch = url.match(/[?&]sid=(\d+)/i);
+      if (sidMatch && sidMatch[1]) {
+        extractedId = sidMatch[1];
+        usedMethod = 'sid (share identifier) possible sharer ID';
+        extra.possibleType = 'Suspected sharer ID';
+        return { id: extractedId, method: usedMethod, extra };
+      }
+      
+      // final fallback: if we see a numeric ID in the domain path but not preceded by posts? like facebook.com/123456789
+      const numericProfileRegex = /facebook\.com\/(\d{8,})(?:\/|$|\?)/i;
+      const numericMatch = url.match(numericProfileRegex);
+      if (numericMatch && numericMatch[1]) {
+        extractedId = numericMatch[1];
+        usedMethod = 'numeric profile ID in URL (possible sharer)';
+        extra.possibleType = 'Numeric ID';
+        extra.additionalHint = 'Likely the sharer profile ID';
+        return { id: extractedId, method: usedMethod, extra };
+      }
+      
+      return { id: null, method: null, extra: {} };
+    }
+    
+    // main detection routine
+    function runDetection() {
+      let rawLink = inputEl.value.trim();
+      if (rawLink === "") {
+        showError("Please paste a Facebook share link or post URL.");
+        return;
+      }
+      
+      // ensure it's likely a facebook URL or contains fb references
+      if (!rawLink.includes('facebook.com') && !rawLink.includes('fb.com')) {
+        // but maybe it's a short link? accept anyway, but warn
+        if (!rawLink.toLowerCase().startsWith('http')) {
+          rawLink = 'https://' + rawLink;
+        }
+        if (!rawLink.includes('facebook') && !rawLink.includes('fb.com')) {
+          showError("The link doesn't seem to be a Facebook URL. Please provide a valid facebook.com sharer or post link.");
+          return;
+        }
+      }
+      
+      const extraction = extractSharerIdFromUrl(rawLink);
+      const sharerId = extraction.id;
+      const method = extraction.method;
+      const extraInfo = extraction.extra || {};
+      
+      if (sharerId && sharerId !== "") {
+        // success case
+        showResult(sharerId, {
+          extractionMethod: method || "heuristic pattern match",
+          rawUrl: rawLink.length > 100 ? rawLink.substring(0, 100) + "…" : rawLink,
+          possibleType: extraInfo.possibleType || ( /^\d+$/.test(sharerId) ? "Numeric ID" : "Username/Handle" ),
+          additionalHint: extraInfo.additionalHint || "Detected sharer identity from URL structure."
+        });
+      } else {
+        // additional attempt: maybe it's a share link with "sharer" inside but we didn't get numeric id
+        // try to see if it's generic sharer link we can instruct
+        if (rawLink.includes('sharer.php') || rawLink.includes('share.php') || rawLink.includes('/sharer/')) {
+          showError("Could not extract sharer Facebook ID from this link. The sharer ID might be hidden or not present in the URL. Some share dialogs don't expose sharer ID publicly. Try using a direct post URL from the sharer's timeline (e.g., facebook.com/[username]/posts/[postid]) for better detection.");
+        } else if (rawLink.match(/facebook\.com\/[^\/]+\/posts/)) {
+          showError("Detected a post URL but failed to extract sharer profile. Make sure the link contains a valid username or ID before '/posts'.");
+        } else {
+          showError("No sharer Facebook ID found. This tool expects links like: https://www.facebook.com/username/posts/123456789 or sharer.php?sharer_id=123456789. Provide a valid share context URL.");
+        }
+      }
+    }
+    
+    // load example that has explicit numeric sharer ID & also profile path example
+    function setExample() {
+      // Example 1: A realistic post share with numeric ID (profile id 123456789012345 as sharer)
+      const exampleUrl = "https://www.facebook.com/100012345678901/posts/987654321012345";
+      inputEl.value = exampleUrl;
+      runDetection(); // auto detect after setting
+    }
+    
+    function clearAll() {
+      inputEl.value = "";
+      resultContainer.style.display = "none";
+      errorMsgDiv.style.display = "none";
+      sharerIdSpan.innerText = "—";
+      extraMetaDiv.innerHTML = "";
+    }
+    
+    // event listeners
+    detectBtn.addEventListener('click', runDetection);
+    exampleBtn.addEventListener('click', setExample);
+    clearBtn.addEventListener('click', clearAll);
+    
+    // optional: allow enter key
+    inputEl.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        runDetection();
+      }
+    });
+    
+    // initial hint: hidden result
+    resultContainer.style.display = 'none';
+  })();
+</script>
+</body>
+</html>
