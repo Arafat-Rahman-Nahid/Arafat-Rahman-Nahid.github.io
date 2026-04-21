@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GST Admission 2024-25 — Merit Position Table</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --surface: #111827;
+    --card: #1a2235;
+    --border: #1e2d45;
+    --accent: #00d4ff;
+    --accent2: #7c3aed;
+    --accent3: #f59e0b;
+    --green: #10b981;
+    --red: #ef4444;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --tag-bg: #0f1f3d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px 60px;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background: radial-gradient(ellipse at 20% 0%, rgba(0,212,255,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 100%, rgba(124,58,237,0.06) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; }
+
+  header {
+    text-align: center;
+    margin-bottom: 36px;
+    padding: 36px 24px 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent2), var(--accent), var(--green));
+  }
+
+  .badge {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(124,58,237,0.15));
+    border: 1px solid rgba(0,212,255,0.3);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 800;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #fff 30%, var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 6px;
+  }
+
+  .subtitle {
+    font-family: 'Tiro Bangla', serif;
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .stat-chip {
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .stat-chip strong { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 15px; display: block; }
+
+  /* Controls */
+  .controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+
+  .search-box {
+    flex: 1;
+    min-width: 200px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 16px;
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-box:focus { border-color: var(--accent); }
+  .search-box::placeholder { color: var(--muted); }
+
+  .filter-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: rgba(0,212,255,0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* University sections */
+  .uni-section {
+    margin-bottom: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: opacity 0.3s;
+  }
+  .uni-section.hidden { display: none; }
+
+  .uni-header {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .uni-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .uni-name .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .uni-meta {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+  .tag-total { background: rgba(0,212,255,0.1); color: var(--accent); border: 1px solid rgba(0,212,255,0.2); }
+  .tag-seat { background: rgba(16,185,129,0.1); color: var(--green); border: 1px solid rgba(16,185,129,0.2); }
+  .tag-session { background: rgba(245,158,11,0.1); color: var(--accent3); border: 1px solid rgba(245,158,11,0.2); }
+  .tag-city { background: rgba(124,58,237,0.1); color: #a78bfa; border: 1px solid rgba(124,58,237,0.2); font-family: 'Tiro Bangla', serif; }
+
+  .toggle-icon { color: var(--muted); font-size: 18px; transition: transform 0.3s; }
+  .uni-section.collapsed .toggle-icon { transform: rotate(-90deg); }
+
+  .dept-table-wrap {
+    overflow-x: auto;
+    transition: max-height 0.3s ease;
+    max-height: 2000px;
+  }
+  .uni-section.collapsed .dept-table-wrap { max-height: 0; overflow: hidden; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  thead th {
+    background: var(--card);
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid rgba(30,45,69,0.5);
+    transition: background 0.15s;
+  }
+  tbody tr:hover { background: rgba(0,212,255,0.04); }
+  tbody tr:last-child { border-bottom: none; }
+
+  td {
+    padding: 10px 16px;
+    vertical-align: middle;
+  }
+
+  .dept-name {
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+  }
+  .dept-full {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 400;
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .merit-range {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .merit-start { color: var(--green); }
+  .merit-end { color: #fb923c; }
+  .merit-arrow { color: var(--muted); margin: 0 4px; font-size: 10px; }
+
+  .competition-bar {
+    width: 80px;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+  .competition-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--green), var(--accent3), var(--red));
+  }
+
+  .unit-tag {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: rgba(124,58,237,0.15);
+    color: #a78bfa;
+    border: 1px solid rgba(124,58,237,0.2);
+    white-space: nowrap;
+  }
+
+  .note-text {
+    font-size: 11px;
+    color: var(--muted);
+    font-style: italic;
+    font-family: 'Tiro Bangla', serif;
+    padding: 8px 20px;
+    border-top: 1px dashed var(--border);
+    background: var(--card);
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--muted);
+    font-size: 12px;
+    font-family: 'Tiro Bangla', serif;
+    line-height: 1.8;
+  }
+  footer span { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<header>
+  <div class="badge">GST Cluster Admission</div>
+  <h1>University Merit Position 2024–25</h1>
+  <p class="subtitle">বিষয়ভিত্তিক কাট পজিশন — সকল GST বিশ্ববিদ্যালয়</p>
+  <div class="stats-row">
+    <div class="stat-chip"><strong>10+</strong>University</div>
+    <div class="stat-chip"><strong>8317</strong>মোট আসন</div>
+    <div class="stat-chip"><strong>2024–25</strong>Session</div>
+    <div class="stat-chip"><strong>89%</strong>Math Group আসন</div>
+  </div>
+</header>
+
+<div class="controls">
+  <input class="search-box" type="text" id="searchInput" placeholder="🔍 বিশ্ববিদ্যালয় বা বিভাগ খুঁজুন..." oninput="filterTable()">
+  <button class="filter-btn active" onclick="filterAll(this)">সব</button>
+  <button class="filter-btn" onclick="filterUni(this, 'cse')">CSE</button>
+  <button class="filter-btn" onclick="filterUni(this, 'eee')">EEE</button>
+  <button class="filter-btn" onclick="filterUni(this, 'pharmacy')">Pharmacy</button>
+</div>
+
+<!-- ===== PABNA UNIVERSITY ===== -->
+<div class="uni-section" id="sec-pust">
+  <div class="uni-header" onclick="toggleSection('sec-pust')">
+    <div class="uni-name">
+      <span class="dot" style="background:#00d4ff"></span>
+      Pabna University of Science & Technology (PUST)
+    </div>
+    <div class="uni-meta">
+      <span class="tag tag-city">পাবনা</span>
+      <span class="tag tag-seat">584 আসন</span>
+      <span class="tag tag-session">GST 2024–25</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+  </div>
+  <div class="dept-table-wrap">
+    <table>
+      <thead><tr><th>Department</th><th>Merit Range</th><th>Competition</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td><span class="dept-name cse">CSE</span><span class="dept-full">Computer Science & Engineering</span></td><td class="merit-range"><span class="merit-start">216</span><span class="merit-arrow">→</span><span class="merit-end">3060</span></td><td><span class="competition-bar"><span class="competition-fill" style="width:25%"></span></span></td><td>Top competitive dept</td></tr>
+        <tr><td><span class="dept-name">EEE</span><span class="dept-full">Electrical & Electronic Engg.</span></td><td class="merit-range"><span class="merit-start">584</span><span class="merit-arrow">→</span><span class="merit-end">2757</span></td><td><span class="competition-bar"><span class="competition-fill" style="width:30%"></span></span></td><td></td></tr>
+        <tr><td><span class="dept-name">EECE</span><span class="dept-full">Electrical, Electronic & Comm. Engg.</span></td><td class="merit-range"><span class="merit-start">2614</span><span class="merit-arrow">→</span><span class="merit-end">4661</span></td><td><span class="competition-bar"><span class="competition-fill" style="width:45%"></span></span></td><td></td></tr>
+        <tr><td><span class="dept-name">ICE</span><span class="dept-full">Information & Communication Engg.</span></td><td class="merit-range"><span class="merit-start">3183</span><span class="merit-arrow">→</span><span class="merit-end">4978</span></td><td><span class="competition-bar"><span class="competition-fill" style="width:48%"></span></span></td><td></td></tr>
+        <tr><td><span class="dept-name">Civil</span><span class="dept-full">Civil Engineering</span></td><td class="merit-range"><span class="merit-start">2207</span><span class="merit-arrow">→</span><span class="merit-end">4596</span></td><td><span class="competition-bar"><span class="competition-fill" style="width:44%"></span></span></td><td></td></tr>
+        <tr><td><span class="dept-name">URP</span><span class="dept-full">Urban & Regional Planning</span></td><td class="merit-range"><span class="merit-start">5406</span><span class="merit-arrow">→</span><span class="merit-end">8629</span></td><td><span class="competition-bar"><span class="competition-fill" style="width:70%"></span></span></td><td></td></tr>
+        <tr><td><span class="dept-name pharmacy">Pharmacy</span></td><td class="merit-range"><span class="merit-start">35</span><span class="merit-arrow">→</span><span class="merit-end">2598</span></td><td><span class="competition-bar"><span class="competition-fill" style="width:22%"></span></span></td><td>✅ সবচেয়ে কম end position</td></tr>
+        <tr><td><span class="dept-name">Mathematics</span></td><td class="merit-range"><span class="merit-start">4225</span><span class="merit-arrow">→</span><span class="merit-end">8330</span></td><td><span class="competition-bar"><span class="competition-fill" style="width:68%"></span></span></td><td></td></tr>
+        <tr><td><span class="dept-name">Chemistry</span></td><td class="merit-range"><span class="merit-start">3066</span><span class="merit-arrow">→</span><span class="merit-end">6304</span></td><td><span class="competition-bar"><span class="competition-fill" style="width:55%"></span></span></td><td></td></tr>
+        <tr><td><span class="dept-name">Physics</span></td><td class="merit-range"><span class="merit-start">5768</span><span class="merit-arrow">→</span><span class="merit-end">8364</span></td><td><span class="competition-bar"><span class="competition-fill" style="width:70%"></span></span></td><td></td></tr>
+        <tr><td><span class="dept-name">Statistics</span></td><td class="merit-range"><span class="merit-start">—</span><span class="merit-arrow">→</span><span class="merit-end">~9000+</span></td><td><span class="competition-bar"><span class="competition-fill" style="width:80%"></span></span></td><td>কম প্রতিযোগিতা</td></tr>
+        <tr><td><span class="dept-name">Architecture</span></td><td class="merit-range"><span class="merit-start">—</span><span class="merit-arrow">→</span><span class="merit-end">9k Exam</span></td><td>—</td><td>Drawing exam আছে</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== NETROKONA ===== -->
+<div class="uni-section" id="sec-netrokona">
+  <div class="uni-header" onclick="toggleSection('sec-netrokona')">
+    <div class="uni-name">
+      <span class="dot" style="background:#10b981"></span>
+      Netrokona University
+    </div>
+    <div class="uni-meta">
+      <span class="tag tag-city">নেত্রকোণা</span>
+      <span class="tag tag-seat">56 আসন (GST)</span>
+      <span class="tag tag-session">2024–25</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+  </div>
+  <div class="dept-table-wrap">
+    <table>
+      <thead><tr><th>Department</th><th>Group</th><th>Cut Marks</th><th>Merit (Last Position)</th></tr></thead>
+      <tbody>
+        <tr><td><span class="dept-name cse">CSE</span></td><td><span class="unit-tag">Science</span></td><td>52</td><td class="merit-range"><span class="merit-end">11984</span></td></tr>
+        <tr><td><span class="dept-name">Bangla</span></td><td><span class="unit-tag">Science</span> <span class="unit-tag">Arts</span></td><td>51 / Not Found</td><td class="merit-range"><span class="merit-end">13000 / 4412</span></td></tr>
+        <tr><td><span class="dept-name">English</span></td><td><span class="unit-tag">Science</span> <span class="unit-tag">Arts</span></td><td>Not Found / 55</td><td class="merit-range"><span class="merit-end">11853 / 4115</span></td></tr>
+        <tr><td><span class="dept-name">Economics</span></td><td><span class="unit-tag">Science</span> <span class="unit-tag">Arts</span> <span class="unit-tag">Commerce</span></td><td>50.5 / 55 / 55</td><td class="merit-range"><span class="merit-end">13200 / 4200 / 4000</span></td></tr>
+      </tbody>
+    </table>
+    <p class="note-text">⚠️ Netrokona University-তে GST মাত্র 26টি Biology seat এবং 56টি Math seat। Cut Marks তুলনামূলক কম — ভালো chance এখানে।</p>
+  </div>
+</div>
+
+<!-- ===== JASHORE ===== -->
+<div class="uni-section" id="sec-just">
+  <div class="uni-header" onclick="toggleSection('sec-just')">
+    <div class="uni-name">
+      <span class="dot" style="background:#f59e0b"></span>
+      Jashore University of Science & Technology (JUST)
+    </div>
+    <div class="uni-meta">
+      <span class="tag tag-city">যশোর</span>
+      <span class="tag tag-seat">573→758 (GST)</span>
+      <span class="tag tag-session">2024–25</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+  </div>
+  <div class="dept-table-wrap">
+    <table>
+      <thead><tr><th>Faculty</th><th>Department</th><th>Unit</th><th>Start</th><th>End</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="5">Biological Sci. & Tech.</td><td><span class="dept-name pharmacy">Pharmacy</span></td><td>A</td><td class="merit-range merit-start">35</td><td class="merit-range merit-end">517</td></tr>
+        <tr><td>Microbiology</td><td>A</td><td class="merit-range merit-start">538</td><td class="merit-range merit-end">2112</td></tr>
+        <tr><td>GEBT</td><td>A</td><td class="merit-range merit-start">257</td><td class="merit-range merit-end">1872</td></tr>
+        <tr><td>FMB</td><td>A</td><td class="merit-range merit-start">566</td><td class="merit-range merit-end">3215</td></tr>
+        <tr><td>BMB</td><td>A</td><td class="merit-range merit-start">721</td><td class="merit-range merit-end">2193</td></tr>
+        <tr><td rowspan="7">Engineering & Tech.</td><td><span class="dept-name">EEE</span></td><td>A</td><td class="merit-range merit-start">8</td><td class="merit-range merit-end">386</td></tr>
+        <tr><td><span class="dept-name cse">CSE</span></td><td>A</td><td class="merit-range merit-start">40</td><td class="merit-range merit-end">521</td></tr>
+        <tr><td>BME</td><td>A</td><td class="merit-range merit-start">950</td><td class="merit-range merit-end">2699</td></tr>
+        <tr><td>IPE</td><td>A</td><td class="merit-range merit-start">534</td><td class="merit-range merit-end">1510</td></tr>
+        <tr><td>PME</td><td>A</td><td class="merit-range merit-start">1698</td><td class="merit-range merit-end">3954</td></tr>
+        <tr><td>TE</td><td>A</td><td class="merit-range merit-start">1246</td><td class="merit-range merit-end">3114</td></tr>
+        <tr><td>ChE</td><td>A</td><td class="merit-range merit-start">369</td><td class="merit-range merit-end">824</td></tr>
+        <tr><td rowspan="4">Applied Sci. & Tech.</td><td>CDM</td><td>A</td><td class="merit-range merit-start">4085</td><td class="merit-range merit-end">12371</td></tr>
+        <tr><td>NFT</td><td>A</td><td class="merit-range merit-start">1124</td><td class="merit-range merit-end">4722</td></tr>
+        <tr><td>EST</td><td>A</td><td class="merit-range merit-start">2125</td><td class="merit-range merit-end">5784</td></tr>
+        <tr><td>FE</td><td>A</td><td class="merit-range merit-start">2202</td><td class="merit-range merit-end">6853</td></tr>
+        <tr><td rowspan="3">Health Science</td><td>PESS</td><td>A</td><td class="merit-range merit-start">1</td><td class="merit-range merit-end">17</td></tr>
+        <tr><td>PTR</td><td>A</td><td class="merit-range merit-start">628</td><td class="merit-range merit-end">6748</td></tr>
+        <tr><td>NHS</td><td>A</td><td class="merit-range merit-start">1589</td><td class="merit-range merit-end">11639</td></tr>
+        <tr><td rowspan="4">Faculty of Science</td><td>Physics</td><td>A</td><td class="merit-range merit-start">4008</td><td class="merit-range merit-end">6814</td></tr>
+        <tr><td>Chemistry</td><td>A</td><td class="merit-range merit-start">747</td><td class="merit-range merit-end">3669</td></tr>
+        <tr><td>Mathematics</td><td>A</td><td class="merit-range merit-start">2539</td><td class="merit-range merit-end">9890</td></tr>
+        <tr><td>ASDS</td><td>A</td><td class="merit-range merit-start">1289</td><td class="merit-range merit-end">3974</td></tr>
+        <tr><td>Arts & Social Sci.</td><td>English</td><td>B</td><td class="merit-range merit-start">43</td><td class="merit-range merit-end">1020</td></tr>
+        <tr><td rowspan="4">Business Studies</td><td>AIS</td><td>C</td><td class="merit-range merit-start">38</td><td class="merit-range merit-end">1194</td></tr>
+        <tr><td>Management</td><td>C</td><td class="merit-range merit-start">1341</td><td class="merit-range merit-end">4056</td></tr>
+        <tr><td>Finance & Banking</td><td>C</td><td class="merit-range merit-start">989</td><td class="merit-range merit-end">2339</td></tr>
+        <tr><td>Marketing</td><td>C</td><td class="merit-range merit-start">913</td><td class="merit-range merit-end">4281</td></tr>
+      </tbody>
+    </table>
+    <p class="note-text">📌 JUST-এ EEE-তে মাত্র 8 থেকে 386 — সবচেয়ে competitive। Pharmacy ও CSE-ও অত্যন্ত প্রতিযোগিতামূলক।</p>
+  </div>
+</div>
+
+<!-- ===== GOPALGANJ ===== -->
+<div class="uni-section" id="sec-gstu">
+  <div class="uni-header" onclick="toggleSection('sec-gstu')">
+    <div class="uni-name">
+      <span class="dot" style="background:#a78bfa"></span>
+      Gopalganj Science & Technology University (GSTU)
+    </div>
+    <div class="uni-meta">
+      <span class="tag tag-city">গোপালগঞ্জ</span>
+      <span class="tag tag-seat">736/631/866 আসন</span>
+      <span class="tag tag-session">2024–25</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+  </div>
+  <div class="dept-table-wrap">
+    <table>
+      <thead><tr><th>Department</th><th>Start Merit</th><th>End Merit</th><th>Remark</th></tr></thead>
+      <tbody>
+        <tr><td><span class="dept-name cse">CSE</span></td><td class="merit-start">1111</td><td class="merit-end">4588</td><td>ভালো range</td></tr>
+        <tr><td><span class="dept-name">EEE</span></td><td class="merit-start">952</td><td class="merit-end">4875</td><td></td></tr>
+        <tr><td><span class="dept-name">ACCE</span></td><td class="merit-start">1863</td><td class="merit-end">5543</td><td></td></tr>
+        <tr><td><span class="dept-name">Civil Engineering</span></td><td class="merit-start">2185</td><td class="merit-end">6200</td><td></td></tr>
+        <tr><td><span class="dept-name">Food Engineering</span></td><td class="merit-start">5847</td><td class="merit-end">7761</td><td></td></tr>
+        <tr><td><span class="dept-name">Architecture</span></td><td class="merit-start">Drawing-29</td><td class="merit-end">Drawing-132</td><td>Drawing exam required</td></tr>
+        <tr><td><span class="dept-name pharmacy">Pharmacy</span></td><td class="merit-start">748</td><td class="merit-end">3104</td><td></td></tr>
+        <tr><td><span class="dept-name">BMB</span><span class="dept-full">Biochemistry & Molecular Biology</span></td><td class="merit-start">3210</td><td class="merit-end">5830</td><td></td></tr>
+        <tr><td><span class="dept-name">BGE</span></td><td class="merit-start">2798</td><td class="merit-end">5500</td><td></td></tr>
+        <tr><td><span class="dept-name">Botany</span></td><td class="merit-start">4810</td><td class="merit-end">11800+</td><td>খুবই বড় range</td></tr>
+        <tr><td><span class="dept-name">Agriculture</span></td><td class="merit-start">793</td><td class="merit-end">5736</td><td></td></tr>
+        <tr><td><span class="dept-name">Fisheries & Marine Bio.</span></td><td class="merit-start">3217</td><td class="merit-end">7000</td><td></td></tr>
+        <tr><td><span class="dept-name">ASVM</span></td><td class="merit-start">828</td><td class="merit-end">6755</td><td></td></tr>
+        <tr><td><span class="dept-name">ESD</span></td><td class="merit-start">7239</td><td class="merit-end">10422</td><td></td></tr>
+        <tr><td><span class="dept-name">Physics</span></td><td class="merit-start">6855</td><td class="merit-end">10500</td><td></td></tr>
+        <tr><td><span class="dept-name">Statistics</span></td><td class="merit-start">7226</td><td class="merit-end">9434</td><td></td></tr>
+        <tr><td><span class="dept-name">Chemistry</span></td><td class="merit-start">236</td><td class="merit-end">8600+</td><td>Wide range</td></tr>
+        <tr><td><span class="dept-name">Mathematics</span></td><td class="merit-start">568</td><td class="merit-end">10124</td><td>Wide range</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== MBSTU ===== -->
+<div class="uni-section" id="sec-mbstu">
+  <div class="uni-header" onclick="toggleSection('sec-mbstu')">
+    <div class="uni-name">
+      <span class="dot" style="background:#ef4444"></span>
+      Mawlana Bhashani Science & Tech University (MBSTU)
+    </div>
+    <div class="uni-meta">
+      <span class="tag tag-city">টাঙ্গাইল</span>
+      <span class="tag tag-seat">430/280/777</span>
+      <span class="tag tag-session">2024–25</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+  </div>
+  <div class="dept-table-wrap">
+    <table>
+      <thead><tr><th>Department</th><th>Faculty</th><th>Unit</th><th>Start</th><th>End</th></tr></thead>
+      <tbody>
+        <tr><td><span class="dept-name">ME</span></td><td>Engineering</td><td>—</td><td class="merit-start">763</td><td class="merit-end">2516</td></tr>
+        <tr><td><span class="dept-name cse">CSE</span></td><td>Engineering</td><td>—</td><td class="merit-start">6</td><td class="merit-end">489</td></tr>
+        <tr><td><span class="dept-name">ICT</span></td><td>Engineering</td><td>—</td><td class="merit-start">14</td><td class="merit-end">1248</td></tr>
+        <tr><td><span class="dept-name">TE</span></td><td>Engineering</td><td>—</td><td class="merit-start">553</td><td class="merit-end">2192</td></tr>
+        <tr><td><span class="dept-name">BMB</span></td><td>Life Science</td><td>—</td><td class="merit-start">241</td><td class="merit-end">858</td></tr>
+        <tr><td><span class="dept-name">BGE</span></td><td>Life Science</td><td>—</td><td class="merit-start">658</td><td class="merit-end">1546</td></tr>
+        <tr><td><span class="dept-name pharmacy">Pharmacy</span></td><td>Life Science</td><td>—</td><td class="merit-start">3</td><td class="merit-end">320</td></tr>
+        <tr><td><span class="dept-name">FTNS</span></td><td>Life Science</td><td>—</td><td class="merit-start">1132</td><td class="merit-end">3020</td></tr>
+        <tr><td><span class="dept-name">ESRM</span></td><td>Life Science</td><td>—</td><td class="merit-start">1590</td><td class="merit-end">4427</td></tr>
+        <tr><td><span class="dept-name">CPS</span></td><td>Life Science</td><td>—</td><td class="merit-start">816</td><td class="merit-end">5728</td></tr>
+        <tr><td><span class="dept-name">Physics</span></td><td>Science</td><td>—</td><td class="merit-start">524</td><td class="merit-end">6171</td></tr>
+        <tr><td><span class="dept-name">Chemistry</span></td><td>Science</td><td>—</td><td class="merit-start">827</td><td class="merit-end">3011</td></tr>
+        <tr><td><span class="dept-name">Math</span></td><td>Science</td><td>—</td><td class="merit-start">2500</td><td class="merit-end">6468</td></tr>
+        <tr><td><span class="dept-name">Statistics</span></td><td>Science</td><td>—</td><td class="merit-start">1886</td><td class="merit-end">6027</td></tr>
+        <tr><td><span class="dept-name">Economics</span></td><td>Social Science</td><td>A/B/C</td><td class="merit-start">2380/250/912</td><td class="merit-end">6645/1139/1661</td></tr>
+        <tr><td><span class="dept-name">Management</span></td><td>Social Science</td><td>A/B/C</td><td class="merit-start">6759/1576/231</td><td class="merit-end">8523/1747/1306</td></tr>
+        <tr><td><span class="dept-name">Accounting</span></td><td>Social Science</td><td>A/B/C</td><td class="merit-start">2337/355/11</td><td class="merit-end">7601/1417/676</td></tr>
+      </tbody>
+    </table>
+    <p class="note-text">⚡ MBSTU-তে CSE (6→489) এবং Pharmacy (3→320) সবচেয়ে competitive। ICT (14→1248) তুলনামূলক ভালো।</p>
+  </div>
+</div>
+
+<!-- ===== NSTU ===== -->
+<div class="uni-section" id="sec-nstu">
+  <div class="uni-header" onclick="toggleSection('sec-nstu')">
+    <div class="uni-name">
+      <span class="dot" style="background:#06b6d4"></span>
+      Noakhali Science & Technology University (NSTU)
+    </div>
+    <div class="uni-meta">
+      <span class="tag tag-city">নোয়াখালী</span>
+      <span class="tag tag-seat">1084 আসন</span>
+      <span class="tag tag-session">2024–25</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+  </div>
+  <div class="dept-table-wrap">
+    <table>
+      <thead><tr><th>Department</th><th>Start</th><th>End</th></tr></thead>
+      <tbody>
+        <tr><td><span class="dept-name pharmacy">Pharmacy</span></td><td class="merit-start">17</td><td class="merit-end">555</td></tr>
+        <tr><td><span class="dept-name">CSTE</span></td><td class="merit-start">188</td><td class="merit-end">1312</td></tr>
+        <tr><td><span class="dept-name">ACCE</span></td><td class="merit-start">73</td><td class="merit-end">1840</td></tr>
+        <tr><td><span class="dept-name">Microbiology</span></td><td class="merit-start">545</td><td class="merit-end">2348</td></tr>
+        <tr><td><span class="dept-name">BGE</span></td><td class="merit-start">420</td><td class="merit-end">3499</td></tr>
+        <tr><td><span class="dept-name">BMB</span></td><td class="merit-start">523</td><td class="merit-end">3503</td></tr>
+        <tr><td><span class="dept-name">FIMS</span></td><td class="merit-start">2682</td><td class="merit-end">5898</td></tr>
+        <tr><td><span class="dept-name">EEE</span></td><td class="merit-start">290</td><td class="merit-end">3002</td></tr>
+        <tr><td><span class="dept-name">IIT</span></td><td class="merit-start">623</td><td class="merit-end">2988</td></tr>
+        <tr><td><span class="dept-name">ESDM</span></td><td class="merit-start">3749</td><td class="merit-end">7590</td></tr>
+        <tr><td><span class="dept-name">FTNS</span></td><td class="merit-start">2612</td><td class="merit-end">5827</td></tr>
+        <tr><td><span class="dept-name">ICE</span></td><td class="merit-start">1211</td><td class="merit-end">3773</td></tr>
+        <tr><td><span class="dept-name">Agriculture</span></td><td class="merit-start">195</td><td class="merit-end">3754</td></tr>
+        <tr><td><span class="dept-name">Applied Math</span></td><td class="merit-start">2508</td><td class="merit-end">6693</td></tr>
+        <tr><td><span class="dept-name">Statistics</span></td><td class="merit-start">3300</td><td class="merit-end">7411</td></tr>
+        <tr><td><span class="dept-name">Chemistry</span></td><td class="merit-start">1007</td><td class="merit-end">6301</td></tr>
+        <tr><td><span class="dept-name">Physics</span></td><td class="merit-start">4774</td><td class="merit-end">8968</td></tr>
+        <tr><td><span class="dept-name">Zoology</span></td><td class="merit-start">3551</td><td class="merit-end">8968</td></tr>
+        <tr><td><span class="dept-name">SWES</span></td><td class="merit-start">6349</td><td class="merit-end">9771</td></tr>
+        <tr><td><span class="dept-name">Oceanography</span></td><td class="merit-start">6151</td><td class="merit-end">11819</td></tr>
+      </tbody>
+    </table>
+    <p class="note-text">📌 NSTU সবচেয়ে বেশি আসনের university (1084)। Pharmacy ও CSTE এখানেও সবচেয়ে প্রতিযোগিতামূলক।</p>
+  </div>
+</div>
+
+<!-- ===== ISLAMIC UNIVERSITY ===== -->
+<div class="uni-section" id="sec-iu">
+  <div class="uni-header" onclick="toggleSection('sec-iu')">
+    <div class="uni-name">
+      <span class="dot" style="background:#22c55e"></span>
+      Islamic University, Kushtia (IU)
+    </div>
+    <div class="uni-meta">
+      <span class="tag tag-city">কুষ্টিয়া</span>
+      <span class="tag tag-seat">970 আসন</span>
+      <span class="tag tag-session">GST A Unit 2024–25</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+  </div>
+  <div class="dept-table-wrap">
+    <table>
+      <thead><tr><th>Faculty</th><th>Department</th><th>Start</th><th>End</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="5">Engineering & Tech.</td><td><span class="dept-name">ACCE</span></td><td class="merit-start">142</td><td class="merit-end">1340</td></tr>
+        <tr><td><span class="dept-name">EEE</span></td><td class="merit-start">681</td><td class="merit-end">2158</td></tr>
+        <tr><td><span class="dept-name cse">CSE</span></td><td class="merit-start">332</td><td class="merit-end">1700+</td></tr>
+        <tr><td><span class="dept-name">ICT</span></td><td class="merit-start">07</td><td class="merit-end">2711</td></tr>
+        <tr><td><span class="dept-name">BME</span></td><td class="merit-start">2419</td><td class="merit-end">3914</td></tr>
+        <tr><td rowspan="3">Biological Science</td><td><span class="dept-name">ANFT</span></td><td class="merit-start">1000+</td><td class="merit-end">4800</td></tr>
+        <tr><td><span class="dept-name">BTGE</span></td><td class="merit-start">285</td><td class="merit-end">2400</td></tr>
+        <tr><td><span class="dept-name pharmacy">Pharmacy</span></td><td class="merit-start">399</td><td class="merit-end">1500+</td></tr>
+        <tr><td rowspan="3">Faculty of Science</td><td><span class="dept-name">Mathematics</span></td><td class="merit-start">1000+</td><td class="merit-end">8397</td></tr>
+        <tr><td><span class="dept-name">SDS</span></td><td class="merit-start">3300</td><td class="merit-end">5500</td></tr>
+        <tr><td><span class="dept-name">ESG</span></td><td class="merit-start">4777</td><td class="merit-end">11967</td></tr>
+      </tbody>
+    </table>
+    <p class="note-text">📌 IU-তে ICT (7→2711) সবচেয়ে wide range — low merit এ ভালো সুযোগ। ACCE ও CSE competitive।</p>
+  </div>
+</div>
+
+<!-- ===== BEGUM ROKEYA ===== -->
+<div class="uni-section" id="sec-brur">
+  <div class="uni-header" onclick="toggleSection('sec-brur')">
+    <div class="uni-name">
+      <span class="dot" style="background:#ec4899"></span>
+      Begum Rokeya University, Rangpur (BRUR)
+    </div>
+    <div class="uni-meta">
+      <span class="tag tag-city">রংপুর</span>
+      <span class="tag tag-seat">716 আসন</span>
+      <span class="tag tag-session">2024–25</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+  </div>
+  <div class="dept-table-wrap">
+    <table>
+      <thead><tr><th>Department</th><th>A Unit (Science)</th><th>B Unit (Humanities)</th><th>C Unit (Business)</th></tr></thead>
+      <tbody>
+        <tr><td><span class="dept-name cse">CSE</span></td><td class="merit-end">4455</td><td>—</td><td>—</td></tr>
+        <tr><td><span class="dept-name">EEE</span></td><td class="merit-end">5420</td><td>—</td><td>—</td></tr>
+        <tr><td><span class="dept-name">Physics</span></td><td class="merit-end">8700</td><td>—</td><td>—</td></tr>
+        <tr><td><span class="dept-name">Chemistry</span></td><td class="merit-end">6970</td><td>—</td><td>—</td></tr>
+        <tr><td><span class="dept-name">Math</span></td><td class="merit-end">9027</td><td>—</td><td>—</td></tr>
+        <tr><td><span class="dept-name">Statistics</span></td><td class="merit-end">9427</td><td>—</td><td>—</td></tr>
+        <tr><td><span class="dept-name">Disaster Sci. Mgmt.</span></td><td class="merit-end">11844</td><td>—</td><td>—</td></tr>
+        <tr><td><span class="dept-name">Mass Comm. Journalism</span></td><td class="merit-end">12590</td><td class="merit-end">2989</td><td class="merit-end">3373</td></tr>
+        <tr><td><span class="dept-name">Gender Dev. Studies</span></td><td class="merit-end">12946</td><td class="merit-end">4335</td><td class="merit-end">3611</td></tr>
+        <tr><td><span class="dept-name">Sociology</span></td><td>—</td><td class="merit-end">2134</td><td class="merit-end">3087</td></tr>
+        <tr><td><span class="dept-name">Mgmt. & Info. System</span></td><td class="merit-end">10782</td><td>—</td><td class="merit-end">2668</td></tr>
+        <tr><td><span class="dept-name">Marketing</span></td><td>—</td><td>—</td><td class="merit-end">2718</td></tr>
+        <tr><td><span class="dept-name">Finance & Banking</span></td><td>—</td><td>—</td><td class="merit-end">1972</td></tr>
+        <tr><td><span class="dept-name">Management Studies</span></td><td>—</td><td>—</td><td class="merit-end">2519</td></tr>
+        <tr><td><span class="dept-name">English</span></td><td class="merit-end">10847</td><td class="merit-end">695</td><td>—</td></tr>
+        <tr><td><span class="dept-name">History</span></td><td class="merit-end">11561</td><td class="merit-end">2807</td><td class="merit-end">3244</td></tr>
+        <tr><td><span class="dept-name">Political Science</span></td><td>—</td><td class="merit-end">1555</td><td class="merit-end">3038</td></tr>
+        <tr><td><span class="dept-name">Public Admin.</span></td><td>—</td><td class="merit-end">2808</td><td class="merit-end">3136</td></tr>
+        <tr><td><span class="dept-name">Geography</span></td><td class="merit-end">10850</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p class="note-text">📌 BRUR-এ শুধুমাত্র Last Position দেওয়া আছে। CSE (4455) ও EEE (5420) — তুলনামূলক কম competitive এখানে।</p>
+  </div>
+</div>
+
+<!-- ===== PSTU ===== -->
+<div class="uni-section" id="sec-pstu">
+  <div class="uni-header" onclick="toggleSection('sec-pstu')">
+    <div class="uni-name">
+      <span class="dot" style="background:#84cc16"></span>
+      Patuakhali Science & Technology University (PSTU)
+    </div>
+    <div class="uni-meta">
+      <span class="tag tag-city">পটুয়াখালী</span>
+      <span class="tag tag-seat">235 আসন</span>
+      <span class="tag tag-session">GST A Unit 2024–25</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+  </div>
+  <div class="dept-table-wrap">
+    <table>
+      <thead><tr><th>Faculty</th><th>First Position</th><th>Last Position</th><th>First Marks</th><th>Last Marks</th></tr></thead>
+      <tbody>
+        <tr><td><span class="dept-name cse">CSE</span></td><td class="merit-start">620</td><td class="merit-end">4522</td><td>67.25</td><td>58.50</td></tr>
+        <tr><td><span class="dept-name">NFS</span></td><td class="merit-start">5031</td><td class="merit-end">8250</td><td>58</td><td>54</td></tr>
+        <tr><td><span class="dept-name">ESDM</span></td><td class="merit-start">4796</td><td class="merit-end">10206</td><td>58.25</td><td>52.25</td></tr>
+      </tbody>
+    </table>
+    <p class="note-text">✅ PSTU-তে Cut marks দেখা যাচ্ছে — CSE-এ শেষ কাটে 58.50 marks দরকার। এটা তুলনামূলক realistic target।</p>
+  </div>
+</div>
+
+<!-- ===== SUNAMGANJ ===== -->
+<div class="uni-section" id="sec-sstu">
+  <div class="uni-header" onclick="toggleSection('sec-sstu')">
+    <div class="uni-name">
+      <span class="dot" style="background:#fb923c"></span>
+      Sunamganj Science & Technology University
+    </div>
+    <div class="uni-meta">
+      <span class="tag tag-city">সুনামগঞ্জ</span>
+      <span class="tag tag-seat">160 আসন</span>
+      <span class="tag tag-session">2024–25</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+  </div>
+  <div class="dept-table-wrap">
+    <table>
+      <thead><tr><th>Department</th><th>Start</th><th>End</th></tr></thead>
+      <tbody>
+        <tr><td><span class="dept-name cse">CSE</span></td><td class="merit-start">106</td><td class="merit-end">12228</td></tr>
+        <tr><td><span class="dept-name">Chemistry</span></td><td class="merit-start">7285</td><td class="merit-end">13213</td></tr>
+        <tr><td><span class="dept-name">Math</span></td><td class="merit-start">12418</td><td class="merit-end">15090</td></tr>
+        <tr><td><span class="dept-name">Physics</span></td><td class="merit-start">12126</td><td class="merit-end">15400</td></tr>
+      </tbody>
+    </table>
+    <p class="note-text">⚠️ নতুন university — range অনেক বড়। CSE (106→12228) মানে অনেক বেশি merit পর্যন্ত সুযোগ আছে।</p>
+  </div>
+</div>
+
+<!-- ===== PIROJPUR ===== -->
+<div class="uni-section" id="sec-prsту">
+  <div class="uni-header" onclick="toggleSection('sec-prsту')">
+    <div class="uni-name">
+      <span class="dot" style="background:#94a3b8"></span>
+      Pirojpur Science & Technology University
+    </div>
+    <div class="uni-meta">
+      <span class="tag tag-city">পিরোজপুর</span>
+      <span class="tag tag-seat">120 আসন</span>
+      <span class="tag tag-session">2024–25</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+  </div>
+  <div class="dept-table-wrap">
+    <table>
+      <thead><tr><th>Department</th><th>Cut Position (Last)</th></tr></thead>
+      <tbody>
+        <tr><td><span class="dept-name cse">CSE</span></td><td class="merit-end">12871</td></tr>
+        <tr><td><span class="dept-name">Statistics</span></td><td class="merit-end">14776</td></tr>
+        <tr><td><span class="dept-name">Mathematics</span></td><td class="merit-end">14651</td></tr>
+        <tr><td><span class="dept-name">Psychology</span></td><td class="merit-end">15562</td></tr>
+      </tbody>
+    </table>
+    <p class="note-text">📌 নতুন university — cut position অনেক উঁচুতে। অর্থাৎ অনেক বেশি serial পর্যন্ত admit হওয়ার সুযোগ।</p>
+  </div>
+</div>
+
+<!-- ===== NAZRUL UNIVERSITY ===== -->
+<div class="uni-section" id="sec-jkkniu">
+  <div class="uni-header" onclick="toggleSection('sec-jkkniu')">
+    <div class="uni-name">
+      <span class="dot" style="background:#fbbf24"></span>
+      Jatiya Kabi Kazi Nazrul Islam University (JKKNIU)
+    </div>
+    <div class="uni-meta">
+      <span class="tag tag-city">ময়মনসিংহ/ত্রিশাল</span>
+      <span class="tag tag-seat">413 আসন</span>
+      <span class="tag tag-session">2024–25</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+  </div>
+  <div class="dept-table-wrap">
+    <table>
+      <thead><tr><th>Faculty</th><th>Department</th><th>Unit-A Start</th><th>Unit-A End</th><th>Unit-B End</th><th>Unit-C End</th></tr></thead>
+      <tbody>
+        <tr><td>Fine Arts</td><td>Fine Arts</td><td colspan="3">Combined Unit — 101.5 Marks</td><td>—</td></tr>
+        <tr><td rowspan="5">Arts</td><td>Bangla</td><td>5086</td><td>12044</td><td>1611</td><td>3315</td></tr>
+        <tr><td>English</td><td>8596</td><td>11396</td><td>1138</td><td>2635</td></tr>
+        <tr><td>Philosophy</td><td>9309</td><td>12308</td><td>3428</td><td>3375</td></tr>
+        <tr><td>History</td><td>10284</td><td>12246</td><td>2643</td><td>2451</td></tr>
+        <tr><td>TPS / FMS</td><td colspan="3">Combined Unit Marks Required</td><td>—</td></tr>
+        <tr><td rowspan="4">Sci. & Engg.</td><td><span class="dept-name cse">CSE</span></td><td>375</td><td>3172</td><td>—</td><td>—</td></tr>
+        <tr><td><span class="dept-name">EEE</span></td><td>1345</td><td>4929</td><td>—</td><td>—</td></tr>
+        <tr><td>ESE</td><td>986</td><td>7447</td><td>—</td><td>—</td></tr>
+        <tr><td>Statistics</td><td>3152</td><td>8665</td><td>—</td><td>—</td></tr>
+        <tr><td rowspan="5">Social Science</td><td>Economics</td><td>3007</td><td>9028</td><td>1115</td><td>2216</td></tr>
+        <tr><td>PAGS</td><td>9600</td><td>9646</td><td>3100</td><td>—</td></tr>
+        <tr><td>Sociology</td><td>4736</td><td>11620</td><td>2290</td><td>2556</td></tr>
+        <tr><td>AIS</td><td>8134</td><td>9747</td><td>1411</td><td>1411</td></tr>
+        <tr><td>LGUD</td><td>10049</td><td>11990</td><td>4393</td><td>3232</td></tr>
+        <tr><td rowspan="4">Business</td><td>Finance & Banking</td><td>5890</td><td>6125</td><td>1630</td><td>1292</td></tr>
+        <tr><td>HRM</td><td>6193</td><td>9860</td><td>2794</td><td>2368</td></tr>
+        <tr><td>Management</td><td>5431</td><td>10730</td><td>1721</td><td>1875</td></tr>
+        <tr><td>Marketing</td><td>8556</td><td>11018</td><td>1928</td><td>2059</td></tr>
+        <tr><td>Law</td><td>Law & Justice</td><td>1220</td><td>5187</td><td>431</td><td>791</td></tr>
+      </tbody>
+    </table>
+    <p class="note-text">📌 JKKNIU ময়মনসিংহের পাশেই (ত্রিশাল)। CSE (375→3172) তুলনামূলক reasonable। Arts ও Business-এ B/C Unit-এ অনেক কম serial দরকার।</p>
+  </div>
+</div>
+
+<!-- ===== FRONTIER TECH ===== -->
+<div class="uni-section" id="sec-uft">
+  <div class="uni-header" onclick="toggleSection('sec-uft')">
+    <div class="uni-name">
+      <span class="dot" style="background:#38bdf8"></span>
+      University of Frontier Technology (UFT)
+    </div>
+    <div class="uni-meta">
+      <span class="tag tag-city">নতুন</span>
+      <span class="tag tag-session">Unit A 2024–25</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+  </div>
+  <div class="dept-table-wrap">
+    <table>
+      <thead><tr><th>Faculty</th><th>Department</th><th>Start</th><th>End</th></tr></thead>
+      <tbody>
+        <tr><td>Cyber Physical Sys. Engg.</td><td>IRE (IoT & Robotics Engg.)</td><td class="merit-start">5696</td><td class="merit-end">11506</td></tr>
+        <tr><td rowspan="2">Software & Machine Intelligence</td><td>SE (Software Engg.)</td><td class="merit-start">2673</td><td class="merit-end">9546</td></tr>
+        <tr><td>DSE (Data Science Engg.)</td><td class="merit-start">5600</td><td class="merit-end">11971</td></tr>
+        <tr><td>Security & Comm. Engg.</td><td>Cyber Security Engg.</td><td class="merit-start">6157</td><td class="merit-end">11196</td></tr>
+        <tr><td>Digital Transformation</td><td>EdTE (Educational Tech. Engg.)</td><td class="merit-start">8041</td><td class="merit-end">12630</td></tr>
+      </tbody>
+    </table>
+    <p class="note-text">🆕 নতুন futuristic university — Software Engg. (2673→9546) সবচেয়ে কম serial থেকে শুরু। Merit range অনেক বড়, মানে সুযোগও বেশি।</p>
+  </div>
+</div>
+
+<footer>
+  <p>📊 সব তথ্য <span>GST 2024–25 Session</span> এর। Without Quota position।</p>
+  <p>⚠️ Biology Group applicants-দের জন্য সব university-তে আসন সংখ্যা কম (মাত্র 61%)।</p>
+  <p>💡 <span>Merit position মানে overall GST rank</span> — সব university একই exam-এ হয়।</p>
+</footer>
+
+</div>
+
+<script>
+function toggleSection(id) {
+  const sec = document.getElementById(id);
+  sec.classList.toggle('collapsed');
+}
+
+function filterTable() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  document.querySelectorAll('.uni-section').forEach(sec => {
+    const text = sec.innerText.toLowerCase();
+    sec.classList.toggle('hidden', q && !text.includes(q));
+  });
+}
+
+function filterAll(btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.uni-section').forEach(sec => sec.classList.remove('hidden'));
+  document.getElementById('searchInput').value = '';
+}
+
+function filterUni(btn, dept) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('searchInput').value = dept;
+  filterTable();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GST 2024–25 | Subject-wise Merit Table</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tiro+Bangla&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f0f4f8;
+  --white: #ffffff;
+  --surface: #f8fafc;
+  --border: #e2e8f0;
+  --border2: #cbd5e1;
+  --text: #0f172a;
+  --muted: #64748b;
+  --light: #94a3b8;
+
+  --cse: #2563eb;    --cse-bg: #eff6ff;   --cse-border: #bfdbfe;
+  --eee: #7c3aed;    --eee-bg: #f5f3ff;   --eee-border: #ddd6fe;
+  --pha: #059669;    --pha-bg: #ecfdf5;   --pha-border: #a7f3d0;
+  --bio: #d97706;    --bio-bg: #fffbeb;   --bio-border: #fde68a;
+  --sci: #dc2626;    --sci-bg: #fef2f2;   --sci-border: #fecaca;
+  --misc:#0891b2;    --misc-bg:#ecfeff;   --misc-border:#a5f3fc;
+
+  --comp1: #16a34a;
+  --comp2: #ca8a04;
+  --comp3: #dc2626;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--bg);
+  font-family: 'Outfit', sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  padding: 0 0 60px;
+}
+
+/* ── HEADER ── */
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+  padding: 40px 24px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 24px);
+}
+.hero-inner { position: relative; z-index:1; max-width:800px; margin:0 auto; }
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius:99px;
+  padding:5px 16px;
+  font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase;
+  color:rgba(255,255,255,0.7);
+  margin-bottom:16px;
+}
+.hero h1 {
+  font-size: clamp(24px,5vw,42px);
+  font-weight:800;
+  color:#fff;
+  line-height:1.15;
+  margin-bottom:8px;
+}
+.hero h1 span { color:#60a5fa; }
+.hero-sub {
+  font-family:'Tiro Bangla', serif;
+  color:rgba(255,255,255,0.55);
+  font-size:14px;
+  margin-bottom:28px;
+}
+.hero-pills {
+  display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+}
+.pill {
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:8px;
+  padding:7px 14px;
+  color:rgba(255,255,255,0.8);
+  font-size:12px; font-weight:600;
+}
+.pill strong { color:#fff; display:block; font-size:16px; font-family:'JetBrains Mono',monospace; }
+
+/* ── CONTROLS ── */
+.controls-wrap {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top:0; z-index:100;
+  padding:12px 20px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+.controls-inner {
+  max-width:1200px; margin:0 auto;
+  display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+}
+.search {
+  flex:1; min-width:180px;
+  background:var(--surface);
+  border:1.5px solid var(--border);
+  border-radius:8px;
+  padding:9px 14px;
+  font-family:'Outfit',sans-serif;
+  font-size:13px; color:var(--text);
+  outline:none;
+  transition:border-color .2s;
+}
+.search:focus { border-color:#2563eb; }
+.search::placeholder { color:var(--light); }
+
+.tabs { display:flex; gap:4px; flex-wrap:wrap; }
+.tab {
+  padding:7px 14px;
+  border-radius:7px;
+  border:1.5px solid var(--border);
+  background:var(--surface);
+  color:var(--muted);
+  font-family:'Outfit',sans-serif;
+  font-size:12px; font-weight:600;
+  cursor:pointer;
+  transition:all .18s;
+  white-space:nowrap;
+}
+.tab:hover { border-color:var(--border2); color:var(--text); }
+.tab.active-cse  { background:var(--cse-bg);  border-color:var(--cse);  color:var(--cse); }
+.tab.active-eee  { background:var(--eee-bg);  border-color:var(--eee);  color:var(--eee); }
+.tab.active-pha  { background:var(--pha-bg);  border-color:var(--pha);  color:var(--pha); }
+.tab.active-bio  { background:var(--bio-bg);  border-color:var(--bio);  color:var(--bio); }
+.tab.active-sci  { background:var(--sci-bg);  border-color:var(--sci);  color:var(--sci); }
+.tab.active-all  { background:#0f172a; border-color:#0f172a; color:#fff; }
+
+/* ── MAIN ── */
+.main { max-width:1200px; margin:0 auto; padding:28px 16px 0; }
+
+/* ── SUBJECT BLOCK ── */
+.subject-block {
+  background:var(--white);
+  border:1.5px solid var(--border);
+  border-radius:14px;
+  margin-bottom:20px;
+  overflow:hidden;
+  transition:opacity .25s, transform .25s;
+}
+.subject-block.hide { display:none; }
+
+.subj-header {
+  padding:16px 20px;
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  cursor:pointer;
+  user-select:none;
+  border-bottom:1.5px solid var(--border);
+}
+.subj-header:hover { background:var(--surface); }
+
+.subj-left { display:flex; align-items:center; gap:12px; }
+.subj-icon {
+  width:42px; height:42px;
+  border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:20px; flex-shrink:0;
+}
+.subj-title { font-size:17px; font-weight:700; }
+.subj-subtitle { font-size:12px; color:var(--muted); font-family:'Tiro Bangla',serif; margin-top:2px; }
+
+.subj-right { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.badge-sm {
+  font-size:11px; font-weight:600; padding:3px 10px; border-radius:99px;
+  letter-spacing:.3px;
+}
+.chev { color:var(--light); font-size:16px; transition:transform .25s; margin-left:4px; }
+.subject-block.collapsed .chev { transform:rotate(-90deg); }
+
+/* ── TABLE ── */
+.table-wrap {
+  overflow-x:auto;
+  max-height:1200px;
+  transition:max-height .3s ease;
+}
+.subject-block.collapsed .table-wrap { max-height:0; overflow:hidden; }
+
+table { width:100%; border-collapse:collapse; font-size:13px; }
+thead th {
+  background:var(--surface);
+  color:var(--muted);
+  font-size:10.5px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+  padding:9px 16px; text-align:left;
+  border-bottom:1.5px solid var(--border);
+  white-space:nowrap;
+}
+tbody tr { border-bottom:1px solid var(--border); transition:background .12s; }
+tbody tr:last-child { border-bottom:none; }
+tbody tr:hover { background:var(--surface); }
+td { padding:10px 16px; vertical-align:middle; }
+
+.uni-name { font-weight:600; color:var(--text); font-size:13px; white-space:nowrap; }
+.uni-short {
+  font-size:10px; font-weight:700; padding:2px 7px; border-radius:4px;
+  margin-right:6px;
+  font-family:'JetBrains Mono',monospace;
+}
+
+.merit-cell { font-family:'JetBrains Mono',monospace; white-space:nowrap; }
+.m-start { color:#16a34a; font-weight:700; }
+.m-arrow { color:var(--light); margin:0 5px; font-size:11px; }
+.m-end   { color:#dc2626; font-weight:700; }
+
+/* competition meter */
+.comp-wrap { display:flex; align-items:center; gap:8px; }
+.comp-bar {
+  width:70px; height:7px;
+  background:var(--border);
+  border-radius:4px; overflow:hidden;
+}
+.comp-fill { height:100%; border-radius:4px; }
+.comp-label { font-size:11px; font-weight:700; }
+.comp-high   .comp-fill { background:linear-gradient(90deg,#f97316,#dc2626); }
+.comp-mid    .comp-fill { background:linear-gradient(90deg,#facc15,#f97316); }
+.comp-low    .comp-fill { background:linear-gradient(90deg,#4ade80,#16a34a); }
+.comp-high   .comp-label { color:#dc2626; }
+.comp-mid    .comp-label { color:#ca8a04; }
+.comp-low    .comp-label { color:#16a34a; }
+
+.cm-tag {
+  font-size:11px; font-weight:600; padding:2px 8px; border-radius:5px;
+  font-family:'JetBrains Mono',monospace;
+  background:#f1f5f9; color:var(--muted);
+  border:1px solid var(--border);
+}
+.cm-available { background:#ecfdf5; color:#059669; border-color:#a7f3d0; }
+
+.seat-num { font-family:'JetBrains Mono',monospace; font-weight:600; font-size:13px; }
+
+.info-row {
+  background:var(--surface);
+  border-top:1.5px dashed var(--border);
+  padding:9px 18px;
+  font-size:12px;
+  color:var(--muted);
+  font-family:'Tiro Bangla',serif;
+  line-height:1.7;
+}
+
+/* rank indicator */
+.rank-dot {
+  width:8px; height:8px; border-radius:50%;
+  display:inline-block; margin-right:5px;
+}
+
+/* category colors */
+.cat-cse  { background:var(--cse-bg); border-color:var(--cse-border); }
+.cat-eee  { background:var(--eee-bg); border-color:var(--eee-border); }
+.cat-pha  { background:var(--pha-bg); border-color:var(--pha-border); }
+.cat-bio  { background:var(--bio-bg); border-color:var(--bio-border); }
+.cat-sci  { background:var(--sci-bg); border-color:var(--sci-border); }
+.cat-misc { background:var(--misc-bg); border-color:var(--misc-border); }
+
+.ic-cse  { background:var(--cse-bg); }
+.ic-eee  { background:var(--eee-bg); }
+.ic-pha  { background:var(--pha-bg); }
+.ic-bio  { background:var(--bio-bg); }
+.ic-sci  { background:var(--sci-bg); }
+.ic-misc { background:var(--misc-bg); }
+
+.badge-cse  { background:var(--cse-bg);  color:var(--cse);  border:1px solid var(--cse-border); }
+.badge-eee  { background:var(--eee-bg);  color:var(--eee);  border:1px solid var(--eee-border); }
+.badge-pha  { background:var(--pha-bg);  color:var(--pha);  border:1px solid var(--pha-border); }
+.badge-bio  { background:var(--bio-bg);  color:var(--bio);  border:1px solid var(--bio-border); }
+.badge-sci  { background:var(--sci-bg);  color:var(--sci);  border:1px solid var(--sci-border); }
+.badge-misc { background:var(--misc-bg); color:var(--misc); border:1px solid var(--misc-border); }
+
+.short-cse  { background:var(--cse-bg);  color:var(--cse); }
+.short-eee  { background:var(--eee-bg);  color:var(--eee); }
+.short-pha  { background:var(--pha-bg);  color:var(--pha); }
+.short-bio  { background:var(--bio-bg);  color:var(--bio); }
+.short-sci  { background:var(--sci-bg);  color:var(--sci); }
+.short-misc { background:var(--misc-bg); color:var(--misc); }
+
+footer {
+  max-width:1200px; margin:40px auto 0;
+  padding:20px 16px;
+  border-top:1.5px solid var(--border);
+  display:flex; flex-wrap:wrap; gap:12px; justify-content:center;
+}
+.foot-note {
+  font-size:12px; color:var(--muted);
+  background:var(--white); border:1px solid var(--border);
+  border-radius:8px; padding:8px 14px;
+  font-family:'Tiro Bangla',serif;
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">📊 GST Cluster Admission 2024–25</div>
+    <h1>Subject <span>&amp; Department</span> Wise<br>Merit Position</h1>
+    <p class="hero-sub">প্রতিটি বিষয়ে কোন বিশ্ববিদ্যালয়ে কত নম্বর পর্যন্ত চান্স হয়েছে</p>
+    <div class="hero-pills">
+      <div class="pill"><strong>12+</strong>Universities</div>
+      <div class="pill"><strong>50+</strong>Departments</div>
+      <div class="pill"><strong>8317</strong>Total Seats</div>
+      <div class="pill"><strong>Without Quota</strong>Data</div>
+    </div>
+  </div>
+</div>
+
+<div class="controls-wrap">
+  <div class="controls-inner">
+    <input class="search" type="text" id="srch" placeholder="🔍  Subject বা University খুঁজুন…" oninput="doSearch()">
+    <div class="tabs">
+      <button class="tab active-all" data-cat="all"    onclick="setTab(this,'all')">সব</button>
+      <button class="tab"            data-cat="cse"    onclick="setTab(this,'cse')">💻 CSE / ICT</button>
+      <button class="tab"            data-cat="eee"    onclick="setTab(this,'eee')">⚡ EEE / Civil</button>
+      <button class="tab"            data-cat="pha"    onclick="setTab(this,'pha')">💊 Pharmacy</button>
+      <button class="tab"            data-cat="bio"    onclick="setTab(this,'bio')">🧬 Bio Science</button>
+      <button class="tab"            data-cat="sci"    onclick="setTab(this,'sci')">🔬 Pure Science</button>
+      <button class="tab"            data-cat="misc"   onclick="setTab(this,'misc')">🏛️ Others</button>
+    </div>
+  </div>
+</div>
+
+<div class="main" id="main">
+
+<!-- ════════════════════════════════
+     CSE
+════════════════════════════════ -->
+<div class="subject-block cat-cse" data-cat="cse" data-keywords="cse computer science engineering">
+  <div class="subj-header" onclick="toggle(this)">
+    <div class="subj-left">
+      <div class="subj-icon ic-cse">💻</div>
+      <div>
+        <div class="subj-title" style="color:var(--cse)">CSE — Computer Science &amp; Engineering</div>
+        <div class="subj-subtitle">কম্পিউটার বিজ্ঞান ও প্রকৌশল · সর্বোচ্চ প্রতিযোগিতামূলক বিষয়গুলোর একটি</div>
+      </div>
+    </div>
+    <div class="subj-right">
+      <span class="badge-sm badge-cse">💻 CSE Group</span>
+      <span class="badge-sm" style="background:#f1f5f9;color:var(--muted);border:1px solid var(--border)">9 Universities</span>
+      <span class="chev">▾</span>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>University</th><th>Merit Range (Start → End)</th><th>Seats</th><th>Cut Marks</th><th>Competition</th><th>Tip</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>1</b></td>
+          <td><span class="uni-short short-cse">MBSTU</span><span class="uni-name">Mawlana Bhashani S&amp;T</span></td>
+          <td class="merit-cell"><span class="m-start">6</span><span class="m-arrow">→</span><span class="m-end">489</span></td>
+          <td class="seat-num">~80</td>
+          <td><span class="cm-tag">N/A</span></td>
+          <td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:98%"></div></div><span class="comp-label">অত্যন্ত কঠিন</span></div></td>
+          <td>🔥 সবচেয়ে কম end — শুধু top merit-ই চান্স</td>
+        </tr>
+        <tr>
+          <td><b>2</b></td>
+          <td><span class="uni-short short-cse">JUST</span><span class="uni-name">Jashore Univ. of S&amp;T</span></td>
+          <td class="merit-cell"><span class="m-start">40</span><span class="m-arrow">→</span><span class="m-end">521</span></td>
+          <td class="seat-num">~80</td>
+          <td><span class="cm-tag">N/A</span></td>
+          <td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:96%"></div></div><span class="comp-label">অত্যন্ত কঠিন</span></div></td>
+          <td>🔥 Top 521-এর মধ্যে থাকতে হবে</td>
+        </tr>
+        <tr>
+          <td><b>3</b></td>
+          <td><span class="uni-short short-cse">NSTU</span><span class="uni-name">Noakhali S&amp;T Univ.</span></td>
+          <td class="merit-cell"><span class="m-start">188</span><span class="m-arrow">→</span><span class="m-end">1312</span></td>
+          <td class="seat-num">~120</td>
+          <td><span class="cm-tag">N/A</span></td>
+          <td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:88%"></div></div><span class="comp-label">অনেক কঠিন</span></div></td>
+          <td>CSTE নামে আছে</td>
+        </tr>
+        <tr>
+          <td><b>4</b></td>
+          <td><span class="uni-short short-cse">IU</span><span class="uni-name">Islamic University, Kushtia</span></td>
+          <td class="merit-cell"><span class="m-start">332</span><span class="m-arrow">→</span><span class="m-end">1700+</span></td>
+          <td class="seat-num">~120</td>
+          <td><span class="cm-tag">N/A</span></td>
+          <td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:85%"></div></div><span class="comp-label">কঠিন</span></div></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><b>5</b></td>
+          <td><span class="uni-short short-cse">PUST</span><span class="uni-name">Pabna Univ. of S&amp;T</span></td>
+          <td class="merit-cell"><span class="m-start">216</span><span class="m-arrow">→</span><span class="m-end">3060</span></td>
+          <td class="seat-num">~120</td>
+          <td><span class="cm-tag">N/A</span></td>
+          <td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:78%"></div></div><span class="comp-label">কঠিন</span></div></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><b>6</b></td>
+          <td><span class="uni-short short-cse">JKKNIU</span><span class="uni-name">Nazrul Islam Univ.</span></td>
+          <td class="merit-cell"><span class="m-start">375</span><span class="m-arrow">→</span><span class="m-end">3172</span></td>
+          <td class="seat-num">~80</td>
+          <td><span class="cm-tag">N/A</span></td>
+          <td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:76%"></div></div><span class="comp-label">কঠিন</span></div></td>
+          <td>ময়মনসিংহের কাছে</td>
+        </tr>
+        <tr>
+          <td><b>7</b></td>
+          <td><span class="uni-short short-cse">GSTU</span><span class="uni-name">Gopalganj S&amp;T Univ.</span></td>
+          <td class="merit-cell"><span class="m-start">1111</span><span class="m-arrow">→</span><span class="m-end">4588</span></td>
+          <td class="seat-num">~100</td>
+          <td><span class="cm-tag">N/A</span></td>
+          <td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:65%"></div></div><span class="comp-label">মোটামুটি</span></div></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><b>8</b></td>
+          <td><span class="uni-short short-cse">PSTU</span><span class="uni-name">Patuakhali S&amp;T Univ.</span></td>
+          <td class="merit-cell"><span class="m-start">620</span><span class="m-arrow">→</span><span class="m-end">4522</span></td>
+          <td class="seat-num">~80</td>
+          <td><span class="cm-available cm-tag">67.25 → 58.50</span></td>
+          <td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:62%"></div></div><span class="comp-label">মোটামুটি</span></div></td>
+          <td>✅ Cut marks জানা আছে</td>
+        </tr>
+        <tr>
+          <td><b>9</b></td>
+          <td><span class="uni-short short-cse">BRUR</span><span class="uni-name">Begum Rokeya Univ.</span></td>
+          <td class="merit-cell"><span class="m-start">—</span><span class="m-arrow">→</span><span class="m-end">4455</span></td>
+          <td class="seat-num">~80</td>
+          <td><span class="cm-tag">N/A</span></td>
+          <td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:60%"></div></div><span class="comp-label">মোটামুটি</span></div></td>
+          <td>শুধু last position জানা</td>
+        </tr>
+        <tr>
+          <td><b>10</b></td>
+          <td><span class="uni-short short-cse">NU-CSE</span><span class="uni-name">Netrokona Univ.</span></td>
+          <td class="merit-cell"><span class="m-start">—</span><span class="m-arrow">→</span><span class="m-end">11984</span></td>
+          <td class="seat-num">~30</td>
+          <td><span class="cm-available cm-tag">52 marks</span></td>
+          <td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:28%"></div></div><span class="comp-label">সহজ</span></div></td>
+          <td>✅ Low cut marks! Good backup</td>
+        </tr>
+        <tr>
+          <td><b>11</b></td>
+          <td><span class="uni-short short-cse">SSTU</span><span class="uni-name">Sunamganj S&amp;T Univ.</span></td>
+          <td class="merit-cell"><span class="m-start">106</span><span class="m-arrow">→</span><span class="m-end">12228</span></td>
+          <td class="seat-num">~60</td>
+          <td><span class="cm-tag">N/A</span></td>
+          <td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:22%"></div></div><span class="comp-label">সহজ</span></div></td>
+          <td>🆕 নতুন varsity, বড় range</td>
+        </tr>
+        <tr>
+          <td><b>12</b></td>
+          <td><span class="uni-short short-cse">PiST</span><span class="uni-name">Pirojpur S&amp;T Univ.</span></td>
+          <td class="merit-cell"><span class="m-start">—</span><span class="m-arrow">→</span><span class="m-end">12871</span></td>
+          <td class="seat-num">~40</td>
+          <td><span class="cm-tag">N/A</span></td>
+          <td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:15%"></div></div><span class="comp-label">সহজ</span></div></td>
+          <td>🆕 নতুন varsity</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="info-row">💡 <b>CSE সারসংক্ষেপ:</b> MBSTU ও JUST-এ top 500-এর মধ্যে থাকা দরকার। PUST, IU, NSTU, JKKNIU-তে 3000–3200 পর্যন্ত চান্স। Sunamganj ও Pirojpur-এ অনেক বেশি serial পর্যন্ত সুযোগ — backup হিসেবে ideal।</div>
+  </div>
+</div>
+
+<!-- ════ ICT / Software ════ -->
+<div class="subject-block cat-cse" data-cat="cse" data-keywords="ict software engineering data science">
+  <div class="subj-header" onclick="toggle(this)">
+    <div class="subj-left">
+      <div class="subj-icon ic-cse">🖥️</div>
+      <div>
+        <div class="subj-title" style="color:var(--cse)">ICT / Software Engg. / Data Science</div>
+        <div class="subj-subtitle">তথ্য ও যোগাযোগ প্রযুক্তি এবং সফটওয়্যার সম্পর্কিত বিষয়</div>
+      </div>
+    </div>
+    <div class="subj-right">
+      <span class="badge-sm badge-cse">💻 CSE Group</span>
+      <span class="chev">▾</span>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>University</th><th>Department</th><th>Merit Range</th><th>Competition</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><span class="uni-short short-cse">MBSTU</span><span class="uni-name">Mawlana Bhashani</span></td><td>ICT</td><td class="merit-cell"><span class="m-start">14</span><span class="m-arrow">→</span><span class="m-end">1248</span></td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:90%"></div></div><span class="comp-label">কঠিন</span></div></td><td>CSE এর চেয়ে কিছুটা সহজ</td></tr>
+        <tr><td>2</td><td><span class="uni-short short-cse">IU</span><span class="uni-name">Islamic Univ.</span></td><td>ICT</td><td class="merit-cell"><span class="m-start">7</span><span class="m-arrow">→</span><span class="m-end">2711</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:72%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td>Wide range — ভালো সুযোগ</td></tr>
+        <tr><td>3</td><td><span class="uni-short short-cse">PUST</span><span class="uni-name">Pabna Univ.</span></td><td>ICE</td><td class="merit-cell"><span class="m-start">3183</span><span class="m-arrow">→</span><span class="m-end">4978</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:55%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>4</td><td><span class="uni-short short-cse">NSTU</span><span class="uni-name">Noakhali</span></td><td>IIT / ICE</td><td class="merit-cell"><span class="m-start">623</span><span class="m-arrow">→</span><span class="m-end">2988 / 3773</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:68%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>5</td><td><span class="uni-short short-cse">UFT</span><span class="uni-name">Frontier Technology</span></td><td>SE / DSE</td><td class="merit-cell"><span class="m-start">2673</span><span class="m-arrow">→</span><span class="m-end">9546 / 11971</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:35%"></div></div><span class="comp-label">সহজ</span></div></td><td>🆕 নতুন, futuristic subjects</td></tr>
+        <tr><td>6</td><td><span class="uni-short short-cse">UFT</span><span class="uni-name">Frontier Technology</span></td><td>Cyber Security</td><td class="merit-cell"><span class="m-start">6157</span><span class="m-arrow">→</span><span class="m-end">11196</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:30%"></div></div><span class="comp-label">সহজ</span></div></td><td></td></tr>
+      </tbody>
+    </table>
+    <div class="info-row">💡 ICT/ICE বিষয়গুলো CSE-এর তুলনায় কিছুটা কম competitive। MBSTU ICT (14→1248) তবুও কঠিন। IU ICT wide range (2711) হওয়ায় ভালো backup। UFT সম্পূর্ণ নতুন — অনেক বেশি serial পর্যন্ত সুযোগ।</div>
+  </div>
+</div>
+
+<!-- ════ EEE ════ -->
+<div class="subject-block cat-eee" data-cat="eee" data-keywords="eee electrical electronic engineering">
+  <div class="subj-header" onclick="toggle(this)">
+    <div class="subj-left">
+      <div class="subj-icon ic-eee">⚡</div>
+      <div>
+        <div class="subj-title" style="color:var(--eee)">EEE / EECE / ACCE — Electrical Engineering</div>
+        <div class="subj-subtitle">বৈদ্যুতিক ও ইলেকট্রনিক প্রকৌশল</div>
+      </div>
+    </div>
+    <div class="subj-right">
+      <span class="badge-sm badge-eee">⚡ Engineering</span>
+      <span class="chev">▾</span>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>University</th><th>Dept.</th><th>Merit Range</th><th>Seats</th><th>Competition</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><span class="uni-short short-eee">JUST</span><span class="uni-name">Jashore Univ.</span></td><td>EEE</td><td class="merit-cell"><span class="m-start">8</span><span class="m-arrow">→</span><span class="m-end">386</span></td><td class="seat-num">~60</td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:99%"></div></div><span class="comp-label">সর্বোচ্চ কঠিন</span></div></td><td>🔥 GST-এ EEE সবচেয়ে competitive এখানে</td></tr>
+        <tr><td>2</td><td><span class="uni-short short-eee">IU</span><span class="uni-name">Islamic Univ.</span></td><td>ACCE</td><td class="merit-cell"><span class="m-start">142</span><span class="m-arrow">→</span><span class="m-end">1340</span></td><td class="seat-num">~80</td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:92%"></div></div><span class="comp-label">অনেক কঠিন</span></div></td><td></td></tr>
+        <tr><td>3</td><td><span class="uni-short short-eee">IU</span><span class="uni-name">Islamic Univ.</span></td><td>EEE</td><td class="merit-cell"><span class="m-start">681</span><span class="m-arrow">→</span><span class="m-end">2158</span></td><td class="seat-num">~80</td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:85%"></div></div><span class="comp-label">কঠিন</span></div></td><td></td></tr>
+        <tr><td>4</td><td><span class="uni-short short-eee">NSTU</span><span class="uni-name">Noakhali</span></td><td>EEE</td><td class="merit-cell"><span class="m-start">290</span><span class="m-arrow">→</span><span class="m-end">3002</span></td><td class="seat-num">~120</td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:80%"></div></div><span class="comp-label">কঠিন</span></div></td><td></td></tr>
+        <tr><td>5</td><td><span class="uni-short short-eee">PUST</span><span class="uni-name">Pabna Univ.</span></td><td>EEE</td><td class="merit-cell"><span class="m-start">584</span><span class="m-arrow">→</span><span class="m-end">2757</span></td><td class="seat-num">~100</td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:78%"></div></div><span class="comp-label">কঠিন</span></div></td><td></td></tr>
+        <tr><td>6</td><td><span class="uni-short short-eee">GSTU</span><span class="uni-name">Gopalganj</span></td><td>EEE</td><td class="merit-cell"><span class="m-start">952</span><span class="m-arrow">→</span><span class="m-end">4875</span></td><td class="seat-num">~100</td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:65%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>7</td><td><span class="uni-short short-eee">BRUR</span><span class="uni-name">Begum Rokeya</span></td><td>EEE</td><td class="merit-cell"><span class="m-start">—</span><span class="m-arrow">→</span><span class="m-end">5420</span></td><td class="seat-num">~80</td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:58%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>8</td><td><span class="uni-short short-eee">JKKNIU</span><span class="uni-name">Nazrul Univ.</span></td><td>EEE</td><td class="merit-cell"><span class="m-start">1345</span><span class="m-arrow">→</span><span class="m-end">4929</span></td><td class="seat-num">~80</td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:62%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>9</td><td><span class="uni-short short-eee">NSTU</span><span class="uni-name">Noakhali</span></td><td>ACCE</td><td class="merit-cell"><span class="m-start">73</span><span class="m-arrow">→</span><span class="m-end">1840</span></td><td class="seat-num">~80</td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:88%"></div></div><span class="comp-label">কঠিন</span></div></td><td></td></tr>
+        <tr><td>10</td><td><span class="uni-short short-eee">GSTU</span><span class="uni-name">Gopalganj</span></td><td>ACCE</td><td class="merit-cell"><span class="m-start">1863</span><span class="m-arrow">→</span><span class="m-end">5543</span></td><td class="seat-num">~80</td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:55%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>11</td><td><span class="uni-short short-eee">PUST</span><span class="uni-name">Pabna</span></td><td>EECE</td><td class="merit-cell"><span class="m-start">2614</span><span class="m-arrow">→</span><span class="m-end">4661</span></td><td class="seat-num">~80</td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:52%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td>Extended EEE</td></tr>
+      </tbody>
+    </table>
+    <div class="info-row">⚡ <b>EEE সারসংক্ষেপ:</b> JUST EEE (8→386) GST-এর সবচেয়ে competitive subjects-এর একটি। IU ACCE (142→1340) ও NSTU ACCE (73→1840) কঠিন। GSTU, BRUR-এ 5000 পর্যন্ত সুযোগ।</div>
+  </div>
+</div>
+
+<!-- ════ Civil / Mech ════ -->
+<div class="subject-block cat-eee" data-cat="eee" data-keywords="civil mechanical engineering">
+  <div class="subj-header" onclick="toggle(this)">
+    <div class="subj-left">
+      <div class="subj-icon ic-eee">🏗️</div>
+      <div>
+        <div class="subj-title" style="color:var(--eee)">Civil / Mechanical / Other Engineering</div>
+        <div class="subj-subtitle">পুরকৌশল, যন্ত্রকৌশল ও সংশ্লিষ্ট বিষয়</div>
+      </div>
+    </div>
+    <div class="subj-right"><span class="badge-sm badge-eee">⚡ Engineering</span><span class="chev">▾</span></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>University</th><th>Dept.</th><th>Merit Range</th><th>Competition</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><span class="uni-short short-eee">MBSTU</span></td><td>ME</td><td class="merit-cell"><span class="m-start">763</span><span class="m-arrow">→</span><span class="m-end">2516</span></td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:82%"></div></div><span class="comp-label">কঠিন</span></div></td><td></td></tr>
+        <tr><td>2</td><td><span class="uni-short short-eee">JUST</span></td><td>ChE</td><td class="merit-cell"><span class="m-start">369</span><span class="m-arrow">→</span><span class="m-end">824</span></td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:93%"></div></div><span class="comp-label">কঠিন</span></div></td><td>Chemical Engineering</td></tr>
+        <tr><td>3</td><td><span class="uni-short short-eee">GSTU</span></td><td>Civil</td><td class="merit-cell"><span class="m-start">2185</span><span class="m-arrow">→</span><span class="m-end">6200</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:58%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>4</td><td><span class="uni-short short-eee">PUST</span></td><td>Civil</td><td class="merit-cell"><span class="m-start">2207</span><span class="m-arrow">→</span><span class="m-end">4596</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:56%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>5</td><td><span class="uni-short short-eee">JUST</span></td><td>BME</td><td class="merit-cell"><span class="m-start">950</span><span class="m-arrow">→</span><span class="m-end">2699</span></td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:80%"></div></div><span class="comp-label">কঠিন</span></div></td><td>Biomedical Engg.</td></tr>
+        <tr><td>6</td><td><span class="uni-short short-eee">IU</span></td><td>BME</td><td class="merit-cell"><span class="m-start">2419</span><span class="m-arrow">→</span><span class="m-end">3914</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:52%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>7</td><td><span class="uni-short short-eee">JUST</span></td><td>IPE</td><td class="merit-cell"><span class="m-start">534</span><span class="m-arrow">→</span><span class="m-end">1510</span></td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:87%"></div></div><span class="comp-label">কঠিন</span></div></td><td>Industrial & Prod. Engg.</td></tr>
+        <tr><td>8</td><td><span class="uni-short short-eee">MBSTU</span></td><td>TE</td><td class="merit-cell"><span class="m-start">553</span><span class="m-arrow">→</span><span class="m-end">2192</span></td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:83%"></div></div><span class="comp-label">কঠিন</span></div></td><td>Textile Engineering</td></tr>
+        <tr><td>9</td><td><span class="uni-short short-eee">JUST</span></td><td>TE</td><td class="merit-cell"><span class="m-start">1246</span><span class="m-arrow">→</span><span class="m-end">3114</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:70%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ════ PHARMACY ════ -->
+<div class="subject-block cat-pha" data-cat="pha" data-keywords="pharmacy ফার্মেসি">
+  <div class="subj-header" onclick="toggle(this)">
+    <div class="subj-left">
+      <div class="subj-icon ic-pha">💊</div>
+      <div>
+        <div class="subj-title" style="color:var(--pha)">Pharmacy — ফার্মেসি</div>
+        <div class="subj-subtitle">ওষুধ বিজ্ঞান · Bio group-এর সবচেয়ে চাহিদাসম্পন্ন বিষয়</div>
+      </div>
+    </div>
+    <div class="subj-right">
+      <span class="badge-sm badge-pha">💊 Pharmacy</span>
+      <span class="badge-sm" style="background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0">🏆 Most Sought</span>
+      <span class="chev">▾</span>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>University</th><th>Merit Range</th><th>Seats</th><th>Competition</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><span class="uni-short short-pha">MBSTU</span><span class="uni-name">Mawlana Bhashani</span></td><td class="merit-cell"><span class="m-start">3</span><span class="m-arrow">→</span><span class="m-end">320</span></td><td class="seat-num">~60</td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:99%"></div></div><span class="comp-label">সর্বোচ্চ কঠিন</span></div></td><td>🔥 মাত্র 3 থেকে শুরু!</td></tr>
+        <tr><td>2</td><td><span class="uni-short short-pha">JUST</span><span class="uni-name">Jashore Univ.</span></td><td class="merit-cell"><span class="m-start">35</span><span class="m-arrow">→</span><span class="m-end">517</span></td><td class="seat-num">~60</td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:97%"></div></div><span class="comp-label">সর্বোচ্চ কঠিন</span></div></td><td>🔥</td></tr>
+        <tr><td>3</td><td><span class="uni-short short-pha">NSTU</span><span class="uni-name">Noakhali</span></td><td class="merit-cell"><span class="m-start">17</span><span class="m-arrow">→</span><span class="m-end">555</span></td><td class="seat-num">~60</td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:96%"></div></div><span class="comp-label">অনেক কঠিন</span></div></td><td>🔥</td></tr>
+        <tr><td>4</td><td><span class="uni-short short-pha">PUST</span><span class="uni-name">Pabna Univ.</span></td><td class="merit-cell"><span class="m-start">35</span><span class="m-arrow">→</span><span class="m-end">2598</span></td><td class="seat-num">~80</td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:88%"></div></div><span class="comp-label">অনেক কঠিন</span></div></td><td></td></tr>
+        <tr><td>5</td><td><span class="uni-short short-pha">IU</span><span class="uni-name">Islamic Univ.</span></td><td class="merit-cell"><span class="m-start">399</span><span class="m-arrow">→</span><span class="m-end">1500+</span></td><td class="seat-num">~80</td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:86%"></div></div><span class="comp-label">কঠিন</span></div></td><td></td></tr>
+        <tr><td>6</td><td><span class="uni-short short-pha">GSTU</span><span class="uni-name">Gopalganj</span></td><td class="merit-cell"><span class="m-start">748</span><span class="m-arrow">→</span><span class="m-end">3104</span></td><td class="seat-num">~80</td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:72%"></div></div><span class="comp-label">মোটামুটি কঠিন</span></div></td><td></td></tr>
+      </tbody>
+    </table>
+    <div class="info-row">💊 <b>Pharmacy সারসংক্ষেপ:</b> MBSTU (3→320) ও JUST (35→517) সবচেয়ে কঠিন — practically top 500 merit লাগবে। PUST (2598) ও IU (1500+) কিছুটা বেশি সুযোগ দেয়। GSTU সবচেয়ে বেশি সহজলভ্য — 3104 পর্যন্ত চান্স। <b>Bio group-এর জন্য Pharmacy সবচেয়ে demand সম্পন্ন বিষয়।</b></div>
+  </div>
+</div>
+
+<!-- ════ BIO SCIENCE ════ -->
+<div class="subject-block cat-bio" data-cat="bio" data-keywords="bmb bge microbiology biochemistry biology agriculture">
+  <div class="subj-header" onclick="toggle(this)">
+    <div class="subj-left">
+      <div class="subj-icon ic-bio">🧬</div>
+      <div>
+        <div class="subj-title" style="color:var(--bio)">Bio Sciences — BMB, BGE, Microbiology, Agriculture</div>
+        <div class="subj-subtitle">জৈব বিজ্ঞান · Bio group-এর অন্যান্য বিষয়</div>
+      </div>
+    </div>
+    <div class="subj-right"><span class="badge-sm badge-bio">🧬 Bio Group</span><span class="chev">▾</span></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>University</th><th>Dept.</th><th>Merit Range</th><th>Competition</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><span class="uni-short short-bio">MBSTU</span></td><td>BMB</td><td class="merit-cell"><span class="m-start">241</span><span class="m-arrow">→</span><span class="m-end">858</span></td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:90%"></div></div><span class="comp-label">কঠিন</span></div></td><td>Biochem & Molecular Bio</td></tr>
+        <tr><td>2</td><td><span class="uni-short short-bio">JUST</span></td><td>BMB</td><td class="merit-cell"><span class="m-start">721</span><span class="m-arrow">→</span><span class="m-end">2193</span></td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width">80%"></div></div><span class="comp-label">কঠিন</span></div></td><td></td></tr>
+        <tr><td>3</td><td><span class="uni-short short-bio">NSTU</span></td><td>BMB</td><td class="merit-cell"><span class="m-start">523</span><span class="m-arrow">→</span><span class="m-end">3503</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:74%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>4</td><td><span class="uni-short short-bio">GSTU</span></td><td>BMB</td><td class="merit-cell"><span class="m-start">3210</span><span class="m-arrow">→</span><span class="m-end">5830</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:55%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>5</td><td><span class="uni-short short-bio">MBSTU</span></td><td>BGE</td><td class="merit-cell"><span class="m-start">658</span><span class="m-arrow">→</span><span class="m-end">1546</span></td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:85%"></div></div><span class="comp-label">কঠিন</span></div></td><td>Biotechnology & Genetic Engg.</td></tr>
+        <tr><td>6</td><td><span class="uni-short short-bio">NSTU</span></td><td>BGE</td><td class="merit-cell"><span class="m-start">420</span><span class="m-arrow">→</span><span class="m-end">3499</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:72%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>7</td><td><span class="uni-short short-bio">GSTU</span></td><td>BGE</td><td class="merit-cell"><span class="m-start">2798</span><span class="m-arrow">→</span><span class="m-end">5500</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:55%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>8</td><td><span class="uni-short short-bio">JUST</span></td><td>GEBT</td><td class="merit-cell"><span class="m-start">257</span><span class="m-arrow">→</span><span class="m-end">1872</span></td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:83%"></div></div><span class="comp-label">কঠিন</span></div></td><td></td></tr>
+        <tr><td>9</td><td><span class="uni-short short-bio">JUST</span></td><td>Microbiology</td><td class="merit-cell"><span class="m-start">538</span><span class="m-arrow">→</span><span class="m-end">2112</span></td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:82%"></div></div><span class="comp-label">কঠিন</span></div></td><td></td></tr>
+        <tr><td>10</td><td><span class="uni-short short-bio">NSTU</span></td><td>Microbiology</td><td class="merit-cell"><span class="m-start">545</span><span class="m-arrow">→</span><span class="m-end">2348</span></td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:81%"></div></div><span class="comp-label">কঠিন</span></div></td><td></td></tr>
+        <tr><td>11</td><td><span class="uni-short short-bio">NSTU</span></td><td>Agriculture</td><td class="merit-cell"><span class="m-start">195</span><span class="m-arrow">→</span><span class="m-end">3754</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:70%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>12</td><td><span class="uni-short short-bio">GSTU</span></td><td>Agriculture</td><td class="merit-cell"><span class="m-start">793</span><span class="m-arrow">→</span><span class="m-end">5736</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:56%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>13</td><td><span class="uni-short short-bio">GSTU</span></td><td>Fisheries</td><td class="merit-cell"><span class="m-start">3217</span><span class="m-arrow">→</span><span class="m-end">7000</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:50%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+        <tr><td>14</td><td><span class="uni-short short-bio">IU</span></td><td>BTGE</td><td class="merit-cell"><span class="m-start">285</span><span class="m-arrow">→</span><span class="m-end">2400</span></td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:82%"></div></div><span class="comp-label">কঠিন</span></div></td><td></td></tr>
+        <tr><td>15</td><td><span class="uni-short short-bio">JUST</span></td><td>FMB</td><td class="merit-cell"><span class="m-start">566</span><span class="m-arrow">→</span><span class="m-end">3215</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:72%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td>Food & Nutrition</td></tr>
+        <tr><td>16</td><td><span class="uni-short short-bio">MBSTU</span></td><td>FTNS</td><td class="merit-cell"><span class="m-start">1132</span><span class="m-arrow">→</span><span class="m-end">3020</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:68%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>17</td><td><span class="uni-short short-bio">GSTU</span></td><td>ASVM</td><td class="merit-cell"><span class="m-start">828</span><span class="m-arrow">→</span><span class="m-end">6755</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:45%"></div></div><span class="comp-label">কম</span></div></td><td>Animal Science & Vet.</td></tr>
+        <tr><td>18</td><td><span class="uni-short short-bio">IU</span></td><td>ANFT</td><td class="merit-cell"><span class="m-start">1000+</span><span class="m-arrow">→</span><span class="m-end">4800</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:50%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+      </tbody>
+    </table>
+    <div class="info-row">🧬 <b>Bio Science সারসংক্ষেপ:</b> MBSTU BMB (241→858) ও BGE (658→1546) সবচেয়ে কঠিন। JUST ও NSTU-তেও BMB/BGE competitive। GSTU-তে এই বিষয়গুলোতে তুলনামূলক বেশি সুযোগ (3000–6000 range)।</div>
+  </div>
+</div>
+
+<!-- ════ PURE SCIENCE ════ -->
+<div class="subject-block cat-sci" data-cat="sci" data-keywords="physics chemistry math mathematics statistics science">
+  <div class="subj-header" onclick="toggle(this)">
+    <div class="subj-left">
+      <div class="subj-icon ic-sci">🔬</div>
+      <div>
+        <div class="subj-title" style="color:var(--sci)">Pure Science — Physics, Chemistry, Math, Statistics</div>
+        <div class="subj-subtitle">পদার্থবিজ্ঞান, রসায়ন, গণিত, পরিসংখ্যান</div>
+      </div>
+    </div>
+    <div class="subj-right"><span class="badge-sm badge-sci">🔬 Science</span><span class="chev">▾</span></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>University</th><th>Dept.</th><th>Merit Range</th><th>Competition</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td colspan="6" style="padding:8px 16px;background:#fef2f2;color:#991b1b;font-weight:600;font-size:12px">⚗️ CHEMISTRY</td></tr>
+        <tr><td>1</td><td><span class="uni-short short-sci">JUST</span></td><td>Chemistry</td><td class="merit-cell"><span class="m-start">747</span><span class="m-arrow">→</span><span class="m-end">3669</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:65%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>2</td><td><span class="uni-short short-sci">MBSTU</span></td><td>Chemistry</td><td class="merit-cell"><span class="m-start">827</span><span class="m-arrow">→</span><span class="m-end">3011</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:67%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>3</td><td><span class="uni-short short-sci">NSTU</span></td><td>Chemistry</td><td class="merit-cell"><span class="m-start">1007</span><span class="m-arrow">→</span><span class="m-end">6301</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:55%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>4</td><td><span class="uni-short short-sci">BRUR</span></td><td>Chemistry</td><td class="merit-cell"><span class="m-start">—</span><span class="m-arrow">→</span><span class="m-end">6970</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:42%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+        <tr><td>5</td><td><span class="uni-short short-sci">GSTU</span></td><td>Chemistry</td><td class="merit-cell"><span class="m-start">236</span><span class="m-arrow">→</span><span class="m-end">8600+</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:30%"></div></div><span class="comp-label">কম</span></div></td><td>Very wide range</td></tr>
+        <tr><td>6</td><td><span class="uni-short short-sci">PUST</span></td><td>Chemistry</td><td class="merit-cell"><span class="m-start">3066</span><span class="m-arrow">→</span><span class="m-end">6304</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:48%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+        <tr><td>7</td><td><span class="uni-short short-sci">SSTU</span></td><td>Chemistry</td><td class="merit-cell"><span class="m-start">7285</span><span class="m-arrow">→</span><span class="m-end">13213</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:18%"></div></div><span class="comp-label">সহজ</span></div></td><td>নতুন varsity</td></tr>
+
+        <tr><td colspan="6" style="padding:8px 16px;background:#fef2f2;color:#991b1b;font-weight:600;font-size:12px">🔭 PHYSICS</td></tr>
+        <tr><td>1</td><td><span class="uni-short short-sci">MBSTU</span></td><td>Physics</td><td class="merit-cell"><span class="m-start">524</span><span class="m-arrow">→</span><span class="m-end">6171</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:50%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td>Wide range</td></tr>
+        <tr><td>2</td><td><span class="uni-short short-sci">JUST</span></td><td>Physics</td><td class="merit-cell"><span class="m-start">4008</span><span class="m-arrow">→</span><span class="m-end">6814</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:45%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+        <tr><td>3</td><td><span class="uni-short short-sci">NSTU</span></td><td>Physics</td><td class="merit-cell"><span class="m-start">4774</span><span class="m-arrow">→</span><span class="m-end">8968</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:35%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+        <tr><td>4</td><td><span class="uni-short short-sci">PUST</span></td><td>Physics</td><td class="merit-cell"><span class="m-start">5768</span><span class="m-arrow">→</span><span class="m-end">8364</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:32%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+        <tr><td>5</td><td><span class="uni-short short-sci">BRUR</span></td><td>Physics</td><td class="merit-cell"><span class="m-start">—</span><span class="m-arrow">→</span><span class="m-end">8700</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:30%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+        <tr><td>6</td><td><span class="uni-short short-sci">GSTU</span></td><td>Physics</td><td class="merit-cell"><span class="m-start">6855</span><span class="m-arrow">→</span><span class="m-end">10500</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:22%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+        <tr><td>7</td><td><span class="uni-short short-sci">SSTU</span></td><td>Physics</td><td class="merit-cell"><span class="m-start">12126</span><span class="m-arrow">→</span><span class="m-end">15400</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:8%"></div></div><span class="comp-label">অনেক সহজ</span></div></td><td></td></tr>
+
+        <tr><td colspan="6" style="padding:8px 16px;background:#fef2f2;color:#991b1b;font-weight:600;font-size:12px">📐 MATHEMATICS</td></tr>
+        <tr><td>1</td><td><span class="uni-short short-sci">MBSTU</span></td><td>Math</td><td class="merit-cell"><span class="m-start">2500</span><span class="m-arrow">→</span><span class="m-end">6468</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:48%"></div></div><span class="comp-label">কম-মাঝারি</span></div></td><td></td></tr>
+        <tr><td>2</td><td><span class="uni-short short-sci">JUST</span></td><td>Mathematics</td><td class="merit-cell"><span class="m-start">2539</span><span class="m-arrow">→</span><span class="m-end">9890</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:35%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+        <tr><td>3</td><td><span class="uni-short short-sci">IU</span></td><td>Mathematics</td><td class="merit-cell"><span class="m-start">1000+</span><span class="m-arrow">→</span><span class="m-end">8397</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:38%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+        <tr><td>4</td><td><span class="uni-short short-sci">PUST</span></td><td>Mathematics</td><td class="merit-cell"><span class="m-start">4225</span><span class="m-arrow">→</span><span class="m-end">8330</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:30%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+        <tr><td>5</td><td><span class="uni-short short-sci">NSTU</span></td><td>Applied Math</td><td class="merit-cell"><span class="m-start">2508</span><span class="m-arrow">→</span><span class="m-end">6693</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:42%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+        <tr><td>6</td><td><span class="uni-short short-sci">BRUR</span></td><td>Math</td><td class="merit-cell"><span class="m-start">—</span><span class="m-arrow">→</span><span class="m-end">9027</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:25%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+        <tr><td>7</td><td><span class="uni-short short-sci">GSTU</span></td><td>Mathematics</td><td class="merit-cell"><span class="m-start">568</span><span class="m-arrow">→</span><span class="m-end">10124</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:20%"></div></div><span class="comp-label">কম</span></div></td><td>Huge range</td></tr>
+        <tr><td>8</td><td><span class="uni-short short-sci">SSTU</span></td><td>Math</td><td class="merit-cell"><span class="m-start">12418</span><span class="m-arrow">→</span><span class="m-end">15090</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:6%"></div></div><span class="comp-label">অনেক সহজ</span></div></td><td></td></tr>
+        <tr><td>9</td><td><span class="uni-short short-sci">PiST</span></td><td>Mathematics</td><td class="merit-cell"><span class="m-start">—</span><span class="m-arrow">→</span><span class="m-end">14651</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:5%"></div></div><span class="comp-label">অনেক সহজ</span></div></td><td></td></tr>
+
+        <tr><td colspan="6" style="padding:8px 16px;background:#fef2f2;color:#991b1b;font-weight:600;font-size:12px">📊 STATISTICS</td></tr>
+        <tr><td>1</td><td><span class="uni-short short-sci">MBSTU</span></td><td>Statistics</td><td class="merit-cell"><span class="m-start">1886</span><span class="m-arrow">→</span><span class="m-end">6027</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:48%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td></td></tr>
+        <tr><td>2</td><td><span class="uni-short short-sci">JUST</span></td><td>ASDS</td><td class="merit-cell"><span class="m-start">1289</span><span class="m-arrow">→</span><span class="m-end">3974</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:60%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td>Applied Stats & Data Science</td></tr>
+        <tr><td>3</td><td><span class="uni-short short-sci">NSTU</span></td><td>Statistics</td><td class="merit-cell"><span class="m-start">3300</span><span class="m-arrow">→</span><span class="m-end">7411</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:38%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+        <tr><td>4</td><td><span class="uni-short short-sci">BRUR</span></td><td>Statistics</td><td class="merit-cell"><span class="m-start">—</span><span class="m-arrow">→</span><span class="m-end">9427</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:25%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+        <tr><td>5</td><td><span class="uni-short short-sci">GSTU</span></td><td>Statistics</td><td class="merit-cell"><span class="m-start">7226</span><span class="m-arrow">→</span><span class="m-end">9434</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:22%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+        <tr><td>6</td><td><span class="uni-short short-sci">PiST</span></td><td>Statistics</td><td class="merit-cell"><span class="m-start">—</span><span class="m-arrow">→</span><span class="m-end">14776</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:5%"></div></div><span class="comp-label">অনেক সহজ</span></div></td><td></td></tr>
+        <tr><td>7</td><td><span class="uni-short short-sci">JKKNIU</span></td><td>Statistics</td><td class="merit-cell"><span class="m-start">3152</span><span class="m-arrow">→</span><span class="m-end">8665</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:32%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+      </tbody>
+    </table>
+    <div class="info-row">🔬 <b>Pure Science সারসংক্ষেপ:</b> Chemistry সবচেয়ে competitive (JUST/MBSTU ~3000)। Physics-এ অধিকাংশ university-তে 4000-9000 range — তুলনামূলক সহজ। Math ও Statistics-এ প্রায় সব university-তে বড় range — অনেক বেশি serial পর্যন্ত সুযোগ। নতুন varsity (SSTU, PiST)-তে 12000+ পর্যন্তও চান্স।</div>
+  </div>
+</div>
+
+<!-- ════ OTHERS ════ -->
+<div class="subject-block cat-misc" data-cat="misc" data-keywords="architecture urban planning food zoology nursing health law economics">
+  <div class="subj-header" onclick="toggle(this)">
+    <div class="subj-left">
+      <div class="subj-icon ic-misc">🏛️</div>
+      <div>
+        <div class="subj-title" style="color:var(--misc)">Other Notable Departments</div>
+        <div class="subj-subtitle">Architecture, Health Science, Zoology, Nursing এবং আরও</div>
+      </div>
+    </div>
+    <div class="subj-right"><span class="badge-sm badge-misc">🏛️ Others</span><span class="chev">▾</span></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>University</th><th>Dept.</th><th>Merit Range</th><th>Competition</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><span class="uni-short short-misc">JUST</span></td><td>PESS</td><td class="merit-cell"><span class="m-start">1</span><span class="m-arrow">→</span><span class="m-end">17</span></td><td><div class="comp-wrap comp-high"><div class="comp-bar"><div class="comp-fill" style="width:99%"></div></div><span class="comp-label">সর্বোচ্চ</span></div></td><td>🔥 মাত্র 17 জন! ফিজিও</td></tr>
+        <tr><td>2</td><td><span class="uni-short short-misc">NSTU</span></td><td>Zoology</td><td class="merit-cell"><span class="m-start">3551</span><span class="m-arrow">→</span><span class="m-end">8968</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:32%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+        <tr><td>3</td><td><span class="uni-short short-misc">JUST</span></td><td>NHS</td><td class="merit-cell"><span class="m-start">1589</span><span class="m-arrow">→</span><span class="m-end">11639</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:28%"></div></div><span class="comp-label">কম</span></div></td><td>Nursing & Health Science</td></tr>
+        <tr><td>4</td><td><span class="uni-short short-misc">JUST</span></td><td>PTR</td><td class="merit-cell"><span class="m-start">628</span><span class="m-arrow">→</span><span class="m-end">6748</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:44%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td>Pharmacy/Therapy related</td></tr>
+        <tr><td>5</td><td><span class="uni-short short-misc">GSTU</span></td><td>Architecture</td><td class="merit-cell"><span class="m-start">Drawing-29</span><span class="m-arrow">→</span><span class="m-end">Drawing-132</span></td><td>—</td><td>Drawing exam required</td></tr>
+        <tr><td>6</td><td><span class="uni-short short-misc">PUST</span></td><td>Architecture</td><td class="merit-cell"><span class="m-start">—</span><span class="m-arrow">→</span><span class="m-end">9k Exam</span></td><td>—</td><td>Drawing exam required</td></tr>
+        <tr><td>7</td><td><span class="uni-short short-misc">PUST</span></td><td>URP</td><td class="merit-cell"><span class="m-start">5406</span><span class="m-arrow">→</span><span class="m-end">8629</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:30%"></div></div><span class="comp-label">কম</span></div></td><td>Urban & Regional Planning</td></tr>
+        <tr><td>8</td><td><span class="uni-short short-misc">NSTU</span></td><td>Oceanography</td><td class="merit-cell"><span class="m-start">6151</span><span class="m-arrow">→</span><span class="m-end">11819</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:20%"></div></div><span class="comp-label">কম</span></div></td><td>Unique subject</td></tr>
+        <tr><td>9</td><td><span class="uni-short short-misc">IU</span></td><td>ESG</td><td class="merit-cell"><span class="m-start">4777</span><span class="m-arrow">→</span><span class="m-end">11967</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:18%"></div></div><span class="comp-label">কম</span></div></td><td>Environmental Science</td></tr>
+        <tr><td>10</td><td><span class="uni-short short-misc">GSTU</span></td><td>ESD</td><td class="merit-cell"><span class="m-start">7239</span><span class="m-arrow">→</span><span class="m-end">10422</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:22%"></div></div><span class="comp-label">কম</span></div></td><td></td></tr>
+        <tr><td>11</td><td><span class="uni-short short-misc">PSTU</span></td><td>NFS</td><td class="merit-cell"><span class="m-start">5031</span><span class="m-arrow">→</span><span class="m-end">8250</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:30%"></div></div><span class="comp-label">কম</span></div></td><td>Nutrition & Food Science</td></tr>
+        <tr><td>12</td><td><span class="uni-short short-misc">UFT</span></td><td>EdTE</td><td class="merit-cell"><span class="m-start">8041</span><span class="m-arrow">→</span><span class="m-end">12630</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:15%"></div></div><span class="comp-label">সহজ</span></div></td><td>Educational Tech. Engg.</td></tr>
+        <tr><td>13</td><td><span class="uni-short short-misc">PiST</span></td><td>Psychology</td><td class="merit-cell"><span class="m-start">—</span><span class="m-arrow">→</span><span class="m-end">15562</span></td><td><div class="comp-wrap comp-low"><div class="comp-bar"><div class="comp-fill" style="width:5%"></div></div><span class="comp-label">সহজ</span></div></td><td></td></tr>
+        <tr><td>14</td><td><span class="uni-short short-misc">MBSTU</span></td><td>ESRM</td><td class="merit-cell"><span class="m-start">1590</span><span class="m-arrow">→</span><span class="m-end">4427</span></td><td><div class="comp-wrap comp-mid"><div class="comp-bar"><div class="comp-fill" style="width:52%"></div></div><span class="comp-label">মোটামুটি</span></div></td><td>Env. Science & Resource Mgmt.</td></tr>
+      </tbody>
+    </table>
+    <div class="info-row">🏛️ <b>Special note:</b> JUST PESS (Physiotherapy) মাত্র 17 seat — GST-এর সবচেয়ে limited। Architecture-এ Drawing exam আলাদাভাবে দিতে হয়। UFT, PiST-এর নতুন subjects-এ এখন অনেক বেশি সুযোগ।</div>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-note">📌 সব merit position <b>Without Quota</b> এবং <b>GST 2024–25</b> session-এর</div>
+  <div class="foot-note">⚠️ Competition bar relative indicator — actual cutoff বছর অনুযায়ী পরিবর্তন হয়</div>
+  <div class="foot-note">💡 Start merit মানে সবচেয়ে কম merit যে চান্স পেয়েছে — End মানে সবচেয়ে বেশি</div>
+  <div class="foot-note">🔢 Merit = GST overall rank (সব university একই exam)</div>
+</footer>
+
+</div><!-- /main -->
+
+<script>
+function toggle(header) {
+  header.closest('.subject-block').classList.toggle('collapsed');
+}
+
+let currentCat = 'all';
+
+function setTab(btn, cat) {
+  document.querySelectorAll('.tab').forEach(t => {
+    t.className = 'tab';
+  });
+  btn.classList.add('active-' + (cat === 'all' ? 'all' : cat));
+  currentCat = cat;
+  applyFilters();
+}
+
+function doSearch() { applyFilters(); }
+
+function applyFilters() {
+  const q = document.getElementById('srch').value.toLowerCase().trim();
+  document.querySelectorAll('.subject-block').forEach(block => {
+    const blockCat = block.dataset.cat;
+    const keywords = (block.dataset.keywords || '') + ' ' + block.innerText.toLowerCase();
+    const catMatch = currentCat === 'all' || blockCat === currentCat;
+    const searchMatch = !q || keywords.includes(q);
+    block.classList.toggle('hide', !(catMatch && searchMatch));
+  });
+}
+</script>
+</body>
+</html>
